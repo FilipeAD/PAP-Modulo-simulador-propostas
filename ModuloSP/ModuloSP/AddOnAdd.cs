@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -24,10 +25,10 @@ namespace ModuloSP
             string query = "SELECT MAX(id) FROM addon";
             int novoID;
             novoID = 0;
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"DataSource=|DataDirectory|\DataModSP.sdf"))
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
-                using (SqlCeCommand cmd = new SqlCeCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
                     try
@@ -56,13 +57,13 @@ namespace ModuloSP
                 return;
             }
 
-            SqlCeConnection con = new
-                SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf");
+            SqlConnection con = new
+                SqlConnection(Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns(" +
                 "id,nome,preco)" +
                 "VALUES (@id,@nome,@preco)";
-            SqlCeCommand cmd = new SqlCeCommand(query, con);
+            SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", txtID.Text);
             cmd.Parameters.AddWithValue("@nome", txtNome.Text);
             cmd.Parameters.AddWithValue("@preco", txtPreco.Text);

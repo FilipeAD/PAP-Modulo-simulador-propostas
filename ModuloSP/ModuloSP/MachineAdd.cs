@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -23,10 +24,10 @@ namespace ModuloSP
             string query = "SELECT MAX(id) FROM maquinas";
             int novoID;
             novoID = 0;
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"DataSource=|DataDirectory|\DataModSP.sdf"))
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
-                using (SqlCeCommand cmd = new SqlCeCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
                     try
@@ -54,13 +55,13 @@ namespace ModuloSP
                 return;
             }
 
-            SqlCeConnection con = new
-                SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf");
+            SqlConnection con = new
+                SqlConnection(Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
                 "id,marca,modelo,cor,dimensoes,preco)" +
                 "VALUES (@id,@marca,@modelo,@cor,@dimensoes,@preco)";
-            SqlCeCommand cmd = new SqlCeCommand(query, con);
+            SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", txtID.Text);
             cmd.Parameters.AddWithValue("@marca", txtMarca.Text);
             cmd.Parameters.AddWithValue("@modelo", txtModelo.Text);

@@ -68,11 +68,11 @@
     <Compile Include="AddOnList.Designer.cs">
       <DependentUpon>AddOnList.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminView.cs">
+    <Compile Include="GeneralView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminView.Designer.cs">
-      <DependentUpon>AdminView.cs</DependentUpon>
+    <Compile Include="GeneralView.Designer.cs">
+      <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientList.cs">
       <SubType>Form</SubType>
@@ -114,12 +114,7 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserView.Designer.cs">
-      <DependentUpon>UserView.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,8 +124,8 @@
     <EmbeddedResource Include="AddOnList.resx">
       <DependentUpon>AddOnList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminView.resx">
-      <DependentUpon>AdminView.cs</DependentUpon>
+    <EmbeddedResource Include="GeneralView.resx">
+      <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
@@ -159,9 +154,6 @@
     </Compile>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserView.resx">
-      <DependentUpon>UserView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -199,6 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\emailicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dropdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closewhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

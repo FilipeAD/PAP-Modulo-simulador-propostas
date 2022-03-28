@@ -40,7 +40,7 @@ namespace ModuloSP
             this.dataGridView1.Location = new System.Drawing.Point(12, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(861, 518);
+            this.dataGridView1.Size = new System.Drawing.Size(920, 553);
             this.dataGridView1.TabIndex = 2;
             // 
             // ClientList
@@ -48,7 +48,7 @@ namespace ModuloSP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(885, 568);
+            this.ClientSize = new System.Drawing.Size(944, 589);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ClientList";
             this.Text = "ClientList";

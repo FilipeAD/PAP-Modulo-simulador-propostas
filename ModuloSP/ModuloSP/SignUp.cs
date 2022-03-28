@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -19,17 +20,17 @@ namespace ModuloSP
         }
 
         int novoID = 0;
-        int REmail = 0;
+        int Rmail = 0;
         int RUsername = 0;
 
         private void InsereID()
         {
             
-            string query = "SELECT MAX(id) FROM Cliente";
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"DataSource=|DataDirectory|\DataModSP.sdf"))
+            string query = "SELECT MAX(id) FROM Utilizador";
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
-                using (SqlCeCommand cmd = new SqlCeCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
                     try
@@ -45,15 +46,15 @@ namespace ModuloSP
                 con.Close();
             }
         }
-        private void RUserClient()
+        private void RUser()
         {
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf"))
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "SELECT * from Cliente where Nome = '" + txtUsername.Text.Trim() + "'";
-                SqlCeDataAdapter da = new SqlCeDataAdapter(query, con);
+                string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 if (dt.Rows.Count == 1)
                 {
@@ -66,24 +67,24 @@ namespace ModuloSP
                 con.Close();
             }
         }
-        private void REmailClient()
+        private void REmail()
         {
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf"))
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "SELECT * from Cliente where Email = '" + txtEmail.Text.Trim() + "'";
-                SqlCeDataAdapter da = new SqlCeDataAdapter(query, con);
+                string query = "SELECT * from Utilizador where Email = '" + txtEmail.Text.Trim() + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 if (dt.Rows.Count == 1)
                 {
-                    REmail = 1;
+                    Rmail = 1;
 
                 }
                 else
                 {
-                    REmail = 0;
+                    Rmail = 0;
                 }
                 con.Close();
             }
@@ -91,8 +92,8 @@ namespace ModuloSP
         private void CreateAcount()
         {
             InsereID();
-            RUserClient();
-            REmailClient();
+            RUser();
+            REmail();
 
 
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Text) )
@@ -108,20 +109,20 @@ namespace ModuloSP
             }
             else {
 
-                if (REmail == 1)
+                if (Rmail == 1)
                 {
                     MessageBox.Show("Email já existe", "!!ERRO!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    SqlCeConnection con =
-                       new SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf");
+                    SqlConnection con =
+                       new SqlConnection(Utils.conString);
                         con.Open();
-                    string query = "INSERT INTO Cliente(" +
+                    string query = "INSERT INTO Utilizador(" +
                         "id,nome,email,password)" +
                         "VALUES (@id,@nome,@email,@password)";
-                    SqlCeCommand cmd = new SqlCeCommand(query, con);
+                    SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@id", novoID);
                     cmd.Parameters.AddWithValue("@nome", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);

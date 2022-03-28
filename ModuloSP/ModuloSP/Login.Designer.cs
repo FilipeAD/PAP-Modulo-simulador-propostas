@@ -41,12 +41,10 @@ namespace ModuloSP
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +94,7 @@ namespace ModuloSP
             this.lblSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSignUp.Location = new System.Drawing.Point(117, 422);
             this.lblSignUp.Name = "lblSignUp";
-            this.lblSignUp.Size = new System.Drawing.Size(63, 16);
+            this.lblSignUp.Size = new System.Drawing.Size(62, 16);
             this.lblSignUp.TabIndex = 8;
             this.lblSignUp.Text = "Sign Up";
             this.lblSignUp.Click += new System.EventHandler(this.lblSignUp_Click);
@@ -179,24 +177,12 @@ namespace ModuloSP
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ModuloSP.Properties.Resources.loginicon;
-            this.pictureBox5.Location = new System.Drawing.Point(265, 30);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(292, 447);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.showPass);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtPassword);
@@ -218,7 +204,6 @@ namespace ModuloSP
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +223,6 @@ namespace ModuloSP
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.CheckBox showPass;
-        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 

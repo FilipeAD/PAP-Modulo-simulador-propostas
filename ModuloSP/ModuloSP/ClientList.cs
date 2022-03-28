@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -20,13 +21,13 @@ namespace ModuloSP
 
         private void INFOClient()
         {
-            using (SqlCeConnection con =
-                new SqlCeConnection(@"Data Source=|DataDirectory|\DataModSP.sdf"))
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select * from cliente"; 
-                SqlCeDataAdapter da = new SqlCeDataAdapter(query, con);
+                string query = "select * from Utilizador where fk_Grupos_ID = 1 "; 
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
                 dataGridView1.DataSource = bs;
