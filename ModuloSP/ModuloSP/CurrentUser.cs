@@ -23,6 +23,19 @@ namespace ModuloSP
             set { _username = value; }
         }
 
+        private static string _email = "";
+        public static string email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+        private static string _group = "";
+        public static string group
+        {
+            get { return _group; }
+            set { _group = value; }
+        }
 
     }
 }

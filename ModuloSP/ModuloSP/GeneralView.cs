@@ -43,28 +43,11 @@ namespace ModuloSP
 
         private void GroupPermissions()
         {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+           if (CurrentUser.group == "3")
             {
 
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT * from Utilizador where Nome = '" + CurrentUser.username + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                Clipboard.SetText(query);
-                da.Fill(dt);
-                con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    CurrentUser.IDUser = dr["ID"].ToString();
-                    CurrentUser.username = dr["Nome"].ToString();
-                }
 
-                con.Close();
 
-                MessageBox.Show("Test");
             }
 
         }
@@ -82,50 +65,64 @@ namespace ModuloSP
 
 
 
-
+            lblEmail.Text = CurrentUser.email;
             lblUsername.Text = CurrentUser.username;
 
 
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Têm a certeza que pretende sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (userpanel.Visible == false)
+            {
+                userpanel.Visible = true;
+            }
+            else
+            {
+                userpanel.Visible = false;
+            }
+        }
+
+        private void btMenu_Click(object sender, EventArgs e)
+        {
+            if (panel5.Width == 61)
+            {
+                panel5.Width = 136;
+            }
+            else
+            {
+                panel5.Width = 61;
+            }
+            
         }
 
         private void btAddOns_Click(object sender, EventArgs e)
         {
             OpenSecondForm(new AddOnList(), sender);
-            if (panel6.Height == 199)
-            {
-                panel6.Height = 60;
-            }
-            else
-            {
-                panel6.Height = 199;
-            }
         }
 
-        private void btClients_Click_1(object sender, EventArgs e)
+        private void btUtilizadores_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new ClientList(), sender);
-
-            panel7.Visible = false;
-
-
+            OpenSecondForm(new UserList(), sender);
         }
 
-        private void btMaquinas_Click(object sender, EventArgs e)
+        private void btMaquinas_Click_1(object sender, EventArgs e)
         {
             OpenSecondForm(new MachineList(), sender);
-            if (panel5.Height == 199)
-            {
-                panel5.Height = 60;
-            }
-            else
-            {
-                panel5.Height = 199;
-            }
         }
     }
 }

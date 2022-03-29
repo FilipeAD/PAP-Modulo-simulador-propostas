@@ -18,7 +18,6 @@ namespace ModuloSP
         {
             InitializeComponent();
         }
-        private Form activeForm;
 
 
         private void INFOAddOn()

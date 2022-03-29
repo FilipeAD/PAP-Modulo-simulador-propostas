@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ModuloSP
 {
-    public partial class ClientList : Form
+    public partial class UserList : Form
     {
-        public ClientList()
+        public UserList()
         {
             InitializeComponent();
         }

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcountPermission.cs" />
     <Compile Include="AddOnAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +75,11 @@
     <Compile Include="GeneralView.Designer.cs">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientList.cs">
+    <Compile Include="UserList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientList.Designer.cs">
-      <DependentUpon>ClientList.cs</DependentUpon>
+    <Compile Include="UserList.Designer.cs">
+      <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
     <Compile Include="CurrentUser.cs" />
     <Compile Include="IDEditar.cs" />
@@ -127,8 +128,8 @@
     <EmbeddedResource Include="GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientList.resx">
-      <DependentUpon>ClientList.cs</DependentUpon>
+    <EmbeddedResource Include="UserList.resx">
+      <DependentUpon>UserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -197,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\closewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

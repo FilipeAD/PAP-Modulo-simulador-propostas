@@ -24,23 +24,28 @@ namespace ModuloSP
             using (SqlConnection con =
                 new SqlConnection(Utils.conString))
             {
-                string username = txtUsername.Text.Trim().Replace("'", "");
 
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "' and Password = '" + txtPassword.Text.Trim() + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                Clipboard.SetText(query);
-                da.Fill(dt);
-                if (dt.Rows.Count == 1)
+                //DataTable dt = new DataTable();
+                //BindingSource bs = new BindingSource();
+                //string query = "SELECT * from Utilizador where Nome=@nome and Password=@pass";
+                //SqlDataAdapter da = new SqlDataAdapter("user_login", con);
+                SqlCommand cmd = new SqlCommand("user_login", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue("@user", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                //da.Fill(dt);
+                //if (dt.Rows.Count == 1)
+                if(rd.HasRows)
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
+                    while (rd.Read())
                     {
-                        CurrentUser.IDUser = dr["ID"].ToString();
-                        CurrentUser.username = dr["Nome"].ToString();
+                        CurrentUser.IDUser = rd["ID"].ToString();
+                        CurrentUser.username = rd["Nome"].ToString();
+                        CurrentUser.email = rd["email"].ToString();
+                        CurrentUser.group = rd["fk_Grupos_ID"].ToString();
                     }
                     GeneralView form = new GeneralView();
                     form.ShowDialog();
