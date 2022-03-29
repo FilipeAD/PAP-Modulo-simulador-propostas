@@ -63,6 +63,8 @@ namespace ModuloSP
                 }
 
                 con.Close();
+
+                MessageBox.Show("Test");
             }
 
         }
