@@ -42,3 +42,4 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.pdb
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GeneralView.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.UserList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GPermissionsList.resources

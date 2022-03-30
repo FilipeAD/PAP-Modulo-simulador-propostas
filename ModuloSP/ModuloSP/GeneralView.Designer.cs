@@ -31,11 +31,13 @@ namespace ModuloSP
         {
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btMenu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btPermissões = new System.Windows.Forms.Button();
+            this.btMaquinas = new System.Windows.Forms.Button();
             this.btAddOns = new System.Windows.Forms.Button();
             this.btUtilizadores = new System.Windows.Forms.Button();
             this.DesktopPanel = new System.Windows.Forms.Panel();
@@ -45,7 +47,6 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btMaquinas = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,7 +59,7 @@ namespace ModuloSP
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Controls.Add(this.btMenu);
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,12 +82,18 @@ namespace ModuloSP
             this.button2.Text = "?";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(441, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(341, 20);
-            this.textBox1.TabIndex = 19;
+            this.txtSearch.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSearch.Location = new System.Drawing.Point(432, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(350, 22);
+            this.txtSearch.TabIndex = 19;
+            this.txtSearch.Text = "Procure um grupo especifico nas permissões";
+            this.txtSearch.Visible = false;
+            this.txtSearch.Enter += new System.EventHandler(this.txtGrupo_Enter);
+            this.txtSearch.Leave += new System.EventHandler(this.txtGrupo_Leave);
             // 
             // btMenu
             // 
@@ -124,6 +131,7 @@ namespace ModuloSP
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Controls.Add(this.btPermissões);
             this.panel5.Controls.Add(this.btMaquinas);
             this.panel5.Controls.Add(this.btAddOns);
             this.panel5.Controls.Add(this.btUtilizadores);
@@ -132,6 +140,37 @@ namespace ModuloSP
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(61, 721);
             this.panel5.TabIndex = 12;
+            this.panel5.Visible = false;
+            // 
+            // btPermissões
+            // 
+            this.btPermissões.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btPermissões.FlatAppearance.BorderSize = 0;
+            this.btPermissões.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPermissões.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPermissões.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btPermissões.Location = new System.Drawing.Point(0, 557);
+            this.btPermissões.Name = "btPermissões";
+            this.btPermissões.Size = new System.Drawing.Size(61, 41);
+            this.btPermissões.TabIndex = 23;
+            this.btPermissões.Text = "P";
+            this.btPermissões.UseVisualStyleBackColor = true;
+            this.btPermissões.Click += new System.EventHandler(this.btPermissões_Click);
+            // 
+            // btMaquinas
+            // 
+            this.btMaquinas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btMaquinas.FlatAppearance.BorderSize = 0;
+            this.btMaquinas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMaquinas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMaquinas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btMaquinas.Location = new System.Drawing.Point(0, 598);
+            this.btMaquinas.Name = "btMaquinas";
+            this.btMaquinas.Size = new System.Drawing.Size(61, 41);
+            this.btMaquinas.TabIndex = 22;
+            this.btMaquinas.Text = "M";
+            this.btMaquinas.UseVisualStyleBackColor = true;
+            this.btMaquinas.Click += new System.EventHandler(this.btMaquinas_Click_1);
             // 
             // btAddOns
             // 
@@ -244,21 +283,6 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // btMaquinas
-            // 
-            this.btMaquinas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btMaquinas.FlatAppearance.BorderSize = 0;
-            this.btMaquinas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMaquinas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMaquinas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btMaquinas.Location = new System.Drawing.Point(0, 598);
-            this.btMaquinas.Name = "btMaquinas";
-            this.btMaquinas.Size = new System.Drawing.Size(61, 41);
-            this.btMaquinas.TabIndex = 22;
-            this.btMaquinas.Text = "M";
-            this.btMaquinas.UseVisualStyleBackColor = true;
-            this.btMaquinas.Click += new System.EventHandler(this.btMaquinas_Click_1);
-            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +317,7 @@ namespace ModuloSP
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btMenu;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel userpanel;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -304,5 +328,6 @@ namespace ModuloSP
         private System.Windows.Forms.Button btAddOns;
         private System.Windows.Forms.Button btUtilizadores;
         private System.Windows.Forms.Button btMaquinas;
+        private System.Windows.Forms.Button btPermissões;
     }
 }

@@ -40,6 +40,39 @@ namespace ModuloSP
 
         }
 
+        private void GroupVerification(object btSend)
+        {
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
+            {
+
+               
+                SqlCommand cmd = new SqlCommand("GroupVerification", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue("@group", txtSearch.Text);
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                
+                if (rd.HasRows)
+                {
+                    while (rd.Read())
+                    {
+                        Utils.GroupSearch = rd["Nome"].ToString();
+                    }
+                    OpenSecondForm(new GPermissionsList(), btSend);
+                }
+                else
+                {
+                    MessageBox.Show("Grupo não existe", "!!ERRO!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtSearch.Text = "Procure um grupo especifico nas permissões";
+                    txtSearch.ForeColor = Color.Gray;
+                }
+                con.Close();
+            }
+        }
+
 
         private void GroupPermissions()
         {
@@ -99,16 +132,27 @@ namespace ModuloSP
 
         private void btMenu_Click(object sender, EventArgs e)
         {
+            panel5.Visible = true;
+            txtSearch.Visible = true;
             if (panel5.Width == 61)
             {
                 panel5.Width = 136;
+                btPermissões.Text = "Permissões";
+                btMaquinas.Text = "Máquinas";
+                btAddOns.Text = "AddOns";
+                btUtilizadores.Text = "Utilizadores";
             }
             else
             {
                 panel5.Width = 61;
+                btPermissões.Text = "P";
+                btMaquinas.Text = "M";
+                btAddOns.Text = "A";
+                btUtilizadores.Text = "U";
             }
             
         }
+
 
         private void btAddOns_Click(object sender, EventArgs e)
         {
@@ -123,6 +167,37 @@ namespace ModuloSP
         private void btMaquinas_Click_1(object sender, EventArgs e)
         {
             OpenSecondForm(new MachineList(), sender);
+        }
+
+        private void btPermissões_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Procure um grupo especifico nas permissões")
+            {
+                OpenSecondForm(new GPermissionsList(), sender);
+            }
+            else
+            {
+                GroupVerification(sender);
+            }
+            
+        }
+
+        private void txtGrupo_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Procure um grupo especifico nas permissões")
+            {
+                txtSearch.Text = null;
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtGrupo_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                txtSearch.Text = "Procure um grupo especifico nas permissões";
+                txtSearch.ForeColor = Color.Gray;
+            }
         }
     }
 }

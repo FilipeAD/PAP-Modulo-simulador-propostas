@@ -51,7 +51,7 @@ namespace ModuloSP
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 138);
+            this.label1.Location = new System.Drawing.Point(102, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 42);
             this.label1.TabIndex = 1;
@@ -169,7 +169,7 @@ namespace ModuloSP
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.forbrandLogo;
+            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.logo2;
             this.pictureBox1.Location = new System.Drawing.Point(92, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(108, 112);

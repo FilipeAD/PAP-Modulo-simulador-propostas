@@ -19,14 +19,16 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        private void INFOClient()
+        private void INFOUser()
         {
             using (SqlConnection con =
                 new SqlConnection(Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select * from Utilizador where fk_Grupos_ID = 1 "; 
+                string query = "select Utilizador.ID, Utilizador.Nome, Email, Grupos.Nome as Grupo FROM Utilizador "+
+                    "INNER JOIN Grupos on Grupos.ID = Utilizador.fk_Grupos_ID " +
+                    " where fk_Grupos_ID != 2 "; 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -37,7 +39,7 @@ namespace ModuloSP
 
         private void ClientList_Load(object sender, EventArgs e)
         {
-            INFOClient();
+            INFOUser();
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
