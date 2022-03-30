@@ -27,7 +27,7 @@ namespace ModuloSP
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select * from AddOns";
+                string query = "select ID, Nome, Preco_Base from AddOns";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;

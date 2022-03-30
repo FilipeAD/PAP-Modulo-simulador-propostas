@@ -27,7 +27,11 @@ namespace ModuloSP
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select * from maquinas";
+                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco "+
+                                "from Maquinas as maq " +
+                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
+                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
+                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;

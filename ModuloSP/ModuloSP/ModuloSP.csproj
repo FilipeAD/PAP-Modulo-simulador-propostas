@@ -217,5 +217,17 @@
   <ItemGroup>
     <None Include="Resources\logo21.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maquinasIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lockwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addonicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addonFiled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

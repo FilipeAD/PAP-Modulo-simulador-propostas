@@ -63,6 +63,26 @@ namespace ModuloSP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addonFiled {
+            get {
+                object obj = ResourceManager.GetObject("addonFiled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addonicon {
+            get {
+                object obj = ResourceManager.GetObject("addonicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap closeicon {
             get {
                 object obj = ResourceManager.GetObject("closeicon", resourceCulture);
@@ -113,6 +133,16 @@ namespace ModuloSP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lockwhite {
+            get {
+                object obj = ResourceManager.GetObject("lockwhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loginicon {
             get {
                 object obj = ResourceManager.GetObject("loginicon", resourceCulture);
@@ -156,6 +186,16 @@ namespace ModuloSP.Properties {
         internal static System.Drawing.Bitmap logo21 {
             get {
                 object obj = ResourceManager.GetObject("logo21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maquinasIcon {
+            get {
+                object obj = ResourceManager.GetObject("maquinasIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -46,6 +46,8 @@ namespace ModuloSP
             }
         }
 
+
+
         private void btAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtModelo.Text))
@@ -91,5 +93,7 @@ namespace ModuloSP
         {
             InsereID();
         }
+
+        
     }
 }

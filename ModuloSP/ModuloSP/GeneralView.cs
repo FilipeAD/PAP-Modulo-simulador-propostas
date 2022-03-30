@@ -89,15 +89,6 @@ namespace ModuloSP
         {
             
 
-
-
-
-
-
-
-
-
-
             lblEmail.Text = CurrentUser.email;
             lblUsername.Text = CurrentUser.username;
 
@@ -138,17 +129,17 @@ namespace ModuloSP
             {
                 panel5.Width = 136;
                 btPermissões.Text = "Permissões";
-                btMaquinas.Text = "Máquinas";
-                btAddOns.Text = "AddOns";
+                btMaquinas.Text = "Impressoras";
+                btAddOns.Text = "Extensões";
                 btUtilizadores.Text = "Utilizadores";
             }
             else
             {
                 panel5.Width = 61;
-                btPermissões.Text = "P";
-                btMaquinas.Text = "M";
-                btAddOns.Text = "A";
-                btUtilizadores.Text = "U";
+                btPermissões.Text = "";
+                btMaquinas.Text = "";
+                btAddOns.Text = "";
+                btUtilizadores.Text = "";
             }
             
         }
@@ -199,5 +190,8 @@ namespace ModuloSP
                 txtSearch.ForeColor = Color.Gray;
             }
         }
+
+   
+
     }
 }

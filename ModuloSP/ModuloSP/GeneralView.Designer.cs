@@ -149,11 +149,12 @@ namespace ModuloSP
             this.btPermissões.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPermissões.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPermissões.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btPermissões.Image = global::ModuloSP.Properties.Resources.lockwhite;
             this.btPermissões.Location = new System.Drawing.Point(0, 557);
             this.btPermissões.Name = "btPermissões";
             this.btPermissões.Size = new System.Drawing.Size(61, 41);
             this.btPermissões.TabIndex = 23;
-            this.btPermissões.Text = "P";
+            this.btPermissões.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btPermissões.UseVisualStyleBackColor = true;
             this.btPermissões.Click += new System.EventHandler(this.btPermissões_Click);
             // 
@@ -164,11 +165,12 @@ namespace ModuloSP
             this.btMaquinas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btMaquinas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMaquinas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btMaquinas.Image = global::ModuloSP.Properties.Resources.maquinasIcon;
             this.btMaquinas.Location = new System.Drawing.Point(0, 598);
             this.btMaquinas.Name = "btMaquinas";
             this.btMaquinas.Size = new System.Drawing.Size(61, 41);
             this.btMaquinas.TabIndex = 22;
-            this.btMaquinas.Text = "M";
+            this.btMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btMaquinas.UseVisualStyleBackColor = true;
             this.btMaquinas.Click += new System.EventHandler(this.btMaquinas_Click_1);
             // 
@@ -179,11 +181,12 @@ namespace ModuloSP
             this.btAddOns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddOns.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAddOns.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btAddOns.Image = global::ModuloSP.Properties.Resources.addonFiled;
             this.btAddOns.Location = new System.Drawing.Point(0, 639);
             this.btAddOns.Name = "btAddOns";
             this.btAddOns.Size = new System.Drawing.Size(61, 41);
             this.btAddOns.TabIndex = 21;
-            this.btAddOns.Text = "A";
+            this.btAddOns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btAddOns.UseVisualStyleBackColor = true;
             this.btAddOns.Click += new System.EventHandler(this.btAddOns_Click);
             // 
@@ -194,11 +197,12 @@ namespace ModuloSP
             this.btUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btUtilizadores.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUtilizadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btUtilizadores.Image = global::ModuloSP.Properties.Resources.loginicon2;
             this.btUtilizadores.Location = new System.Drawing.Point(0, 680);
             this.btUtilizadores.Name = "btUtilizadores";
             this.btUtilizadores.Size = new System.Drawing.Size(61, 41);
             this.btUtilizadores.TabIndex = 20;
-            this.btUtilizadores.Text = "U";
+            this.btUtilizadores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btUtilizadores.UseVisualStyleBackColor = true;
             this.btUtilizadores.Click += new System.EventHandler(this.btUtilizadores_Click);
             // 
