@@ -20,6 +20,26 @@ namespace ModuloSP
         }
 
 
+        private Form activeForm;
+
+        private void OpenSecondForm(Form SecondForm, object btSend)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = SecondForm;
+            SecondForm.TopLevel = false;
+            SecondForm.FormBorderStyle = FormBorderStyle.None;
+            SecondForm.Dock = DockStyle.Fill;
+            this.DesktopPanel.Controls.Add(SecondForm);
+            this.DesktopPanel.Tag = SecondForm;
+            SecondForm.BringToFront();
+            SecondForm.Show();
+
+
+        }
+
         private void INFOAddOn()
         {
             using (SqlConnection con =
@@ -48,6 +68,55 @@ namespace ModuloSP
       
 
         
+
+
+        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btBack.Visible = true;
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new AddOnAdd(), sender);
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btBack.Visible = true;
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new AddOnEdit(), sender);
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = false;
+            btBack.Visible = false;
+            INFOAddOn();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(Utils.conString);
+                con.Open();
+                string query = "DELETE AddOns where ID=" + (int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                con.Close();
+
+            }
+            INFOAddOn();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

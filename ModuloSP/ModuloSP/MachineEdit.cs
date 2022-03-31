@@ -67,5 +67,10 @@ namespace ModuloSP
             con.Close();
             this.Close();
         }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -43,3 +43,5 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\System.Data.SqlServe
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GeneralView.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.UserList.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GPermissionsList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ModeloList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.MarcaList.resources

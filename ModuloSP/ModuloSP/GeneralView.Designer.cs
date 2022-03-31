@@ -32,27 +32,31 @@ namespace ModuloSP
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btMenu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btPermissões = new System.Windows.Forms.Button();
-            this.btMaquinas = new System.Windows.Forms.Button();
-            this.btAddOns = new System.Windows.Forms.Button();
-            this.btUtilizadores = new System.Windows.Forms.Button();
             this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.Menu = new System.Windows.Forms.MenuStrip();
+            this.mainaction = new System.Windows.Forms.ToolStripMenuItem();
+            this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btMenu = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.marcaModeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.DesktopPanel.SuspendLayout();
+            this.Menu.SuspendLayout();
             this.userpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -92,8 +96,156 @@ namespace ModuloSP
             this.txtSearch.TabIndex = 19;
             this.txtSearch.Text = "Procure um grupo especifico nas permissões";
             this.txtSearch.Visible = false;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Enter += new System.EventHandler(this.txtGrupo_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtGrupo_Leave);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1099, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(63, 41);
+            this.panel3.TabIndex = 16;
+            // 
+            // DesktopPanel
+            // 
+            this.DesktopPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DesktopPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DesktopPanel.Controls.Add(this.Menu);
+            this.DesktopPanel.Location = new System.Drawing.Point(0, 41);
+            this.DesktopPanel.Name = "DesktopPanel";
+            this.DesktopPanel.Size = new System.Drawing.Size(1162, 721);
+            this.DesktopPanel.TabIndex = 17;
+            // 
+            // Menu
+            // 
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainaction});
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(1162, 24);
+            this.Menu.TabIndex = 0;
+            this.Menu.Text = "menuStrip1";
+            this.Menu.Visible = false;
+            // 
+            // mainaction
+            // 
+            this.mainaction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listUtilizadores,
+            this.ListImpressoras,
+            this.ListAddOns});
+            this.mainaction.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainaction.ForeColor = System.Drawing.Color.White;
+            this.mainaction.Name = "mainaction";
+            this.mainaction.Size = new System.Drawing.Size(113, 20);
+            this.mainaction.Text = "Ações principais";
+            this.mainaction.Click += new System.EventHandler(this.mainaction_Click);
+            // 
+            // listUtilizadores
+            // 
+            this.listUtilizadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.listUtilizadores.ForeColor = System.Drawing.Color.White;
+            this.listUtilizadores.Name = "listUtilizadores";
+            this.listUtilizadores.Size = new System.Drawing.Size(206, 22);
+            this.listUtilizadores.Text = "Listagem Utilizadores";
+            this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click);
+            // 
+            // ListImpressoras
+            // 
+            this.ListImpressoras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListImpressoras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaModeloToolStripMenuItem});
+            this.ListImpressoras.ForeColor = System.Drawing.Color.White;
+            this.ListImpressoras.Name = "ListImpressoras";
+            this.ListImpressoras.Size = new System.Drawing.Size(206, 22);
+            this.ListImpressoras.Text = "Listagem Impressoras";
+            this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click);
+            // 
+            // ListAddOns
+            // 
+            this.ListAddOns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListAddOns.ForeColor = System.Drawing.Color.White;
+            this.ListAddOns.Name = "ListAddOns";
+            this.ListAddOns.Size = new System.Drawing.Size(206, 22);
+            this.ListAddOns.Text = "Listagem AddOns";
+            this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click);
+            // 
+            // userpanel
+            // 
+            this.userpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.userpanel.Controls.Add(this.pictureBox1);
+            this.userpanel.Controls.Add(this.label2);
+            this.userpanel.Controls.Add(this.lblEmail);
+            this.userpanel.Controls.Add(this.label3);
+            this.userpanel.Controls.Add(this.lblUsername);
+            this.userpanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.userpanel.Location = new System.Drawing.Point(939, 41);
+            this.userpanel.MaximumSize = new System.Drawing.Size(223, 93);
+            this.userpanel.Name = "userpanel";
+            this.userpanel.Size = new System.Drawing.Size(223, 93);
+            this.userpanel.TabIndex = 16;
+            this.userpanel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(14, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Forbrand";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
+            this.lblEmail.Location = new System.Drawing.Point(59, 64);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(40, 16);
+            this.lblEmail.TabIndex = 17;
+            this.lblEmail.Text = "Email";
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(164, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "LogOut";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(59, 45);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(84, 19);
+            this.lblUsername.TabIndex = 13;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.loginicon2;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // btMenu
             // 
@@ -108,15 +260,6 @@ namespace ModuloSP
             this.btMenu.UseVisualStyleBackColor = true;
             this.btMenu.Click += new System.EventHandler(this.btMenu_Click);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1099, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(63, 41);
-            this.panel3.TabIndex = 16;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ModuloSP.Properties.Resources.loginicon2;
@@ -128,164 +271,34 @@ namespace ModuloSP
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // panel5
+            // marcaModeloToolStripMenuItem
             // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Controls.Add(this.btPermissões);
-            this.panel5.Controls.Add(this.btMaquinas);
-            this.panel5.Controls.Add(this.btAddOns);
-            this.panel5.Controls.Add(this.btUtilizadores);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 41);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(61, 721);
-            this.panel5.TabIndex = 12;
-            this.panel5.Visible = false;
+            this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.marcaModeloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListMarca,
+            this.ListModelo});
+            this.marcaModeloToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.marcaModeloToolStripMenuItem.Name = "marcaModeloToolStripMenuItem";
+            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcaModeloToolStripMenuItem.Text = "Marca|Modelo";
             // 
-            // btPermissões
+            // ListMarca
             // 
-            this.btPermissões.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btPermissões.FlatAppearance.BorderSize = 0;
-            this.btPermissões.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btPermissões.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPermissões.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btPermissões.Image = global::ModuloSP.Properties.Resources.lockwhite;
-            this.btPermissões.Location = new System.Drawing.Point(0, 557);
-            this.btPermissões.Name = "btPermissões";
-            this.btPermissões.Size = new System.Drawing.Size(61, 41);
-            this.btPermissões.TabIndex = 23;
-            this.btPermissões.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btPermissões.UseVisualStyleBackColor = true;
-            this.btPermissões.Click += new System.EventHandler(this.btPermissões_Click);
+            this.ListMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListMarca.ForeColor = System.Drawing.Color.White;
+            this.ListMarca.Name = "ListMarca";
+            this.ListMarca.Size = new System.Drawing.Size(180, 22);
+            this.ListMarca.Text = "Marcas";
+            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click_1);
             // 
-            // btMaquinas
+            // ListModelo
             // 
-            this.btMaquinas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btMaquinas.FlatAppearance.BorderSize = 0;
-            this.btMaquinas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMaquinas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMaquinas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btMaquinas.Image = global::ModuloSP.Properties.Resources.maquinasIcon;
-            this.btMaquinas.Location = new System.Drawing.Point(0, 598);
-            this.btMaquinas.Name = "btMaquinas";
-            this.btMaquinas.Size = new System.Drawing.Size(61, 41);
-            this.btMaquinas.TabIndex = 22;
-            this.btMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btMaquinas.UseVisualStyleBackColor = true;
-            this.btMaquinas.Click += new System.EventHandler(this.btMaquinas_Click_1);
-            // 
-            // btAddOns
-            // 
-            this.btAddOns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btAddOns.FlatAppearance.BorderSize = 0;
-            this.btAddOns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddOns.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddOns.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btAddOns.Image = global::ModuloSP.Properties.Resources.addonFiled;
-            this.btAddOns.Location = new System.Drawing.Point(0, 639);
-            this.btAddOns.Name = "btAddOns";
-            this.btAddOns.Size = new System.Drawing.Size(61, 41);
-            this.btAddOns.TabIndex = 21;
-            this.btAddOns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btAddOns.UseVisualStyleBackColor = true;
-            this.btAddOns.Click += new System.EventHandler(this.btAddOns_Click);
-            // 
-            // btUtilizadores
-            // 
-            this.btUtilizadores.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btUtilizadores.FlatAppearance.BorderSize = 0;
-            this.btUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btUtilizadores.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUtilizadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btUtilizadores.Image = global::ModuloSP.Properties.Resources.loginicon2;
-            this.btUtilizadores.Location = new System.Drawing.Point(0, 680);
-            this.btUtilizadores.Name = "btUtilizadores";
-            this.btUtilizadores.Size = new System.Drawing.Size(61, 41);
-            this.btUtilizadores.TabIndex = 20;
-            this.btUtilizadores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btUtilizadores.UseVisualStyleBackColor = true;
-            this.btUtilizadores.Click += new System.EventHandler(this.btUtilizadores_Click);
-            // 
-            // DesktopPanel
-            // 
-            this.DesktopPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DesktopPanel.Location = new System.Drawing.Point(61, 41);
-            this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1101, 721);
-            this.DesktopPanel.TabIndex = 17;
-            // 
-            // userpanel
-            // 
-            this.userpanel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.userpanel.Controls.Add(this.pictureBox1);
-            this.userpanel.Controls.Add(this.label2);
-            this.userpanel.Controls.Add(this.lblEmail);
-            this.userpanel.Controls.Add(this.label3);
-            this.userpanel.Controls.Add(this.lblUsername);
-            this.userpanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.userpanel.Location = new System.Drawing.Point(939, 41);
-            this.userpanel.Name = "userpanel";
-            this.userpanel.Size = new System.Drawing.Size(223, 93);
-            this.userpanel.TabIndex = 16;
-            this.userpanel.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.loginicon;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(14, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Forbrand";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail.Location = new System.Drawing.Point(59, 64);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(40, 16);
-            this.lblEmail.TabIndex = 17;
-            this.lblEmail.Text = "Email";
-            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(164, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "LogOut";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.Black;
-            this.lblUsername.Location = new System.Drawing.Point(59, 45);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(84, 19);
-            this.lblUsername.TabIndex = 13;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.ListModelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListModelo.ForeColor = System.Drawing.Color.White;
+            this.ListModelo.Name = "ListModelo";
+            this.ListModelo.Size = new System.Drawing.Size(180, 22);
+            this.ListModelo.Text = "Modelos";
+            this.ListModelo.Click += new System.EventHandler(this.ListModelo_Click_1);
             // 
             // GeneralView
             // 
@@ -295,9 +308,8 @@ namespace ModuloSP
             this.ClientSize = new System.Drawing.Size(1162, 762);
             this.Controls.Add(this.userpanel);
             this.Controls.Add(this.DesktopPanel);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.Menu;
             this.Name = "GeneralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminView";
@@ -305,11 +317,14 @@ namespace ModuloSP
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel5.ResumeLayout(false);
+            this.DesktopPanel.ResumeLayout(false);
+            this.DesktopPanel.PerformLayout();
+            this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.userpanel.ResumeLayout(false);
             this.userpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,7 +333,6 @@ namespace ModuloSP
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btMenu;
         private System.Windows.Forms.TextBox txtSearch;
@@ -329,9 +343,13 @@ namespace ModuloSP
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btAddOns;
-        private System.Windows.Forms.Button btUtilizadores;
-        private System.Windows.Forms.Button btMaquinas;
-        private System.Windows.Forms.Button btPermissões;
+        private System.Windows.Forms.MenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem mainaction;
+        private System.Windows.Forms.ToolStripMenuItem listUtilizadores;
+        private System.Windows.Forms.ToolStripMenuItem ListImpressoras;
+        private System.Windows.Forms.ToolStripMenuItem ListAddOns;
+        private System.Windows.Forms.ToolStripMenuItem marcaModeloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListMarca;
+        private System.Windows.Forms.ToolStripMenuItem ListModelo;
     }
 }

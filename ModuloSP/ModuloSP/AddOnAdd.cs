@@ -22,7 +22,7 @@ namespace ModuloSP
         private void InsereID()
         {
             // procuta último ID, acrescenta + 1 e insere na txtID
-            string query = "SELECT MAX(id) FROM addon";
+            string query = "SELECT MAX(ID) FROM AddOns";
             int novoID;
             novoID = 0;
             using (SqlConnection con =
@@ -46,8 +46,13 @@ namespace ModuloSP
                 con.Close();
             }
         }
+      
+        private void AddOnAdd_Load(object sender, EventArgs e)
+        {
+            InsereID();
+        }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private void btAdd_Click_1(object sender, EventArgs e)
         {
             // verifica se a textbox foi preenchida
             if (string.IsNullOrWhiteSpace(txtNome.Text))
@@ -61,12 +66,12 @@ namespace ModuloSP
                 SqlConnection(Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns(" +
-                "id,nome,preco)" +
-                "VALUES (@id,@nome,@preco)";
+                "id,nome,preco_base)" +
+                "VALUES (@id,@nome,@preco_base)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", txtID.Text);
             cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-            cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
+            cmd.Parameters.AddWithValue("@preco_base", txtPreco.Text);
             try
             {
                 cmd.ExecuteScalar();
@@ -83,12 +88,8 @@ namespace ModuloSP
 
 
             con.Close();
-            this.Close();
-        }
-
-        private void AddOnAdd_Load(object sender, EventArgs e)
-        {
-            InsereID();
+            txtNome.Text = "";
+            txtPreco.Text = "";
         }
     }
 }

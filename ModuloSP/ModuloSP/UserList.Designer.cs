@@ -37,7 +37,7 @@ namespace ModuloSP
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(91, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(960, 628);
@@ -48,10 +48,10 @@ namespace ModuloSP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1085, 682);
+            this.ClientSize = new System.Drawing.Size(1146, 682);
             this.Controls.Add(this.dataGridView1);
             this.Name = "UserList";
-            this.Text = "ClientList";
+            this.Text = "UserList";
             this.Load += new System.EventHandler(this.ClientList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

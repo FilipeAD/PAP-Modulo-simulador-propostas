@@ -13,10 +13,17 @@ namespace ModuloSP
 
         public static string _GroupSearch = "";
             public static string GroupSearch
-        {
+            {
                 get { return _GroupSearch; }
                 set { _GroupSearch = value; }
             }
+
+        public static string _Marca_Modelo = "";
+        public static string Marca_Modelo
+        {
+            get { return _Marca_Modelo; }
+            set { _Marca_Modelo = value; }
+        }
 
     }
 

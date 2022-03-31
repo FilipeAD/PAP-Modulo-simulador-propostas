@@ -19,7 +19,25 @@ namespace ModuloSP
             InitializeComponent();
         }
 
+        private Form activeForm;
 
+        private void OpenSecondForm(Form SecondForm, object btSend)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = SecondForm;
+            SecondForm.TopLevel = false;
+            SecondForm.FormBorderStyle = FormBorderStyle.None;
+            SecondForm.Dock = DockStyle.Fill;
+            this.DesktopPanel.Controls.Add(SecondForm);
+            this.DesktopPanel.Tag = SecondForm;
+            SecondForm.BringToFront();
+            SecondForm.Show();
+
+
+        }
         private void INFOMaquinas()
         {
             using (SqlConnection con =
@@ -39,6 +57,7 @@ namespace ModuloSP
                 con.Close();
             }
         }
+
         private void MachineList_Load(object sender, EventArgs e)
         {
             INFOMaquinas();
@@ -53,6 +72,55 @@ namespace ModuloSP
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             IDEditar.IdMaquina = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btBack.Visible = true;
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new MachineAdd(), sender);
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btBack.Visible = true;
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new MachineEdit(), sender);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(Utils.conString);
+                con.Open();
+                string query = "DELETE Maquinas where ID=" + IDEditar.IdMaquina;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                con.Close();
+
+            }
+            INFOMaquinas();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+        }
+
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = false;
+            btBack.Visible = false;
+            INFOMaquinas();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
         }
     }
 }

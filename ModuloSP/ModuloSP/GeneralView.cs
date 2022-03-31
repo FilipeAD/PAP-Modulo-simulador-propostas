@@ -39,6 +39,7 @@ namespace ModuloSP
 
 
         }
+       
 
         private void GroupVerification(object btSend)
         {
@@ -87,8 +88,6 @@ namespace ModuloSP
 
         private void AdminView_Load(object sender, EventArgs e)
         {
-            
-
             lblEmail.Text = CurrentUser.email;
             lblUsername.Text = CurrentUser.username;
 
@@ -123,41 +122,15 @@ namespace ModuloSP
 
         private void btMenu_Click(object sender, EventArgs e)
         {
-            panel5.Visible = true;
-            txtSearch.Visible = true;
-            if (panel5.Width == 61)
+            if(Menu.Visible == false)
             {
-                panel5.Width = 136;
-                btPermissões.Text = "Permissões";
-                btMaquinas.Text = "Impressoras";
-                btAddOns.Text = "Extensões";
-                btUtilizadores.Text = "Utilizadores";
+                Menu.Visible = true;
             }
             else
             {
-                panel5.Width = 61;
-                btPermissões.Text = "";
-                btMaquinas.Text = "";
-                btAddOns.Text = "";
-                btUtilizadores.Text = "";
+                Menu.Visible = false;   
             }
-            
-        }
 
-
-        private void btAddOns_Click(object sender, EventArgs e)
-        {
-            OpenSecondForm(new AddOnList(), sender);
-        }
-
-        private void btUtilizadores_Click(object sender, EventArgs e)
-        {
-            OpenSecondForm(new UserList(), sender);
-        }
-
-        private void btMaquinas_Click_1(object sender, EventArgs e)
-        {
-            OpenSecondForm(new MachineList(), sender);
         }
 
         private void btPermissões_Click(object sender, EventArgs e)
@@ -191,7 +164,41 @@ namespace ModuloSP
             }
         }
 
-   
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+
+
+        private void listUtilizadores_Click(object sender, EventArgs e)
+        {
+            OpenSecondForm(new UserList(), sender);
+        }
+
+        private void ListImpressoras_Click(object sender, EventArgs e)
+        {
+            OpenSecondForm(new MachineList(), sender);
+        }
+
+        private void ListAddOns_Click(object sender, EventArgs e)
+        {
+            OpenSecondForm(new AddOnList(), sender);
+        }
+
+        private void mainaction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListMarca_Click_1(object sender, EventArgs e)
+        {
+            OpenSecondForm(new MarcaList(), sender);
+        }
+
+        private void ListModelo_Click_1(object sender, EventArgs e)
+        {
+            OpenSecondForm(new ModeloList(), sender);
+        }
     }
 }
