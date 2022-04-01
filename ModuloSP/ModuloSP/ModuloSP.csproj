@@ -51,24 +51,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcountPermission.cs" />
-    <Compile Include="AddOnAdd.cs">
+    <Compile Include="AddOn\AddOnAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOnAdd.Designer.cs">
+    <Compile Include="AddOn\AddOnAdd.Designer.cs">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddOnEdit.cs">
+    <Compile Include="AddOn\AddOnEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOnEdit.Designer.cs">
+    <Compile Include="AddOn\AddOnEdit.Designer.cs">
       <DependentUpon>AddOnEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddOnList.cs">
+    <Compile Include="AddOn\AddOnList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOnList.Designer.cs">
+    <Compile Include="AddOn\AddOnList.Designer.cs">
       <DependentUpon>AddOnList.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOn\FunctionsAddOn.cs" />
     <Compile Include="GeneralView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,36 +82,41 @@
     <Compile Include="GPermissionsList.Designer.cs">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarcaAdd.cs">
+    <Compile Include="Maquinas\FunctionsMaq.cs" />
+    <Compile Include="Marca\FunctionsMarca.cs" />
+    <Compile Include="Marca\MarcaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MarcaAdd.Designer.cs">
+    <Compile Include="Marca\MarcaAdd.Designer.cs">
       <DependentUpon>MarcaAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarcaEdit.cs">
+    <Compile Include="Marca\MarcaEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MarcaEdit.Designer.cs">
+    <Compile Include="Marca\MarcaEdit.Designer.cs">
       <DependentUpon>MarcaEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarcaList.cs">
+    <Compile Include="Marca\MarcaList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MarcaList.Designer.cs">
+    <Compile Include="Marca\MarcaList.Designer.cs">
       <DependentUpon>MarcaList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarcaModeloAdd.cs">
+    <Compile Include="Marc_Mod\MarcaModeloAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MarcaModeloAdd.Designer.cs">
+    <Compile Include="Marc_Mod\MarcaModeloAdd.Designer.cs">
       <DependentUpon>MarcaModeloAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarcaModeloList.cs">
+    <Compile Include="Marc_Mod\MarcaModeloList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MarcaModeloList.Designer.cs">
+    <Compile Include="Marc_Mod\MarcaModeloList.Designer.cs">
       <DependentUpon>MarcaModeloList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\FunctionsGeneral.cs" />
+    <Compile Include="Models\IDManagment.cs" />
+    <Compile Include="Models\Utilizador.cs" />
     <Compile Include="UserList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,29 +124,28 @@
       <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
     <Compile Include="CurrentUser.cs" />
-    <Compile Include="IDEditar.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MachineAdd.cs">
+    <Compile Include="Maquinas\MachineAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MachineAdd.Designer.cs">
+    <Compile Include="Maquinas\MachineAdd.Designer.cs">
       <DependentUpon>MachineAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="MachineEdit.cs">
+    <Compile Include="Maquinas\MachineEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MachineEdit.Designer.cs">
+    <Compile Include="Maquinas\MachineEdit.Designer.cs">
       <DependentUpon>MachineEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="MachineList.cs">
+    <Compile Include="Maquinas\MachineList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MachineList.Designer.cs">
+    <Compile Include="Maquinas\MachineList.Designer.cs">
       <DependentUpon>MachineList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -152,13 +157,13 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="AddOnAdd.resx">
+    <EmbeddedResource Include="AddOn\AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddOnEdit.resx">
+    <EmbeddedResource Include="AddOn\AddOnEdit.resx">
       <DependentUpon>AddOnEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddOnList.resx">
+    <EmbeddedResource Include="AddOn\AddOnList.resx">
       <DependentUpon>AddOnList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralView.resx">
@@ -167,19 +172,19 @@
     <EmbeddedResource Include="GPermissionsList.resx">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MarcaAdd.resx">
+    <EmbeddedResource Include="Marca\MarcaAdd.resx">
       <DependentUpon>MarcaAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MarcaEdit.resx">
+    <EmbeddedResource Include="Marca\MarcaEdit.resx">
       <DependentUpon>MarcaEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MarcaList.resx">
+    <EmbeddedResource Include="Marca\MarcaList.resx">
       <DependentUpon>MarcaList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MarcaModeloAdd.resx">
+    <EmbeddedResource Include="Marc_Mod\MarcaModeloAdd.resx">
       <DependentUpon>MarcaModeloAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MarcaModeloList.resx">
+    <EmbeddedResource Include="Marc_Mod\MarcaModeloList.resx">
       <DependentUpon>MarcaModeloList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserList.resx">
@@ -188,13 +193,13 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MachineAdd.resx">
+    <EmbeddedResource Include="Maquinas\MachineAdd.resx">
       <DependentUpon>MachineAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MachineEdit.resx">
+    <EmbeddedResource Include="Maquinas\MachineEdit.resx">
       <DependentUpon>MachineEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MachineList.resx">
+    <EmbeddedResource Include="Maquinas\MachineList.resx">
       <DependentUpon>MachineList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

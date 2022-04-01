@@ -1,4 +1,4 @@
-﻿namespace ModuloSP
+﻿namespace ModuloSP.Marc_Mod
 {
     partial class MarcaModeloAdd
     {

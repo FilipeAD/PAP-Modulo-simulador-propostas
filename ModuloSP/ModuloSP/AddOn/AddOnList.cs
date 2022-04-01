@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModuloSP
+namespace ModuloSP.AddOn
 {
     public partial class AddOnList : Form
     {
@@ -40,35 +40,14 @@ namespace ModuloSP
 
         }
 
-        private void INFOAddOn()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select ID, Nome, Preco_Base from AddOns";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
-                con.Close();
-            }
-        }
+      
 
         private void AddOnList_Load(object sender, EventArgs e)
         {
-            INFOAddOn();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsAddOn.INFOAddOn(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
         }
-
-      
-
-        
-
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,7 +58,7 @@ namespace ModuloSP
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (IDEditar.IdAddOn == "")
+            if (Models.IDManagment.IdAddOn == "")
             {
                 MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -95,10 +74,8 @@ namespace ModuloSP
         {
             DesktopPanel.Visible = false;
             btBack.Visible = false;
-            INFOAddOn();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsAddOn.INFOAddOn(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,25 +86,16 @@ namespace ModuloSP
             }
             else
             {
-                SqlConnection con = new SqlConnection(Utils.conString);
-                con.Open();
-                string query = "DELETE AddOns where ID=" + (int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
+                Models.FunctionsGeneral.DeleteRow("AddOn", Models.IDManagment.IdAddOn);
                 MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                con.Close();
-
             }
-            INFOAddOn();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsAddOn.INFOAddOn(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IDEditar.IdAddOn = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Models.IDManagment.IdAddOn = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
     }
 }

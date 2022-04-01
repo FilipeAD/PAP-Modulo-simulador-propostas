@@ -41,6 +41,7 @@ namespace ModuloSP
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaModeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,6 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -134,9 +134,9 @@ namespace ModuloSP
             // 
             // DesktopPanel
             // 
-            this.DesktopPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DesktopPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DesktopPanel.Controls.Add(this.Menu);
+            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(0, 41);
             this.DesktopPanel.Name = "DesktopPanel";
             this.DesktopPanel.Size = new System.Drawing.Size(1162, 721);
@@ -152,7 +152,6 @@ namespace ModuloSP
             this.Menu.Size = new System.Drawing.Size(1162, 24);
             this.Menu.TabIndex = 0;
             this.Menu.Text = "menuStrip1";
-            this.Menu.Visible = false;
             // 
             // mainaction
             // 
@@ -163,8 +162,8 @@ namespace ModuloSP
             this.mainaction.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainaction.ForeColor = System.Drawing.Color.White;
             this.mainaction.Name = "mainaction";
-            this.mainaction.Size = new System.Drawing.Size(113, 20);
-            this.mainaction.Text = "Ações principais";
+            this.mainaction.Size = new System.Drawing.Size(135, 20);
+            this.mainaction.Text = "Listagens Principais";
             this.mainaction.Click += new System.EventHandler(this.mainaction_Click);
             // 
             // listUtilizadores
@@ -193,9 +192,18 @@ namespace ModuloSP
             this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.marcaModeloToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.marcaModeloToolStripMenuItem.Name = "marcaModeloToolStripMenuItem";
-            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.marcaModeloToolStripMenuItem.Text = "Marca|Modelo";
             this.marcaModeloToolStripMenuItem.Click += new System.EventHandler(this.marcaModeloToolStripMenuItem_Click);
+            // 
+            // ListMarca
+            // 
+            this.ListMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListMarca.ForeColor = System.Drawing.Color.White;
+            this.ListMarca.Name = "ListMarca";
+            this.ListMarca.Size = new System.Drawing.Size(156, 22);
+            this.ListMarca.Text = "Marcas";
+            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
             // ListAddOns
             // 
@@ -279,15 +287,6 @@ namespace ModuloSP
             this.lblUsername.TabIndex = 13;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // ListMarca
-            // 
-            this.ListMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.ListMarca.ForeColor = System.Drawing.Color.White;
-            this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(180, 22);
-            this.ListMarca.Text = "Marcas";
-            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
             // GeneralView
             // 

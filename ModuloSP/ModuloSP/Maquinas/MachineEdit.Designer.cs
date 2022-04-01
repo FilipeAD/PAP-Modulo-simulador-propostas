@@ -1,5 +1,5 @@
 ﻿
-namespace ModuloSP
+namespace ModuloSP.Maquinas
 {
     partial class MachineEdit
     {

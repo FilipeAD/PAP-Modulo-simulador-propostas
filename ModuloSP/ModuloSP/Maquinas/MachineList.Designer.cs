@@ -1,7 +1,7 @@
 ﻿
-namespace ModuloSP
+namespace ModuloSP.Maquinas
 {
-    partial class AddOnList
+    partial class MachineList
     {
         /// <summary>
         /// Required designer variable.
@@ -37,12 +37,16 @@ namespace ModuloSP
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DesktopPanel = new System.Windows.Forms.Panel();
             this.btBack = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
@@ -50,7 +54,7 @@ namespace ModuloSP
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(887, 629);
-            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // contextMenuStrip1
@@ -98,7 +102,7 @@ namespace ModuloSP
             this.DesktopPanel.Location = new System.Drawing.Point(47, 0);
             this.DesktopPanel.Name = "DesktopPanel";
             this.DesktopPanel.Size = new System.Drawing.Size(1099, 682);
-            this.DesktopPanel.TabIndex = 17;
+            this.DesktopPanel.TabIndex = 4;
             this.DesktopPanel.Visible = false;
             // 
             // btBack
@@ -109,24 +113,36 @@ namespace ModuloSP
             this.btBack.Location = new System.Drawing.Point(-1, 0);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(42, 36);
-            this.btBack.TabIndex = 18;
+            this.btBack.TabIndex = 19;
             this.btBack.Text = "<<<";
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Visible = false;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
-            // AddOnList
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 682);
+            this.panel1.TabIndex = 20;
+            // 
+            // MachineList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.DesktopPanel);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "AddOnList";
-            this.Text = "AddOnList";
-            this.Load += new System.EventHandler(this.AddOnList_Load);
+            this.Controls.Add(this.panel1);
+            this.Name = "MachineList";
+            this.Text = "MachineList";
+            this.Load += new System.EventHandler(this.MachineList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -134,6 +150,7 @@ namespace ModuloSP
         }
 
         #endregion
+
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
@@ -141,5 +158,6 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.Panel panel1;
     }
 }

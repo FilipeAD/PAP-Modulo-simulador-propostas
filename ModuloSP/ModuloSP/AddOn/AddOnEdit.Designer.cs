@@ -1,5 +1,5 @@
 ﻿
-namespace ModuloSP
+namespace ModuloSP.AddOn
 {
     partial class AddOnEdit
     {
@@ -29,25 +29,12 @@ namespace ModuloSP
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtID = new System.Windows.Forms.Label();
             this.btEditar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // txtID
-            // 
-            this.txtID.AutoSize = true;
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtID.Location = new System.Drawing.Point(12, 9);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(22, 16);
-            this.txtID.TabIndex = 34;
-            this.txtID.Text = "ID";
-            this.txtID.Visible = false;
             // 
             // btEditar
             // 
@@ -111,7 +98,6 @@ namespace ModuloSP
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btEditar);
-            this.Controls.Add(this.txtID);
             this.Name = "AddOnEdit";
             this.Text = "AddOnEdit";
             this.Load += new System.EventHandler(this.AddOnEdit_Load);
@@ -121,8 +107,6 @@ namespace ModuloSP
         }
 
         #endregion
-
-        private System.Windows.Forms.Label txtID;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

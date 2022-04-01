@@ -48,3 +48,12 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.MarcaModelo
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.MarcaAdd.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.MarcaEdit.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.MarcaModeloAdd.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnAdd.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnEdit.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.MachineAdd.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marca.MarcaAdd.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marca.MarcaEdit.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marca.MarcaList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.MachineEdit.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.MachineList.resources

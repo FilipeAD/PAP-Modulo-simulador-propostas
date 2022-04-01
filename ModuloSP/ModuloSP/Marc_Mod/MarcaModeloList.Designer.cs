@@ -1,4 +1,4 @@
-﻿namespace ModuloSP
+﻿namespace ModuloSP.Marc_Mod
 {
     partial class MarcaModeloList
     {
@@ -41,8 +41,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -59,7 +59,7 @@
             this.yesToolStripMenuItem,
             this.editarLigaçõesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(178, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // yesToolStripMenuItem
             // 
@@ -67,7 +67,7 @@
             this.yesToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.yesToolStripMenuItem.Name = "yesToolStripMenuItem";
-            this.yesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.yesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.yesToolStripMenuItem.Text = "Adcionar Modelos";
             this.yesToolStripMenuItem.Click += new System.EventHandler(this.yesToolStripMenuItem_Click);
             // 
@@ -77,8 +77,9 @@
             this.editarLigaçõesToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editarLigaçõesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.editarLigaçõesToolStripMenuItem.Name = "editarLigaçõesToolStripMenuItem";
-            this.editarLigaçõesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.editarLigaçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarLigaçõesToolStripMenuItem.Text = "Editar Ligações";
+            this.editarLigaçõesToolStripMenuItem.Click += new System.EventHandler(this.editarLigaçõesToolStripMenuItem_Click);
             // 
             // btBack
             // 

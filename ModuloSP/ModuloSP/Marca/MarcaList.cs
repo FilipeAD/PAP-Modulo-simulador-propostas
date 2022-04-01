@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModuloSP
+namespace ModuloSP.Marca
 {
     public partial class MarcaList : Form
     {
@@ -37,29 +37,12 @@ namespace ModuloSP
 
 
         }
-        private void INFOMarca()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select ID, Nome as Marca from marca";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
-                con.Close();
-            }
-        }
 
 
         private void MarcaList_Load(object sender, EventArgs e)
         {
-            INFOMarca();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsMarca.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -71,7 +54,7 @@ namespace ModuloSP
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (IDEditar.IdMarca == "")
+            if (Models.IDManagment.IdMarca == "")
             {
                 MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -91,35 +74,24 @@ namespace ModuloSP
             }
             else
             {
-                SqlConnection con = new SqlConnection(Utils.conString);
-                con.Open();
-                string query = "DELETE Marca where ID= '" + IDEditar.IdMarca+ "'";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                con.Close();
+                Models.FunctionsGeneral.DeleteRow("Marca", Models.IDManagment.IdMarca);
 
             }
-            INFOMarca();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsMarca.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IDEditar.IdMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Models.IDManagment.IdMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void btBack_Click(object sender, EventArgs e)
         {
             DesktopPanel.Visible = false;
             btBack.Visible = false;
-            INFOMarca();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionsMarca.LoadInfo(dataGridView1); ;
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
     }
 }

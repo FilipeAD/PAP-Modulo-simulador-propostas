@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModuloSP
+namespace ModuloSP.Marc_Mod
 {
     public partial class MarcaModeloList : Form
     {
@@ -80,6 +80,11 @@ namespace ModuloSP
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
+        }
+
+        private void editarLigaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,13 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModuloSP
+namespace ModuloSP.Models
 {
-    class IDEditar
+    internal class IDManagment
     {
+
+        public static string InsereID(string _Database, string _ID)
+        {
+
+            string query = "SELECT MAX(ID) FROM " + _Database;
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    try
+                    {
+                        _ID = (int.Parse(cmd.ExecuteScalar().ToString()) + 1).ToString();
+                    }
+                    catch
+                    {
+                        _ID = "1";
+                    }
+                }
+                con.Close();
+                return _ID;
+            }
+        }
 
         private static string _IdMaquina = "";
         public static string IdMaquina

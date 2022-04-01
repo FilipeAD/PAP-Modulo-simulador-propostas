@@ -1,6 +1,6 @@
-﻿namespace ModuloSP
+﻿namespace ModuloSP.Marca
 {
-    partial class MarcaEdit
+    partial class MarcaAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             this.label5.Location = new System.Drawing.Point(429, 226);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 19);
-            this.label5.TabIndex = 49;
+            this.label5.TabIndex = 46;
             this.label5.Text = "Nome";
             // 
             // btAdd
@@ -54,20 +54,22 @@
             this.btAdd.Location = new System.Drawing.Point(433, 381);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(250, 33);
-            this.btAdd.TabIndex = 48;
-            this.btAdd.Text = "Editar";
+            this.btAdd.TabIndex = 45;
+            this.btAdd.Text = "Adicionar";
             this.btAdd.UseVisualStyleBackColor = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtNome.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtNome.Location = new System.Drawing.Point(433, 258);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(250, 26);
-            this.txtNome.TabIndex = 47;
+            this.txtNome.TabIndex = 44;
             this.txtNome.Text = "Nome";
+            this.txtNome.Enter += new System.EventHandler(this.txtPreco_Enter);
+            this.txtNome.Leave += new System.EventHandler(this.txtPreco_Leave);
             // 
             // txtID
             // 
@@ -77,11 +79,11 @@
             this.txtID.Location = new System.Drawing.Point(12, 9);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(22, 16);
-            this.txtID.TabIndex = 50;
+            this.txtID.TabIndex = 47;
             this.txtID.Text = "ID";
             this.txtID.Visible = false;
             // 
-            // MarcaEdit
+            // MarcaAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,9 +93,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.txtNome);
-            this.Name = "MarcaEdit";
-            this.Text = "MarcaEdit";
-            this.Load += new System.EventHandler(this.MarcaEdit_Load);
+            this.Name = "MarcaAdd";
+            this.Text = "MarcaAdd";
+            this.Load += new System.EventHandler(this.MarcaAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -183,7 +183,7 @@ namespace ModuloSP
 
         private void ListAddOns_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new AddOnList(), sender);
+            OpenSecondForm(new AddOn.AddOnList(), sender);
         }
 
         private void mainaction_Click(object sender, EventArgs e)
