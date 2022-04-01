@@ -56,6 +56,7 @@ namespace ModuloSP
             this.dataGridView1.Size = new System.Drawing.Size(887, 629);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -99,9 +100,9 @@ namespace ModuloSP
             // DesktopPanel
             // 
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DesktopPanel.Location = new System.Drawing.Point(224, 0);
+            this.DesktopPanel.Location = new System.Drawing.Point(47, 0);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(922, 682);
+            this.DesktopPanel.Size = new System.Drawing.Size(1099, 682);
             this.DesktopPanel.TabIndex = 4;
             this.DesktopPanel.Visible = false;
             // 

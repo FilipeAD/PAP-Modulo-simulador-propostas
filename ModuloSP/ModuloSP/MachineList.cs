@@ -83,9 +83,17 @@ namespace ModuloSP
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btBack.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new MachineEdit(), sender);
+            if (IDEditar.IdMaquina == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                btBack.Visible = true;
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MachineEdit(), sender);
+            }
+            
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +129,11 @@ namespace ModuloSP
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

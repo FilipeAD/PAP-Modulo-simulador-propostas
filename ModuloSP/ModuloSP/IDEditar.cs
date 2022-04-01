@@ -22,5 +22,19 @@ namespace ModuloSP
             get { return _IdAddOn; }
             set { _IdAddOn = value; }
         }
+
+        private static string _IdMarca = "";
+        public static string IdMarca
+        {
+            get { return _IdMarca; }
+            set { _IdMarca = value; }
+        }
+
+        private static string _fkMarca_Modelo = "";
+        public static string fkMarca_Modelo
+        {
+            get { return _fkMarca_Modelo; }
+            set { _fkMarca_Modelo = value; }
+        }
     }
 }

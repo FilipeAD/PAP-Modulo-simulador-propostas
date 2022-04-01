@@ -241,7 +241,13 @@ namespace ModuloSP
 
 
             con.Close();
-            this.Close();
+            txtMarca.SelectedIndex = -1;
+            txtModelo.SelectedIndex = -1;
+            txtCor.Text = "";
+            txtDimensoes.Text = "";
+            txtPreco.Text = "";
+            InsereID();
+
 
         }
 

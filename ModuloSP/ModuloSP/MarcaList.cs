@@ -61,5 +61,65 @@ namespace ModuloSP
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            btBack.Visible = true;
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new MarcaAdd(), sender);
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IDEditar.IdMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                btBack.Visible = true;
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MarcaEdit(), sender);
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(Utils.conString);
+                con.Open();
+                string query = "DELETE Marca where ID= '" + IDEditar.IdMarca+ "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                con.Close();
+
+            }
+            INFOMarca();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IDEditar.IdMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = false;
+            btBack.Visible = false;
+            INFOMarca();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+        }
     }
 }

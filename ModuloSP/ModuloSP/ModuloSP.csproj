@@ -81,23 +81,35 @@
     <Compile Include="GPermissionsList.Designer.cs">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="MarcaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcaAdd.Designer.cs">
+      <DependentUpon>MarcaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarcaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcaEdit.Designer.cs">
+      <DependentUpon>MarcaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarcaList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MarcaList.Designer.cs">
       <DependentUpon>MarcaList.cs</DependentUpon>
     </Compile>
+    <Compile Include="MarcaModeloAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcaModeloAdd.Designer.cs">
+      <DependentUpon>MarcaModeloAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarcaModeloList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MarcaModeloList.Designer.cs">
       <DependentUpon>MarcaModeloList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModeloList.Designer.cs">
-      <DependentUpon>ModeloList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserList.cs">
       <SubType>Form</SubType>
@@ -155,11 +167,20 @@
     <EmbeddedResource Include="GPermissionsList.resx">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MarcaAdd.resx">
+      <DependentUpon>MarcaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcaEdit.resx">
+      <DependentUpon>MarcaEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MarcaList.resx">
       <DependentUpon>MarcaList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModeloList.resx">
-      <DependentUpon>ModeloList.cs</DependentUpon>
+    <EmbeddedResource Include="MarcaModeloAdd.resx">
+      <DependentUpon>MarcaModeloAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcaModeloList.resx">
+      <DependentUpon>MarcaModeloList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>

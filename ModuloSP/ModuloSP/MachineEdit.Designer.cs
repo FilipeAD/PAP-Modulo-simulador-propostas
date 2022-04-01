@@ -122,7 +122,8 @@ namespace ModuloSP
             // 
             // txtModelo
             // 
-            this.txtModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtModelo.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.txtModelo.Enabled = false;
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.ForeColor = System.Drawing.SystemColors.ScrollBar;
@@ -135,7 +136,9 @@ namespace ModuloSP
             // 
             // txtMarca
             // 
-            this.txtMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtMarca.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.txtMarca.Enabled = false;
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMarca.FormattingEnabled = true;
@@ -148,7 +151,7 @@ namespace ModuloSP
             // txtDimensoes
             // 
             this.txtDimensoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDimensoes.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDimensoes.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtDimensoes.Location = new System.Drawing.Point(274, 210);
             this.txtDimensoes.Name = "txtDimensoes";
             this.txtDimensoes.Size = new System.Drawing.Size(250, 26);
@@ -158,7 +161,7 @@ namespace ModuloSP
             // txtCor
             // 
             this.txtCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCor.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCor.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtCor.Location = new System.Drawing.Point(274, 288);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(250, 26);
@@ -168,7 +171,7 @@ namespace ModuloSP
             // txtPreco
             // 
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPreco.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtPreco.Location = new System.Drawing.Point(274, 365);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(250, 26);

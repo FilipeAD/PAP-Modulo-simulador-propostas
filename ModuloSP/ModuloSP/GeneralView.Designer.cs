@@ -32,31 +32,30 @@ namespace ModuloSP
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btMenu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DesktopPanel = new System.Windows.Forms.Panel();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.mainaction = new System.Windows.Forms.ToolStripMenuItem();
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaModeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btMenu = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.marcaModeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.DesktopPanel.SuspendLayout();
             this.Menu.SuspendLayout();
             this.userpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -100,6 +99,19 @@ namespace ModuloSP
             this.txtSearch.Enter += new System.EventHandler(this.txtGrupo_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtGrupo_Leave);
             // 
+            // btMenu
+            // 
+            this.btMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btMenu.FlatAppearance.BorderSize = 0;
+            this.btMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMenu.Image = global::ModuloSP.Properties.Resources.menuicon;
+            this.btMenu.Location = new System.Drawing.Point(0, 0);
+            this.btMenu.Name = "btMenu";
+            this.btMenu.Size = new System.Drawing.Size(61, 41);
+            this.btMenu.TabIndex = 18;
+            this.btMenu.UseVisualStyleBackColor = true;
+            this.btMenu.Click += new System.EventHandler(this.btMenu_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox2);
@@ -108,6 +120,17 @@ namespace ModuloSP
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(63, 41);
             this.panel3.TabIndex = 16;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ModuloSP.Properties.Resources.loginicon2;
+            this.pictureBox2.Location = new System.Drawing.Point(24, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 37);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // DesktopPanel
             // 
@@ -157,12 +180,22 @@ namespace ModuloSP
             // 
             this.ListImpressoras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.ListImpressoras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.marcaModeloToolStripMenuItem});
+            this.marcaModeloToolStripMenuItem,
+            this.ListMarca});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
             this.ListImpressoras.Name = "ListImpressoras";
             this.ListImpressoras.Size = new System.Drawing.Size(206, 22);
             this.ListImpressoras.Text = "Listagem Impressoras";
             this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click);
+            // 
+            // marcaModeloToolStripMenuItem
+            // 
+            this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.marcaModeloToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.marcaModeloToolStripMenuItem.Name = "marcaModeloToolStripMenuItem";
+            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcaModeloToolStripMenuItem.Text = "Marca|Modelo";
+            this.marcaModeloToolStripMenuItem.Click += new System.EventHandler(this.marcaModeloToolStripMenuItem_Click);
             // 
             // ListAddOns
             // 
@@ -189,6 +222,16 @@ namespace ModuloSP
             this.userpanel.Size = new System.Drawing.Size(223, 93);
             this.userpanel.TabIndex = 16;
             this.userpanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.loginicon2;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -237,51 +280,6 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ModuloSP.Properties.Resources.loginicon2;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btMenu
-            // 
-            this.btMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btMenu.FlatAppearance.BorderSize = 0;
-            this.btMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMenu.Image = global::ModuloSP.Properties.Resources.menuicon;
-            this.btMenu.Location = new System.Drawing.Point(0, 0);
-            this.btMenu.Name = "btMenu";
-            this.btMenu.Size = new System.Drawing.Size(61, 41);
-            this.btMenu.TabIndex = 18;
-            this.btMenu.UseVisualStyleBackColor = true;
-            this.btMenu.Click += new System.EventHandler(this.btMenu_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ModuloSP.Properties.Resources.loginicon2;
-            this.pictureBox2.Location = new System.Drawing.Point(24, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 37);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // marcaModeloToolStripMenuItem
-            // 
-            this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.marcaModeloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ListMarca,
-            this.ListModelo});
-            this.marcaModeloToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.marcaModeloToolStripMenuItem.Name = "marcaModeloToolStripMenuItem";
-            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.marcaModeloToolStripMenuItem.Text = "Marca|Modelo";
-            // 
             // ListMarca
             // 
             this.ListMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
@@ -289,16 +287,7 @@ namespace ModuloSP
             this.ListMarca.Name = "ListMarca";
             this.ListMarca.Size = new System.Drawing.Size(180, 22);
             this.ListMarca.Text = "Marcas";
-            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click_1);
-            // 
-            // ListModelo
-            // 
-            this.ListModelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.ListModelo.ForeColor = System.Drawing.Color.White;
-            this.ListModelo.Name = "ListModelo";
-            this.ListModelo.Size = new System.Drawing.Size(180, 22);
-            this.ListModelo.Text = "Modelos";
-            this.ListModelo.Click += new System.EventHandler(this.ListModelo_Click_1);
+            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
             // GeneralView
             // 
@@ -317,6 +306,7 @@ namespace ModuloSP
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.DesktopPanel.ResumeLayout(false);
             this.DesktopPanel.PerformLayout();
             this.Menu.ResumeLayout(false);
@@ -324,7 +314,6 @@ namespace ModuloSP
             this.userpanel.ResumeLayout(false);
             this.userpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,6 +339,5 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem ListAddOns;
         private System.Windows.Forms.ToolStripMenuItem marcaModeloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ListMarca;
-        private System.Windows.Forms.ToolStripMenuItem ListModelo;
     }
 }

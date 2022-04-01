@@ -25,6 +25,13 @@ namespace ModuloSP
             set { _Marca_Modelo = value; }
         }
 
+        public static string _IDMarca = "";
+        public static string IDMarca
+        {
+            get { return _IDMarca; }
+            set { _IDMarca = value; }
+        }
+
     }
 
 

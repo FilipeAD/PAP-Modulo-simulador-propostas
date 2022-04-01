@@ -191,14 +191,15 @@ namespace ModuloSP
 
         }
 
-        private void ListMarca_Click_1(object sender, EventArgs e)
+
+        private void marcaModeloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new MarcaList(), sender);
+            OpenSecondForm(new MarcaModeloList(), sender);
         }
 
-        private void ListModelo_Click_1(object sender, EventArgs e)
+        private void ListMarca_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new ModeloList(), sender);
+            OpenSecondForm(new MarcaList(), sender);
         }
     }
 }

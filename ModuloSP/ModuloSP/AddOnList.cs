@@ -79,9 +79,16 @@ namespace ModuloSP
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btBack.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new AddOnEdit(), sender);
+            if (IDEditar.IdAddOn == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                btBack.Visible = true;
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new AddOnEdit(), sender);
+            }
         }
 
         private void btBack_Click(object sender, EventArgs e)
