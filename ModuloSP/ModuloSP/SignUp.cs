@@ -151,6 +151,7 @@ namespace ModuloSP
         {
             txtPassword.PasswordChar = '*';
             txtPassword2.PasswordChar = '*';
+            this.AcceptButton = btLogin;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

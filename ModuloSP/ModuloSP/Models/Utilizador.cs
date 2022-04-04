@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ModuloSP.Models
 {
@@ -50,47 +51,47 @@ namespace ModuloSP.Models
         //    int Rmail = 0;
         //    int RUsername = 0;
 
-        //        using (SqlConnection con =
-        //            new SqlConnection(Utils.conString))
-        //        {
-        //            DataTable dt = new DataTable();
-        //            BindingSource bs = new BindingSource();
-        //            string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "'";
-        //            SqlDataAdapter da = new SqlDataAdapter(query, con);
-        //            da.Fill(dt);
-        //            if (dt.Rows.Count == 1)
-        //            {
-        //                RUsername = 1;
-        //            }
-        //            else
-        //            {
-        //                RUsername = 0;
-        //            }
-        //            con.Close();
-        //        }
-        //    }
-        //    private void REmail()
+        //    using (SqlConnection con =
+        //        new SqlConnection(Utils.conString))
         //    {
-        //        using (SqlConnection con =
-        //            new SqlConnection(Utils.conString))
+        //        DataTable dt = new DataTable();
+        //        BindingSource bs = new BindingSource();
+        //        string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "'";
+        //        SqlDataAdapter da = new SqlDataAdapter(query, con);
+        //        da.Fill(dt);
+        //        if (dt.Rows.Count == 1)
         //        {
-        //            DataTable dt = new DataTable();
-        //            BindingSource bs = new BindingSource();
-        //            string query = "SELECT * from Utilizador where Email = '" + txtEmail.Text.Trim() + "'";
-        //            SqlDataAdapter da = new SqlDataAdapter(query, con);
-        //            da.Fill(dt);
-        //            if (dt.Rows.Count == 1)
-        //            {
-        //                Rmail = 1;
-
-        //            }
-        //            else
-        //            {
-        //                Rmail = 0;
-        //            }
-        //            con.Close();
+        //            RUsername = 1;
         //        }
+        //        else
+        //        {
+        //            RUsername = 0;
+        //        }
+        //        con.Close();
         //    }
+        //}
+        //private void REmail()
+        //{
+        //    using (SqlConnection con =
+        //        new SqlConnection(Utils.conString))
+        //    {
+        //        DataTable dt = new DataTable();
+        //        BindingSource bs = new BindingSource();
+        //        string query = "SELECT * from Utilizador where Email = '" + txtEmail.Text.Trim() + "'";
+        //        SqlDataAdapter da = new SqlDataAdapter(query, con);
+        //        da.Fill(dt);
+        //        if (dt.Rows.Count == 1)
+        //        {
+        //            Rmail = 1;
+
+        //        }
+        //        else
+        //        {
+        //            Rmail = 0;
+        //        }
+        //        con.Close();
+        //    }
+        //}
     }
         
     

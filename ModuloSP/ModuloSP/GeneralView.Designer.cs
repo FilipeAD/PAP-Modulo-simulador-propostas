@@ -155,7 +155,7 @@ namespace ModuloSP
             // 
             // listUtilizadores
             // 
-            this.listUtilizadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.listUtilizadores.BackColor = System.Drawing.Color.LightGray;
             this.listUtilizadores.ForeColor = System.Drawing.Color.White;
             this.listUtilizadores.Name = "listUtilizadores";
             this.listUtilizadores.Size = new System.Drawing.Size(206, 22);
@@ -164,7 +164,7 @@ namespace ModuloSP
             // 
             // ListImpressoras
             // 
-            this.ListImpressoras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListImpressoras.BackColor = System.Drawing.Color.LightGray;
             this.ListImpressoras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.marcaModeloToolStripMenuItem,
             this.ListMarca});
@@ -176,25 +176,25 @@ namespace ModuloSP
             // 
             // marcaModeloToolStripMenuItem
             // 
-            this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.marcaModeloToolStripMenuItem.BackColor = System.Drawing.Color.LightGray;
             this.marcaModeloToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.marcaModeloToolStripMenuItem.Name = "marcaModeloToolStripMenuItem";
-            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.marcaModeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.marcaModeloToolStripMenuItem.Text = "Marca|Modelo";
             this.marcaModeloToolStripMenuItem.Click += new System.EventHandler(this.marcaModeloToolStripMenuItem_Click);
             // 
             // ListMarca
             // 
-            this.ListMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListMarca.BackColor = System.Drawing.Color.LightGray;
             this.ListMarca.ForeColor = System.Drawing.Color.White;
             this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(156, 22);
+            this.ListMarca.Size = new System.Drawing.Size(180, 22);
             this.ListMarca.Text = "Marcas";
             this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
             // ListAddOns
             // 
-            this.ListAddOns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.ListAddOns.BackColor = System.Drawing.Color.LightGray;
             this.ListAddOns.ForeColor = System.Drawing.Color.White;
             this.ListAddOns.Name = "ListAddOns";
             this.ListAddOns.Size = new System.Drawing.Size(206, 22);

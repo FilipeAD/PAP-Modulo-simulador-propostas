@@ -27,18 +27,18 @@ namespace ModuloSP.AddOn
             }
         }
 
-        public static void LoadEditInfo(string _ID, string _textbox1, string _textbox2)
+        public static void LoadEditInfo(string _ID, TextBox _textbox1, TextBox _textbox2)
         {
             SqlConnection con =
                     new SqlConnection(Utils.conString);
             con.Open();
-            string query = "SELECT * FROM AddOns where ID='" + _ID + "'";
+            string query = "SELECT * FROM AddOns where ID = '" + _ID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _textbox1 = dr["nome"].ToString();
-                _textbox2 = dr["preco_base"].ToString();
+                _textbox1.Text = dr["nome"].ToString();
+                _textbox2.Text = dr["preco_base"].ToString();
             }
             con.Close();
         }

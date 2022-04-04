@@ -86,7 +86,7 @@ namespace ModuloSP.AddOn
             }
             else
             {
-                Models.FunctionsGeneral.DeleteRow("AddOn", Models.IDManagment.IdAddOn);
+                Models.FunctionsGeneral.DeleteRow("AddOns", Models.IDManagment.IdAddOn);
                 MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             FunctionsAddOn.INFOAddOn(dataGridView1);

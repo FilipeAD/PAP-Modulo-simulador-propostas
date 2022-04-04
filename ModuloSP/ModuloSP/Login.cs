@@ -21,6 +21,8 @@ namespace ModuloSP
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = btLogin;
+
             txtPassword.PasswordChar = '*';
 
         }
@@ -74,7 +76,7 @@ namespace ModuloSP
             }
         }
 
-        
 
+       
     }
 }

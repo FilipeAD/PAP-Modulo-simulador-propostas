@@ -125,7 +125,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-        public static void LoadMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM)
+        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, string _fkMM)
         {
             SqlConnection con =
                     new SqlConnection(Utils.conString);
@@ -136,9 +136,9 @@ namespace ModuloSP.Maquinas
             while (dr.Read())
             {
                 _fkMM = dr["fk_Marca_Modelo_ID"].ToString();
-                _Cor = dr["cor"].ToString();
-                _Dimensoes = dr["dimensoes"].ToString();
-                _Preco = dr["preco"].ToString();
+                _Cor.Text = dr["cor"].ToString();
+                _Dimensoes.Text = dr["dimensoes"].ToString();
+                _Preco.Text = dr["preco"].ToString();
             }
             con.Close();
         }
