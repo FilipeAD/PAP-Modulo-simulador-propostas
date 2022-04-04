@@ -58,7 +58,7 @@ namespace ModuloSP.Maquinas
         {
             SqlConnection con = new SqlConnection(Utils.conString);
             con.Open();
-            string query = "SELECT Nome FROM " + _Database + "Group by Nome ";
+            string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())

@@ -20,27 +20,6 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        private Form activeForm;
-
-        private void OpenSecondForm(Form SecondForm, object btSend)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = SecondForm;
-            SecondForm.TopLevel = false;
-            SecondForm.FormBorderStyle = FormBorderStyle.None;
-            SecondForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(SecondForm);
-            this.DesktopPanel.Tag = SecondForm;
-            SecondForm.BringToFront();
-            SecondForm.Show();
-
-
-        }
-       
-
         private void GroupVerification(object btSend)
         {
             using (SqlConnection con =
@@ -61,7 +40,7 @@ namespace ModuloSP
                     {
                         Utils.GroupSearch = rd["Nome"].ToString();
                     }
-                    OpenSecondForm(new GPermissionsList(), btSend);
+                    //OpenSecondForm(new GPermissionsList(), btSend);
                 }
                 else
                 {
@@ -74,16 +53,12 @@ namespace ModuloSP
             }
         }
 
-
-        private void GroupPermissions()
+        private void mudaform(Form _form)
         {
-           if (CurrentUser.group == "3")
-            {
-
-
-
-            }
-
+            _form.WindowState = FormWindowState.Maximized;
+            _form.MdiParent = this;
+            _form.Size = this.Size;
+            _form.Show();
         }
 
         private void AdminView_Load(object sender, EventArgs e)
@@ -120,6 +95,7 @@ namespace ModuloSP
             }
         }
 
+
         private void btMenu_Click(object sender, EventArgs e)
         {
             if(Menu.Visible == false)
@@ -137,7 +113,7 @@ namespace ModuloSP
         {
             if (txtSearch.Text == "Procure um grupo especifico nas permissões")
             {
-                OpenSecondForm(new GPermissionsList(), sender);
+                //OpenSecondForm(new GPermissionsList(), sender);
             }
             else
             {
@@ -173,33 +149,72 @@ namespace ModuloSP
 
         private void listUtilizadores_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new UserList(), sender);
+            var userList = new UserList();
+            mudaform(userList);
         }
+
+
 
         private void ListImpressoras_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new MachineList(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+            
+            Maquinas.MachineList load = new Maquinas.MachineList();
+            mudaform(load);
         }
 
         private void ListAddOns_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new AddOn.AddOnList(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            AddOn.AddOnList load = new AddOn.AddOnList();
+            mudaform(load);
         }
 
-        private void mainaction_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void marcaModeloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new MarcaModeloList(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Marc_Mod.MarcaModeloList load = new Marc_Mod.MarcaModeloList();
+            mudaform(load);
         }
 
         private void ListMarca_Click(object sender, EventArgs e)
         {
-            OpenSecondForm(new MarcaList(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marca.MarcaList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Marca.MarcaList load = new Marca.MarcaList();
+            mudaform(load);
         }
     }
 }

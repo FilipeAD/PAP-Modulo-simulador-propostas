@@ -35,7 +35,6 @@ namespace ModuloSP
             this.btMenu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.DesktopPanel = new System.Windows.Forms.Panel();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.mainaction = new System.Windows.Forms.ToolStripMenuItem();
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +51,6 @@ namespace ModuloSP
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.DesktopPanel.SuspendLayout();
             this.Menu.SuspendLayout();
             this.userpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,22 +130,12 @@ namespace ModuloSP
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // DesktopPanel
-            // 
-            this.DesktopPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DesktopPanel.Controls.Add(this.Menu);
-            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesktopPanel.Location = new System.Drawing.Point(0, 41);
-            this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1162, 721);
-            this.DesktopPanel.TabIndex = 17;
-            // 
             // Menu
             // 
-            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.Menu.BackColor = System.Drawing.Color.LightGray;
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainaction});
-            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Location = new System.Drawing.Point(0, 41);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(1162, 24);
             this.Menu.TabIndex = 0;
@@ -164,7 +152,6 @@ namespace ModuloSP
             this.mainaction.Name = "mainaction";
             this.mainaction.Size = new System.Drawing.Size(135, 20);
             this.mainaction.Text = "Listagens Principais";
-            this.mainaction.Click += new System.EventHandler(this.mainaction_Click);
             // 
             // listUtilizadores
             // 
@@ -227,7 +214,7 @@ namespace ModuloSP
             this.userpanel.Location = new System.Drawing.Point(939, 41);
             this.userpanel.MaximumSize = new System.Drawing.Size(223, 93);
             this.userpanel.Name = "userpanel";
-            this.userpanel.Size = new System.Drawing.Size(223, 93);
+            this.userpanel.Size = new System.Drawing.Size(223, 88);
             this.userpanel.TabIndex = 16;
             this.userpanel.Visible = false;
             // 
@@ -292,28 +279,29 @@ namespace ModuloSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1162, 762);
             this.Controls.Add(this.userpanel);
-            this.Controls.Add(this.DesktopPanel);
+            this.Controls.Add(this.Menu);
             this.Controls.Add(this.panel4);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.Menu;
             this.Name = "GeneralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminView_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.DesktopPanel.ResumeLayout(false);
-            this.DesktopPanel.PerformLayout();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.userpanel.ResumeLayout(false);
             this.userpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -321,7 +309,6 @@ namespace ModuloSP
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btMenu;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button button2;

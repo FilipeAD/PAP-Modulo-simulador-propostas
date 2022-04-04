@@ -18,7 +18,7 @@ namespace ModuloSP.Marca
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select *" + _Database + "from marca";
+                string query = "select * from marca";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;

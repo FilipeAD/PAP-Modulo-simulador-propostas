@@ -27,6 +27,16 @@ namespace ModuloSP.Models
             _DataGrid.RowHeadersVisible = false;
         }
 
+        public static void VerifyOpenForm(Form _formName)
+        {
+            int _iCount = Application.OpenForms.Cast<Form>().Where(x => x.Name == _formName.Name).Count();
+           
+            //_formName.WindowState = FormWindowState.Maximized;
+            //_formName.MdiParent = this;
+            //_formName.Size = this.Size;
+            //_formName.Show();
+        }
+
 
     }
 }

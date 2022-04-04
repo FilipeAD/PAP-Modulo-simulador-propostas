@@ -29,7 +29,6 @@ namespace ModuloSP.Maquinas
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtID = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtCor = new System.Windows.Forms.TextBox();
             this.txtDimensoes = new System.Windows.Forms.TextBox();
@@ -42,18 +41,6 @@ namespace ModuloSP.Maquinas
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // txtID
-            // 
-            this.txtID.AutoSize = true;
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtID.Location = new System.Drawing.Point(12, 9);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(22, 16);
-            this.txtID.TabIndex = 27;
-            this.txtID.Text = "ID";
-            this.txtID.Visible = false;
             // 
             // txtPreco
             // 
@@ -202,7 +189,6 @@ namespace ModuloSP.Maquinas
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDimensoes);
             this.Controls.Add(this.txtCor);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtPreco);
             this.Name = "MachineAdd";
             this.Text = "MachineAdd";
@@ -213,8 +199,6 @@ namespace ModuloSP.Maquinas
         }
 
         #endregion
-
-        private System.Windows.Forms.Label txtID;
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtCor;
         private System.Windows.Forms.TextBox txtDimensoes;

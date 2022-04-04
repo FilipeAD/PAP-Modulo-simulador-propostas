@@ -31,7 +31,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btAdd = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -71,25 +70,12 @@
             this.txtNome.Enter += new System.EventHandler(this.txtPreco_Enter);
             this.txtNome.Leave += new System.EventHandler(this.txtPreco_Leave);
             // 
-            // txtID
-            // 
-            this.txtID.AutoSize = true;
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtID.Location = new System.Drawing.Point(12, 9);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(22, 16);
-            this.txtID.TabIndex = 47;
-            this.txtID.Text = "ID";
-            this.txtID.Visible = false;
-            // 
             // MarcaAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.txtNome);
@@ -106,6 +92,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label txtID;
     }
 }
