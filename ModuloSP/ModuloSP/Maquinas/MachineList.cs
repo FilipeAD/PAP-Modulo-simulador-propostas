@@ -82,7 +82,7 @@ namespace ModuloSP.Maquinas
             }
             else
             {
-                Models.FunctionsGeneral.DeleteRow("Maquina", Models.IDManagment.IdMaquina);
+                Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IdMaquina);
 
             }
             FunctionsMaq.LoadInfo(dataGridView1);

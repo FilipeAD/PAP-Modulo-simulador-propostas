@@ -63,9 +63,9 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
-        public static void AddInfo(string _ID, string _textbox1, string _textbox2)
+        public static void AddInfo( string _textbox1, string _textbox2)
         {
-            Models.IDManagment.InsereID("AddOn", _ID);
+            Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOns");
 
             if (string.IsNullOrWhiteSpace(_textbox1) | string.IsNullOrWhiteSpace(_textbox2))
             {
@@ -81,7 +81,7 @@ namespace ModuloSP.AddOn
                 "id,nome,preco_base)" +
                 "VALUES (@id,@nome,@preco_base)";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@id", _ID);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdAddOn);
             cmd.Parameters.AddWithValue("@nome", _textbox1);
             cmd.Parameters.AddWithValue("@preco_base", _textbox2);
             try
@@ -100,8 +100,7 @@ namespace ModuloSP.AddOn
 
 
             con.Close();
-            _textbox1 = "";
-            _textbox2 = "";
+            
         }
 
     }

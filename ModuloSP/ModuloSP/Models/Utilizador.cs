@@ -11,9 +11,6 @@ namespace ModuloSP.Models
 {
     internal class Utilizador
     {
-        public string Username;
-        public string Password;
-
         public static bool LoginAcount(string _Username, string _Password)
         {
             using (SqlConnection con =
@@ -36,40 +33,42 @@ namespace ModuloSP.Models
                         CurrentUser.group = rd["fk_Grupos_ID"].ToString();
                     }
                     return true;
+                    con.Close();
                 }
                 else
                 {
                     return false;
+                    con.Close();
+                }
+                
+            }
+        }
+
+        public static void CreateAcount(string _Username, string _Email, string _Password)
+        {
+            int novoID = 0;
+            int Rmail = 0;
+            int RUsername = 0;
+
+            using (SqlConnection con =
+                new SqlConnection(Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "SELECT * from Utilizador where Nome = '" + _Username + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                if (dt.Rows.Count == 1)
+                {
+                    RUsername = 1;
+                }
+                else
+                {
+                    RUsername = 0;
                 }
                 con.Close();
             }
         }
-
-        //public static bool CreateAcount(string _Username, string _Email, string _Password)
-        //{
-        //    int novoID = 0;
-        //    int Rmail = 0;
-        //    int RUsername = 0;
-
-        //    using (SqlConnection con =
-        //        new SqlConnection(Utils.conString))
-        //    {
-        //        DataTable dt = new DataTable();
-        //        BindingSource bs = new BindingSource();
-        //        string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "'";
-        //        SqlDataAdapter da = new SqlDataAdapter(query, con);
-        //        da.Fill(dt);
-        //        if (dt.Rows.Count == 1)
-        //        {
-        //            RUsername = 1;
-        //        }
-        //        else
-        //        {
-        //            RUsername = 0;
-        //        }
-        //        con.Close();
-        //    }
-        //}
         //private void REmail()
         //{
         //    using (SqlConnection con =

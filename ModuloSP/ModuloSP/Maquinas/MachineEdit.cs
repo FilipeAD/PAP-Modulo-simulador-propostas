@@ -21,8 +21,8 @@ namespace ModuloSP.Maquinas
 
         private void MachineEdit_Load(object sender, EventArgs e)
         {
-            FunctionsMaq.LoadMachine(Models.IDManagment.IdMaquina, txtCor, txtDimensoes, txtPreco, Models.IDManagment.fkMarca_Modelo);
-            FunctionsMaq.LoadCMB(txtMarca.Text, txtModelo.Text);
+            FunctionsMaq.LoadMachine(Models.IDManagment.IdMaquina, txtCor, txtDimensoes, txtPreco);
+            FunctionsMaq.LoadCMB(txtMarca, txtModelo);
         }
 
 

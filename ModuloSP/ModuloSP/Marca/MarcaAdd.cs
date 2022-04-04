@@ -22,8 +22,9 @@ namespace ModuloSP.Marca
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            Models.IDManagment.InsereID("Marca", Models.IDManagment.IdMarca);
+            Models.IDManagment.IdMarca = Models.IDManagment.InsereID("Marca");
             FunctionsMarca.AddInfo(txtNome.Text, Models.IDManagment.IdMarca);
+            txtNome.Text = "";
         }
 
         private void txtPreco_Enter(object sender, EventArgs e)

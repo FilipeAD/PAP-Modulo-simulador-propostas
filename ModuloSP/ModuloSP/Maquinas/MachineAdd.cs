@@ -123,11 +123,14 @@ namespace ModuloSP.Maquinas
 
         private void btAdd_Click_1(object sender, EventArgs e)
         {
-            Models.IDManagment.InsereID("Maquinas", Models.IDManagment.IdMaquina);
+            Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
             FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
             FunctionsMaq.AddInfo(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, Utils.Marca_Modelo);
             txtMarca.SelectedIndex = -1;
             txtModelo.SelectedIndex = -1;
+            txtCor.Text = "";
+            txtDimensoes.Text = "";
+            txtPreco.Text = "";
 
         }
 

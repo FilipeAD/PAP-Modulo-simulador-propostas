@@ -61,12 +61,10 @@ namespace ModuloSP.Marca
 
 
             con.Close();
-            _Nome = "";
         }
 
-        public static void LoadMarca(string _ID, string _Nome)
+        public static void LoadMarca(string _ID, TextBox _Nome)
         {
-
             SqlConnection con =
                     new SqlConnection(Utils.conString);
             con.Open();
@@ -75,9 +73,8 @@ namespace ModuloSP.Marca
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _Nome = dr["nome"].ToString();
+                _Nome.Text = dr["nome"].ToString();
             }
-            con.Close();
         }
 
         public static void EditMarca(string _ID, string _Nome)

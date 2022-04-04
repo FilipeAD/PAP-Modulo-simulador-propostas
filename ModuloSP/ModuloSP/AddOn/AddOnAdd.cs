@@ -28,8 +28,10 @@ namespace ModuloSP.AddOn
 
         private void btAdd_Click_1(object sender, EventArgs e)
         {
-            Models.IDManagment.InsereID("AddOn", Models.IDManagment.IdAddOn);
-            FunctionsAddOn.AddInfo(Models.IDManagment.IdAddOn, txtNome.Text, txtPreco.Text);
+            Models.IDManagment.IdAddOn= Models.IDManagment.InsereID("AddOn");
+            FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text);
+            txtNome.Text = "";
+            txtPreco.Text = "";
         }
     }
 }

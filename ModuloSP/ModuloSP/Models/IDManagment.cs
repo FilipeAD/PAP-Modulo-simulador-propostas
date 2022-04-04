@@ -10,7 +10,7 @@ namespace ModuloSP.Models
     internal class IDManagment
     {
 
-        public static string InsereID(string _Database, string _ID)
+        public static string InsereID(string _Database)
         {
 
             string query = "SELECT MAX(ID) FROM " + _Database;
@@ -22,15 +22,20 @@ namespace ModuloSP.Models
                     con.Open();
                     try
                     {
-                        _ID = (int.Parse(cmd.ExecuteScalar().ToString()) + 1).ToString();
+                        string id = (int.Parse(cmd.ExecuteScalar().ToString()) + 1).ToString();
+
+                        con.Close();
+
+                        return id;
                     }
                     catch
                     {
-                        _ID = "1";
+                        con.Close();
+
+                        return "1";
                     }
                 }
-                con.Close();
-                return _ID;
+                
             }
         }
 

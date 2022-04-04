@@ -49,9 +49,6 @@ namespace ModuloSP.Maquinas
 
 
             con.Close();
-            _Cor = "";
-            _Dimensoes = "";
-            _Preco = "";
         }
 
         public static void CmbInsertM(string _Database,  ComboBox _cmb)
@@ -105,7 +102,7 @@ namespace ModuloSP.Maquinas
         }
 
 
-        public static void LoadCMB(string _cmb, string _cmb2)
+        public static void LoadCMB(TextBox _cmb, TextBox _cmb2)
         {
             SqlConnection con =
                    new SqlConnection(Utils.conString);
@@ -119,13 +116,13 @@ namespace ModuloSP.Maquinas
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _cmb = dr["Marca"].ToString();
-                _cmb2 = dr["Modelo"].ToString();
+                _cmb.Text = dr["Marca"].ToString();
+                _cmb2.Text = dr["Modelo"].ToString();
             }
             con.Close();
         }
 
-        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, string _fkMM)
+        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco)
         {
             SqlConnection con =
                     new SqlConnection(Utils.conString);
@@ -135,10 +132,10 @@ namespace ModuloSP.Maquinas
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _fkMM = dr["fk_Marca_Modelo_ID"].ToString();
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString();
+                Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
             }
             con.Close();
         }

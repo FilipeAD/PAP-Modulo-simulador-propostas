@@ -14,7 +14,7 @@ namespace ModuloSP.Models
         {
             SqlConnection con = new SqlConnection(Utils.conString);
             con.Open();
-            string query = "DELETE "+ _Database + " where ID= " + int.Parse(_ID);
+            string query = "DELETE "+ _Database + " where ID = " + _ID;
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
             con.Close();

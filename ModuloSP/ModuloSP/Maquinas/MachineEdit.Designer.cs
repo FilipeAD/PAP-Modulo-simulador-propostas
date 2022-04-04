@@ -36,11 +36,11 @@ namespace ModuloSP.Maquinas
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btEditar = new System.Windows.Forms.Button();
-            this.txtModelo = new System.Windows.Forms.ComboBox();
-            this.txtMarca = new System.Windows.Forms.ComboBox();
             this.txtDimensoes = new System.Windows.Forms.TextBox();
             this.txtCor = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtID
@@ -120,34 +120,6 @@ namespace ModuloSP.Maquinas
             this.btEditar.UseVisualStyleBackColor = false;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
-            // txtModelo
-            // 
-            this.txtModelo.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.txtModelo.Enabled = false;
-            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtModelo.FormattingEnabled = true;
-            this.txtModelo.ItemHeight = 20;
-            this.txtModelo.Location = new System.Drawing.Point(599, 95);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(250, 28);
-            this.txtModelo.TabIndex = 48;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.txtMarca.Enabled = false;
-            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMarca.FormattingEnabled = true;
-            this.txtMarca.ItemHeight = 20;
-            this.txtMarca.Location = new System.Drawing.Point(274, 95);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(250, 28);
-            this.txtMarca.TabIndex = 47;
-            // 
             // txtDimensoes
             // 
             this.txtDimensoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,20 +150,42 @@ namespace ModuloSP.Maquinas
             this.txtPreco.TabIndex = 44;
             this.txtPreco.Text = "Preço";
             // 
+            // txtMarca
+            // 
+            this.txtMarca.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtMarca.Location = new System.Drawing.Point(274, 97);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.ReadOnly = true;
+            this.txtMarca.Size = new System.Drawing.Size(250, 26);
+            this.txtMarca.TabIndex = 55;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtModelo.Location = new System.Drawing.Point(599, 97);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.ReadOnly = true;
+            this.txtModelo.Size = new System.Drawing.Size(250, 26);
+            this.txtModelo.TabIndex = 56;
+            // 
             // MachineEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
+            this.Controls.Add(this.txtModelo);
+            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btEditar);
-            this.Controls.Add(this.txtModelo);
-            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDimensoes);
             this.Controls.Add(this.txtCor);
             this.Controls.Add(this.txtPreco);
@@ -212,10 +206,10 @@ namespace ModuloSP.Maquinas
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btEditar;
-        private System.Windows.Forms.ComboBox txtModelo;
-        private System.Windows.Forms.ComboBox txtMarca;
         private System.Windows.Forms.TextBox txtDimensoes;
         private System.Windows.Forms.TextBox txtCor;
         private System.Windows.Forms.TextBox txtPreco;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.TextBox txtModelo;
     }
 }

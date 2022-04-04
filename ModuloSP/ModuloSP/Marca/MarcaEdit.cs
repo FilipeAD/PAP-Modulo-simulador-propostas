@@ -20,13 +20,13 @@ namespace ModuloSP.Marca
 
         private void MarcaEdit_Load(object sender, EventArgs e)
         {
-            FunctionsMarca.LoadMarca(txtNome.Text, Models.IDManagment.IdMarca);
+            FunctionsMarca.LoadMarca(Models.IDManagment.IdMarca, txtNome);
 
         }
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            FunctionsMarca.EditMarca(txtNome.Text, Models.IDManagment.IdMarca);
+            FunctionsMarca.EditMarca(Models.IDManagment.IdMarca, txtNome.Text);
             this.Close();
         }
     }

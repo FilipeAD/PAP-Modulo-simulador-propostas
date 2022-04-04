@@ -27,6 +27,7 @@ namespace ModuloSP.AddOn
         private void btEditar_Click(object sender, EventArgs e)
         {
             FunctionsAddOn.EditInfo(Models.IDManagment.IdAddOn, txtNome.Text, txtPreco.Text);
+            this.Close();
         }
     }
 }
