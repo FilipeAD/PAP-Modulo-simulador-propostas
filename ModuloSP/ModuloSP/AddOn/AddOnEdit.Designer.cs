@@ -38,12 +38,13 @@ namespace ModuloSP.AddOn
             // 
             // btEditar
             // 
+            this.btEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btEditar.BackColor = System.Drawing.Color.Black;
             this.btEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEditar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEditar.ForeColor = System.Drawing.Color.White;
-            this.btEditar.Location = new System.Drawing.Point(403, 416);
+            this.btEditar.Location = new System.Drawing.Point(477, 347);
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(250, 33);
             this.btEditar.TabIndex = 50;
@@ -53,9 +54,10 @@ namespace ModuloSP.AddOn
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(382, 267);
+            this.label2.Location = new System.Drawing.Point(446, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 19);
             this.label2.TabIndex = 54;
@@ -63,9 +65,10 @@ namespace ModuloSP.AddOn
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(382, 144);
+            this.label1.Location = new System.Drawing.Point(446, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 19);
             this.label1.TabIndex = 53;
@@ -73,16 +76,18 @@ namespace ModuloSP.AddOn
             // 
             // txtPreco
             // 
+            this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(386, 305);
+            this.txtPreco.Location = new System.Drawing.Point(450, 242);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(305, 24);
             this.txtPreco.TabIndex = 52;
             // 
             // txtNome
             // 
+            this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(386, 192);
+            this.txtNome.Location = new System.Drawing.Point(450, 125);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(305, 24);
             this.txtNome.TabIndex = 51;
@@ -92,7 +97,7 @@ namespace ModuloSP.AddOn
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1146, 682);
+            this.ClientSize = new System.Drawing.Size(1179, 539);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPreco);

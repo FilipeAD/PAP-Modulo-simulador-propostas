@@ -63,6 +63,16 @@ namespace ModuloSP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addcolum {
+            get {
+                object obj = ResourceManager.GetObject("addcolum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addonFiled {
             get {
                 object obj = ResourceManager.GetObject("addonFiled", resourceCulture);
@@ -103,9 +113,29 @@ namespace ModuloSP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delcolum {
+            get {
+                object obj = ResourceManager.GetObject("delcolum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dropdown {
             get {
                 object obj = ResourceManager.GetObject("dropdown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editcolu {
+            get {
+                object obj = ResourceManager.GetObject("editcolu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

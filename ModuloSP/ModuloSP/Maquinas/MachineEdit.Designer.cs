@@ -57,6 +57,7 @@ namespace ModuloSP.Maquinas
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(270, 333);
@@ -67,6 +68,7 @@ namespace ModuloSP.Maquinas
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(270, 256);
@@ -77,6 +79,7 @@ namespace ModuloSP.Maquinas
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(270, 175);
@@ -87,6 +90,7 @@ namespace ModuloSP.Maquinas
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(595, 54);
@@ -97,6 +101,7 @@ namespace ModuloSP.Maquinas
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(270, 54);
@@ -107,6 +112,7 @@ namespace ModuloSP.Maquinas
             // 
             // btEditar
             // 
+            this.btEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btEditar.BackColor = System.Drawing.Color.Black;
             this.btEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,6 +128,7 @@ namespace ModuloSP.Maquinas
             // 
             // txtDimensoes
             // 
+            this.txtDimensoes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDimensoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDimensoes.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtDimensoes.Location = new System.Drawing.Point(274, 210);
@@ -132,6 +139,7 @@ namespace ModuloSP.Maquinas
             // 
             // txtCor
             // 
+            this.txtCor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCor.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtCor.Location = new System.Drawing.Point(274, 288);
@@ -142,6 +150,7 @@ namespace ModuloSP.Maquinas
             // 
             // txtPreco
             // 
+            this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreco.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtPreco.Location = new System.Drawing.Point(274, 365);
@@ -152,6 +161,7 @@ namespace ModuloSP.Maquinas
             // 
             // txtMarca
             // 
+            this.txtMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMarca.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.ForeColor = System.Drawing.SystemColors.InfoText;
@@ -163,6 +173,7 @@ namespace ModuloSP.Maquinas
             // 
             // txtModelo
             // 
+            this.txtModelo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtModelo.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.ForeColor = System.Drawing.SystemColors.InfoText;

@@ -27,9 +27,9 @@ namespace ModuloSP.Marca
             }
         }
 
-        public static void AddInfo(string _Nome, string _ID)
+        public static void AddInfo(string _DatabaseN, TextBox _Nome, string _ID)
         {
-            if (string.IsNullOrWhiteSpace(_Nome))
+            if (string.IsNullOrWhiteSpace(_Nome.Text))
             {
                 MessageBox.Show("Tem de preencher todos os campos", "Atenção",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -39,12 +39,12 @@ namespace ModuloSP.Marca
             SqlConnection con = new
                 SqlConnection(Utils.conString);
             con.Open();
-            string query = "INSERT INTO marca(" +
+            string query = "INSERT INTO "+ _DatabaseN + " (" +
                 "id,nome)" +
                 "VALUES (@id,@nome)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
-            cmd.Parameters.AddWithValue("@nome", _Nome);
+            cmd.Parameters.AddWithValue("@nome", _Nome.Text);
             try
             {
                 cmd.ExecuteScalar();

@@ -54,7 +54,6 @@ namespace ModuloSP.Maquinas
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btBack.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new Maquinas.MachineAdd(), sender);
         }
@@ -67,7 +66,6 @@ namespace ModuloSP.Maquinas
             }
             else
             {
-                btBack.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MachineEdit(), sender);
             }
@@ -89,15 +87,55 @@ namespace ModuloSP.Maquinas
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
-
-        private void btBack_Click(object sender, EventArgs e)
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DesktopPanel.Visible = false;
-            btBack.Visible = false;
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
-       
+        private void adicionarbt_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new Maquinas.MachineAdd(), sender);
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdMaquina == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MachineEdit(), sender);
+            }
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (DesktopPanel.Visible == false)
+            {
+                if (Models.IDManagment.IdMaquina == "")
+                {
+                    MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdMaquina + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IdMaquina);
+
+                    }
+                    FunctionsMaq.LoadInfo(dataGridView1);
+                    Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+                }
+            }
+        }
     }
 }

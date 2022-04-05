@@ -60,11 +60,25 @@ namespace ModuloSP.Models
             set { _IdMarca = value; }
         }
 
+        private static string _IdModelo = "";
+        public static string IdModelo
+        {
+            get { return _IdModelo; }
+            set { _IdModelo = value; }
+        }
+
         private static string _fkMarca_Modelo = "";
         public static string fkMarca_Modelo
         {
             get { return _fkMarca_Modelo; }
             set { _fkMarca_Modelo = value; }
+        }
+
+        private static string _IDMarca_Modelo = "";
+        public static string IDMarca_Modelo
+        {
+            get { return _IDMarca_Modelo; }
+            set { _IDMarca_Modelo = value; }
         }
     }
 }

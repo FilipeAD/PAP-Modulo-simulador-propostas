@@ -18,21 +18,6 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        private void INFOPermicoesSpec()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT Permicoes_List.Nome as Permições, Estado FROM Permicoes_Gerais INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID  INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID where Grupos.Nome = '"+ Utils.GroupSearch +"'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
-                con.Close();
-            }
-        }
 
         private void INFOPermicoes()
         {
@@ -41,7 +26,7 @@ namespace ModuloSP
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado FROM Permicoes_Gerais INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID  INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID";
+                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado FROM Permicoes_Gerais INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID  INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID where Grupos.ID != 2";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -64,32 +49,11 @@ namespace ModuloSP
 
         }
 
-        private void DatagridStyleSpec()
-        {
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Columns["Permições"].ReadOnly = true;
-            this.dataGridView1.Columns["Permições"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Estado"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Estado"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-        }
-
 
         private void GPermissionsList_Load(object sender, EventArgs e)
         {
-            if (Utils.GroupSearch == "")
-            {
-                INFOPermicoes();
-                DatagridStyle();
-            }
-            else
-            {
-                INFOPermicoesSpec();
-                DatagridStyleSpec();
-            }
-          
-            
+            INFOPermicoes();
+            DatagridStyle();
         }
     }
 }

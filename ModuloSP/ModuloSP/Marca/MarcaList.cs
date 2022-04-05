@@ -47,7 +47,6 @@ namespace ModuloSP.Marca
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            btBack.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new MarcaAdd(), sender);
         }
@@ -60,7 +59,6 @@ namespace ModuloSP.Marca
             }
             else
             {
-                btBack.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MarcaEdit(), sender);
             }
@@ -86,11 +84,44 @@ namespace ModuloSP.Marca
             Models.IDManagment.IdMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
-        private void btBack_Click(object sender, EventArgs e)
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DesktopPanel.Visible = false;
-            btBack.Visible = false;
             FunctionsMarca.LoadInfo(dataGridView1); ;
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MarcaEdit(), sender);
+            }
+        }
+
+        private void adicionarbt_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new MarcaAdd(), sender);
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Models.FunctionsGeneral.DeleteRow("Marca", Models.IDManagment.IdMarca);
+
+            }
+            FunctionsMarca.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
     }

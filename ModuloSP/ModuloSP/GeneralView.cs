@@ -20,38 +20,38 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        private void GroupVerification(object btSend)
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
+        //private void GroupVerification(object btSend)
+        //{
+        //    using (SqlConnection con =
+        //        new SqlConnection(Utils.conString))
+        //    {
 
                
-                SqlCommand cmd = new SqlCommand("GroupVerification", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                cmd.Parameters.AddWithValue("@group", txtSearch.Text);
-                SqlDataReader rd = cmd.ExecuteReader();
+        //        SqlCommand cmd = new SqlCommand("GroupVerification", con);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        con.Open();
+        //        cmd.Parameters.AddWithValue("@group", txtSearch.Text);
+        //        SqlDataReader rd = cmd.ExecuteReader();
 
                 
-                if (rd.HasRows)
-                {
-                    while (rd.Read())
-                    {
-                        Utils.GroupSearch = rd["Nome"].ToString();
-                    }
-                    //OpenSecondForm(new GPermissionsList(), btSend);
-                }
-                else
-                {
-                    MessageBox.Show("Grupo não existe", "!!ERRO!!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtSearch.Text = "Procure um grupo especifico nas permissões";
-                    txtSearch.ForeColor = Color.Gray;
-                }
-                con.Close();
-            }
-        }
+        //        if (rd.HasRows)
+        //        {
+        //            while (rd.Read())
+        //            {
+        //                Utils.GroupSearch = rd["Nome"].ToString();
+        //            }
+        //            //OpenSecondForm(new GPermissionsList(), btSend);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Grupo não existe", "!!ERRO!!",
+        //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            txtSearch.Text = "Procure um grupo especifico nas permissões";
+        //            txtSearch.ForeColor = Color.Gray;
+        //        }
+        //        con.Close();
+        //    }
+        //}
 
         private void mudaform(Form _form)
         {
@@ -107,37 +107,6 @@ namespace ModuloSP
                 Menu.Visible = false;   
             }
 
-        }
-
-        private void btPermissões_Click(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "Procure um grupo especifico nas permissões")
-            {
-                //OpenSecondForm(new GPermissionsList(), sender);
-            }
-            else
-            {
-                GroupVerification(sender);
-            }
-            
-        }
-
-        private void txtGrupo_Enter(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "Procure um grupo especifico nas permissões")
-            {
-                txtSearch.Text = null;
-                txtSearch.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtGrupo_Leave(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "")
-            {
-                txtSearch.Text = "Procure um grupo especifico nas permissões";
-                txtSearch.ForeColor = Color.Gray;
-            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -214,6 +183,21 @@ namespace ModuloSP
             }
 
             Marca.MarcaList load = new Marca.MarcaList();
+            mudaform(load);
+        }
+
+        private void permissonmenustrip_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(GPermissionsList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            GPermissionsList load = new GPermissionsList();
             mudaform(load);
         }
     }

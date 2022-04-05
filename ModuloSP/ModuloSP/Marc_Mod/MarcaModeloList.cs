@@ -37,37 +37,16 @@ namespace ModuloSP.Marc_Mod
 
 
         }
-        private void INFOMarMode()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select Marca_Modelo.ID, Marca.Nome, Modelo.Nome as Modelo " +
-                                "from Marca_Modelo " +
-                                "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                                "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
-                con.Close();
-            }
-        }
-
+       
 
         private void MarcaModeloList_Load(object sender, EventArgs e)
         {
-            INFOMarMode();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionMarMod.LoadMarMod(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void yesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btBack.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new MarcaModeloAdd(), sender);
         }
@@ -75,16 +54,43 @@ namespace ModuloSP.Marc_Mod
         private void btBack_Click(object sender, EventArgs e)
         {
             DesktopPanel.Visible = false;
-            btBack.Visible = false;
-            INFOMarMode();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            FunctionMarMod.LoadMarMod(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
-        private void editarLigaçõesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+      
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Models.IDManagment.IDMarca_Modelo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void adicionarbt_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = true;
+            OpenSecondForm(new MarcaModeloAdd(), sender);
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Models.FunctionsGeneral.DeleteRow("Marca_Modelo", Models.IDManagment.IDMarca_Modelo);
+                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            FunctionMarMod.LoadMarMod(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
+
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DesktopPanel.Visible = false;
+            FunctionMarMod.LoadMarMod(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
     }
 }
