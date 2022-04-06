@@ -22,7 +22,7 @@ namespace ModuloSP
         private void INFOUser()
         {
             using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();

@@ -47,18 +47,10 @@ namespace ModuloSP.Marc_Mod
 
         private void yesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new MarcaModeloAdd(), sender);
         }
-
-        private void btBack_Click(object sender, EventArgs e)
-        {
-            DesktopPanel.Visible = false;
-            FunctionMarMod.LoadMarMod(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-        }
-
-      
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -67,6 +59,7 @@ namespace ModuloSP.Marc_Mod
 
         private void adicionarbt_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new MarcaModeloAdd(), sender);
         }
@@ -91,6 +84,9 @@ namespace ModuloSP.Marc_Mod
             DesktopPanel.Visible = false;
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            bToolStripMenuItem.Visible = false;
         }
+           
+        
     }
 }

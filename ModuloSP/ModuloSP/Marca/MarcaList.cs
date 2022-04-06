@@ -47,6 +47,7 @@ namespace ModuloSP.Marca
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new MarcaAdd(), sender);
         }
@@ -59,6 +60,7 @@ namespace ModuloSP.Marca
             }
             else
             {
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MarcaEdit(), sender);
             }
@@ -86,6 +88,7 @@ namespace ModuloSP.Marca
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = false;
             DesktopPanel.Visible = false;
             FunctionsMarca.LoadInfo(dataGridView1); ;
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
@@ -99,6 +102,7 @@ namespace ModuloSP.Marca
             }
             else
             {
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MarcaEdit(), sender);
             }

@@ -51,7 +51,7 @@ namespace ModuloSP.AddOn
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //btBack.Visible = true;
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new AddOnAdd(), sender);
 
@@ -65,18 +65,10 @@ namespace ModuloSP.AddOn
             }
             else
             {
-                //btBack.Visible = true;
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
-
+                OpenSecondForm(new AddOnEdit(), sender);
             }
-        }
-
-        private void btBack_Click(object sender, EventArgs e)
-        {
-            DesktopPanel.Visible = false;
-            //btBack.Visible = false;
-            FunctionsAddOn.INFOAddOn(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,6 +94,7 @@ namespace ModuloSP.AddOn
 
         private void adicionarbt_Click_1(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new AddOnAdd(), sender);
 
@@ -115,6 +108,7 @@ namespace ModuloSP.AddOn
             }
             else
             {
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new AddOnEdit(), sender);
             }
@@ -147,6 +141,7 @@ namespace ModuloSP.AddOn
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = false;
             DesktopPanel.Visible = false;
             FunctionsAddOn.INFOAddOn(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);

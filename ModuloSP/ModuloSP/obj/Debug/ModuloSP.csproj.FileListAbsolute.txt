@@ -36,7 +36,6 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.pdb
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GeneralView.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.UserList.resources
-C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.GPermissionsList.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnAdd.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnEdit.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnList.resources
@@ -48,3 +47,5 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.Ma
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.MachineList.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marc_Mod.MarcaModeloAdd.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marc_Mod.MarcaModeloList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Permissoes.GPermissionsList.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marc_Mod.MarcaModeloEdit.resources

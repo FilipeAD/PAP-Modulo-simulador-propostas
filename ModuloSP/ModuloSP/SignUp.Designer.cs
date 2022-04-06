@@ -63,7 +63,7 @@ namespace ModuloSP
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(206, 24);
-            this.txtPassword.TabIndex = 21;
+            this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
@@ -74,7 +74,7 @@ namespace ModuloSP
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(206, 24);
-            this.txtUsername.TabIndex = 20;
+            this.txtUsername.TabIndex = 0;
             // 
             // btLogin
             // 
@@ -86,7 +86,7 @@ namespace ModuloSP
             this.btLogin.Location = new System.Drawing.Point(28, 377);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(236, 33);
-            this.btLogin.TabIndex = 18;
+            this.btLogin.TabIndex = 5;
             this.btLogin.Text = "SIGN UP";
             this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
@@ -126,7 +126,7 @@ namespace ModuloSP
             this.txtPassword2.Multiline = true;
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.Size = new System.Drawing.Size(206, 24);
-            this.txtPassword2.TabIndex = 25;
+            this.txtPassword2.TabIndex = 3;
             // 
             // panel3
             // 
@@ -145,7 +145,7 @@ namespace ModuloSP
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 24);
-            this.txtEmail.TabIndex = 28;
+            this.txtEmail.TabIndex = 1;
             // 
             // panel4
             // 
@@ -226,7 +226,7 @@ namespace ModuloSP
             this.showPass.Location = new System.Drawing.Point(28, 345);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(50, 24);
-            this.showPass.TabIndex = 29;
+            this.showPass.TabIndex = 4;
             this.showPass.Text = "      ";
             this.showPass.UseVisualStyleBackColor = true;
             this.showPass.CheckedChanged += new System.EventHandler(this.showPass_CheckedChanged);
@@ -257,7 +257,6 @@ namespace ModuloSP
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SignUp";
             this.Load += new System.EventHandler(this.SignUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

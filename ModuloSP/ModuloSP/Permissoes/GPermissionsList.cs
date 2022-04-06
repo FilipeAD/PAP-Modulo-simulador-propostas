@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModuloSP
+namespace ModuloSP.Permissoes
 {
     public partial class GPermissionsList : Form
     {
@@ -22,7 +22,7 @@ namespace ModuloSP
         private void INFOPermicoes()
         {
             using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
@@ -34,7 +34,7 @@ namespace ModuloSP
                 con.Close();
             }
         }
-
+        
         private void DatagridStyle()
         {
             dataGridView1.AllowUserToAddRows = false;

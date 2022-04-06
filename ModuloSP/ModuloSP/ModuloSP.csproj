@@ -50,7 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcountPermission.cs" />
+    <Compile Include="Marc_Mod\MarcaModeloEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marc_Mod\MarcaModeloEdit.Designer.cs">
+      <DependentUpon>MarcaModeloEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permissoes\AcountPermission.cs" />
     <Compile Include="AddOn\AddOnAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,10 +82,10 @@
     <Compile Include="GeneralView.Designer.cs">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="GPermissionsList.cs">
+    <Compile Include="Permissoes\GPermissionsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GPermissionsList.Designer.cs">
+    <Compile Include="Permissoes\GPermissionsList.Designer.cs">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Maquinas\FunctionsMaq.cs" />
@@ -124,7 +130,7 @@
     <Compile Include="UserList.Designer.cs">
       <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="CurrentUser.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,7 +163,7 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
+    <Compile Include="Models\Utils.cs" />
     <EmbeddedResource Include="AddOn\AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,7 +176,10 @@
     <EmbeddedResource Include="GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GPermissionsList.resx">
+    <EmbeddedResource Include="Marc_Mod\MarcaModeloEdit.resx">
+      <DependentUpon>MarcaModeloEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permissoes\GPermissionsList.resx">
       <DependentUpon>GPermissionsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Marca\MarcaAdd.resx">
@@ -289,5 +298,6 @@
   <ItemGroup>
     <None Include="Resources\delcolum.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

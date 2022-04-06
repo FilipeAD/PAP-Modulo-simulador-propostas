@@ -19,127 +19,61 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        int novoID = 0;
-        int Rmail = 0;
-        int RUsername = 0;
-
-        private void InsereID()
-        {
-            
-            string query = "SELECT MAX(id) FROM Utilizador";
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    con.Open();
-                    try
-                    {
-                        novoID = int.Parse(cmd.ExecuteScalar().ToString()) + 1;
-                    }
-                    catch
-                    {
-                        novoID = 1;
-                        return;
-                    }
-                }
-                con.Close();
-            }
-        }
-        private void RUser()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT * from Utilizador where Nome = '" + txtUsername.Text.Trim() + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                if (dt.Rows.Count == 1)
-                {
-                    RUsername = 1;
-                }
-                else
-                {
-                    RUsername = 0;
-                }
-                con.Close();
-            }
-        }
-        private void REmail()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT * from Utilizador where Email = '" + txtEmail.Text.Trim() + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                if (dt.Rows.Count == 1)
-                {
-                    Rmail = 1;
-
-                }
-                else
-                {
-                    Rmail = 0;
-                }
-                con.Close();
-            }
-        }
+        
         private void CreateAcount()
         {
-            InsereID();
-            RUser();
-            REmail();
-
-
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Text) )
             {
                 MessageBox.Show("Todos os campos devem ser prenchidos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             
-            if (RUsername == 1)
+            if (Models.Utilizador.VField(txtUsername, "verify_username", "@nome"))
             {
                 MessageBox.Show("Username já existe", "!!ERRO!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
 
-                if (Rmail == 1)
+                if (Models.Utilizador.VField(txtEmail, "verify_email", "@email"))
                 {
                     MessageBox.Show("Email já existe", "!!ERRO!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    SqlConnection con =
-                       new SqlConnection(Utils.conString);
-                        con.Open();
-                    string query = "INSERT INTO Utilizador(" +
-                        "id,nome,email,password)" +
-                        "VALUES (@id,@nome,@email,@password)";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@id", novoID);
-                    cmd.Parameters.AddWithValue("@nome", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                    try
+                    if (txtPassword.Text != txtPassword2.Text)
                     {
-                        cmd.ExecuteScalar();
+                        MessageBox.Show("Password não coincide", "!!ERRO!!",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Reveja os dados inseridos", "ERRO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        SqlConnection con =
+                           new SqlConnection(Models.Utils.conString);
+                            con.Open();
+                        string query = "INSERT INTO Utilizador(" +
+                            "id,nome,email,password)" +
+                            "VALUES (@id,@nome,@email,@password)";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@id", Models.IDManagment.InsereID("Utilizador"));
+                        cmd.Parameters.AddWithValue("@nome", txtUsername.Text);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                        try
+                        {
+                            cmd.ExecuteScalar();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Reveja os dados inseridos", "ERRO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                    MessageBox.Show("Registo inserido", "informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    con.Close();
-                    this.Close();
+                        MessageBox.Show("Registo inserido", "informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        this.Close();
+                    }
                 }
             }
 

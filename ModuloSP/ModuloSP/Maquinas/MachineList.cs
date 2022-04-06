@@ -54,6 +54,7 @@ namespace ModuloSP.Maquinas
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new Maquinas.MachineAdd(), sender);
         }
@@ -66,6 +67,7 @@ namespace ModuloSP.Maquinas
             }
             else
             {
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MachineEdit(), sender);
             }
@@ -89,6 +91,7 @@ namespace ModuloSP.Maquinas
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = false;
             DesktopPanel.Visible = false;
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
@@ -96,6 +99,7 @@ namespace ModuloSP.Maquinas
 
         private void adicionarbt_Click(object sender, EventArgs e)
         {
+            bToolStripMenuItem.Visible = true;
             DesktopPanel.Visible = true;
             OpenSecondForm(new Maquinas.MachineAdd(), sender);
         }
@@ -108,6 +112,7 @@ namespace ModuloSP.Maquinas
             }
             else
             {
+                bToolStripMenuItem.Visible = true;
                 DesktopPanel.Visible = true;
                 OpenSecondForm(new MachineEdit(), sender);
             }

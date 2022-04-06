@@ -37,10 +37,10 @@ namespace ModuloSP.Maquinas
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DesktopPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarbt = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -126,6 +126,15 @@ namespace ModuloSP.Maquinas
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // bToolStripMenuItem
+            // 
+            this.bToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.bToolStripMenuItem.Text = "<<<";
+            this.bToolStripMenuItem.Visible = false;
+            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
+            // 
             // adicionarbt
             // 
             this.adicionarbt.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,14 +164,6 @@ namespace ModuloSP.Maquinas
             this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(84, 20);
             this.eliminarToolStripMenuItem1.Text = "Eliminar";
             this.eliminarToolStripMenuItem1.Click += new System.EventHandler(this.eliminarToolStripMenuItem1_Click);
-            // 
-            // bToolStripMenuItem
-            // 
-            this.bToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.bToolStripMenuItem.Text = "<<<";
-            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
             // MachineList
             // 

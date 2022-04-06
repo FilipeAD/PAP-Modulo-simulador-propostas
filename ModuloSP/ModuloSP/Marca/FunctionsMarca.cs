@@ -14,7 +14,7 @@ namespace ModuloSP.Marca
         public static void LoadInfo(DataGridView _Database)
         {
             using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
@@ -37,7 +37,7 @@ namespace ModuloSP.Marca
             }
 
             SqlConnection con = new
-                SqlConnection(Utils.conString);
+                SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO "+ _DatabaseN + " (" +
                 "id,nome)" +
@@ -66,7 +66,7 @@ namespace ModuloSP.Marca
         public static void LoadMarca(string _ID, TextBox _Nome)
         {
             SqlConnection con =
-                    new SqlConnection(Utils.conString);
+                    new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT * FROM Marca where ID='" + _ID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -79,7 +79,7 @@ namespace ModuloSP.Marca
 
         public static void EditMarca(string _ID, string _Nome)
         {
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE Marca SET " +
                 "nome=@nome " +

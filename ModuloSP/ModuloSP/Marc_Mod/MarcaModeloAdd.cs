@@ -20,14 +20,14 @@ namespace ModuloSP.Marc_Mod
 
         private void GetIDMarca()
         {
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT ID from Marca where nome = '" + txtMarca.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Utils.IDMarca = (dr["ID"].ToString());
+                Models.Utils.IDMarca = (dr["ID"].ToString());
             }
         }
 
@@ -43,14 +43,14 @@ namespace ModuloSP.Marc_Mod
             }
 
             SqlConnection con = new
-                SqlConnection(Utils.conString);
+                SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO Marca_Modelo(" +
                 "id, fk_Marca_ID, fk_Modelo_ID)" +
                 "VALUES (@id,@fk_Marca_ID, @fk_Modelo_ID)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", Models.IDManagment.IDMarca_Modelo);
-            cmd.Parameters.AddWithValue("@fk_Marca_ID", Utils.IDMarca);
+            cmd.Parameters.AddWithValue("@fk_Marca_ID", Models.Utils.IDMarca);
             cmd.Parameters.AddWithValue("@fk_Modelo_ID", Models.IDManagment.IdModelo);
             try
             {

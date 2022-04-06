@@ -22,7 +22,7 @@ namespace ModuloSP.Maquinas
             }
 
             SqlConnection con = new
-                SqlConnection(Utils.conString);
+                SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
                 "id,cor,dimensoes,preco,fk_Marca_modelo_id)" +
@@ -53,7 +53,7 @@ namespace ModuloSP.Maquinas
 
         public static void CmbInsertM(string _Database,  ComboBox _cmb)
         {
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -67,7 +67,7 @@ namespace ModuloSP.Maquinas
         public static void CmbInsertMM(ComboBox _cmb, string _cmb2)
         {
             _cmb.Items.Clear();
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT Modelo.Nome as Modelo FROM Marca_Modelo " +
                             "INNER JOIN Modelo on Marca_Modelo.fk_Modelo_ID = Modelo.ID " +
@@ -84,7 +84,7 @@ namespace ModuloSP.Maquinas
         public static void IDMM(string _cmb, string _cmb2)
         {
             SqlConnection con =
-                    new SqlConnection(Utils.conString);
+                    new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "select Marca_Modelo.ID as IDMarcaModelo " +
                             "from Marca_Modelo " +
@@ -95,7 +95,7 @@ namespace ModuloSP.Maquinas
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Utils.Marca_Modelo = dr["IDMarcaModelo"].ToString();
+                Models.Utils.Marca_Modelo = dr["IDMarcaModelo"].ToString();
             }
             con.Close();
 
@@ -105,7 +105,7 @@ namespace ModuloSP.Maquinas
         public static void LoadCMB(TextBox _cmb, TextBox _cmb2)
         {
             SqlConnection con =
-                   new SqlConnection(Utils.conString);
+                   new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "select Marca.Nome as Marca,  Modelo.Nome as Modelo " +
                            "from Marca_Modelo " +
@@ -125,7 +125,7 @@ namespace ModuloSP.Maquinas
         public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco)
         {
             SqlConnection con =
-                    new SqlConnection(Utils.conString);
+                    new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT * FROM Maquinas where id='" + _ID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -142,7 +142,7 @@ namespace ModuloSP.Maquinas
 
         public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco)
         {
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE Maquinas SET " +
                 "cor=@cor," +
@@ -165,7 +165,7 @@ namespace ModuloSP.Maquinas
         public static void LoadInfo(DataGridView _Datagridview)
         {
             using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();

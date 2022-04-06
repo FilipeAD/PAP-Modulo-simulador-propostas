@@ -63,8 +63,8 @@ namespace ModuloSP
 
         private void AdminView_Load(object sender, EventArgs e)
         {
-            lblEmail.Text = CurrentUser.email;
-            lblUsername.Text = CurrentUser.username;
+            lblEmail.Text = Models.CurrentUser.email;
+            lblUsername.Text = Models.CurrentUser.username;
 
 
         }
@@ -190,14 +190,14 @@ namespace ModuloSP
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.GetType() == typeof(GPermissionsList))
+                if (frm.GetType() == typeof(Permissoes.GPermissionsList))
                 {
                     frm.Activate();
                     return;
                 }
             }
 
-            GPermissionsList load = new GPermissionsList();
+            Permissoes.GPermissionsList load = new Permissoes.GPermissionsList();
             mudaform(load);
         }
     }

@@ -14,7 +14,7 @@ namespace ModuloSP.AddOn
         public static void INFOAddOn(DataGridView _Datagridview )
         {
             using (SqlConnection con =
-                new SqlConnection(Utils.conString))
+                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
@@ -30,7 +30,7 @@ namespace ModuloSP.AddOn
         public static void LoadEditInfo(string _ID, TextBox _textbox1, TextBox _textbox2)
         {
             SqlConnection con =
-                    new SqlConnection(Utils.conString);
+                    new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT * FROM AddOns where ID = '" + _ID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -45,7 +45,7 @@ namespace ModuloSP.AddOn
 
         public static void EditInfo(string _ID, string _textbox1, string _textbox2)
         {
-            SqlConnection con = new SqlConnection(Utils.conString);
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE AddOns SET " +
                 "nome=@nome," +
@@ -75,7 +75,7 @@ namespace ModuloSP.AddOn
             }
 
             SqlConnection con = new
-                SqlConnection(Utils.conString);
+                SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns(" +
                 "id,nome,preco_base)" +

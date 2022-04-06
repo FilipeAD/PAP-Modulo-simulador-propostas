@@ -131,6 +131,7 @@
             this.bToolStripMenuItem.Name = "bToolStripMenuItem";
             this.bToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.bToolStripMenuItem.Text = "<<<";
+            this.bToolStripMenuItem.Visible = false;
             this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
             // adicionarbt

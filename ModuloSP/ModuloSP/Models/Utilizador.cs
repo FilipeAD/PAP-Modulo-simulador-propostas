@@ -43,6 +43,28 @@ namespace ModuloSP.Models
 
             }
         }
+
+        public static bool VField(TextBox _textbox, string _Procedure, string _field)
+        {
+            using (SqlConnection con =
+                new SqlConnection(Models.Utils.conString))
+            {
+                SqlCommand cmd = new SqlCommand(_Procedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue(_field, _textbox.Text);
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
     }
     
 }
