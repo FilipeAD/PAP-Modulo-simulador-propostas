@@ -37,5 +37,12 @@ namespace ModuloSP.Models
             set { _group = value; }
         }
 
+        private static string _Permicoes = "";
+        public static string Permicoes
+        {
+            get { return _Permicoes; }
+            set { _Permicoes = value; }
+        }
+
     }
 }

@@ -27,31 +27,37 @@ namespace ModuloSP.Marc_Mod
                 bs.DataSource = dt;
                 _DataGridName.DataSource = bs;
                 con.Close();
+                Models.IDManagment.IDMarca_Modelo = "";
             }
         }
 
-        public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco)
+        public static bool RepeatedValue(string _txt1, string _txt2)
         {
-            SqlConnection con = new SqlConnection(Models.Utils.conString);
-            con.Open();
-            string query = "UPDATE Maquinas SET " +
-                "cor=@cor," +
-                "dimensoes=@dimensoes," +
-                "preco=@preco " +
-                " where id=@id";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@id", _ID);
-            cmd.Parameters.AddWithValue("@cor", _Cor);
-            cmd.Parameters.AddWithValue("@dimensoes", _Dimensoes);
-            cmd.Parameters.AddWithValue("@preco", _Preco);
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                SqlCommand cmd = new SqlCommand("verify_MarcaModelo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue("@Marca", _txt1);
+                cmd.Parameters.AddWithValue("@Modelo", _txt2);
+                SqlDataReader rd = cmd.ExecuteReader();
 
-            cmd.ExecuteScalar();
-            MessageBox.Show("Registo editado.", "Informação",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (rd.HasRows)
+                {
+                    return true;
+                    con.Close();
+                }
+                else
+                {
+                    return false;
+                    con.Close();
+                }
 
-            con.Close();
+            }
         }
 
-
     }
+        
 }
+

@@ -45,16 +45,10 @@ namespace ModuloSP.Marc_Mod
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
-        private void yesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bToolStripMenuItem.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new MarcaModeloAdd(), sender);
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Models.IDManagment.IDMarca_Modelo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            
         }
 
         private void adicionarbt_Click(object sender, EventArgs e)
@@ -86,7 +80,21 @@ namespace ModuloSP.Marc_Mod
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             bToolStripMenuItem.Visible = false;
         }
-           
-        
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IDMarca_Modelo == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                bToolStripMenuItem.Visible = true;
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MarcaModeloEdit(), sender);
+            }
+        }
+
+       
     }
 }

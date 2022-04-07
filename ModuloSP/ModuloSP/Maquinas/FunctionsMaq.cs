@@ -102,7 +102,7 @@ namespace ModuloSP.Maquinas
         }
 
 
-        public static void LoadCMB(TextBox _cmb, TextBox _cmb2)
+        public static void LoadCMB(TextBox _cmb, TextBox _cmb2, string _ID)
         {
             SqlConnection con =
                    new SqlConnection(Models.Utils.conString);
@@ -111,7 +111,7 @@ namespace ModuloSP.Maquinas
                            "from Marca_Modelo " +
                            "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
                            "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                           "where Marca_Modelo.ID = '" + Models.IDManagment.fkMarca_Modelo + "'";
+                           "where Marca_Modelo.ID = '" + _ID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -179,6 +179,7 @@ namespace ModuloSP.Maquinas
                 bs.DataSource = dt;
                 _Datagridview.DataSource = bs;
                 con.Close();
+                Models.IDManagment.IdMaquina = "";
             }
         }
 

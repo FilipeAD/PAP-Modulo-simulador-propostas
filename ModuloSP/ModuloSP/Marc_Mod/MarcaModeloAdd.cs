@@ -94,12 +94,20 @@ namespace ModuloSP.Marc_Mod
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            Models.IDManagment.IDMarca_Modelo = Models.IDManagment.InsereID("Marca_Modelo");
-            Models.IDManagment.IdModelo = Models.IDManagment.InsereID("Modelo");
-            Marca.FunctionsMarca.AddInfo("Modelo", txtNome, Models.IDManagment.IdModelo);
-            ConectModeloMarca();
-            txtNome.Text = "";
-            txtMarca.SelectedIndex = -1;
+            if (FunctionMarMod.RepeatedValue(txtMarca.Text, txtNome.Text) == true)
+            {
+                MessageBox.Show("Registo já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Models.IDManagment.IDMarca_Modelo = Models.IDManagment.InsereID("Marca_Modelo");
+                Models.IDManagment.IdModelo = Models.IDManagment.InsereID("Modelo");
+                Marca.FunctionsMarca.AddInfo("Modelo", txtNome, Models.IDManagment.IdModelo);
+                ConectModeloMarca();
+                txtNome.Text = "";
+                txtMarca.SelectedIndex = -1;
+            }
+          
         }
 
     }

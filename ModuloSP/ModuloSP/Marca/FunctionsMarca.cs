@@ -24,6 +24,7 @@ namespace ModuloSP.Marca
                 bs.DataSource = dt;
                 _Database.DataSource = bs;
                 con.Close();
+                Models.IDManagment.IdMarca = "";
             }
         }
 
@@ -77,11 +78,11 @@ namespace ModuloSP.Marca
             }
         }
 
-        public static void EditMarca(string _ID, string _Nome)
+        public static void EditMarca(string _DatabaseN, string _ID, string _Nome)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "UPDATE Marca SET " +
+            string query = "UPDATE " + _DatabaseN + " SET " +
                 "nome=@nome " +
                 " where ID=@ID";
             SqlCommand cmd = new SqlCommand(query, con);

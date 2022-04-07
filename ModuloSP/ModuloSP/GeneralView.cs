@@ -67,6 +67,11 @@ namespace ModuloSP
             lblUsername.Text = Models.CurrentUser.username;
 
 
+            string[] permicoes = (string[])Permissoes.AcountPermission.LoginPermission();
+
+            MessageBox.Show(permicoes[1]);
+
+
         }
 
         private void label3_Click(object sender, EventArgs e)

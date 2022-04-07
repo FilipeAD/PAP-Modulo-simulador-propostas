@@ -24,6 +24,7 @@ namespace ModuloSP.AddOn
                 bs.DataSource = dt;
                 _Datagridview.DataSource = bs;
                 con.Close();
+                Models.IDManagment.IdAddOn = "";
             }
         }
 

@@ -22,7 +22,7 @@ namespace ModuloSP.Maquinas
         private void MachineEdit_Load(object sender, EventArgs e)
         {
             FunctionsMaq.LoadMachine(Models.IDManagment.IdMaquina, txtCor, txtDimensoes, txtPreco);
-            FunctionsMaq.LoadCMB(txtMarca, txtModelo);
+            FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.fkMarca_Modelo);
         }
 
 

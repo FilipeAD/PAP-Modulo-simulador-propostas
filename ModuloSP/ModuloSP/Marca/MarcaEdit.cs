@@ -26,7 +26,7 @@ namespace ModuloSP.Marca
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            FunctionsMarca.EditMarca(Models.IDManagment.IdMarca, txtNome.Text);
+            FunctionsMarca.EditMarca("Marca", Models.IDManagment.IdMarca, txtNome.Text);
             this.Close();
         }
     }
