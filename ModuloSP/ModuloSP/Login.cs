@@ -40,6 +40,7 @@ namespace ModuloSP
             }
             else
             {
+                
                 if (Models.Utilizador.LoginAcount(txtUsername.Text, txtPassword.Text))
                 {
                     GeneralView form = new GeneralView();

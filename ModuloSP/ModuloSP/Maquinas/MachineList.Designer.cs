@@ -172,7 +172,6 @@ namespace ModuloSP.Maquinas
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
-            this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.DesktopPanel);
             this.Controls.Add(this.dataGridView1);

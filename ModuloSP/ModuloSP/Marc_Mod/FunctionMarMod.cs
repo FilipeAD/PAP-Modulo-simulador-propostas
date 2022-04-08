@@ -45,13 +45,14 @@ namespace ModuloSP.Marc_Mod
 
                 if (rd.HasRows)
                 {
-                    return true;
                     con.Close();
+                    return true;
                 }
                 else
                 {
-                    return false;
                     con.Close();
+                    return false;
+                    
                 }
 
             }

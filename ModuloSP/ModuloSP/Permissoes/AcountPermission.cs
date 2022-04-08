@@ -12,9 +12,9 @@ namespace ModuloSP.Permissoes
     class AcountPermission
     {
 
-        public static Array LoginPermission()
-       {
-            ArrayList al = new ArrayList();
+        public static List<string> LoginPermission()
+        {
+            List<string> al = new List<string>();
 
 
             using (SqlConnection con =
@@ -28,19 +28,24 @@ namespace ModuloSP.Permissoes
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    string[] fields = new string[rd.FieldCount];
-                    for (int i = 0; i < rd.FieldCount; ++i)
-                    {
-                        fields[i] = rd["Permicoes_List.Nome"].ToString();
-                    }
-                        
-                    al.Add(fields);
-                   
-                            
+                    al.Add(rd["Nome"].ToString());
                 }
-                return al.ToArray();
                 con.Close();
+                return al;
+                
 
+            }
+        }
+
+        public static bool LoginView(List<string> _PermissionList, string _PermissionNome)
+        {
+            if (_PermissionList.Contains(_PermissionNome))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

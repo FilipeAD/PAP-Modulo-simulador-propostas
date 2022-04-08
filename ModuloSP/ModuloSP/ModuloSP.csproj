@@ -164,6 +164,12 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Utils.cs" />
+    <Compile Include="ViewClient\Produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\Produtos.Designer.cs">
+      <DependentUpon>Produtos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddOn\AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +230,9 @@
     </Compile>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\Produtos.resx">
+      <DependentUpon>Produtos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

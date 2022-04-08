@@ -32,13 +32,15 @@ namespace ModuloSP.Models
                         CurrentUser.email = rd["email"].ToString();
                         CurrentUser.group = rd["fk_Grupos_ID"].ToString();
                     }
-                    return true;
                     con.Close();
+                    return true;
+                    
                 }
                 else
                 {
-                    return false;
                     con.Close();
+                    return false;
+                    
                 }
 
             }
@@ -63,6 +65,19 @@ namespace ModuloSP.Models
                     return false;
                 }
 
+            }
+        }
+
+        public static bool ValidEmail(string _email)
+        {
+            try
+            {
+                var enderecoEmail = new System.Net.Mail.MailAddress(_email);
+                return enderecoEmail.Address == _email;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

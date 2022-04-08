@@ -20,38 +20,37 @@ namespace ModuloSP
             InitializeComponent();
         }
 
-        //private void GroupVerification(object btSend)
-        //{
-        //    using (SqlConnection con =
-        //        new SqlConnection(Utils.conString))
-        //    {
+        private void Permissionview()
+        {
+            var list = Permissoes.AcountPermission.LoginPermission();
 
-               
-        //        SqlCommand cmd = new SqlCommand("GroupVerification", con);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        con.Open();
-        //        cmd.Parameters.AddWithValue("@group", txtSearch.Text);
-        //        SqlDataReader rd = cmd.ExecuteReader();
+            if (Permissoes.AcountPermission.LoginView(list, "Visualizar todos os utilizadores"))
+            {
+                listUtilizadores.Visible = true;
+            }
+            if (Permissoes.AcountPermission.LoginView(list, "CRUD Maquinas"))
+            {
+                ListImpressoras.Visible = true;
+            }
+            if (Permissoes.AcountPermission.LoginView(list, "CRUD AddOns"))
+            {
+                ListAddOns.Visible = true;
+            }
+            if (Permissoes.AcountPermission.LoginView(list, "Visualizar e editar Permissões"))
+            {
+                ListPermicoes.Visible = true;
+            }
+            if (Permissoes.AcountPermission.LoginView(list, "Visualizar produtos para compra"))
+            {
+                InterfaceClient.Visible = true;
+                //InterfaceClient.Size = 206, 22;
+            }
+            if (Permissoes.AcountPermission.LoginView(list, "Visualizar Atividade dos Utilizadores"))
+            {
+                Activity.Visible = true;
+            }
 
-                
-        //        if (rd.HasRows)
-        //        {
-        //            while (rd.Read())
-        //            {
-        //                Utils.GroupSearch = rd["Nome"].ToString();
-        //            }
-        //            //OpenSecondForm(new GPermissionsList(), btSend);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Grupo não existe", "!!ERRO!!",
-        //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txtSearch.Text = "Procure um grupo especifico nas permissões";
-        //            txtSearch.ForeColor = Color.Gray;
-        //        }
-        //        con.Close();
-        //    }
-        //}
+        }
 
         private void mudaform(Form _form)
         {
@@ -61,15 +60,20 @@ namespace ModuloSP
             _form.Show();
         }
 
+
+
+
+
         private void AdminView_Load(object sender, EventArgs e)
         {
             lblEmail.Text = Models.CurrentUser.email;
             lblUsername.Text = Models.CurrentUser.username;
+            Permissionview();
 
 
-            string[] permicoes = (string[])Permissoes.AcountPermission.LoginPermission();
 
-            MessageBox.Show(permicoes[1]);
+
+
 
 
         }
@@ -114,20 +118,20 @@ namespace ModuloSP
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void listUtilizadores_Click(object sender, EventArgs e)
         {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(UserList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
             var userList = new UserList();
             mudaform(userList);
         }
-
-
 
         private void ListImpressoras_Click(object sender, EventArgs e)
         {
@@ -159,23 +163,6 @@ namespace ModuloSP
             mudaform(load);
         }
 
-
-
-        private void marcaModeloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            Marc_Mod.MarcaModeloList load = new Marc_Mod.MarcaModeloList();
-            mudaform(load);
-        }
-
         private void ListMarca_Click(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -191,7 +178,30 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void permissonmenustrip_Click(object sender, EventArgs e)
+        private void ListMarcaModelo_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Marc_Mod.MarcaModeloList load = new Marc_Mod.MarcaModeloList();
+            mudaform(load);
+        }
+
+        private void Menu_ItemAdded(object sender, ToolStripItemEventArgs e)
+        {
+            if (e.Item.Text == "")
+            {
+                e.Item.Visible = false;
+            }
+        }
+
+        private void ListPermicoes_Click(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
             {
@@ -205,5 +215,33 @@ namespace ModuloSP
             Permissoes.GPermissionsList load = new Permissoes.GPermissionsList();
             mudaform(load);
         }
+
+        private void InterfaceClient_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.Produtos))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            ViewClient.Produtos load = new ViewClient.Produtos();
+            mudaform(load);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
