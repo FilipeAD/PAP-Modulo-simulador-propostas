@@ -43,7 +43,6 @@ namespace ModuloSP
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar produtos para compra"))
             {
                 InterfaceClient.Visible = true;
-                //InterfaceClient.Size = 206, 22;
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar Atividade dos Utilizadores"))
             {

@@ -35,6 +35,7 @@
             this.adicionarbt = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbMarca = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,10 +73,11 @@
             this.bToolStripMenuItem,
             this.adicionarbt,
             this.editarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem1});
+            this.eliminarToolStripMenuItem1,
+            this.cmbMarca});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1146, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1146, 28);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,7 +85,7 @@
             // 
             this.bToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(37, 24);
             this.bToolStripMenuItem.Text = "<<<";
             this.bToolStripMenuItem.Visible = false;
             this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
@@ -94,7 +96,7 @@
             this.adicionarbt.ForeColor = System.Drawing.Color.Black;
             this.adicionarbt.Image = global::ModuloSP.Properties.Resources.addcolum;
             this.adicionarbt.Name = "adicionarbt";
-            this.adicionarbt.Size = new System.Drawing.Size(89, 20);
+            this.adicionarbt.Size = new System.Drawing.Size(89, 24);
             this.adicionarbt.Text = "Adicionar";
             this.adicionarbt.Click += new System.EventHandler(this.adicionarbt_Click);
             // 
@@ -104,7 +106,7 @@
             this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.editarToolStripMenuItem1.Image = global::ModuloSP.Properties.Resources.editcolu;
             this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(70, 20);
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.editarToolStripMenuItem1.Text = "Editar";
             this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
@@ -114,9 +116,18 @@
             this.eliminarToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.eliminarToolStripMenuItem1.Image = global::ModuloSP.Properties.Resources.delcolum;
             this.eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(84, 20);
+            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(84, 24);
             this.eliminarToolStripMenuItem1.Text = "Eliminar";
             this.eliminarToolStripMenuItem1.Click += new System.EventHandler(this.eliminarToolStripMenuItem1_Click);
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.BackColor = System.Drawing.Color.White;
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(100, 24);
+            this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // MarcaModeloList
             // 
@@ -147,5 +158,6 @@
         private System.Windows.Forms.ToolStripMenuItem adicionarbt;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripComboBox cmbMarca;
     }
 }

@@ -164,6 +164,7 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Utils.cs" />
+    <Compile Include="ViewClient\ProductFilters.cs" />
     <Compile Include="ViewClient\Produtos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +308,8 @@
   <ItemGroup>
     <None Include="Resources\delcolum.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\searchicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

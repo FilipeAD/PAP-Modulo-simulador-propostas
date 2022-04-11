@@ -43,6 +43,7 @@ namespace ModuloSP.Marc_Mod
         {
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            ViewClient.ProductFilters.CmbInsertM(cmbMarca);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -95,6 +96,9 @@ namespace ModuloSP.Marc_Mod
             }
         }
 
-       
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FunctionMarMod.MarcaSelect(dataGridView1, cmbMarca.Text);
+        }
     }
 }
