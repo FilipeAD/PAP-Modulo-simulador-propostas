@@ -124,10 +124,17 @@
     <Compile Include="Models\FunctionsGeneral.cs" />
     <Compile Include="Models\IDManagment.cs" />
     <Compile Include="Models\Utilizador.cs" />
-    <Compile Include="UserList.cs">
+    <Compile Include="ViewAdmin\ActivityTracker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserList.Designer.cs">
+    <Compile Include="ViewAdmin\ActivityTracker.Designer.cs">
+      <DependentUpon>ActivityTracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdmin\AdminMethods.cs" />
+    <Compile Include="ViewAdmin\UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAdmin\UserList.Designer.cs">
       <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CurrentUser.cs" />
@@ -204,7 +211,10 @@
     <EmbeddedResource Include="Marc_Mod\MarcaModeloList.resx">
       <DependentUpon>MarcaModeloList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserList.resx">
+    <EmbeddedResource Include="ViewAdmin\ActivityTracker.resx">
+      <DependentUpon>ActivityTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAdmin\UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -310,6 +320,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\searchicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reseticon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

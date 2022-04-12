@@ -49,6 +49,8 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //#------------------------------------------------------------------------------------------------------------------#
+        
         public static void SortPrices(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -70,7 +72,6 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-
         public static void ColorSelect(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -92,7 +93,6 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-
         public static void MarcaSelect(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -114,8 +114,6 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-
-
         public static void MarcaPrecoSelect(DataGridView _DataGridName, string _Marca, string _Preco)
         {
             using (SqlConnection con =
@@ -158,7 +156,6 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-
         public static void PrecoCorSelect(DataGridView _DataGridName, string _Preco, string _Cor)
         {
             using (SqlConnection con =
@@ -180,7 +177,6 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-
         public static void PrecoCorMarcaSelect(DataGridView _DataGridName, string _Preco, string _Cor, string _marca)
         {
             using (SqlConnection con =
@@ -202,5 +198,74 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
+
+        //#------------------------------------------------------------------------------------------------------------------#
+        
+        public static void OverlayFilter(DataGridView _DataGridName, string _MainVariabel, string _OtherVariabel1, string _OtherVariabel2, string _Order, string _Cor, string _Marca)
+        {
+            string order;
+            if (_Order == "Preço ASCENDENTE")
+            {
+                order = "asc";
+            }
+            else
+            {
+                order = "desc";
+            }
+
+            if (_OtherVariabel1 != "" && _OtherVariabel2 != "")
+            {
+                ProductFilters.PrecoCorMarcaSelect(_DataGridName, order, _Cor, _Marca);
+            }
+            else if (_OtherVariabel1 != "")
+            {
+                if (_MainVariabel == _Order)
+                {
+                    ProductFilters.PrecoCorSelect(_DataGridName, order, _Cor);
+                }
+                else if (_MainVariabel == _Cor)
+                {
+                    ProductFilters.MarcaCorSelect(_DataGridName, _Marca, _Cor);
+                }
+                else
+                {
+                    ProductFilters.MarcaCorSelect(_DataGridName, _Marca, _Cor);
+                }
+            }
+            else if (_OtherVariabel2 != "")
+            {
+                if (_MainVariabel == _Order)
+                {
+                    ProductFilters.MarcaPrecoSelect(_DataGridName, _Marca, order);
+                }
+                else if (_MainVariabel == _Cor)
+                {
+                    ProductFilters.PrecoCorSelect(_DataGridName, order, _Cor);
+                }
+                else
+                {
+                    ProductFilters.MarcaPrecoSelect(_DataGridName, _Marca, order);
+                }
+            }
+            else if (_OtherVariabel1 == "" && _OtherVariabel2 == "")
+            {
+                if (_MainVariabel == _Order)
+                {
+                    ProductFilters.SortPrices(_DataGridName, order);
+                }
+                else if (_MainVariabel == _Cor)
+                {
+                    ProductFilters.ColorSelect(_DataGridName, _Cor);
+                }
+                else
+                {
+                    ProductFilters.MarcaSelect(_DataGridName, _Marca);
+                }
+                
+            }
+
+        }
+
+
     }
 }

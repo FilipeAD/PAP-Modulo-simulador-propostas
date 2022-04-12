@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModuloSP
+namespace ModuloSP.ViewAdmin
 {
     public partial class UserList : Form
     {

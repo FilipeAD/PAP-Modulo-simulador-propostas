@@ -212,7 +212,7 @@ namespace ModuloSP
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
             this.InterfaceClient.Size = new System.Drawing.Size(206, 22);
-            this.InterfaceClient.Text = "Produtos";
+            this.InterfaceClient.Text = "Produtos Disponiveis";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
             // 
@@ -226,13 +226,14 @@ namespace ModuloSP
             this.Activity.Size = new System.Drawing.Size(132, 20);
             this.Activity.Text = "Estado de Atividade";
             this.Activity.Visible = false;
+            this.Activity.Click += new System.EventHandler(this.Activity_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // userpanel
@@ -322,8 +323,7 @@ namespace ModuloSP
             this.MainMenuStrip = this.Menu;
             this.Name = "GeneralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminView";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "GeneralView";
             this.Load += new System.EventHandler(this.AdminView_Load);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

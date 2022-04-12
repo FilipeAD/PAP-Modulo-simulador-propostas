@@ -26,103 +26,28 @@ namespace ModuloSP.ViewClient
             ProductFilters.CmbInsertM(cmbMarca);
         }
 
-        private void cmbOrder_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbOrder_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            string order;
-
-            if (cmbOrder.Text == "Preço ASCENDENTE")
-            {
-                order = "asc";
-            }
-            else{ 
-                order = "desc";
-            }
-
-           
-            if (cmbColor.Text != "" & cmbMarca.Text != "")
-            {
-                ProductFilters.PrecoCorMarcaSelect(dataGridView1, order, cmbColor.Text, cmbMarca.Text);
-            }
-            if (cmbColor.Text != "")
-            {
-                ProductFilters.PrecoCorSelect(dataGridView1, order, cmbColor.Text);
-            }
-            else if (cmbMarca.Text != "")
-            {
-                ProductFilters.MarcaPrecoSelect(dataGridView1, cmbMarca.Text, order);
-            }
-            else if (cmbColor.Text == "" & cmbMarca.Text == "")
-            {
-                ProductFilters.SortPrices(dataGridView1, order);
-            }
-            
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbColor.Text, cmbMarca.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
         }
 
-        private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbColor_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            string order;
-
-            if (cmbOrder.Text == "Preço ASCENDENTE")
-            {
-                order = "asc";
-            }
-            else
-            {
-                order = "desc";
-            }
-
-
-            
-            if (cmbMarca.Text != "" & cmbOrder.Text != "")
-            {
-                ProductFilters.PrecoCorMarcaSelect(dataGridView1, order, cmbColor.Text, cmbMarca.Text);
-            }
-            if (cmbMarca.Text != "")
-            {
-                ProductFilters.MarcaCorSelect(dataGridView1, cmbMarca.Text, cmbColor.Text);
-            }
-            else if (cmbOrder.Text != "")
-            {
-                ProductFilters.PrecoCorSelect(dataGridView1, order, cmbColor.Text);
-            }
-            else if (cmbMarca.Text == "" & cmbOrder.Text == "")
-            {
-                ProductFilters.ColorSelect(dataGridView1, cmbColor.Text);
-            }
+            ProductFilters.OverlayFilter(dataGridView1, cmbColor.Text, cmbMarca.Text, cmbOrder.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
         }
 
-        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbMarca_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            string order;
-
-            if (cmbOrder.Text == "Preço ASCENDENTE")
-            {
-                order = "asc";
-            }
-            else
-            {
-                order = "desc";
-            }
-
-
-          
-            if (cmbColor.Text != "" & cmbOrder.Text != "")
-            {
-                ProductFilters.PrecoCorMarcaSelect(dataGridView1, order, cmbColor.Text, cmbMarca.Text);
-            }
-            if (cmbColor.Text != "")
-            {
-                ProductFilters.MarcaCorSelect(dataGridView1, cmbMarca.Text, cmbColor.Text);
-            }
-            else if (cmbOrder.Text != "")
-            {
-                ProductFilters.MarcaPrecoSelect(dataGridView1, cmbMarca.Text, order);
-            }
-            else if (cmbColor.Text == "" & cmbOrder.Text == "")
-            {
-                ProductFilters.MarcaSelect(dataGridView1, cmbMarca.Text);
-            }
+            ProductFilters.OverlayFilter(dataGridView1, cmbMarca.Text, cmbColor.Text, cmbOrder.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
         }
 
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            cmbColor.SelectedIndex = -1;
+            cmbMarca.SelectedIndex = -1;
+            cmbOrder.SelectedIndex = -1;
+            Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
     }
 }

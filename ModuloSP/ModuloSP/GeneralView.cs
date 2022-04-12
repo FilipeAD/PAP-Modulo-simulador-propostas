@@ -48,7 +48,6 @@ namespace ModuloSP
             {
                 Activity.Visible = true;
             }
-
         }
 
         private void mudaform(Form _form)
@@ -58,9 +57,6 @@ namespace ModuloSP
             _form.Size = this.Size;
             _form.Show();
         }
-
-
-
 
 
         private void AdminView_Load(object sender, EventArgs e)
@@ -121,14 +117,14 @@ namespace ModuloSP
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.GetType() == typeof(UserList))
+                if (frm.GetType() == typeof(ViewAdmin.UserList))
                 {
                     frm.Activate();
                     return;
                 }
             }
 
-            var userList = new UserList();
+            var userList = new ViewAdmin.UserList();
             mudaform(userList);
         }
 
@@ -230,17 +226,19 @@ namespace ModuloSP
             mudaform(load);
         }
 
+        private void Activity_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewAdmin.ActivityTracker))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
 
-
-
-
-
-
-
-
-
-
-
-
+            var load = new ViewAdmin.ActivityTracker();
+            mudaform(load);
+        }
     }
 }

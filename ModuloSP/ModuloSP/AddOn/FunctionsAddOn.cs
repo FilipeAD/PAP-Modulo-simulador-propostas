@@ -64,7 +64,7 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
-        public static void AddInfo( string _textbox1, string _textbox2)
+        public static void AddInfo( string _textbox1, string _textbox2, string _currentUserID)
         {
             Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOns");
 
@@ -79,12 +79,14 @@ namespace ModuloSP.AddOn
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns(" +
-                "id,nome,preco_base)" +
-                "VALUES (@id,@nome,@preco_base)";
+                "id,nome,preco_base,fk_Utilizador_id,Date_Time_Added)" +
+                "VALUES (@id,@nome,@preco_base,@fk_Utilizador_id,@Date_Time_Added)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdAddOn);
             cmd.Parameters.AddWithValue("@nome", _textbox1);
             cmd.Parameters.AddWithValue("@preco_base", _textbox2);
+            cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
+            cmd.Parameters.AddWithValue("@Date_Time_Added", DateTime.Now.ToLocalTime());
             try
             {
                 cmd.ExecuteScalar();

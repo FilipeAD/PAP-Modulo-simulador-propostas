@@ -29,7 +29,7 @@ namespace ModuloSP.AddOn
         private void btAdd_Click_1(object sender, EventArgs e)
         {
             Models.IDManagment.IdAddOn= Models.IDManagment.InsereID("AddOn");
-            FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text);
+            FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text,Models.CurrentUser.IDUser);
             txtNome.Text = "";
             txtPreco.Text = "";
         }

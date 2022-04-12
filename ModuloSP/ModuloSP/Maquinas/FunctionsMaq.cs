@@ -11,7 +11,7 @@ namespace ModuloSP.Maquinas
 {
     internal class FunctionsMaq
     {
-        public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM)
+        public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID)
         {
 
             if (string.IsNullOrWhiteSpace(_Cor) | string.IsNullOrWhiteSpace(_Dimensoes) | string.IsNullOrWhiteSpace(_Preco))
@@ -25,14 +25,16 @@ namespace ModuloSP.Maquinas
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
-                "id,cor,dimensoes,preco,fk_Marca_modelo_id)" +
-                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id)";
+                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Added)" +
+                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Added)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);
             cmd.Parameters.AddWithValue("@dimensoes", _Dimensoes);
             cmd.Parameters.AddWithValue("@preco", _Preco);
             cmd.Parameters.AddWithValue("@fk_marca_modelo_id", _fkMM);
+            cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
+            cmd.Parameters.AddWithValue("@Date_Time_Added", DateTime.Now.ToLocalTime());
             try
             {
                 cmd.ExecuteScalar();

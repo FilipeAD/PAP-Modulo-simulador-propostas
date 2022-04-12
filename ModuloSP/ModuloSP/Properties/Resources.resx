@@ -121,14 +121,17 @@
   <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maquinasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maquinasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lockwhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lockwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\searchicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="closeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\closeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addcolum" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addcolum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shoplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shoplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="closewhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\closewhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,19 +169,19 @@
   <data name="loginicon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginicon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shoplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shoplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addcolum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addcolum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addonFiled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addonFiled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lockwhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lockwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maquinasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maquinasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loginlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reseticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reseticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
