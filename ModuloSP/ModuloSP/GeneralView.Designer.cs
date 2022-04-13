@@ -233,7 +233,7 @@ namespace ModuloSP
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // userpanel

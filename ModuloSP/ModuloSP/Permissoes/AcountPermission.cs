@@ -32,8 +32,6 @@ namespace ModuloSP.Permissoes
                 }
                 con.Close();
                 return al;
-                
-
             }
         }
 
