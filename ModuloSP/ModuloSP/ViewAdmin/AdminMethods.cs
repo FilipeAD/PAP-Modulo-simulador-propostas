@@ -81,7 +81,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador " +
+                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador , Date_Time_Added as [Data de criação] " +
                                 "from Maquinas " +
                                 "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
                                 "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
@@ -104,7 +104,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador " +
+                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador, Date_Time_Added as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
                                "where Utilizador.Nome = '" + _cmbText + "'";
@@ -116,25 +116,7 @@ namespace ModuloSP.ViewAdmin
             }
         }
 
-        public static void ActivityAddOnsTime(DataGridView _Datagridview, string _cmbText, DateTimePicker _TimePicker)
-        {
-            using (SqlConnection con =
-                    new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador " +
-                               "from AddOns " +
-                               "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Utilizador.Nome = '" + _cmbText + "' and Date_Time_Added = " + _TimePicker;
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _Datagridview.DataSource = bs;
-                con.Close();
-            }
-        }
-
+ 
 
     }
 }

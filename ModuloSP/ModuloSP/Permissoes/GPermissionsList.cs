@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -24,13 +25,19 @@ namespace ModuloSP.Permissoes
             using (SqlConnection con =
                 new SqlConnection(Models.Utils.conString))
             {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado FROM Permicoes_Gerais INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID  INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID where Grupos.ID != 2";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
+                con.Open();
+                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado " +
+                               "FROM Permicoes_Gerais " +
+                               "INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID " +
+                               "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
+                               "where Grupos.ID != 2 " +
+                               "order by Grupo DESC";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    dataGridView1.Rows.Add(dr["Permições"], dr["Grupo"], dr["Estado"]);
+                }
                 con.Close();
             }
         }
@@ -39,13 +46,8 @@ namespace ModuloSP.Permissoes
         {
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Columns["Permições"].ReadOnly = true;
-            dataGridView1.Columns["Grupo"].ReadOnly = true;
-            this.dataGridView1.Columns["Permições"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Grupo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Estado"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Grupo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.Columns["Estado"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[1].ReadOnly = true;
 
         }
 

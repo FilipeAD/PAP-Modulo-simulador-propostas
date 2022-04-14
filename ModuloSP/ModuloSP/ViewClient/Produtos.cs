@@ -49,5 +49,11 @@ namespace ModuloSP.ViewClient
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("YES");
+        }
+
     }
 }
