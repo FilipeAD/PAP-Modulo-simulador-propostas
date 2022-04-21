@@ -57,5 +57,16 @@ namespace ModuloSP.Permissoes
             INFOPermicoes();
             DatagridStyle();
         }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                AcountPermission.GetIDGrupoPermicoes(dataGridView1.CurrentRow.Cells[1].Value.ToString(), dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                AcountPermission.EditPermission(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            }
+           
+        }
     }
 }

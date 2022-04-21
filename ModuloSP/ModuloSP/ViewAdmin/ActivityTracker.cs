@@ -45,7 +45,9 @@ namespace ModuloSP.ViewAdmin
             lblEmail.Text = AdminMethods.Email;
         }
 
+        private void btReset_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
