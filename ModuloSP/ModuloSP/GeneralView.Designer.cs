@@ -150,8 +150,8 @@ namespace ModuloSP
             this.ListPermicoes.BackColor = System.Drawing.Color.Silver;
             this.ListPermicoes.ForeColor = System.Drawing.Color.White;
             this.ListPermicoes.Name = "ListPermicoes";
-            this.ListPermicoes.Size = new System.Drawing.Size(206, 22);
-            this.ListPermicoes.Text = "Listagem Permições";
+            this.ListPermicoes.Size = new System.Drawing.Size(180, 22);
+            this.ListPermicoes.Text = "Permições";
             this.ListPermicoes.Visible = false;
             this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click);
             // 
@@ -160,8 +160,8 @@ namespace ModuloSP
             this.listUtilizadores.BackColor = System.Drawing.Color.Silver;
             this.listUtilizadores.ForeColor = System.Drawing.Color.White;
             this.listUtilizadores.Name = "listUtilizadores";
-            this.listUtilizadores.Size = new System.Drawing.Size(206, 22);
-            this.listUtilizadores.Text = "Listagem Utilizadores";
+            this.listUtilizadores.Size = new System.Drawing.Size(180, 22);
+            this.listUtilizadores.Text = "Utilizadores";
             this.listUtilizadores.Visible = false;
             this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click);
             // 
@@ -170,8 +170,8 @@ namespace ModuloSP
             this.ListAddOns.BackColor = System.Drawing.Color.Silver;
             this.ListAddOns.ForeColor = System.Drawing.Color.White;
             this.ListAddOns.Name = "ListAddOns";
-            this.ListAddOns.Size = new System.Drawing.Size(206, 22);
-            this.ListAddOns.Text = "Listagem AddOns";
+            this.ListAddOns.Size = new System.Drawing.Size(180, 22);
+            this.ListAddOns.Text = "AddOns";
             this.ListAddOns.Visible = false;
             this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click);
             // 
@@ -183,26 +183,26 @@ namespace ModuloSP
             this.ListMarca});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
             this.ListImpressoras.Name = "ListImpressoras";
-            this.ListImpressoras.Size = new System.Drawing.Size(206, 22);
-            this.ListImpressoras.Text = "Listagem Impressoras";
+            this.ListImpressoras.Size = new System.Drawing.Size(180, 22);
+            this.ListImpressoras.Text = "Impressoras";
             this.ListImpressoras.Visible = false;
             this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click);
             // 
             // ListMarcaModelo
             // 
-            this.ListMarcaModelo.BackColor = System.Drawing.Color.LightGray;
+            this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
             this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
             this.ListMarcaModelo.Name = "ListMarcaModelo";
-            this.ListMarcaModelo.Size = new System.Drawing.Size(156, 22);
+            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
             this.ListMarcaModelo.Text = "Marca|Modelo";
             this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click);
             // 
             // ListMarca
             // 
-            this.ListMarca.BackColor = System.Drawing.Color.LightGray;
+            this.ListMarca.BackColor = System.Drawing.Color.Silver;
             this.ListMarca.ForeColor = System.Drawing.Color.White;
             this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(156, 22);
+            this.ListMarca.Size = new System.Drawing.Size(180, 22);
             this.ListMarca.Text = "Marcas";
             this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
@@ -211,8 +211,8 @@ namespace ModuloSP
             this.InterfaceClient.BackColor = System.Drawing.Color.Silver;
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(206, 22);
-            this.InterfaceClient.Text = "Produtos Disponiveis";
+            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
+            this.InterfaceClient.Text = "Produtos ";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
             // 
@@ -233,7 +233,7 @@ namespace ModuloSP
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // userpanel
@@ -324,6 +324,7 @@ namespace ModuloSP
             this.Name = "GeneralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GeneralView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminView_Load);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

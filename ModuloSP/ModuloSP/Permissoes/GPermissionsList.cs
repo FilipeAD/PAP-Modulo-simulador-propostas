@@ -20,53 +20,45 @@ namespace ModuloSP.Permissoes
         }
 
 
-        private void INFOPermicoes()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Models.Utils.conString))
-            {
-                con.Open();
-                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado " +
-                               "FROM Permicoes_Gerais " +
-                               "INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID " +
-                               "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
-                               "where Grupos.ID != 2 " +
-                               "order by Grupo DESC";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    dataGridView1.Rows.Add(dr["Permições"], dr["Grupo"], dr["Estado"]);
-                }
-                con.Close();
-            }
-        }
-        
         private void DatagridStyle()
         {
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
-
         }
 
 
         private void GPermissionsList_Load(object sender, EventArgs e)
         {
-            INFOPermicoes();
-            DatagridStyle();
+
+
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btSearch_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            var list = AcountPermission.GrupoPermission();
+
+            if (AcountPermission.LoginView(list, txtNome.Text))
             {
-                AcountPermission.GetIDGrupoPermicoes(dataGridView1.CurrentRow.Cells[1].Value.ToString(), dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                AcountPermission.EditPermission(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+                MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-           
+            else
+            {
+                dataGridView1.Rows.Clear();
+                AcountPermission.GetIDGrupo(txtNome.Text);
+                AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
+                DatagridStyle();
+            }
+            
         }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            dataGridView1.EndEdit();
+            AcountPermission.EditPermission(dataGridView1);
+        }
+
+      
     }
 }

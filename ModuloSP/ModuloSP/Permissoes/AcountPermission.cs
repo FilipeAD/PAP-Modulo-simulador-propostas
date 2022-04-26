@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ModuloSP.Permissoes
 {
@@ -35,6 +36,28 @@ namespace ModuloSP.Permissoes
             }
         }
 
+        public static List<string> GrupoPermission()
+        {
+            List<string> al = new List<string>();
+
+
+            using (SqlConnection con =
+                new SqlConnection(Models.Utils.conString))
+            {
+                SqlCommand cmd = new SqlCommand("grupoList", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    al.Add(rd["Nome"].ToString());
+                }
+                con.Close();
+                return al;
+            }
+        }
+
+
         public static bool LoginView(List<string> _PermissionList, string _PermissionNome)
         {
             if (_PermissionList.Contains(_PermissionNome))
@@ -47,43 +70,64 @@ namespace ModuloSP.Permissoes
             }
         }
 
-        public static void EditPermission(string estado)
+        public static void EditPermission(DataGridView _datagrid)
         {
-            using (SqlConnection con =
-                new SqlConnection(Models.Utils.conString))
+            for (int item = 0; item <= _datagrid.Rows.Count - 1; item++)
             {
-                SqlCommand cmd = new SqlCommand("Update_Permissions", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                cmd.Parameters.AddWithValue("@fkGrupos", Models.Utils.Grupo);
-                cmd.Parameters.AddWithValue("@estado", estado);
-                cmd.Parameters.AddWithValue("@fkPermissoes", Models.Utils.Permissoes);
-                SqlDataReader rd = cmd.ExecuteReader();
-                con.Close();
+                using (SqlConnection con =
+                    new SqlConnection(Models.Utils.conString))
+                {
+                    SqlCommand cmd = new SqlCommand("Update_Permissions", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@fkGrupos", Models.Utils.Grupo);
+                    cmd.Parameters.AddWithValue("@estado", _datagrid.Rows[item].Cells[2].Value);
+                    cmd.Parameters.AddWithValue("@fkPermissoes", item+1);
+                    SqlDataReader rd = cmd.ExecuteReader();
+                    con.Close();
+                }
             }
-        
         }
 
-        public static void GetIDGrupoPermicoes(string grupo, string permissoes)
+        public static void GetIDGrupo(string grupo)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "select fk_Permisscoes_List_ID, fk_Grupos_ID " +
+            string query = "select fk_Grupos_ID " +
                            "FROM Permicoes_Gerais " +
-                           "INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID " +
                            "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
-                           "where Permicoes_List.Nome = '" + grupo + "' and Grupos.Nome = '" + permissoes + "'";
+                           "where Grupos.Nome = '" + grupo + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Models.Utils.Grupo = dr["fk_Grupos_ID"].ToString();
-                Models.Utils.Permissoes = dr["fk_Permisscoes_List_ID"].ToString();
             }
             con.Close();
         }
 
+        public static void LoadInfo(DataGridView _datagrid, string _nome)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                con.Open();
+                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado " +
+                               "FROM Permicoes_Gerais " +
+                               "INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID " +
+                               "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
+                               "where Grupos.Nome = '" + _nome + "'" +
+                               "order by Grupo DESC";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    _datagrid.Rows.Add(dr["Permições"], dr["Grupo"], dr["Estado"]);
+                }
+                con.Close();
+            }
+        }
 
 
 
