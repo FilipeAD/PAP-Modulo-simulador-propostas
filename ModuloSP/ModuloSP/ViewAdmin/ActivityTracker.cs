@@ -45,9 +45,16 @@ namespace ModuloSP.ViewAdmin
             lblEmail.Text = AdminMethods.Email;
         }
 
-        private void btReset_Click(object sender, EventArgs e)
+
+
+        private void DateSmallerThan_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void DateBiggerThan_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            AdminMethods.ActivityAddOnsTime(dataGridView1, cmbUtilizador.Text, DateBiggerThan);
         }
     }
 }

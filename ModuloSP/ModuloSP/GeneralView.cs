@@ -213,6 +213,7 @@ namespace ModuloSP
 
         private void InterfaceClient_Click(object sender, EventArgs e)
         {
+            Menu.Visible = false;
             foreach (Form frm in Application.OpenForms)
             {
                 if (frm.GetType() == typeof(ViewClient.Produtos))

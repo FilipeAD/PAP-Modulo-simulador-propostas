@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.lblUser = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
-            this.lblEmail = new System.Windows.Forms.ToolStripLabel();
             this.cmbActions = new System.Windows.Forms.ComboBox();
             this.cmbUtilizador = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btReset = new System.Windows.Forms.ToolStripButton();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.DateBiggerThan = new System.Windows.Forms.MonthCalendar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DateSmallerThan = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,127 +53,105 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(205, 57);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 352);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(907, 555);
+            this.dataGridView1.Size = new System.Drawing.Size(1090, 286);
             this.dataGridView1.TabIndex = 26;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.Color.White;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(0);
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripButton1,
-            this.lblUser,
-            this.toolStripLabel9,
-            this.lblEmail});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 657);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip2.Size = new System.Drawing.Size(1146, 25);
-            this.toolStrip2.TabIndex = 27;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ModuloSP.Properties.Resources.loginicon;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // lblUser
-            // 
-            this.lblUser.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(68, 22);
-            this.lblUser.Text = "Username";
-            // 
-            // toolStripLabel9
-            // 
-            this.toolStripLabel9.Name = "toolStripLabel9";
-            this.toolStripLabel9.Size = new System.Drawing.Size(10, 22);
-            this.toolStripLabel9.Text = "|";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(40, 22);
-            this.lblEmail.Text = "Email";
             // 
             // cmbActions
             // 
             this.cmbActions.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbActions.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.cmbActions.FormattingEnabled = true;
-            this.cmbActions.Location = new System.Drawing.Point(21, 86);
+            this.cmbActions.Location = new System.Drawing.Point(24, 54);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(159, 24);
+            this.cmbActions.Size = new System.Drawing.Size(227, 24);
             this.cmbActions.TabIndex = 30;
+            this.cmbActions.Text = "Ação";
             this.cmbActions.SelectedIndexChanged += new System.EventHandler(this.cmbActions_SelectedIndexChanged_1);
             // 
             // cmbUtilizador
             // 
             this.cmbUtilizador.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUtilizador.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.cmbUtilizador.FormattingEnabled = true;
-            this.cmbUtilizador.Location = new System.Drawing.Point(21, 158);
+            this.cmbUtilizador.Location = new System.Drawing.Point(324, 54);
             this.cmbUtilizador.Name = "cmbUtilizador";
-            this.cmbUtilizador.Size = new System.Drawing.Size(159, 24);
+            this.cmbUtilizador.Size = new System.Drawing.Size(227, 24);
             this.cmbUtilizador.TabIndex = 31;
+            this.cmbUtilizador.Text = "Utilizador";
             this.cmbUtilizador.SelectedIndexChanged += new System.EventHandler(this.cmbUtilizador_SelectedIndexChanged_1);
             // 
-            // label2
+            // chart1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 16);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Utilizador:";
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(592, 42);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.DarkGray;
+            series1.Legend = "Legend1";
+            series1.Name = "Year";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Year2";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(521, 274);
+            this.chart1.TabIndex = 37;
+            this.chart1.Text = "chart1";
             // 
-            // label3
+            // DateBiggerThan
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Ação:";
+            this.DateBiggerThan.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.DateBiggerThan.Location = new System.Drawing.Point(24, 144);
+            this.DateBiggerThan.Name = "DateBiggerThan";
+            this.DateBiggerThan.TabIndex = 38;
+            this.DateBiggerThan.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.DateBiggerThan_DateSelected);
             // 
-            // menuStrip1
+            // lblUser
             // 
-            this.menuStrip1.AllowMerge = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btReset});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1146, 27);
-            this.menuStrip1.TabIndex = 35;
-            this.menuStrip1.Text = "menuStrip1";
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(21, 334);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(61, 14);
+            this.lblUser.TabIndex = 40;
+            this.lblUser.Text = "Username";
             // 
-            // btReset
+            // lblEmail
             // 
-            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
-            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(23, 20);
-            this.btReset.Text = "toolStripButton1";
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(105, 334);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(36, 14);
+            this.lblEmail.TabIndex = 41;
+            this.lblEmail.Text = "Email";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(88, 333);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 16);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "|";
+            // 
+            // DateSmallerThan
+            // 
+            this.DateSmallerThan.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.DateSmallerThan.Location = new System.Drawing.Point(324, 144);
+            this.DateSmallerThan.Name = "DateSmallerThan";
+            this.DateSmallerThan.TabIndex = 43;
+            this.DateSmallerThan.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.DateSmallerThan_DateChanged);
             // 
             // ActivityTracker
             // 
@@ -181,21 +159,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.DateSmallerThan);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.cmbUtilizador);
+            this.Controls.Add(this.DateBiggerThan);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.cmbActions);
-            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ActivityTracker";
             this.Text = "ActivityTracker";
             this.Load += new System.EventHandler(this.ActivityTracker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,17 +180,14 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripLabel lblUser;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel9;
-        private System.Windows.Forms.ToolStripLabel lblEmail;
         private System.Windows.Forms.ComboBox cmbActions;
         private System.Windows.Forms.ComboBox cmbUtilizador;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripButton btReset;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MonthCalendar DateSmallerThan;
+        private System.Windows.Forms.MonthCalendar DateBiggerThan;
     }
 }
