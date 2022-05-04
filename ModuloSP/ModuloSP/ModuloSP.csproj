@@ -180,6 +180,12 @@
     <Compile Include="ViewClient\Produtos.Designer.cs">
       <DependentUpon>Produtos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewClient\ProdutosExtensoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\ProdutosExtensoes.Designer.cs">
+      <DependentUpon>ProdutosExtensoes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddOn\AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\Produtos.resx">
       <DependentUpon>Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\ProdutosExtensoes.resx">
+      <DependentUpon>ProdutosExtensoes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -12,6 +12,48 @@ namespace ModuloSP.ViewClient
 {
     internal class ProductFilters
     {
+
+        private static string _ID = "";
+        public static string ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
+
+        private static string _COR = "";
+        public static string COR
+        {
+            get { return _COR; }
+            set { _COR = value; }
+        }
+
+        private static string _DIMEN = "";
+        public static string DIMEN
+        {
+            get { return _DIMEN; }
+            set { _DIMEN = value; }
+        }
+
+        private static string _MARCA = "";
+        public static string MARCA
+        {
+            get { return _MARCA; }
+            set { _MARCA = value; }
+        }
+
+        private static string _MODELO = "";
+        public static string MODELO
+        {
+            get { return _MODELO; }
+            set { _MODELO = value; }
+        }
+
+        private static string _PRECO = "";
+        public static string PRECO
+        {
+            get { return _PRECO; }
+            set { _PRECO = value; }
+        }
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
             _cmb.Items.Add("Preço ASCENDENTE");
