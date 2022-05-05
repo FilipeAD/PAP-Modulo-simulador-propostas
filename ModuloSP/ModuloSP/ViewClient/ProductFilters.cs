@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,40 +23,67 @@ namespace ModuloSP.ViewClient
             set { _ID = value; }
         }
 
-        private static string _COR = "";
-        public static string COR
+        public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image)
         {
-            get { return _COR; }
-            set { _COR = value; }
+            Encoding ascii = Encoding.ASCII;
+            Encoding unicode = Encoding.Unicode;
+
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "SELECT * FROM Maquinas where id='" + _ID + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _Cor.Text = dr["cor"].ToString();
+                _Dimensoes.Text = dr["dimensoes"].ToString();
+                _Preco.Text = dr["preco"].ToString() + "€";
+                _Image.Image = ConvertBytesToImage(ObjectToByteArray(dr["Produto_Imagem"]));
+                Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
+            }
+            con.Close();
         }
 
-        private static string _DIMEN = "";
-        public static string DIMEN
+        public static Image ConvertBytesToImage(byte[] data)
         {
-            get { return _DIMEN; }
-            set { _DIMEN = value; }
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        
+        public static byte[] ObjectToByteArray(object obj)
+        {
+            if (obj == null)
+                return null;
+            BinaryFormatter bf = new BinaryFormatter();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bf.Serialize(ms, obj);
+                return ms.ToArray();
+            }
         }
 
-        private static string _MARCA = "";
-        public static string MARCA
+        public static void LoadCMB(string _ID, Label _MarcaModelo)
         {
-            get { return _MARCA; }
-            set { _MARCA = value; }
+            SqlConnection con =
+                   new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "select Marca.Nome as Marca,  Modelo.Nome as Modelo " +
+                           "from Marca_Modelo " +
+                           "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
+                           "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
+                           "where Marca_Modelo.ID = '" + _ID + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _MarcaModelo.Text = dr["Marca"].ToString() + " " + dr["Modelo"].ToString();
+            }
+            con.Close();
         }
 
-        private static string _MODELO = "";
-        public static string MODELO
-        {
-            get { return _MODELO; }
-            set { _MODELO = value; }
-        }
-
-        private static string _PRECO = "";
-        public static string PRECO
-        {
-            get { return _PRECO; }
-            set { _PRECO = value; }
-        }
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
             _cmb.Items.Add("Preço ASCENDENTE");

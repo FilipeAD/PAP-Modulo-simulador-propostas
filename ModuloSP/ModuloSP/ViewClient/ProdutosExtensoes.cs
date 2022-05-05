@@ -19,8 +19,10 @@ namespace ModuloSP.ViewClient
 
         private void ProdutosExtensoes_Load(object sender, EventArgs e)
         {
-            txtMarca.Text = ViewClient.ProductFilters.MARCA; 
-            txtModelo.Text = ViewClient.ProductFilters.MODELO;
+            ProductFilters.LoadMachine(ProductFilters.ID, txtDimensoes, txtPreco, txtCor, pictureBox1);
+            ProductFilters.LoadCMB(Models.IDManagment.fkMarca_Modelo, txtMarca);
         }
+
+       
     }
 }

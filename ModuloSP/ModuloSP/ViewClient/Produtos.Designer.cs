@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btReset = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.cmbOrder = new System.Windows.Forms.ToolStripComboBox();
@@ -40,7 +41,6 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.cmbMarca = new System.Windows.Forms.ToolStripComboBox();
             this.DesktopPanel = new System.Windows.Forms.Panel();
-            this.btReset = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1050, 541);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // toolStrip1
@@ -84,6 +85,16 @@
             this.toolStrip1.Size = new System.Drawing.Size(1146, 25);
             this.toolStrip1.TabIndex = 24;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btReset
+            // 
+            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
+            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(23, 22);
+            this.btReset.Text = "toolStripButton1";
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // toolStripLabel5
             // 
@@ -157,21 +168,11 @@
             this.DesktopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DesktopPanel.Location = new System.Drawing.Point(0, 45);
+            this.DesktopPanel.Location = new System.Drawing.Point(0, 40);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1146, 638);
+            this.DesktopPanel.Size = new System.Drawing.Size(1146, 643);
             this.DesktopPanel.TabIndex = 25;
             this.DesktopPanel.Visible = false;
-            // 
-            // btReset
-            // 
-            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
-            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(23, 22);
-            this.btReset.Text = "toolStripButton1";
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // Produtos
             // 

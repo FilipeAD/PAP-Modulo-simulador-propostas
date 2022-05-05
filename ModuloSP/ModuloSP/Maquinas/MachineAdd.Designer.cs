@@ -40,6 +40,10 @@ namespace ModuloSP.Maquinas
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btConectImage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPreco
@@ -184,12 +188,52 @@ namespace ModuloSP.Maquinas
             this.label5.TabIndex = 43;
             this.label5.Text = "Preço";
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(595, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 19);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Imagem";
+            // 
+            // btConectImage
+            // 
+            this.btConectImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConectImage.BackColor = System.Drawing.Color.Black;
+            this.btConectImage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btConectImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConectImage.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btConectImage.ForeColor = System.Drawing.Color.White;
+            this.btConectImage.Location = new System.Drawing.Point(599, 488);
+            this.btConectImage.Name = "btConectImage";
+            this.btConectImage.Size = new System.Drawing.Size(250, 33);
+            this.btConectImage.TabIndex = 46;
+            this.btConectImage.Text = "Conectar Imagem";
+            this.btConectImage.UseVisualStyleBackColor = false;
+            this.btConectImage.Click += new System.EventHandler(this.btConectImage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Location = new System.Drawing.Point(599, 210);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 192);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
+            // 
             // MachineAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btConectImage);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -204,6 +248,7 @@ namespace ModuloSP.Maquinas
             this.Name = "MachineAdd";
             this.Text = "MachineAdd";
             this.Load += new System.EventHandler(this.MachineAdd_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +266,8 @@ namespace ModuloSP.Maquinas
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btConectImage;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

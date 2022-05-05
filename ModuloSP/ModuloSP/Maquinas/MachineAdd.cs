@@ -125,7 +125,7 @@ namespace ModuloSP.Maquinas
         {
             Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
             FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
-            FunctionsMaq.AddInfo(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser);
+            FunctionsMaq.AddInfo(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
             txtMarca.SelectedIndex = -1;
             txtModelo.SelectedIndex = -1;
             txtCor.Text = "";
@@ -134,6 +134,9 @@ namespace ModuloSP.Maquinas
 
         }
 
-        
+        private void btConectImage_Click(object sender, EventArgs e)
+        {
+            FunctionsMaq.UploadImage(pictureBox1);
+        }
     }
 }

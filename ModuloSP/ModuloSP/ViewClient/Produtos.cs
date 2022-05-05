@@ -73,17 +73,13 @@ namespace ModuloSP.ViewClient
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ViewClient.ProductFilters.ID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            ViewClient.ProductFilters.DIMEN = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            ViewClient.ProductFilters.COR = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            ViewClient.ProductFilters.MODELO = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            ViewClient.ProductFilters.MARCA = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            ViewClient.ProductFilters.PRECO = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             DesktopPanel.Visible = true;
             OpenSecondForm(new ProdutosExtensoes(), sender);
-
         }
 
-        
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ViewClient.ProductFilters.ID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
     }
 }

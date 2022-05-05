@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ namespace ModuloSP.Maquinas
 {
     internal class FunctionsMaq
     {
-        public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID)
+        public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image)
         {
 
             if (string.IsNullOrWhiteSpace(_Cor) | string.IsNullOrWhiteSpace(_Dimensoes) | string.IsNullOrWhiteSpace(_Preco))
@@ -25,8 +27,8 @@ namespace ModuloSP.Maquinas
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
-                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Added)" +
-                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Added)";
+                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Added,Produto_Imagem)" +
+                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Added,@Produto_Imagem)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);
@@ -35,6 +37,7 @@ namespace ModuloSP.Maquinas
             cmd.Parameters.AddWithValue("@fk_marca_modelo_id", _fkMM);
             cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
             cmd.Parameters.AddWithValue("@Date_Time_Added", DateTime.Now.ToLocalTime());
+            cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
             try
             {
                 cmd.ExecuteScalar();
@@ -185,6 +188,25 @@ namespace ModuloSP.Maquinas
             }
         }
 
+        public static byte[] ConvertImageToBytes(Image _img)
+        {
+            using(MemoryStream ms=new MemoryStream())
+            {
+                _img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+
+        public static void UploadImage(PictureBox _Imagem)
+        {
+            using(OpenFileDialog ofd = new OpenFileDialog() { Filter= "Image files(*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg", Multiselect = false })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    _Imagem.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+        }
 
     }
 }
