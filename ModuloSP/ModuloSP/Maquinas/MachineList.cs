@@ -121,5 +121,20 @@ namespace ModuloSP.Maquinas
                 }
             }
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Models.IDManagment.IdMaquina == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                bToolStripMenuItem.Visible = true;
+                DesktopPanel.Visible = true;
+                OpenSecondForm(new MachineEdit(), sender);
+            }
+
+        }
     }
 }

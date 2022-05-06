@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -127,7 +128,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image)
+        public static void LoadMaquinasEditar(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
@@ -140,7 +141,7 @@ namespace ModuloSP.Maquinas
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString();
-                byte[] data = dr["Produto_Imagem"] != null ?  ConvertImageToBytes(Properties.Resources.editcolu) : (byte[])(dr["Produto_Imagem"]);
+                byte[] data = dr["Produto_Imagem"].ToString().Length > 0 ?  (byte[])(dr["Produto_Imagem"]) : ConvertImageToBytes(Properties.Resources.editcolu) ;
                 MemoryStream mem = new MemoryStream(data);
                 _Image.Image = Image.FromStream(mem);
                 Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
@@ -156,7 +157,7 @@ namespace ModuloSP.Maquinas
                 "cor=@cor," +
                 "dimensoes=@dimensoes," +
                 "preco=@preco," +
-                "Produto_Imagem=@Produto_Imagem " +
+                "Produto_Imagem=@Produto_Imagem" +
                 " where id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
@@ -165,9 +166,20 @@ namespace ModuloSP.Maquinas
             cmd.Parameters.AddWithValue("@preco", _Preco);
             cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
 
+
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch
+            {
+                MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             cmd.ExecuteScalar();
             MessageBox.Show("Registo editado.", "Informação",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             con.Close();
         }
@@ -195,20 +207,48 @@ namespace ModuloSP.Maquinas
 
         public static byte[] ConvertImageToBytes(Image _img)
         {
-            using(MemoryStream ms=new MemoryStream())
+            try
             {
-                _img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                return ms.ToArray();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    _img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    return ms.ToArray();
+                }
             }
+            catch (Exception ex)
+            {
+               Debug.WriteLine(ex.ToString());
+            }
+            return null;
+
         }
 
         public static void UploadImage(PictureBox _Imagem)
         {
-            using(OpenFileDialog ofd = new OpenFileDialog() { Filter= "Image files(*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg", Multiselect = false })
+            using(OpenFileDialog ofd = new OpenFileDialog() { Filter= "Image files(*.jpg;*.jpeg)|*.jpg;*.jpeg", Multiselect = false })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     _Imagem.Image = Image.FromFile(ofd.FileName);
+
+                    /*FileStream fs = null;
+
+                    try
+                    {
+                        fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
+
+                        //_Imagem.Image = null;
+
+                        _Imagem.Image = Image.FromStream(fs);
+                    }
+
+                    finally
+                    {
+                        fs.Close();
+                        fs.Dispose();
+                    }*/
+
+                    //_Imagem.Image = Image.FromFile(ofd.FileName);
                 }
             }
         }

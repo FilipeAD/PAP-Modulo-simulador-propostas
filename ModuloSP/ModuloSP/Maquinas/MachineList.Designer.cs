@@ -53,15 +53,16 @@ namespace ModuloSP.Maquinas
             this.dataGridView1.Size = new System.Drawing.Size(1000, 546);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // DesktopPanel
             // 
             this.DesktopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DesktopPanel.Location = new System.Drawing.Point(0, 40);
+            this.DesktopPanel.Location = new System.Drawing.Point(0, 27);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1146, 642);
+            this.DesktopPanel.Size = new System.Drawing.Size(1146, 655);
             this.DesktopPanel.TabIndex = 4;
             this.DesktopPanel.Visible = false;
             // 

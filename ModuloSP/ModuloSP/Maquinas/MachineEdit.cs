@@ -34,14 +34,14 @@ namespace ModuloSP.Maquinas
 
         private void MachineEdit_Load(object sender, EventArgs e)
         {
-            FunctionsMaq.LoadMachine(maquina, txtCor, txtDimensoes, txtPreco, pictureBox1);
+            FunctionsMaq.LoadMaquinasEditar(maquina, txtCor, txtDimensoes, txtPreco, pictureBox1);
             FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.fkMarca_Modelo);
         }
 
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            FunctionsMaq.EditMachine(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, pictureBox1);
+            FunctionsMaq.EditMachine(maquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, pictureBox1);
             this.Close();
         }
 
