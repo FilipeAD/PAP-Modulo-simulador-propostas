@@ -61,13 +61,14 @@ namespace ModuloSP
                                new SqlConnection(Models.Utils.conString);
                             con.Open();
                             string query = "INSERT INTO Utilizador(" +
-                                "id,nome,email,password)" +
-                                "VALUES (@id,@nome,@email,@password)";
+                                "id,nome,email,password,fk_Grupos_ID )" +
+                                "VALUES (@id,@nome,@email,@password,@fk_Grupos_ID)";
                             SqlCommand cmd = new SqlCommand(query, con);
                             cmd.Parameters.AddWithValue("@id", Models.IDManagment.InsereID("Utilizador"));
                             cmd.Parameters.AddWithValue("@nome", txtUsername.Text);
                             cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                             cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                            cmd.Parameters.AddWithValue("@fk_Grupos_ID", 1);
                             try
                             {
                                 cmd.ExecuteScalar();

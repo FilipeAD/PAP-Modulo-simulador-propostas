@@ -138,5 +138,13 @@ namespace ModuloSP.Maquinas
         {
             FunctionsMaq.UploadImage(pictureBox1);
         }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //string code = (colorDialog1.Color.ToArgb)
+            }
+        }
     }
 }

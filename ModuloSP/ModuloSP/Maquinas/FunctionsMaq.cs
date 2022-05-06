@@ -127,7 +127,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco)
+        public static void LoadMachine(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
@@ -140,25 +140,30 @@ namespace ModuloSP.Maquinas
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString();
+                byte[] data = dr["Produto_Imagem"] != null ?  ConvertImageToBytes(Properties.Resources.editcolu) : (byte[])(dr["Produto_Imagem"]);
+                MemoryStream mem = new MemoryStream(data);
+                _Image.Image = Image.FromStream(mem);
                 Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
             }
             con.Close();
         }
 
-        public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco)
+        public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, PictureBox _Image)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE Maquinas SET " +
                 "cor=@cor," +
                 "dimensoes=@dimensoes," +
-                "preco=@preco " +
+                "preco=@preco," +
+                "Produto_Imagem=@Produto_Imagem " +
                 " where id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);
             cmd.Parameters.AddWithValue("@dimensoes", _Dimensoes);
             cmd.Parameters.AddWithValue("@preco", _Preco);
+            cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
 
             cmd.ExecuteScalar();
             MessageBox.Show("Registo editado.", "Informação",

@@ -52,3 +52,7 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewAdmin.UserList.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewAdmin.ActivityTracker.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ProdutosExtensoes.resources
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\ModuloSP.exe.manifest
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\ModuloSP.application
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.exe.manifest
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.application

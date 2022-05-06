@@ -52,13 +52,7 @@ namespace ModuloSP.Maquinas
             Models.IDManagment.IdMaquina = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
-        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bToolStripMenuItem.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new Maquinas.MachineAdd(), sender);
-        }
-
+    
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Models.IDManagment.IdMaquina == "")
@@ -72,21 +66,6 @@ namespace ModuloSP.Maquinas
                 OpenSecondForm(new MachineEdit(), sender);
             }
             
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
-                Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IdMaquina);
-
-            }
-            FunctionsMaq.LoadInfo(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,7 +101,7 @@ namespace ModuloSP.Maquinas
         {
             if (DesktopPanel.Visible == false)
             {
-                if (Models.IDManagment.IdMaquina == "")
+                if (string.IsNullOrEmpty(Models.IDManagment.IdMaquina))
                 {
                     MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

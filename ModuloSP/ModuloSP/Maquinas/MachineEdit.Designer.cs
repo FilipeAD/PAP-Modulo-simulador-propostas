@@ -41,6 +41,10 @@ namespace ModuloSP.Maquinas
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btConectImage = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -183,12 +187,52 @@ namespace ModuloSP.Maquinas
             this.txtModelo.Size = new System.Drawing.Size(250, 26);
             this.txtModelo.TabIndex = 56;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Location = new System.Drawing.Point(599, 210);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 192);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btConectImage
+            // 
+            this.btConectImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConectImage.BackColor = System.Drawing.Color.Black;
+            this.btConectImage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btConectImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConectImage.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btConectImage.ForeColor = System.Drawing.Color.White;
+            this.btConectImage.Location = new System.Drawing.Point(599, 488);
+            this.btConectImage.Name = "btConectImage";
+            this.btConectImage.Size = new System.Drawing.Size(250, 33);
+            this.btConectImage.TabIndex = 58;
+            this.btConectImage.Text = "Conectar Imagem";
+            this.btConectImage.UseVisualStyleBackColor = false;
+            this.btConectImage.Click += new System.EventHandler(this.btConectImage_Click);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(595, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 19);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Imagem";
+            // 
             // MachineEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btConectImage);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.label5);
@@ -204,6 +248,7 @@ namespace ModuloSP.Maquinas
             this.Name = "MachineEdit";
             this.Text = "MachineEdit";
             this.Load += new System.EventHandler(this.MachineEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +267,8 @@ namespace ModuloSP.Maquinas
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btConectImage;
+        private System.Windows.Forms.Label label6;
     }
 }

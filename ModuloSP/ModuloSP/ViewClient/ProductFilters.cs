@@ -23,6 +23,8 @@ namespace ModuloSP.ViewClient
             set { _ID = value; }
         }
 
+      
+
         public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image)
         {
             Encoding ascii = Encoding.ASCII;
@@ -39,31 +41,15 @@ namespace ModuloSP.ViewClient
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString() + "€";
-                _Image.Image = ConvertBytesToImage(ObjectToByteArray(dr["Produto_Imagem"]));
+                byte[] data = dr["Produto_Imagem"] != null ? Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu) : (byte[])(dr["Produto_Imagem"]);
+                MemoryStream mem = new MemoryStream(data); 
+                _Image.Image = Image.FromStream(mem);
                 Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
             }
             con.Close();
         }
 
-        public static Image ConvertBytesToImage(byte[] data)
-        {
-            using (MemoryStream ms = new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }
-        }
-        
-        public static byte[] ObjectToByteArray(object obj)
-        {
-            if (obj == null)
-                return null;
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
-        }
+     
 
         public static void LoadCMB(string _ID, Label _MarcaModelo)
         {

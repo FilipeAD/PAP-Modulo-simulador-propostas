@@ -51,6 +51,7 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -179,6 +180,7 @@ namespace ModuloSP
             // 
             this.ListImpressoras.BackColor = System.Drawing.Color.Silver;
             this.ListImpressoras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listMaquina,
             this.ListMarcaModelo,
             this.ListMarca});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
@@ -233,7 +235,7 @@ namespace ModuloSP
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // userpanel
@@ -310,6 +312,14 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // listMaquina
+            // 
+            this.listMaquina.BackColor = System.Drawing.Color.Silver;
+            this.listMaquina.ForeColor = System.Drawing.Color.White;
+            this.listMaquina.Name = "listMaquina";
+            this.listMaquina.Size = new System.Drawing.Size(180, 22);
+            this.listMaquina.Text = "Listagem ";
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,5 +372,6 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem Activity;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
+        private System.Windows.Forms.ToolStripMenuItem listMaquina;
     }
 }

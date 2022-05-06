@@ -43,6 +43,8 @@ namespace ModuloSP.Maquinas
             this.label6 = new System.Windows.Forms.Label();
             this.btConectImage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,12 +227,21 @@ namespace ModuloSP.Maquinas
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(68, 278);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 48;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
             // MachineAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btConectImage);
             this.Controls.Add(this.label6);
@@ -269,5 +280,7 @@ namespace ModuloSP.Maquinas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btConectImage;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
