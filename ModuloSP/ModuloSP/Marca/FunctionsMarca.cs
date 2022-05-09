@@ -30,12 +30,7 @@ namespace ModuloSP.Marca
 
         public static void AddInfo(string _DatabaseN, TextBox _Nome, string _ID)
         {
-            if (string.IsNullOrWhiteSpace(_Nome.Text))
-            {
-                MessageBox.Show("Tem de preencher todos os campos", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+           
 
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);

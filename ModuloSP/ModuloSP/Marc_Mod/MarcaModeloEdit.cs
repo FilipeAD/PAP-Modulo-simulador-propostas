@@ -38,8 +38,17 @@ namespace ModuloSP.Marc_Mod
 
         private void btEdit_Click(object sender, EventArgs e)
         {
-            Marca.FunctionsMarca.EditMarca("Modelo", Models.IDManagment.IdModelo, txtNome.Text);
-            this.Close();
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                MessageBox.Show("Tem de preencher todos os campos", "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                Marca.FunctionsMarca.EditMarca("Modelo", Models.IDManagment.IdModelo, txtNome.Text);
+                this.Close();
+            }
         }
 
 

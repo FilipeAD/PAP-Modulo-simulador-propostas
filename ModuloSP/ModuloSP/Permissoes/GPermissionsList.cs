@@ -26,6 +26,7 @@ namespace ModuloSP.Permissoes
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
 

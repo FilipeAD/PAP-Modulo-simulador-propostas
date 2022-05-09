@@ -18,6 +18,8 @@ namespace ModuloSP
         public GeneralView()
         {
             InitializeComponent();
+
+            Models.Utils._form = this;
         }
 
         private void Permissionview()
@@ -50,14 +52,32 @@ namespace ModuloSP
             }
         }
 
-        private void mudaform(Form _form)
+        public void mudaform(Form _form)
         {
             _form.WindowState = FormWindowState.Maximized;
             _form.MdiParent = this;
             _form.Size = this.Size;
+
+            //Esc:
+            _form.KeyPreview = true;
+            _form.KeyDown += _form_KeyDown;
+
             _form.Show();
         }
 
+        private void _form_KeyDown(object sender, KeyEventArgs e)
+        {
+            Form _f = (Form)sender;
+
+            switch(e.KeyCode)
+            {
+                case Keys.Escape:
+
+                    _f.Close();
+
+                    break;
+            }
+        }
 
         private void AdminView_Load(object sender, EventArgs e)
         {
@@ -126,6 +146,7 @@ namespace ModuloSP
 
             var userList = new ViewAdmin.UserList();
             mudaform(userList);
+            
         }
 
         private void ListImpressoras_Click(object sender, EventArgs e)
@@ -171,6 +192,7 @@ namespace ModuloSP
 
             Marca.MarcaList load = new Marca.MarcaList();
             mudaform(load);
+
         }
 
         private void ListMarcaModelo_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace ModuloSP.AddOn
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select ID, Nome, Preco_Base from AddOns";
+                string query = "select ID, Descricao, Preco_Base from AddOns";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -38,7 +38,7 @@ namespace ModuloSP.AddOn
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _textbox1.Text = dr["nome"].ToString();
+                _textbox1.Text = dr["Descricao"].ToString();
                 _textbox2.Text = dr["preco_base"].ToString();
             }
             con.Close();
@@ -49,12 +49,12 @@ namespace ModuloSP.AddOn
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE AddOns SET " +
-                "nome=@nome," +
+                "Descricao=@Descricao," +
                 "preco_base=@preco_base " +
                 " where ID=@ID";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
-            cmd.Parameters.AddWithValue("@nome", _textbox1);
+            cmd.Parameters.AddWithValue("@Descricao", _textbox1);
             cmd.Parameters.AddWithValue("@preco_base", _textbox2);
 
             cmd.ExecuteScalar();
@@ -68,25 +68,19 @@ namespace ModuloSP.AddOn
         {
             Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOns");
 
-            if (string.IsNullOrWhiteSpace(_textbox1) | string.IsNullOrWhiteSpace(_textbox2))
-            {
-                MessageBox.Show("Tem de preencher todos os campos", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
+           
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns(" +
-                "id,nome,preco_base,fk_Utilizador_id,Date_Time_Added)" +
-                "VALUES (@id,@nome,@preco_base,@fk_Utilizador_id,@Date_Time_Added)";
+                "id,Descricao,preco_base,fk_Utilizador_id,Date_Time_Adicionado)" +
+                "VALUES (@id,@Descricao,@preco_base,@fk_Utilizador_id,@Date_Time_Adicionado)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdAddOn);
-            cmd.Parameters.AddWithValue("@nome", _textbox1);
+            cmd.Parameters.AddWithValue("@Descricao", _textbox1);
             cmd.Parameters.AddWithValue("@preco_base", _textbox2);
             cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
-            cmd.Parameters.AddWithValue("@Date_Time_Added", DateTime.Now.ToLocalTime());
+            cmd.Parameters.AddWithValue("@Date_Time_Adicionado", DateTime.Now.ToLocalTime());
             try
             {
                 cmd.ExecuteScalar();

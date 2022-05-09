@@ -29,38 +29,61 @@ namespace ModuloSP.AddOn
         /// </summary>
         private void InitializeComponent()
         {
-            this.btEditar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btEdit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btEditar
+            // comboBox1
             // 
-            this.btEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btEditar.BackColor = System.Drawing.Color.Black;
-            this.btEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btEditar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditar.ForeColor = System.Drawing.Color.White;
-            this.btEditar.Location = new System.Drawing.Point(477, 347);
-            this.btEditar.Name = "btEditar";
-            this.btEditar.Size = new System.Drawing.Size(250, 33);
-            this.btEditar.TabIndex = 50;
-            this.btEditar.Text = "Editar";
-            this.btEditar.UseVisualStyleBackColor = false;
-            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(439, 116);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(305, 26);
+            this.comboBox1.TabIndex = 52;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(435, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 19);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Categoria";
+            // 
+            // btEdit
+            // 
+            this.btEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btEdit.BackColor = System.Drawing.Color.Black;
+            this.btEdit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEdit.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEdit.ForeColor = System.Drawing.Color.White;
+            this.btEdit.Location = new System.Drawing.Point(466, 427);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(250, 33);
+            this.btEdit.TabIndex = 50;
+            this.btEdit.Text = "Editar";
+            this.btEdit.UseVisualStyleBackColor = false;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(446, 203);
+            this.label2.Location = new System.Drawing.Point(435, 302);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 19);
-            this.label2.TabIndex = 54;
+            this.label2.TabIndex = 49;
             this.label2.Text = "Preço Base";
             // 
             // label1
@@ -68,29 +91,30 @@ namespace ModuloSP.AddOn
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(446, 85);
+            this.label1.Location = new System.Drawing.Point(435, 157);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Nome";
+            this.label1.Size = new System.Drawing.Size(82, 19);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Descrição";
             // 
             // txtPreco
             // 
             this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(450, 242);
+            this.txtPreco.Location = new System.Drawing.Point(439, 341);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(305, 24);
-            this.txtPreco.TabIndex = 52;
+            this.txtPreco.TabIndex = 47;
             // 
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(450, 125);
+            this.txtNome.Location = new System.Drawing.Point(439, 190);
+            this.txtNome.Multiline = true;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(305, 24);
-            this.txtNome.TabIndex = 51;
+            this.txtNome.Size = new System.Drawing.Size(305, 89);
+            this.txtNome.TabIndex = 46;
             // 
             // AddOnEdit
             // 
@@ -98,11 +122,13 @@ namespace ModuloSP.AddOn
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1179, 539);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btEdit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.btEditar);
             this.Name = "AddOnEdit";
             this.Text = "AddOnEdit";
             this.Load += new System.EventHandler(this.AddOnEdit_Load);
@@ -112,7 +138,10 @@ namespace ModuloSP.AddOn
         }
 
         #endregion
-        private System.Windows.Forms.Button btEditar;
+
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPreco;

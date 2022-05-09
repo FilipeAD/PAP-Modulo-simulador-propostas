@@ -20,26 +20,7 @@ namespace ModuloSP.AddOn
         }
 
 
-        private Form activeForm;
-
-        private void OpenSecondForm(Form SecondForm, object btSend)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = SecondForm;
-            SecondForm.TopLevel = false;
-            SecondForm.FormBorderStyle = FormBorderStyle.None;
-            SecondForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(SecondForm);
-            this.DesktopPanel.Tag = SecondForm;
-            SecondForm.BringToFront();
-            SecondForm.Show();
-
-
-        }
-
+       
 
 
         private void AddOnList_Load(object sender, EventArgs e)
@@ -58,9 +39,18 @@ namespace ModuloSP.AddOn
 
         private void adicionarbt_Click_1(object sender, EventArgs e)
         {
-            bToolStripMenuItem.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new AddOnAdd(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new AddOn.AddOnAdd();
+
+            Models.Utils._form.mudaform(userList);
 
         }
 
@@ -72,43 +62,72 @@ namespace ModuloSP.AddOn
             }
             else
             {
-                bToolStripMenuItem.Visible = true;
-                DesktopPanel.Visible = true;
-                OpenSecondForm(new AddOnEdit(), sender);
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnEdit();
+
+                Models.Utils._form.mudaform(userList);
+
             }
         }
 
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (DesktopPanel.Visible == false)
+            if (string.IsNullOrEmpty(Models.IDManagment.IdAddOn))
             {
-                if (Models.IDManagment.IdAddOn == "")
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdAddOn + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
-                    MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
-                else{ 
-                    if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Models.FunctionsGeneral.DeleteRow("AddOns", Models.IDManagment.IdAddOn);
-                        MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    FunctionsAddOn.INFOAddOn(dataGridView1);
-                    Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+                else
+                {
+                    Models.FunctionsGeneral.DeleteRow("AddOns", Models.IDManagment.IdAddOn);
                 }
+                FunctionsAddOn.INFOAddOn(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             }
 
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bToolStripMenuItem.Visible = false;
-            DesktopPanel.Visible = false;
             FunctionsAddOn.INFOAddOn(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Models.IDManagment.IdAddOn == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnEdit();
+
+                Models.Utils._form.mudaform(userList);
+
+            }
         }
     }
 }

@@ -19,26 +19,7 @@ namespace ModuloSP.Maquinas
             InitializeComponent();
         }
 
-        private Form activeForm;
-
-        private void OpenSecondForm(Form SecondForm, object btSend)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = SecondForm;
-            SecondForm.TopLevel = false;
-            SecondForm.FormBorderStyle = FormBorderStyle.None;
-            SecondForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(SecondForm);
-            this.DesktopPanel.Tag = SecondForm;
-            SecondForm.BringToFront();
-            SecondForm.Show();
-
-
-        }
-
+      
         private void MachineList_Load(object sender, EventArgs e)
         {
             FunctionsMaq.LoadInfo(dataGridView1);
@@ -53,34 +34,22 @@ namespace ModuloSP.Maquinas
         }
 
     
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Models.IDManagment.IdMaquina == "")
-            {
-                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                bToolStripMenuItem.Visible = true;
-                DesktopPanel.Visible = true;
-                OpenSecondForm(new MachineEdit(), sender);
-            }
-            
-        }
-
-        private void bToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bToolStripMenuItem.Visible = false;
-            DesktopPanel.Visible = false;
-            FunctionsMaq.LoadInfo(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-        }
-
         private void adicionarbt_Click(object sender, EventArgs e)
         {
-            bToolStripMenuItem.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new Maquinas.MachineAdd(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new Maquinas.MachineAdd();
+
+            Models.Utils._form.mudaform(userList);
+            FunctionsMaq.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -91,50 +60,64 @@ namespace ModuloSP.Maquinas
             }
             else
             {
-                bToolStripMenuItem.Visible = true;
-                DesktopPanel.Visible = true;
-                OpenSecondForm(new MachineEdit(), sender);
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(Maquinas.MachineEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new Maquinas.MachineEdit();
+
+                Models.Utils._form.mudaform(userList);
+                FunctionsMaq.LoadInfo(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             }
         }
 
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (DesktopPanel.Visible == false)
-            {
-                if (string.IsNullOrEmpty(Models.IDManagment.IdMaquina))
-                {
-                    MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdMaquina + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IdMaquina);
-
-                    }
-                    FunctionsMaq.LoadInfo(dataGridView1);
-                    Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-                }
-            }
-        }
-
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (Models.IDManagment.IdMaquina == "")
+            if (string.IsNullOrEmpty(Models.IDManagment.IdMaquina))
             {
                 MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                bToolStripMenuItem.Visible = true;
-                DesktopPanel.Visible = true;
-                OpenSecondForm(new MachineEdit(), sender);
+                if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdMaquina + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                        return;
+                }
+                else
+                {
+                    Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IdMaquina);
+                }
+                FunctionsMaq.LoadInfo(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineEdit))
+                {
+                    frm.Activate();
+                    return;
+                }
             }
 
+                var userList = new Maquinas.MachineEdit();
+
+                Models.Utils._form.mudaform(userList);
+                FunctionsMaq.LoadInfo(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            
+
         }
+
+     
     }
 }

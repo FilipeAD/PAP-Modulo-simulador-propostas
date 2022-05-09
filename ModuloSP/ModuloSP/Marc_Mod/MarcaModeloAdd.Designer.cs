@@ -79,7 +79,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(250, 26);
             this.txtNome.TabIndex = 43;
-            this.txtNome.Text = "Nome";
+            this.txtNome.Text = "Modelo";
             this.txtNome.Enter += new System.EventHandler(this.txtNome_Enter);
             this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 

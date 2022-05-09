@@ -95,8 +95,8 @@ namespace ModuloSP.Permissoes
                     new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "select fk_Grupos_ID " +
-                           "FROM Permicoes_Gerais " +
-                           "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
+                           "FROM Permissoes_Gerais " +
+                           "INNER JOIN Grupos on Grupos.ID = Permissoes_Gerais.fk_Grupos_ID " +
                            "where Grupos.Nome = '" + grupo + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -113,10 +113,10 @@ namespace ModuloSP.Permissoes
                new SqlConnection(Models.Utils.conString))
             {
                 con.Open();
-                string query = "SELECT Permicoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado " +
-                               "FROM Permicoes_Gerais " +
-                               "INNER JOIN Permicoes_List on Permicoes_List.ID = Permicoes_Gerais.fk_Permisscoes_List_ID " +
-                               "INNER JOIN Grupos on Grupos.ID = Permicoes_Gerais.fk_Grupos_ID " +
+                string query = "SELECT Permissoes_List.Nome as Permições, Grupos.Nome as Grupo, Estado " +
+                               "FROM Permissoes_Gerais " +
+                               "INNER JOIN Permissoes_List on Permissoes_List.ID = Permissoes_Gerais.fk_Permissoes_List_ID " +
+                               "INNER JOIN Grupos on Grupos.ID = Permissoes_Gerais.fk_Grupos_ID " +
                                "where Grupos.Nome = '" + _nome + "'" +
                                "order by Grupo DESC";
                 SqlCommand cmd = new SqlCommand(query, con);

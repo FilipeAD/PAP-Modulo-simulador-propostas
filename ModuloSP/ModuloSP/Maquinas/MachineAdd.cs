@@ -123,14 +123,26 @@ namespace ModuloSP.Maquinas
 
         private void btAdd_Click_1(object sender, EventArgs e)
         {
-            Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
-            FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
-            FunctionsMaq.AddInfo(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
-            txtMarca.SelectedIndex = -1;
-            txtModelo.SelectedIndex = -1;
-            txtCor.Text = "";
-            txtDimensoes.Text = "";
-            txtPreco.Text = "";
+            if (string.IsNullOrWhiteSpace(txtCor.Text) | string.IsNullOrWhiteSpace(txtDimensoes.Text) | string.IsNullOrWhiteSpace(txtPreco.Text) | pictureBox1.Image == null)
+                {
+                    MessageBox.Show("Tem de preencher todos os campos", "Atenção",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            else
+            {
+                Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
+                FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
+                FunctionsMaq.AddInfo(Models.IDManagment.IdMaquina, txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
+                txtMarca.SelectedIndex = -1;
+                txtModelo.SelectedIndex = -1;
+                txtCor.Text = "";
+                txtDimensoes.Text = "";
+                txtPreco.Text = "";
+                pictureBox1.Image = null;
+            }
+
+            
 
         }
 

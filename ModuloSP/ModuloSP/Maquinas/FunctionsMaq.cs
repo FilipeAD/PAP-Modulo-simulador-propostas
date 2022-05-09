@@ -17,19 +17,12 @@ namespace ModuloSP.Maquinas
         public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image)
         {
 
-            if (string.IsNullOrWhiteSpace(_Cor) | string.IsNullOrWhiteSpace(_Dimensoes) | string.IsNullOrWhiteSpace(_Preco))
-            {
-                MessageBox.Show("Tem de preencher todos os campos", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
-                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Added,Produto_Imagem)" +
-                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Added,@Produto_Imagem)";
+                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Adicionado,Produto_Imagem)" +
+                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Adicionado,@Produto_Imagem)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);
@@ -37,7 +30,7 @@ namespace ModuloSP.Maquinas
             cmd.Parameters.AddWithValue("@preco", _Preco);
             cmd.Parameters.AddWithValue("@fk_marca_modelo_id", _fkMM);
             cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
-            cmd.Parameters.AddWithValue("@Date_Time_Added", DateTime.Now.ToLocalTime());
+            cmd.Parameters.AddWithValue("@Date_Time_Adicionado", DateTime.Now.ToLocalTime());
             cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
             try
             {

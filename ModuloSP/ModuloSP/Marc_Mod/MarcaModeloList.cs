@@ -18,25 +18,7 @@ namespace ModuloSP.Marc_Mod
             InitializeComponent();
         }
 
-        private Form activeForm;
-
-        private void OpenSecondForm(Form SecondForm, object btSend)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = SecondForm;
-            SecondForm.TopLevel = false;
-            SecondForm.FormBorderStyle = FormBorderStyle.None;
-            SecondForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(SecondForm);
-            this.DesktopPanel.Tag = SecondForm;
-            SecondForm.BringToFront();
-            SecondForm.Show();
-
-
-        }
+      
        
 
         private void MarcaModeloList_Load(object sender, EventArgs e)
@@ -54,32 +36,46 @@ namespace ModuloSP.Marc_Mod
 
         private void adicionarbt_Click(object sender, EventArgs e)
         {
-            bToolStripMenuItem.Visible = true;
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new MarcaModeloAdd(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new Marc_Mod.MarcaModeloAdd();
+
+            Models.Utils._form.mudaform(userList);
         }
 
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Prosseguir e eliminar?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (string.IsNullOrEmpty(Models.IDManagment.IDMarca_Modelo))
             {
-                return;
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                Models.FunctionsGeneral.DeleteRow("Marca_Modelo", Models.IDManagment.IDMarca_Modelo);
-                MessageBox.Show("Registo eliminado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IDMarca_Modelo + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Models.FunctionsGeneral.DeleteRow("Maquinas", Models.IDManagment.IDMarca_Modelo);
+                }
+                FunctionMarMod.LoadMarMod(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             }
-            FunctionMarMod.LoadMarMod(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DesktopPanel.Visible = false;
+            //DesktopPanel.Visible = false;
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-            bToolStripMenuItem.Visible = false;
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -90,9 +86,18 @@ namespace ModuloSP.Marc_Mod
             }
             else
             {
-                bToolStripMenuItem.Visible = true;
-                DesktopPanel.Visible = true;
-                OpenSecondForm(new MarcaModeloEdit(), sender);
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(Marc_Mod.MarcaModeloEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new Marc_Mod.MarcaModeloEdit();
+
+                Models.Utils._form.mudaform(userList);
             }
         }
 

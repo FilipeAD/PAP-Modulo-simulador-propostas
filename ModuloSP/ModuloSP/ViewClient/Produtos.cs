@@ -17,27 +17,6 @@ namespace ModuloSP.ViewClient
             InitializeComponent();
         }
 
-        private Form activeForm;
-
-        private void OpenSecondForm(Form SecondForm, object btSend)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = SecondForm;
-            SecondForm.TopLevel = false;
-            SecondForm.FormBorderStyle = FormBorderStyle.None;
-            SecondForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(SecondForm);
-            this.DesktopPanel.Tag = SecondForm;
-            SecondForm.BringToFront();
-            SecondForm.Show();
-
-
-        }
-
-
         private void Produtos_Load(object sender, EventArgs e)
         {
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
@@ -73,8 +52,18 @@ namespace ModuloSP.ViewClient
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DesktopPanel.Visible = true;
-            OpenSecondForm(new ProdutosExtensoes(), sender);
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.ProdutosExtensoes))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new ViewClient.ProdutosExtensoes();
+
+            Models.Utils._form.mudaform(userList);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

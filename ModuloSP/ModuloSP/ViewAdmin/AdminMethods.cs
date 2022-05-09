@@ -49,7 +49,7 @@ namespace ModuloSP.ViewAdmin
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "SELECT Nome FROM Permicoes_List " + 
+            string query = "SELECT Nome FROM Permissoes_List " + 
                            "where Nome != 'Visualizar e editar Permissões' and Nome != 'Visualizar produtos para compra' and Nome != 'Visualizar Atividade dos Utilizadores' and Nome != 'Visualizar todos os utilizadores' " +
                            "Group by Nome ";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -104,7 +104,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador, FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
                                "where Utilizador.Nome = '" + _cmbText + "'";
@@ -124,7 +124,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
                                "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
@@ -143,7 +143,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Nome, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
                                "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Date_Time_Added <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
