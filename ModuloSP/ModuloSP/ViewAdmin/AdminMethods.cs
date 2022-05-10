@@ -81,7 +81,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
+                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
                                 "from Maquinas " +
                                 "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
                                 "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
@@ -104,7 +104,7 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
                                "where Utilizador.Nome = '" + _cmbText + "'";
@@ -124,10 +124,10 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Adicionado, 'dd/MM/yyyy ') as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                               "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -143,10 +143,10 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Added, 'dd/MM/yyyy ') as [Data de criação] " +
+                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Adicionado, 'dd/MM/yyyy ') as [Data de criação] " +
                                "from AddOns " +
                                "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Date_Time_Added <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                               "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Date_Time_Adicionado <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -162,13 +162,13 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
+                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
                                 "from Maquinas " +
                                 "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
                                 "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
                                 "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
                                 "join Utilizador on Utilizador.ID = Maquinas.fk_Utilizador_ID " +
-                                "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Date_Time_Added <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                                "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Date_Time_Adicionado <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -185,13 +185,13 @@ namespace ModuloSP.ViewAdmin
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Added, 'dd/MM/yyyy ')  as [Data de criação] " +
+                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
                                 "from Maquinas " +
                                 "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
                                 "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
                                 "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
                                 "join Utilizador on Utilizador.ID = Maquinas.fk_Utilizador_ID " +
-                                "where Date_Time_Added >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                                "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;

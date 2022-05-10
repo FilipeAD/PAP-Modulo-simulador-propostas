@@ -73,7 +73,6 @@ namespace ModuloSP.Marc_Mod
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //DesktopPanel.Visible = false;
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
@@ -104,6 +103,12 @@ namespace ModuloSP.Marc_Mod
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             FunctionMarMod.MarcaSelect(dataGridView1, cmbMarca.Text);
+        }
+
+        private void MarcaModeloList_Activated(object sender, EventArgs e)
+        {
+            FunctionMarMod.LoadMarMod(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
     }
 }

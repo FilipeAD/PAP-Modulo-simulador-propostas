@@ -23,7 +23,7 @@ namespace ModuloSP.AddOn
       
         private void AddOnAdd_Load(object sender, EventArgs e)
         {
-
+            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", txtGrupo);
         }
 
         private void btAdd_Click_1(object sender, EventArgs e)
@@ -36,10 +36,12 @@ namespace ModuloSP.AddOn
             }
             else
             {
+                FunctionsAddOn.GroupId(txtGrupo.Text);
                 Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOn");
-                FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text, Models.CurrentUser.IDUser);
+                FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text, Models.CurrentUser.IDUser, Models.Utils.GrupoAddOn);
                 txtNome.Text = "";
                 txtPreco.Text = "";
+                txtGrupo.Text = "";
             }
 
           

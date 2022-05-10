@@ -157,6 +157,7 @@
             this.Text = "GPermissionsList";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.GPermissionsList_Activated);
             this.Load += new System.EventHandler(this.GPermissionsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);

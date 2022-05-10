@@ -21,12 +21,16 @@ namespace ModuloSP.AddOn
 
         private void AddOnEdit_Load(object sender, EventArgs e)
         {
+            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", txtGrupo);
             FunctionsAddOn.LoadEditInfo(Models.IDManagment.IdAddOn, txtNome, txtPreco);
+           
+            FunctionsAddOn.GroupLoad(Models.Utils.GrupoAddOn, txtGrupo);
         }
 
         private void btEdit_Click(object sender, EventArgs e)
         {
-            FunctionsAddOn.EditInfo(Models.IDManagment.IdAddOn, txtNome.Text, txtPreco.Text);
+            FunctionsAddOn.GroupId(txtGrupo.Text);
+            FunctionsAddOn.EditInfo(Models.IDManagment.IdAddOn, txtNome.Text, txtPreco.Text, Models.Utils.GrupoAddOn);
             this.Close();
         }
     }

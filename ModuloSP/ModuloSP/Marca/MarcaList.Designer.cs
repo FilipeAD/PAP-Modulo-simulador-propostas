@@ -106,6 +106,7 @@
             this.Name = "MarcaList";
             this.Text = "MarcaList";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.MarcaList_Activated);
             this.Load += new System.EventHandler(this.MarcaList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

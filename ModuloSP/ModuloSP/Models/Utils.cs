@@ -48,6 +48,19 @@ namespace ModuloSP.Models
             set { _Permissoes = value; }
         }
 
+        public static string _GrupoAddOn = "";
+        public static string GrupoAddOn
+        {
+            get { return _GrupoAddOn; }
+            set { _GrupoAddOn = value; }
+        }
+
+        public static string _GrupoAddOnNome = "";
+        public static string GrupoAddOnNome
+        {
+            get { return _GrupoAddOnNome; }
+            set { _GrupoAddOnNome = value; }
+        }
 
     }
 

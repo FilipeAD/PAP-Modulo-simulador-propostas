@@ -40,6 +40,7 @@ namespace ModuloSP
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
+            this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.InterfaceClient = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,8 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddOnMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -169,6 +171,9 @@ namespace ModuloSP
             // ListAddOns
             // 
             this.ListAddOns.BackColor = System.Drawing.Color.Silver;
+            this.ListAddOns.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lstAddOn,
+            this.AddOnMarca});
             this.ListAddOns.ForeColor = System.Drawing.Color.White;
             this.ListAddOns.Name = "ListAddOns";
             this.ListAddOns.Size = new System.Drawing.Size(180, 22);
@@ -189,6 +194,15 @@ namespace ModuloSP
             this.ListImpressoras.Text = "Impressoras";
             this.ListImpressoras.Visible = false;
             this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click);
+            // 
+            // listMaquina
+            // 
+            this.listMaquina.BackColor = System.Drawing.Color.Silver;
+            this.listMaquina.ForeColor = System.Drawing.Color.White;
+            this.listMaquina.Name = "listMaquina";
+            this.listMaquina.Size = new System.Drawing.Size(180, 22);
+            this.listMaquina.Text = "Listagem ";
+            this.listMaquina.Click += new System.EventHandler(this.listMaquina_Click);
             // 
             // ListMarcaModelo
             // 
@@ -312,13 +326,22 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // listMaquina
+            // AddOnMarca
             // 
-            this.listMaquina.BackColor = System.Drawing.Color.Silver;
-            this.listMaquina.ForeColor = System.Drawing.Color.White;
-            this.listMaquina.Name = "listMaquina";
-            this.listMaquina.Size = new System.Drawing.Size(180, 22);
-            this.listMaquina.Text = "Listagem ";
+            this.AddOnMarca.BackColor = System.Drawing.Color.Silver;
+            this.AddOnMarca.ForeColor = System.Drawing.Color.White;
+            this.AddOnMarca.Name = "AddOnMarca";
+            this.AddOnMarca.Size = new System.Drawing.Size(180, 22);
+            this.AddOnMarca.Text = "AddOn|Marca";
+            // 
+            // lstAddOn
+            // 
+            this.lstAddOn.BackColor = System.Drawing.Color.Silver;
+            this.lstAddOn.ForeColor = System.Drawing.Color.White;
+            this.lstAddOn.Name = "lstAddOn";
+            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
+            this.lstAddOn.Text = "Listagem";
+            this.lstAddOn.Click += new System.EventHandler(this.lisAddOn_Click);
             // 
             // GeneralView
             // 
@@ -373,5 +396,7 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
         private System.Windows.Forms.ToolStripMenuItem listMaquina;
+        private System.Windows.Forms.ToolStripMenuItem lstAddOn;
+        private System.Windows.Forms.ToolStripMenuItem AddOnMarca;
     }
 }

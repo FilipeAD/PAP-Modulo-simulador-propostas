@@ -114,5 +114,11 @@ namespace ModuloSP.Marca
                 Models.Utils._form.mudaform(userList);
             }
         }
+
+        private void MarcaList_Activated(object sender, EventArgs e)
+        {
+            FunctionsMarca.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
     }
 }

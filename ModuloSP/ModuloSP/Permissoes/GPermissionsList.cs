@@ -60,6 +60,9 @@ namespace ModuloSP.Permissoes
             AcountPermission.EditPermission(dataGridView1);
         }
 
-      
+        private void GPermissionsList_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

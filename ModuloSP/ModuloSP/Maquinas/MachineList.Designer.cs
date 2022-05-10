@@ -50,7 +50,7 @@ namespace ModuloSP.Maquinas
             this.dataGridView1.Size = new System.Drawing.Size(1146, 658);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // menuStrip1
             // 
@@ -109,6 +109,7 @@ namespace ModuloSP.Maquinas
             this.ShowIcon = false;
             this.Text = "MachineList";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.MachineList_Activated);
             this.Load += new System.EventHandler(this.MachineList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

@@ -98,7 +98,7 @@ namespace ModuloSP.Maquinas
             }
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
             {
@@ -109,15 +109,18 @@ namespace ModuloSP.Maquinas
                 }
             }
 
-                var userList = new Maquinas.MachineEdit();
+            var userList = new Maquinas.MachineEdit();
 
-                Models.Utils._form.mudaform(userList);
-                FunctionsMaq.LoadInfo(dataGridView1);
-                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-            
+            Models.Utils._form.mudaform(userList);
+            FunctionsMaq.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
         }
 
-     
+        private void MachineList_Activated(object sender, EventArgs e)
+        {
+            FunctionsMaq.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
     }
 }

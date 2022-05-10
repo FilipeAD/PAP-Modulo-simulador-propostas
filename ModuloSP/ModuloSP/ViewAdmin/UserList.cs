@@ -40,9 +40,7 @@ namespace ModuloSP.ViewAdmin
         private void ClientList_Load(object sender, EventArgs e)
         {
             INFOUser();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
 
         }

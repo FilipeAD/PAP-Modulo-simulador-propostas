@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
-    <ApplicationRevision>2</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.2</MinimumRequiredVersion>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -84,6 +84,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOn\AddOnMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOn\AddOnMarca.Designer.cs">
+      <DependentUpon>AddOnMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Marc_Mod\MarcaModeloEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddOn\AddOnList.resx">
       <DependentUpon>AddOnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOn\AddOnMarca.resx">
+      <DependentUpon>AddOnMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>

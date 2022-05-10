@@ -263,5 +263,35 @@ namespace ModuloSP
             var load = new ViewAdmin.ActivityTracker();
             mudaform(load);
         }
+
+        private void listMaquina_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Maquinas.MachineList load = new Maquinas.MachineList();
+            mudaform(load);
+        }
+
+        private void lisAddOn_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            AddOn.AddOnList load = new AddOn.AddOnList();
+            mudaform(load);
+        }
     }
 }

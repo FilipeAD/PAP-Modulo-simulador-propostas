@@ -35,7 +35,7 @@ namespace ModuloSP.AddOn
             this.label2 = new System.Windows.Forms.Label();
             this.btAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtGrupo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPreco
@@ -106,15 +106,15 @@ namespace ModuloSP.AddOn
             this.label3.TabIndex = 44;
             this.label3.Text = "Categoria";
             // 
-            // comboBox1
+            // txtGrupo
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(439, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(305, 26);
-            this.comboBox1.TabIndex = 45;
+            this.txtGrupo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrupo.FormattingEnabled = true;
+            this.txtGrupo.Location = new System.Drawing.Point(439, 116);
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Size = new System.Drawing.Size(305, 26);
+            this.txtGrupo.TabIndex = 45;
             // 
             // AddOnAdd
             // 
@@ -122,7 +122,7 @@ namespace ModuloSP.AddOn
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1179, 539);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtGrupo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.label2);
@@ -144,6 +144,6 @@ namespace ModuloSP.AddOn
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox txtGrupo;
     }
 }

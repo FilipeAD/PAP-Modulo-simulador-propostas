@@ -129,5 +129,11 @@ namespace ModuloSP.AddOn
 
             }
         }
+
+        private void AddOnList_Activated(object sender, EventArgs e)
+        {
+            FunctionsAddOn.INFOAddOn(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
     }
 }
