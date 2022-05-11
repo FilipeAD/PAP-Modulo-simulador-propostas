@@ -21,8 +21,9 @@ namespace ModuloSP.ViewClient
         {
             ProductFilters.LoadMachine(ProductFilters.ID, txtDimensoes, txtPreco, txtCor, pictureBox1);
             ProductFilters.LoadCMB(Models.IDManagment.fkMarca_Modelo, txtMarca);
+            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", txtCategorias);
         }
 
-       
+      
     }
 }

@@ -90,6 +90,18 @@
     <Compile Include="AddOn\AddOnMarca.Designer.cs">
       <DependentUpon>AddOnMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOn\AddOnMarcaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOn\AddOnMarcaAdd.Designer.cs">
+      <DependentUpon>AddOnMarcaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOn\AddOnMarcaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOn\AddOnMarcaEdit.Designer.cs">
+      <DependentUpon>AddOnMarcaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Marc_Mod\MarcaModeloEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddOn\AddOnMarca.resx">
       <DependentUpon>AddOnMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOn\AddOnMarcaAdd.resx">
+      <DependentUpon>AddOnMarcaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOn\AddOnMarcaEdit.resx">
+      <DependentUpon>AddOnMarcaEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>

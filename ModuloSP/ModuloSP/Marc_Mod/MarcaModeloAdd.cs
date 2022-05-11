@@ -74,24 +74,7 @@ namespace ModuloSP.Marc_Mod
             Maquinas.FunctionsMaq.CmbInsertM("Marca", txtMarca);
         }
 
-        private void txtNome_Enter(object sender, EventArgs e)
-        {
-            if (txtNome.Text == "Nome")
-            {
-                txtNome.Text = null;
-                txtNome.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtNome_Leave(object sender, EventArgs e)
-        {
-            if (txtNome.Text == "")
-            {
-                txtNome.Text = "Nome";
-                txtNome.ForeColor = Color.Gray;
-            }
-        }
-
+      
         private void btAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNome.Text))

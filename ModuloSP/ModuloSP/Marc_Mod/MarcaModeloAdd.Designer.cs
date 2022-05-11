@@ -74,14 +74,11 @@
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtNome.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtNome.Location = new System.Drawing.Point(421, 321);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(250, 26);
             this.txtNome.TabIndex = 43;
-            this.txtNome.Text = "Modelo";
-            this.txtNome.Enter += new System.EventHandler(this.txtNome_Enter);
-            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // btAdd
             // 

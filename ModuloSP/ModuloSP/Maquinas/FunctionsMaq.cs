@@ -14,8 +14,10 @@ namespace ModuloSP.Maquinas
 {
     internal class FunctionsMaq
     {
-        public static void AddInfo(string _ID, string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image)
+        public static void AddInfo(string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image)
         {
+
+            Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
 
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);
@@ -24,7 +26,7 @@ namespace ModuloSP.Maquinas
                 "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Adicionado,Produto_Imagem)" +
                 "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Adicionado,@Produto_Imagem)";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@id", _ID);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdMaquina);
             cmd.Parameters.AddWithValue("@cor", _Cor);
             cmd.Parameters.AddWithValue("@dimensoes", _Dimensoes);
             cmd.Parameters.AddWithValue("@preco", _Preco);

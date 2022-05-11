@@ -11,7 +11,7 @@ namespace ModuloSP.AddOn
 {
     internal class FunctionsAddOn
     {
-        public static void INFOAddOn(DataGridView _Datagridview )
+        public static void INFOAddOn(DataGridView _Datagridview)
         {
             using (SqlConnection con =
                 new SqlConnection(Models.Utils.conString))
@@ -45,6 +45,31 @@ namespace ModuloSP.AddOn
                 _textbox2.Text = dr["preco_base"].ToString();
             }
             con.Close();
+
+        }
+
+        public static void LoadEditInfoAddOnMarca(string _ID, TextBox _marca, TextBox _modelo, TextBox _AddOn, TextBox _Preco)
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "select Modelo_AddOns.ID, Marca.Nome as Marca, Modelo.Nome as Modelo, AddOns.Descricao as AddOnNome, Preco_Relacao " +
+                               "from Modelo_AddOns " +
+                               "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
+                               "join Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID " +
+                               "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
+                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
+                               "where Modelo_AddOns.ID = '" + _ID + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _marca.Text = dr["Marca"].ToString();
+                _modelo.Text = dr["Modelo"].ToString();
+                _AddOn.Text = dr["AddOnNome"].ToString();
+                _Preco.Text = dr["Preco_Relacao"].ToString();
+            }
+            con.Close();
         }
 
         public static void EditInfo(string _ID, string _textbox1, string _textbox2, string _Grupo)
@@ -69,11 +94,11 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
-        public static void AddInfo( string _textbox1, string _textbox2, string _currentUserID, string _Grupo)
+        public static void AddInfo(string _textbox1, string _textbox2, string _currentUserID, string _Grupo)
         {
             Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOns");
 
-           
+
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);
             con.Open();
@@ -103,9 +128,8 @@ namespace ModuloSP.AddOn
 
 
             con.Close();
-            
-        }
 
+        }
 
         public static void GroupId(string _cmb)
         {
@@ -125,6 +149,21 @@ namespace ModuloSP.AddOn
 
         }
 
+        public static void AddOnId(string _cmb)
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "select ID from AddOns where Descricao = '" + _cmb + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Models.Utils.IDAddOn = dr["ID"].ToString();
+            }
+            con.Close();
+
+        }
 
         public static void GroupLoad(string _fkID, ComboBox _txtGrupo)
         {
@@ -133,7 +172,7 @@ namespace ModuloSP.AddOn
             con.Open();
             string query = "select Add_Ons_Grupos.Nome as Grupo " +
                            "From Add_Ons_Grupos " +
-                           "where Add_Ons_Grupos.ID = '" + _fkID + "'"; 
+                           "where Add_Ons_Grupos.ID = '" + _fkID + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -144,6 +183,124 @@ namespace ModuloSP.AddOn
 
         }
 
+        public static void INFOAddOnMarca(DataGridView _Datagridview)
+        {
+            using (SqlConnection con =
+                new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select Modelo_AddOns.ID, Marca.Nome as Marca, Modelo.Nome as Modelo, AddOns.Descricao, Preco_Relacao " +
+                               "from Modelo_AddOns " +
+                               "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
+                               "join Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID " +
+                               "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
+                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _Datagridview.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdAddOn = "";
+            }
+            Models.IDManagment.IdAddOnMarca = "";
+        }
+
+        public static void CmbInsertAddon(string _Database, ComboBox _cmb)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "SELECT Descricao FROM " + _Database + " Group by Descricao ";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _cmb.Items.Add(dr["Descricao"].ToString());
+            }
+        }
+
+        public static void AddInfoMarcaAddOn(string _Preco, string _AddOnsID, string _MarcaModelo)
+        {
+            Models.IDManagment.IdAddOnMarcaADD = Models.IDManagment.InsereID("Modelo_AddOns");
+
+
+            SqlConnection con = new
+                SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "INSERT INTO Modelo_AddOns(" +
+                "id,Preco_Relacao,fk_AddOns_id,fk_Marca_Modelo_ID)" +
+                "VALUES (@id,@Preco_Relacao,@fk_AddOns_id,@fk_Marca_Modelo_ID)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdAddOnMarcaADD);
+            cmd.Parameters.AddWithValue("@Preco_Relacao", _Preco);
+            cmd.Parameters.AddWithValue("@fk_AddOns_id", _AddOnsID);
+            cmd.Parameters.AddWithValue("@fk_Marca_Modelo_ID", _MarcaModelo);
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch
+            {
+                MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Registo inserido", "Informação",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            con.Close();
+        }
+
+
+        public static void EditInfoAddMarca(string _ID, string _preco, string _AddOnID, string _MarcaModelo)
+        {
+            SqlConnection con = new
+               SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "UPDATE Modelo_AddOns SET " +
+                "Preco_Relacao=@Preco_Relacao," +
+                "fk_AddOns_id=@fk_AddOns_id, " +
+                "fk_Marca_Modelo_ID=@fk_Marca_Modelo_ID " +
+                " where ID=@ID";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", _ID);
+            cmd.Parameters.AddWithValue("@Preco_Relacao", _preco);
+            cmd.Parameters.AddWithValue("@fk_AddOns_id", _AddOnID);
+            cmd.Parameters.AddWithValue("@fk_Marca_Modelo_ID", _MarcaModelo);
+
+            cmd.ExecuteScalar();
+            MessageBox.Show("Registo editado.", "Informação",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            con.Close();
+
+        }
+
+
+        public static bool VField(string _textbox, string _textbox2, string _Procedure, string _field, string _field2)
+        {
+            using (SqlConnection con =
+                new SqlConnection(Models.Utils.conString))
+            {
+                SqlCommand cmd = new SqlCommand(_Procedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue(_field, _textbox);
+                cmd.Parameters.AddWithValue(_field2, _textbox2);
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
 
     }
 }

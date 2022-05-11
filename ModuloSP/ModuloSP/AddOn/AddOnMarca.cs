@@ -19,7 +19,102 @@ namespace ModuloSP.AddOn
 
         private void AddOnMarca_Load(object sender, EventArgs e)
         {
+            FunctionsAddOn.INFOAddOnMarca(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
 
+        private void adicionarbt_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnMarcaAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new AddOn.AddOnMarcaAdd();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdAddOnMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnMarcaEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnMarcaEdit();
+
+                Models.Utils._form.mudaform(userList);
+            }
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Models.IDManagment.IdAddOnMarca))
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdAddOnMarca + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Models.FunctionsGeneral.DeleteRow("Modelo_AddOns", Models.IDManagment.IdAddOnMarca);
+                }
+                FunctionsAddOn.INFOAddOnMarca(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Models.IDManagment.IdAddOnMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Models.IDManagment.IdAddOnMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnMarcaEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnMarcaEdit();
+
+                Models.Utils._form.mudaform(userList);
+            }
+        }
+
+        private void AddOnMarca_Activated(object sender, EventArgs e)
+        {
+            FunctionsAddOn.INFOAddOnMarca(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
     }
 }

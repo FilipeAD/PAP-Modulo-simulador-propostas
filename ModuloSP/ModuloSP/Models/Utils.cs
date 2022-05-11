@@ -34,6 +34,12 @@ namespace ModuloSP.Models
             set { _IDMarca = value; }
         }
 
+        public static string _IDAddOn = "";
+        public static string IDAddOn
+        {
+            get { return _IDAddOn; }
+            set { _IDAddOn = value; }
+        }
         public static string _Grupo = "";
         public static string Grupo
         {

@@ -293,5 +293,20 @@ namespace ModuloSP
             AddOn.AddOnList load = new AddOn.AddOnList();
             mudaform(load);
         }
+
+        private void AddOnMarca_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnMarca))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            AddOn.AddOnMarca load = new AddOn.AddOnMarca();
+            mudaform(load);
+        }
     }
 }

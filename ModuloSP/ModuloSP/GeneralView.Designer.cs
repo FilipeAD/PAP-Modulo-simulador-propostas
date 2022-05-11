@@ -39,6 +39,8 @@ namespace ModuloSP
             this.ListPermicoes = new System.Windows.Forms.ToolStripMenuItem();
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddOnMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
             this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,6 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.AddOnMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -181,6 +181,24 @@ namespace ModuloSP
             this.ListAddOns.Visible = false;
             this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click);
             // 
+            // lstAddOn
+            // 
+            this.lstAddOn.BackColor = System.Drawing.Color.Silver;
+            this.lstAddOn.ForeColor = System.Drawing.Color.White;
+            this.lstAddOn.Name = "lstAddOn";
+            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
+            this.lstAddOn.Text = "Listagem";
+            this.lstAddOn.Click += new System.EventHandler(this.lisAddOn_Click);
+            // 
+            // AddOnMarca
+            // 
+            this.AddOnMarca.BackColor = System.Drawing.Color.Silver;
+            this.AddOnMarca.ForeColor = System.Drawing.Color.White;
+            this.AddOnMarca.Name = "AddOnMarca";
+            this.AddOnMarca.Size = new System.Drawing.Size(180, 22);
+            this.AddOnMarca.Text = "AddOn|Marca";
+            this.AddOnMarca.Click += new System.EventHandler(this.AddOnMarca_Click);
+            // 
             // ListImpressoras
             // 
             this.ListImpressoras.BackColor = System.Drawing.Color.Silver;
@@ -200,7 +218,7 @@ namespace ModuloSP
             this.listMaquina.BackColor = System.Drawing.Color.Silver;
             this.listMaquina.ForeColor = System.Drawing.Color.White;
             this.listMaquina.Name = "listMaquina";
-            this.listMaquina.Size = new System.Drawing.Size(180, 22);
+            this.listMaquina.Size = new System.Drawing.Size(156, 22);
             this.listMaquina.Text = "Listagem ";
             this.listMaquina.Click += new System.EventHandler(this.listMaquina_Click);
             // 
@@ -209,7 +227,7 @@ namespace ModuloSP
             this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
             this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
             this.ListMarcaModelo.Name = "ListMarcaModelo";
-            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
+            this.ListMarcaModelo.Size = new System.Drawing.Size(156, 22);
             this.ListMarcaModelo.Text = "Marca|Modelo";
             this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click);
             // 
@@ -218,7 +236,7 @@ namespace ModuloSP
             this.ListMarca.BackColor = System.Drawing.Color.Silver;
             this.ListMarca.ForeColor = System.Drawing.Color.White;
             this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(180, 22);
+            this.ListMarca.Size = new System.Drawing.Size(156, 22);
             this.ListMarca.Text = "Marcas";
             this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
@@ -325,23 +343,6 @@ namespace ModuloSP
             this.lblUsername.TabIndex = 13;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // AddOnMarca
-            // 
-            this.AddOnMarca.BackColor = System.Drawing.Color.Silver;
-            this.AddOnMarca.ForeColor = System.Drawing.Color.White;
-            this.AddOnMarca.Name = "AddOnMarca";
-            this.AddOnMarca.Size = new System.Drawing.Size(180, 22);
-            this.AddOnMarca.Text = "AddOn|Marca";
-            // 
-            // lstAddOn
-            // 
-            this.lstAddOn.BackColor = System.Drawing.Color.Silver;
-            this.lstAddOn.ForeColor = System.Drawing.Color.White;
-            this.lstAddOn.Name = "lstAddOn";
-            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
-            this.lstAddOn.Text = "Listagem";
-            this.lstAddOn.Click += new System.EventHandler(this.lisAddOn_Click);
             // 
             // GeneralView
             // 

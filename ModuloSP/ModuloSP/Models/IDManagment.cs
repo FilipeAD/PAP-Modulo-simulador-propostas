@@ -53,6 +53,20 @@ namespace ModuloSP.Models
             set { _IdAddOn = value; }
         }
 
+        private static string _IdAddOnMarca = "";
+        public static string IdAddOnMarca
+        {
+            get { return _IdAddOnMarca; }
+            set { _IdAddOnMarca = value; }
+        }
+
+        private static string _IdAddOnMarcaADD = "";
+        public static string IdAddOnMarcaADD
+        {
+            get { return _IdAddOnMarcaADD; }
+            set { _IdAddOnMarcaADD = value; }
+        }
+
         private static string _IdMarca = "";
         public static string IdMarca
         {

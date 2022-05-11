@@ -37,7 +37,6 @@ namespace ModuloSP.AddOn
             else
             {
                 FunctionsAddOn.GroupId(txtGrupo.Text);
-                Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOn");
                 FunctionsAddOn.AddInfo(txtNome.Text, txtPreco.Text, Models.CurrentUser.IDUser, Models.Utils.GrupoAddOn);
                 txtNome.Text = "";
                 txtPreco.Text = "";
