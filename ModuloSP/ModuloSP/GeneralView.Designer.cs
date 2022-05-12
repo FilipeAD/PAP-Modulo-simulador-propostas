@@ -73,6 +73,7 @@ namespace ModuloSP
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1241, 38);
             this.panel4.TabIndex = 14;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // button2
             // 
@@ -153,7 +154,7 @@ namespace ModuloSP
             this.ListPermicoes.BackColor = System.Drawing.Color.Silver;
             this.ListPermicoes.ForeColor = System.Drawing.Color.White;
             this.ListPermicoes.Name = "ListPermicoes";
-            this.ListPermicoes.Size = new System.Drawing.Size(180, 22);
+            this.ListPermicoes.Size = new System.Drawing.Size(150, 22);
             this.ListPermicoes.Text = "Permições";
             this.ListPermicoes.Visible = false;
             this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click);
@@ -163,7 +164,7 @@ namespace ModuloSP
             this.listUtilizadores.BackColor = System.Drawing.Color.Silver;
             this.listUtilizadores.ForeColor = System.Drawing.Color.White;
             this.listUtilizadores.Name = "listUtilizadores";
-            this.listUtilizadores.Size = new System.Drawing.Size(180, 22);
+            this.listUtilizadores.Size = new System.Drawing.Size(150, 22);
             this.listUtilizadores.Text = "Utilizadores";
             this.listUtilizadores.Visible = false;
             this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click);
@@ -176,7 +177,7 @@ namespace ModuloSP
             this.AddOnMarca});
             this.ListAddOns.ForeColor = System.Drawing.Color.White;
             this.ListAddOns.Name = "ListAddOns";
-            this.ListAddOns.Size = new System.Drawing.Size(180, 22);
+            this.ListAddOns.Size = new System.Drawing.Size(150, 22);
             this.ListAddOns.Text = "AddOns";
             this.ListAddOns.Visible = false;
             this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click);
@@ -186,7 +187,7 @@ namespace ModuloSP
             this.lstAddOn.BackColor = System.Drawing.Color.Silver;
             this.lstAddOn.ForeColor = System.Drawing.Color.White;
             this.lstAddOn.Name = "lstAddOn";
-            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
+            this.lstAddOn.Size = new System.Drawing.Size(151, 22);
             this.lstAddOn.Text = "Listagem";
             this.lstAddOn.Click += new System.EventHandler(this.lisAddOn_Click);
             // 
@@ -195,7 +196,7 @@ namespace ModuloSP
             this.AddOnMarca.BackColor = System.Drawing.Color.Silver;
             this.AddOnMarca.ForeColor = System.Drawing.Color.White;
             this.AddOnMarca.Name = "AddOnMarca";
-            this.AddOnMarca.Size = new System.Drawing.Size(180, 22);
+            this.AddOnMarca.Size = new System.Drawing.Size(151, 22);
             this.AddOnMarca.Text = "AddOn|Marca";
             this.AddOnMarca.Click += new System.EventHandler(this.AddOnMarca_Click);
             // 
@@ -208,7 +209,7 @@ namespace ModuloSP
             this.ListMarca});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
             this.ListImpressoras.Name = "ListImpressoras";
-            this.ListImpressoras.Size = new System.Drawing.Size(180, 22);
+            this.ListImpressoras.Size = new System.Drawing.Size(150, 22);
             this.ListImpressoras.Text = "Impressoras";
             this.ListImpressoras.Visible = false;
             this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click);
@@ -245,7 +246,7 @@ namespace ModuloSP
             this.InterfaceClient.BackColor = System.Drawing.Color.Silver;
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
+            this.InterfaceClient.Size = new System.Drawing.Size(150, 22);
             this.InterfaceClient.Text = "Produtos ";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);

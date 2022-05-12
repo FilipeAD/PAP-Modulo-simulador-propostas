@@ -33,7 +33,7 @@ namespace ModuloSP.Permissoes
         private void GPermissionsList_Load(object sender, EventArgs e)
         {
 
-
+            DatagridStyle();
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -64,5 +64,18 @@ namespace ModuloSP.Permissoes
         {
 
         }
+
+        private void GPermissionsList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // if textbox is focused and Enter key was pressed
+            if (this.txtNome.Focused && e.KeyChar == '\r')
+            {
+                // click the Go button
+                this.btSearch.PerformClick();
+                // don't allow the Enter key to pass to textbox
+                e.Handled = true;
+            }
+        }
+
     }
 }

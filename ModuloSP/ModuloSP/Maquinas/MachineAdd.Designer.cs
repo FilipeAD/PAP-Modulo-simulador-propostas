@@ -90,9 +90,8 @@ namespace ModuloSP.Maquinas
             // txtMarca
             // 
             this.txtMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMarca.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtMarca.FormattingEnabled = true;
             this.txtMarca.ItemHeight = 20;
             this.txtMarca.Location = new System.Drawing.Point(274, 95);
@@ -106,10 +105,9 @@ namespace ModuloSP.Maquinas
             // txtModelo
             // 
             this.txtModelo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtModelo.Enabled = false;
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtModelo.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtModelo.FormattingEnabled = true;
             this.txtModelo.ItemHeight = 20;
             this.txtModelo.Location = new System.Drawing.Point(599, 95);
@@ -229,7 +227,7 @@ namespace ModuloSP.Maquinas
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(64, 278);
+            this.panel1.Location = new System.Drawing.Point(30, 288);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 48;

@@ -32,22 +32,28 @@
             this.txtPreco = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.Label();
             this.txtCategorias = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtNome = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCor = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescricaoMaquinas = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Extensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDimensoes
             // 
-            this.txtDimensoes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDimensoes.AutoSize = true;
             this.txtDimensoes.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDimensoes.Location = new System.Drawing.Point(517, 175);
+            this.txtDimensoes.Location = new System.Drawing.Point(491, 371);
             this.txtDimensoes.Name = "txtDimensoes";
             this.txtDimensoes.Size = new System.Drawing.Size(90, 19);
             this.txtDimensoes.TabIndex = 1;
@@ -55,21 +61,19 @@
             // 
             // txtPreco
             // 
-            this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPreco.AutoSize = true;
-            this.txtPreco.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(517, 431);
+            this.txtPreco.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreco.Location = new System.Drawing.Point(381, 438);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(52, 19);
+            this.txtPreco.Size = new System.Drawing.Size(59, 23);
             this.txtPreco.TabIndex = 2;
             this.txtPreco.Text = "Preço";
             // 
             // txtMarca
             // 
-            this.txtMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMarca.AutoSize = true;
             this.txtMarca.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(517, 132);
+            this.txtMarca.Location = new System.Drawing.Point(381, 38);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(111, 19);
             this.txtMarca.TabIndex = 3;
@@ -77,40 +81,40 @@
             // 
             // txtCategorias
             // 
-            this.txtCategorias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCategorias.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategorias.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategorias.FormattingEnabled = true;
-            this.txtCategorias.Location = new System.Drawing.Point(737, 167);
+            this.txtCategorias.Location = new System.Drawing.Point(913, 69);
             this.txtCategorias.Name = "txtCategorias";
-            this.txtCategorias.Size = new System.Drawing.Size(359, 27);
+            this.txtCategorias.Size = new System.Drawing.Size(509, 28);
             this.txtCategorias.TabIndex = 4;
+            this.txtCategorias.SelectedIndexChanged += new System.EventHandler(this.txtCategorias_SelectedIndexChanged);
+            this.txtCategorias.TextChanged += new System.EventHandler(this.txtCategorias_TextChanged);
             // 
-            // comboBox3
+            // txtNome
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(737, 248);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(359, 27);
-            this.comboBox3.TabIndex = 6;
+            this.txtNome.Enabled = false;
+            this.txtNome.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.FormattingEnabled = true;
+            this.txtNome.Location = new System.Drawing.Point(913, 154);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(509, 28);
+            this.txtNome.TabIndex = 6;
+            this.txtNome.SelectedIndexChanged += new System.EventHandler(this.txtNome_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Location = new System.Drawing.Point(142, 132);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 318);
+            this.pictureBox1.Size = new System.Drawing.Size(348, 423);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(733, 213);
+            this.label2.Location = new System.Drawing.Point(909, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 19);
             this.label2.TabIndex = 11;
@@ -118,10 +122,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(733, 132);
+            this.label3.Location = new System.Drawing.Point(909, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 19);
             this.label3.TabIndex = 12;
@@ -129,59 +132,113 @@
             // 
             // txtCor
             // 
-            this.txtCor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCor.AutoSize = true;
             this.txtCor.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCor.Location = new System.Drawing.Point(517, 208);
+            this.txtCor.Location = new System.Drawing.Point(491, 405);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(35, 19);
             this.txtCor.TabIndex = 13;
             this.txtCor.Text = "Cor";
             // 
-            // textBox1
+            // txtDescricaoMaquinas
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(737, 340);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 110);
-            this.textBox1.TabIndex = 14;
+            this.txtDescricaoMaquinas.AutoSize = true;
+            this.txtDescricaoMaquinas.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricaoMaquinas.Location = new System.Drawing.Point(382, 57);
+            this.txtDescricaoMaquinas.Name = "txtDescricaoMaquinas";
+            this.txtDescricaoMaquinas.Size = new System.Drawing.Size(74, 18);
+            this.txtDescricaoMaquinas.TabIndex = 16;
+            this.txtDescricaoMaquinas.Text = "Descricao";
             // 
-            // label1
+            // label4
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(733, 303);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 19);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Descrição";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(381, 371);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 19);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Dimensões ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(381, 405);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 19);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Cor";
+            // 
+            // btAdd
+            // 
+            this.btAdd.BackColor = System.Drawing.Color.Black;
+            this.btAdd.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdd.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd.ForeColor = System.Drawing.Color.White;
+            this.btAdd.Location = new System.Drawing.Point(1265, 428);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(157, 33);
+            this.btAdd.TabIndex = 51;
+            this.btAdd.Text = "Adicionar";
+            this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.btAdd);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtDescricaoMaquinas);
+            this.panel1.Controls.Add(this.txtCor);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.txtNome);
+            this.panel1.Controls.Add(this.txtCategorias);
+            this.panel1.Controls.Add(this.txtMarca);
+            this.panel1.Controls.Add(this.txtPreco);
+            this.panel1.Controls.Add(this.txtDimensoes);
+            this.panel1.Location = new System.Drawing.Point(7, 83);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1451, 492);
+            this.panel1.TabIndex = 52;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Extensoes});
+            this.dataGridView1.Location = new System.Drawing.Point(913, 209);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(509, 181);
+            this.dataGridView1.TabIndex = 52;
+            // 
+            // Extensoes
+            // 
+            this.Extensoes.HeaderText = "Extensões";
+            this.Extensoes.Name = "Extensoes";
             // 
             // ProdutosExtensoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1214, 653);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtCor);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.txtCategorias);
-            this.Controls.Add(this.txtMarca);
-            this.Controls.Add(this.txtPreco);
-            this.Controls.Add(this.txtDimensoes);
+            this.ClientSize = new System.Drawing.Size(1475, 653);
+            this.Controls.Add(this.panel1);
             this.Name = "ProdutosExtensoes";
-            this.Text = "ProdutosExtensoes";
+            this.Text = "Extensões";
             this.Load += new System.EventHandler(this.ProdutosExtensoes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -190,12 +247,17 @@
         private System.Windows.Forms.Label txtPreco;
         private System.Windows.Forms.Label txtMarca;
         private System.Windows.Forms.ComboBox txtCategorias;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox txtNome;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtCor;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtDescricaoMaquinas;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Extensoes;
     }
 }

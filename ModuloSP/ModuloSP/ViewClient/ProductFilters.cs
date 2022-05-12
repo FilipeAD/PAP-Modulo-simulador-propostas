@@ -23,9 +23,26 @@ namespace ModuloSP.ViewClient
             set { _ID = value; }
         }
 
-      
+        public static List<string> ListCMB(string _Database)
+        {
+            List<string> al = new List<string>();
 
-        public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image)
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                al.Add(dr["Nome"].ToString());
+            }
+            con.Close();
+            return al;
+        }
+
+
+
+        public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image, Label _Descricao)
         {
             Encoding ascii = Encoding.ASCII;
             Encoding unicode = Encoding.Unicode;
@@ -41,6 +58,7 @@ namespace ModuloSP.ViewClient
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString() + "€";
+                _Descricao.Text = dr["Descricao"].ToString();
                 byte[] data = dr["Produto_Imagem"].ToString().Length > 0 ? (byte[])(dr["Produto_Imagem"]) : Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu);
                 MemoryStream mem = new MemoryStream(data); 
                 _Image.Image = Image.FromStream(mem);
@@ -48,10 +66,8 @@ namespace ModuloSP.ViewClient
             }
             con.Close();
         }
-
      
-
-        public static void LoadCMB(string _ID, Label _MarcaModelo)
+        public static void LoadImMarcaMod(string _ID, Label _MarcaModelo)
         {
             SqlConnection con =
                    new SqlConnection(Models.Utils.conString);
@@ -65,10 +81,27 @@ namespace ModuloSP.ViewClient
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _MarcaModelo.Text = dr["Marca"].ToString() + " " + dr["Modelo"].ToString();
+                _MarcaModelo.Text = "IMPRESSORA " + dr["Marca"].ToString() + " " + dr["Modelo"].ToString();
             }
             con.Close();
         }
+
+        public static void CmbInsertAddon(ComboBox _cmb, string _grupo)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "select descricao " +
+                           "from AddOns " +
+                           "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                           "where Nome = '" + _grupo + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _cmb.Items.Add(dr["Descricao"].ToString());
+            }
+        }
+
 
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
@@ -323,6 +356,8 @@ namespace ModuloSP.ViewClient
             }
 
         }
+
+
 
 
     }

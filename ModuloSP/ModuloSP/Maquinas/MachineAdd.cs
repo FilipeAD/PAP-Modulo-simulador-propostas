@@ -22,13 +22,18 @@ namespace ModuloSP.Maquinas
         private void MachineAdd_Load(object sender, EventArgs e)
         {
             FunctionsMaq.CmbInsertM("Marca", txtMarca);
-            
+            txtMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
+
         }
 
         private void txtMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtModelo.Enabled = true;
             FunctionsMaq.CmbInsertMM(txtModelo, txtMarca.Text);
+            txtModelo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtModelo.AutoCompleteSource = AutoCompleteSource.ListItems;
+           
         }
 
         private void txtMarca_Enter(object sender, EventArgs e)
@@ -121,29 +126,47 @@ namespace ModuloSP.Maquinas
             }
         }
 
+
+
         private void btAdd_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCor.Text) | string.IsNullOrWhiteSpace(txtDimensoes.Text) | string.IsNullOrWhiteSpace(txtPreco.Text) | pictureBox1.Image == null)
+            var list = ViewClient.ProductFilters.ListCMB("Marca");
+            if (list.Contains(txtMarca.Text))
+            {
+                var lista = ViewClient.ProductFilters.ListCMB("Modelo");
+                if (lista.Contains(txtModelo.Text))
                 {
-                    MessageBox.Show("Tem de preencher todos os campos", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
+                    if (string.IsNullOrWhiteSpace(txtCor.Text) | string.IsNullOrWhiteSpace(txtDimensoes.Text) | string.IsNullOrWhiteSpace(txtPreco.Text) | pictureBox1.Image == null)
+                    {
+                        MessageBox.Show("Tem de preencher todos os campos", "Atenção",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    else
+                    {
+                        FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
+                        FunctionsMaq.AddInfo(txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
+                        txtMarca.SelectedIndex = -1;
+                        txtModelo.SelectedIndex = -1;
+                        txtCor.Text = "";
+                        txtDimensoes.Text = "";
+                        txtPreco.Text = "";
+                        pictureBox1.Image = null;
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Modelo inexistente!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
             else
             {
-                FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
-                FunctionsMaq.AddInfo(txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
-                txtMarca.SelectedIndex = -1;
-                txtModelo.SelectedIndex = -1;
-                txtCor.Text = "";
-                txtDimensoes.Text = "";
-                txtPreco.Text = "";
-                pictureBox1.Image = null;
+                MessageBox.Show("Marca inexistente!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-            
 
         }
+
 
         private void btConectImage_Click(object sender, EventArgs e)
         {

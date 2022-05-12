@@ -85,12 +85,6 @@ namespace ModuloSP
             lblUsername.Text = Models.CurrentUser.username;
             Permissionview();
 
-
-
-
-
-
-
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -307,6 +301,11 @@ namespace ModuloSP
 
             AddOn.AddOnMarca load = new AddOn.AddOnMarca();
             mudaform(load);
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
