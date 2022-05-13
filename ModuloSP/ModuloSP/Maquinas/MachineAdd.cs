@@ -18,7 +18,9 @@ namespace ModuloSP.Maquinas
         {
             InitializeComponent();
         }
-      
+
+        string ADDColor;
+
         private void MachineAdd_Load(object sender, EventArgs e)
         {
             FunctionsMaq.CmbInsertM("Marca", txtMarca);
@@ -145,13 +147,14 @@ namespace ModuloSP.Maquinas
                     else
                     {
                         FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
-                        FunctionsMaq.AddInfo(txtCor.Text, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
+                        FunctionsMaq.AddInfo(ADDColor, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
                         txtMarca.SelectedIndex = -1;
                         txtModelo.SelectedIndex = -1;
                         txtCor.Text = "";
                         txtDimensoes.Text = "";
                         txtPreco.Text = "";
                         pictureBox1.Image = null;
+                        txtCor.BackColor = Color.White;
                     }
                 }
                 else
@@ -179,6 +182,55 @@ namespace ModuloSP.Maquinas
             {
                 //string code = (colorDialog1.Color.ToArgb)
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FunctionsMaq.UploadImage(pictureBox1);
+        }
+
+        private void txtCor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color color = colorDialog1.Color;
+                ADDColor = "#" + (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+                txtCor.BackColor = colorDialog1.Color;
+
+            }
+           
+        }
+
+        private void lblMarca_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marca.MarcaList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new Marca.MarcaList();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+        private void lblModelo_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new Marc_Mod.MarcaModeloList();
+
+            Models.Utils._form.mudaform(userList);
         }
     }
 }

@@ -127,6 +127,7 @@ namespace ModuloSP
 
         }
 
+
         private void listUtilizadores_Click(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -143,67 +144,6 @@ namespace ModuloSP
             
         }
 
-        private void ListImpressoras_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Maquinas.MachineList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-            
-            Maquinas.MachineList load = new Maquinas.MachineList();
-            mudaform(load);
-        }
-
-        private void ListAddOns_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(AddOn.AddOnList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            AddOn.AddOnList load = new AddOn.AddOnList();
-            mudaform(load);
-        }
-
-        private void ListMarca_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Marca.MarcaList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            Marca.MarcaList load = new Marca.MarcaList();
-            mudaform(load);
-
-        }
-
-        private void ListMarcaModelo_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            Marc_Mod.MarcaModeloList load = new Marc_Mod.MarcaModeloList();
-            mudaform(load);
-        }
-
         private void Menu_ItemAdded(object sender, ToolStripItemEventArgs e)
         {
             if (e.Item.Text == "")
@@ -211,6 +151,9 @@ namespace ModuloSP
                 e.Item.Visible = false;
             }
         }
+
+
+
 
         private void ListPermicoes_Click(object sender, EventArgs e)
         {
@@ -258,20 +201,10 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void listMaquina_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Maquinas.MachineList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
 
-            Maquinas.MachineList load = new Maquinas.MachineList();
-            mudaform(load);
-        }
+
+
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         private void lisAddOn_Click(object sender, EventArgs e)
         {
@@ -288,7 +221,38 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void AddOnMarca_Click(object sender, EventArgs e)
+
+        private void ListAddOns_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            AddOn.AddOnList load = new AddOn.AddOnList();
+            mudaform(load);
+        }
+
+        private void lstAddOn_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            AddOn.AddOnList load = new AddOn.AddOnList();
+            mudaform(load);
+        }
+
+        private void AddOnMarca_Click_1(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
             {
@@ -303,9 +267,64 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void ListImpressoras_Click_1(object sender, EventArgs e)
         {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
 
+            Maquinas.MachineList load = new Maquinas.MachineList();
+            mudaform(load);
+        }
+
+        private void listMaquina_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Maquinas.MachineList load = new Maquinas.MachineList();
+            mudaform(load);
+        }
+
+        private void ListMarcaModelo_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marc_Mod.MarcaModeloList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Marc_Mod.MarcaModeloList load = new Marc_Mod.MarcaModeloList();
+            mudaform(load);
+        }
+
+        private void ListMarca_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Marca.MarcaList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Marca.MarcaList load = new Marca.MarcaList();
+            mudaform(load);
         }
     }
 }

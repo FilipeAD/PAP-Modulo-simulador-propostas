@@ -35,17 +35,18 @@ namespace ModuloSP.Maquinas
             this.txtMarca = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.ComboBox();
             this.btAdd = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btConectImage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPreco
@@ -53,7 +54,7 @@ namespace ModuloSP.Maquinas
             this.txtPreco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreco.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPreco.Location = new System.Drawing.Point(274, 365);
+            this.txtPreco.Location = new System.Drawing.Point(274, 416);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(250, 26);
             this.txtPreco.TabIndex = 25;
@@ -66,11 +67,12 @@ namespace ModuloSP.Maquinas
             this.txtCor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCor.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCor.Location = new System.Drawing.Point(274, 288);
+            this.txtCor.Location = new System.Drawing.Point(274, 309);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(250, 26);
             this.txtCor.TabIndex = 34;
             this.txtCor.Text = "Cor";
+            this.txtCor.Click += new System.EventHandler(this.txtCor_Click);
             this.txtCor.Enter += new System.EventHandler(this.txtCor_Enter);
             this.txtCor.Leave += new System.EventHandler(this.txtCor_Leave);
             // 
@@ -79,7 +81,7 @@ namespace ModuloSP.Maquinas
             this.txtDimensoes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDimensoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDimensoes.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtDimensoes.Location = new System.Drawing.Point(274, 210);
+            this.txtDimensoes.Location = new System.Drawing.Point(274, 213);
             this.txtDimensoes.Name = "txtDimensoes";
             this.txtDimensoes.Size = new System.Drawing.Size(250, 26);
             this.txtDimensoes.TabIndex = 35;
@@ -112,7 +114,7 @@ namespace ModuloSP.Maquinas
             this.txtModelo.ItemHeight = 20;
             this.txtModelo.Location = new System.Drawing.Point(599, 95);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(250, 28);
+            this.txtModelo.Size = new System.Drawing.Size(273, 28);
             this.txtModelo.TabIndex = 37;
             this.txtModelo.Enter += new System.EventHandler(this.txtModelo_Enter);
             this.txtModelo.Leave += new System.EventHandler(this.txtModelo_Leave);
@@ -133,27 +135,29 @@ namespace ModuloSP.Maquinas
             this.btAdd.UseVisualStyleBackColor = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click_1);
             // 
-            // label1
+            // lblMarca
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(270, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 19);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Marca";
+            this.lblMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Bahnschrift", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(270, 54);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(54, 19);
+            this.lblMarca.TabIndex = 39;
+            this.lblMarca.Text = "Marca";
+            this.lblMarca.Click += new System.EventHandler(this.lblMarca_Click);
             // 
-            // label2
+            // lblModelo
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(595, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 19);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Modelo";
+            this.lblModelo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Bahnschrift", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.Location = new System.Drawing.Point(595, 54);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(62, 19);
+            this.lblModelo.TabIndex = 40;
+            this.lblModelo.Text = "Modelo";
+            this.lblModelo.Click += new System.EventHandler(this.lblModelo_Click);
             // 
             // label3
             // 
@@ -171,7 +175,7 @@ namespace ModuloSP.Maquinas
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(270, 256);
+            this.label4.Location = new System.Drawing.Point(270, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 19);
             this.label4.TabIndex = 42;
@@ -182,7 +186,7 @@ namespace ModuloSP.Maquinas
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(270, 333);
+            this.label5.Location = new System.Drawing.Point(270, 369);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 19);
             this.label5.TabIndex = 43;
@@ -209,7 +213,7 @@ namespace ModuloSP.Maquinas
             this.btConectImage.ForeColor = System.Drawing.Color.White;
             this.btConectImage.Location = new System.Drawing.Point(599, 488);
             this.btConectImage.Name = "btConectImage";
-            this.btConectImage.Size = new System.Drawing.Size(250, 33);
+            this.btConectImage.Size = new System.Drawing.Size(273, 33);
             this.btConectImage.TabIndex = 46;
             this.btConectImage.Text = "Conectar Imagem";
             this.btConectImage.UseVisualStyleBackColor = false;
@@ -217,21 +221,24 @@ namespace ModuloSP.Maquinas
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Location = new System.Drawing.Point(599, 210);
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 192);
+            this.pictureBox1.Size = new System.Drawing.Size(265, 229);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.Location = new System.Drawing.Point(30, 288);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 48;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Location = new System.Drawing.Point(599, 210);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(273, 237);
+            this.panel2.TabIndex = 49;
             // 
             // MachineAdd
             // 
@@ -239,15 +246,14 @@ namespace ModuloSP.Maquinas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1146, 682);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btConectImage);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblModelo);
+            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.txtMarca);
@@ -258,6 +264,7 @@ namespace ModuloSP.Maquinas
             this.Text = "MachineAdd";
             this.Load += new System.EventHandler(this.MachineAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,15 +277,15 @@ namespace ModuloSP.Maquinas
         private System.Windows.Forms.ComboBox txtMarca;
         private System.Windows.Forms.ComboBox txtModelo;
         private System.Windows.Forms.Button btAdd;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btConectImage;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
