@@ -59,6 +59,13 @@ namespace ModuloSP.ViewClient
             
         }
 
-      
+        private void btConect_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+
     }
 }

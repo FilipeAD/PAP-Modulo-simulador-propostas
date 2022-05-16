@@ -35,10 +35,6 @@ namespace ModuloSP
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Menu = new System.Windows.Forms.MenuStrip();
-            this.mainaction = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListPermicoes = new System.Windows.Forms.ToolStripMenuItem();
-            this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
-            this.InterfaceClient = new System.Windows.Forms.ToolStripMenuItem();
             this.btEquipamentos = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +43,9 @@ namespace ModuloSP
             this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.btUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListPermicoes = new System.Windows.Forms.ToolStripMenuItem();
+            this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.Activity = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
@@ -55,6 +54,7 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.InterfaceClient = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -126,57 +126,15 @@ namespace ModuloSP
             // 
             this.Menu.BackColor = System.Drawing.Color.Silver;
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mainaction,
             this.btEquipamentos,
-            this.Activity});
+            this.btUsers,
+            this.InterfaceClient});
             this.Menu.Location = new System.Drawing.Point(0, 38);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(1241, 24);
             this.Menu.TabIndex = 0;
             this.Menu.Text = "menuStrip1";
             this.Menu.ItemAdded += new System.Windows.Forms.ToolStripItemEventHandler(this.Menu_ItemAdded);
-            // 
-            // mainaction
-            // 
-            this.mainaction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ListPermicoes,
-            this.listUtilizadores,
-            this.InterfaceClient});
-            this.mainaction.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainaction.ForeColor = System.Drawing.Color.White;
-            this.mainaction.Name = "mainaction";
-            this.mainaction.Size = new System.Drawing.Size(114, 20);
-            this.mainaction.Text = "Ações Principais";
-            // 
-            // ListPermicoes
-            // 
-            this.ListPermicoes.BackColor = System.Drawing.Color.Silver;
-            this.ListPermicoes.ForeColor = System.Drawing.Color.White;
-            this.ListPermicoes.Name = "ListPermicoes";
-            this.ListPermicoes.Size = new System.Drawing.Size(180, 22);
-            this.ListPermicoes.Text = "Permições";
-            this.ListPermicoes.Visible = false;
-            this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click);
-            // 
-            // listUtilizadores
-            // 
-            this.listUtilizadores.BackColor = System.Drawing.Color.Silver;
-            this.listUtilizadores.ForeColor = System.Drawing.Color.White;
-            this.listUtilizadores.Name = "listUtilizadores";
-            this.listUtilizadores.Size = new System.Drawing.Size(180, 22);
-            this.listUtilizadores.Text = "Utilizadores";
-            this.listUtilizadores.Visible = false;
-            this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click);
-            // 
-            // InterfaceClient
-            // 
-            this.InterfaceClient.BackColor = System.Drawing.Color.Silver;
-            this.InterfaceClient.ForeColor = System.Drawing.Color.White;
-            this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
-            this.InterfaceClient.Text = "Produtos ";
-            this.InterfaceClient.Visible = false;
-            this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
             // 
             // btEquipamentos
             // 
@@ -240,7 +198,7 @@ namespace ModuloSP
             this.listMaquina.BackColor = System.Drawing.Color.Silver;
             this.listMaquina.ForeColor = System.Drawing.Color.White;
             this.listMaquina.Name = "listMaquina";
-            this.listMaquina.Size = new System.Drawing.Size(180, 22);
+            this.listMaquina.Size = new System.Drawing.Size(156, 22);
             this.listMaquina.Text = "Listagem ";
             this.listMaquina.Click += new System.EventHandler(this.listMaquina_Click);
             // 
@@ -249,7 +207,7 @@ namespace ModuloSP
             this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
             this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
             this.ListMarcaModelo.Name = "ListMarcaModelo";
-            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
+            this.ListMarcaModelo.Size = new System.Drawing.Size(156, 22);
             this.ListMarcaModelo.Text = "Marca|Modelo";
             this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click_1);
             // 
@@ -258,18 +216,52 @@ namespace ModuloSP
             this.ListMarca.BackColor = System.Drawing.Color.Silver;
             this.ListMarca.ForeColor = System.Drawing.Color.White;
             this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(180, 22);
+            this.ListMarca.Size = new System.Drawing.Size(156, 22);
             this.ListMarca.Text = "Marcas";
             this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
             // 
+            // btUsers
+            // 
+            this.btUsers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListPermicoes,
+            this.listUtilizadores,
+            this.Activity});
+            this.btUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btUsers.ForeColor = System.Drawing.Color.White;
+            this.btUsers.Name = "btUsers";
+            this.btUsers.Size = new System.Drawing.Size(149, 20);
+            this.btUsers.Text = "Gerenciar Utilizadores";
+            this.btUsers.Visible = false;
+            // 
+            // ListPermicoes
+            // 
+            this.ListPermicoes.BackColor = System.Drawing.Color.Silver;
+            this.ListPermicoes.ForeColor = System.Drawing.Color.White;
+            this.ListPermicoes.Name = "ListPermicoes";
+            this.ListPermicoes.Size = new System.Drawing.Size(187, 22);
+            this.ListPermicoes.Text = "Permições";
+            this.ListPermicoes.Visible = false;
+            this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click_1);
+            // 
+            // listUtilizadores
+            // 
+            this.listUtilizadores.BackColor = System.Drawing.Color.Silver;
+            this.listUtilizadores.ForeColor = System.Drawing.Color.White;
+            this.listUtilizadores.Name = "listUtilizadores";
+            this.listUtilizadores.Size = new System.Drawing.Size(187, 22);
+            this.listUtilizadores.Text = "Utilizadores";
+            this.listUtilizadores.Visible = false;
+            this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click_1);
+            // 
             // Activity
             // 
+            this.Activity.BackColor = System.Drawing.Color.Silver;
             this.Activity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.Activity.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Activity.ForeColor = System.Drawing.Color.White;
             this.Activity.Name = "Activity";
-            this.Activity.Size = new System.Drawing.Size(132, 20);
+            this.Activity.Size = new System.Drawing.Size(187, 22);
             this.Activity.Text = "Estado de Atividade";
             this.Activity.Visible = false;
             this.Activity.Click += new System.EventHandler(this.Activity_Click);
@@ -279,7 +271,7 @@ namespace ModuloSP
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // userpanel
@@ -356,6 +348,17 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // InterfaceClient
+            // 
+            this.InterfaceClient.BackColor = System.Drawing.Color.Silver;
+            this.InterfaceClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InterfaceClient.ForeColor = System.Drawing.Color.White;
+            this.InterfaceClient.Name = "InterfaceClient";
+            this.InterfaceClient.Size = new System.Drawing.Size(75, 20);
+            this.InterfaceClient.Text = "Produtos ";
+            this.InterfaceClient.Visible = false;
+            this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click_1);
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,12 +401,6 @@ namespace ModuloSP
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.MenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem mainaction;
-        private System.Windows.Forms.ToolStripMenuItem listUtilizadores;
-        private System.Windows.Forms.ToolStripMenuItem ListPermicoes;
-        private System.Windows.Forms.ToolStripMenuItem Activity;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
         private System.Windows.Forms.ToolStripMenuItem btEquipamentos;
         private System.Windows.Forms.ToolStripMenuItem ListAddOns;
         private System.Windows.Forms.ToolStripMenuItem lstAddOn;
@@ -412,5 +409,11 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem listMaquina;
         private System.Windows.Forms.ToolStripMenuItem ListMarcaModelo;
         private System.Windows.Forms.ToolStripMenuItem ListMarca;
+        private System.Windows.Forms.ToolStripMenuItem btUsers;
+        private System.Windows.Forms.ToolStripMenuItem ListPermicoes;
+        private System.Windows.Forms.ToolStripMenuItem listUtilizadores;
+        private System.Windows.Forms.ToolStripMenuItem Activity;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
     }
 }

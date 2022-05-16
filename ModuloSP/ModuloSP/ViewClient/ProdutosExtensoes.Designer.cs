@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btConect = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Extensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +56,7 @@
             // 
             this.txtDimensoes.AutoSize = true;
             this.txtDimensoes.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDimensoes.Location = new System.Drawing.Point(491, 371);
+            this.txtDimensoes.Location = new System.Drawing.Point(537, 371);
             this.txtDimensoes.Name = "txtDimensoes";
             this.txtDimensoes.Size = new System.Drawing.Size(90, 19);
             this.txtDimensoes.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             this.txtPreco.AutoSize = true;
             this.txtPreco.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(381, 438);
+            this.txtPreco.Location = new System.Drawing.Point(427, 438);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(59, 23);
             this.txtPreco.TabIndex = 2;
@@ -75,7 +76,7 @@
             // 
             this.txtMarca.AutoSize = true;
             this.txtMarca.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(381, 38);
+            this.txtMarca.Location = new System.Drawing.Point(427, 38);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(111, 19);
             this.txtMarca.TabIndex = 3;
@@ -137,7 +138,7 @@
             // 
             this.txtCor.AutoSize = true;
             this.txtCor.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCor.Location = new System.Drawing.Point(491, 405);
+            this.txtCor.Location = new System.Drawing.Point(537, 405);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(35, 19);
             this.txtCor.TabIndex = 13;
@@ -147,7 +148,7 @@
             // 
             this.txtDescricaoMaquinas.AutoSize = true;
             this.txtDescricaoMaquinas.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricaoMaquinas.Location = new System.Drawing.Point(382, 57);
+            this.txtDescricaoMaquinas.Location = new System.Drawing.Point(428, 57);
             this.txtDescricaoMaquinas.Name = "txtDescricaoMaquinas";
             this.txtDescricaoMaquinas.Size = new System.Drawing.Size(74, 18);
             this.txtDescricaoMaquinas.TabIndex = 16;
@@ -157,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(381, 371);
+            this.label4.Location = new System.Drawing.Point(427, 371);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 19);
             this.label4.TabIndex = 17;
@@ -167,7 +168,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(381, 405);
+            this.label5.Location = new System.Drawing.Point(427, 405);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 19);
             this.label5.TabIndex = 18;
@@ -191,6 +192,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.btConect);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.btAdd);
@@ -205,24 +207,40 @@
             this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.txtPreco);
             this.panel1.Controls.Add(this.txtDimensoes);
-            this.panel1.Location = new System.Drawing.Point(7, 83);
+            this.panel1.Location = new System.Drawing.Point(4, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1451, 492);
+            this.panel1.Size = new System.Drawing.Size(1465, 492);
             this.panel1.TabIndex = 52;
+            // 
+            // btConect
+            // 
+            this.btConect.BackColor = System.Drawing.Color.Black;
+            this.btConect.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btConect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConect.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btConect.ForeColor = System.Drawing.Color.White;
+            this.btConect.Location = new System.Drawing.Point(913, 428);
+            this.btConect.Name = "btConect";
+            this.btConect.Size = new System.Drawing.Size(157, 33);
+            this.btConect.TabIndex = 54;
+            this.btConect.Text = "Conectar";
+            this.btConect.UseVisualStyleBackColor = false;
+            this.btConect.Click += new System.EventHandler(this.btConect_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(20, 29);
+            this.panel2.Location = new System.Drawing.Point(19, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(356, 431);
+            this.panel2.Size = new System.Drawing.Size(354, 430);
             this.panel2.TabIndex = 53;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Extensoes});
@@ -241,7 +259,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1475, 653);
+            this.ClientSize = new System.Drawing.Size(1479, 653);
             this.Controls.Add(this.panel1);
             this.Name = "ProdutosExtensoes";
             this.Text = "Extensões";
@@ -273,5 +291,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extensoes;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btConect;
     }
 }

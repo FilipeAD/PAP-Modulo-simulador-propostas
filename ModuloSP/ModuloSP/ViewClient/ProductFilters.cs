@@ -40,8 +40,6 @@ namespace ModuloSP.ViewClient
             return al;
         }
 
-
-
         public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image, Label _Descricao)
         {
             Encoding ascii = Encoding.ASCII;
@@ -356,6 +354,11 @@ namespace ModuloSP.ViewClient
             }
 
         }
+
+        //#------------------------------------------------------------------------------------------------------------------#
+
+
+
 
 
 

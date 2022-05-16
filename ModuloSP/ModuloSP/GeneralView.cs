@@ -28,18 +28,22 @@ namespace ModuloSP
 
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar todos os utilizadores"))
             {
+                btUsers.Visible = true;
                 listUtilizadores.Visible = true;
             }
             if (Permissoes.AcountPermission.LoginView(list, "CRUD Maquinas"))
             {
+                btEquipamentos.Visible = true;
                 ListImpressoras.Visible = true;
             }
             if (Permissoes.AcountPermission.LoginView(list, "CRUD AddOns"))
             {
+                btEquipamentos.Visible = true;
                 ListAddOns.Visible = true;
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar e editar Permissões"))
             {
+                btUsers.Visible = true;
                 ListPermicoes.Visible = true;
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar produtos para compra"))
@@ -48,6 +52,7 @@ namespace ModuloSP
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar Atividade dos Utilizadores"))
             {
+                btUsers.Visible = true;
                 Activity.Visible = true;
             }
         }
@@ -85,6 +90,17 @@ namespace ModuloSP
             lblUsername.Text = Models.CurrentUser.username;
             Permissionview();
 
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewAdmin.ActivityTracker))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var load = new ViewAdmin.ActivityTracker();
+            mudaform(load);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -128,22 +144,6 @@ namespace ModuloSP
         }
 
 
-        private void listUtilizadores_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(ViewAdmin.UserList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            var userList = new ViewAdmin.UserList();
-            mudaform(userList);
-            
-        }
-
         private void Menu_ItemAdded(object sender, ToolStripItemEventArgs e)
         {
             if (e.Item.Text == "")
@@ -151,56 +151,6 @@ namespace ModuloSP
                 e.Item.Visible = false;
             }
         }
-
-
-
-
-        private void ListPermicoes_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(Permissoes.GPermissionsList))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            Permissoes.GPermissionsList load = new Permissoes.GPermissionsList();
-            mudaform(load);
-        }
-
-        private void InterfaceClient_Click(object sender, EventArgs e)
-        {
-            Menu.Visible = false;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(ViewClient.Produtos))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            ViewClient.Produtos load = new ViewClient.Produtos();
-            mudaform(load);
-        }
-
-        private void Activity_Click(object sender, EventArgs e)
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(ViewAdmin.ActivityTracker))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            var load = new ViewAdmin.ActivityTracker();
-            mudaform(load);
-        }
-
 
 
 
@@ -326,5 +276,68 @@ namespace ModuloSP
             Marca.MarcaList load = new Marca.MarcaList();
             mudaform(load);
         }
+
+        private void InterfaceClient_Click_1(object sender, EventArgs e)
+        {
+            Menu.Visible = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.Produtos))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            ViewClient.Produtos load = new ViewClient.Produtos();
+            mudaform(load);
+        }
+
+        private void Activity_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewAdmin.ActivityTracker))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var load = new ViewAdmin.ActivityTracker();
+            mudaform(load);
+        }
+
+        private void listUtilizadores_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewAdmin.UserList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new ViewAdmin.UserList();
+            mudaform(userList);
+
+        }
+
+        private void ListPermicoes_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Permissoes.GPermissionsList))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            Permissoes.GPermissionsList load = new Permissoes.GPermissionsList();
+            mudaform(load);
+        }
+
     }
 }
