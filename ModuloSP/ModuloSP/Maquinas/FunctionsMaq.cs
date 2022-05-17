@@ -144,6 +144,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
+
         public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, PictureBox _Image)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);

@@ -37,7 +37,7 @@ namespace ModuloSP.ViewClient
                 txtNome.SelectedIndex = -1;
                 txtNome.Items.Clear();
                 txtNome.Enabled = true;
-                ProductFilters.CmbInsertAddon(txtNome, txtCategorias.Text);
+                ProductFilters.CmbInsertAddon(txtNome, txtCategorias.Text, Models.IDManagment.fkMarca_Modelo);
                 txtNome.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtNome.AutoCompleteSource = AutoCompleteSource.ListItems;
             }

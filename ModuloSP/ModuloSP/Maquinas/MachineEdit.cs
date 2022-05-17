@@ -37,6 +37,8 @@ namespace ModuloSP.Maquinas
         {
             FunctionsMaq.LoadMaquinasEditar(maquina, txtCor, txtDimensoes, txtPreco, pictureBox1);
             FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.fkMarca_Modelo);
+
+
         }
 
 
@@ -53,13 +55,7 @@ namespace ModuloSP.Maquinas
 
         private void txtCor_TextChanged(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                Color color = colorDialog1.Color;
-                ADDColor = "#" + (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
-                txtCor.BackColor = colorDialog1.Color;
 
-            }
         }
 
         private void lblMarca_Click(object sender, EventArgs e)
@@ -92,6 +88,22 @@ namespace ModuloSP.Maquinas
             var userList = new Marc_Mod.MarcaModeloList();
 
             Models.Utils._form.mudaform(userList);
+        }
+
+        private void txtCor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color color = colorDialog1.Color;
+                ADDColor = "#" + (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+
+                ChangeColor(colorDialog1.Color);
+            }
+        }
+
+        private void ChangeColor (Color _c)
+        {
+            txtCor.BackColor = _c;
         }
     }
 }

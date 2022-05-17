@@ -227,6 +227,7 @@ namespace ModuloSP.Maquinas
             this.txtCor.Size = new System.Drawing.Size(250, 26);
             this.txtCor.TabIndex = 60;
             this.txtCor.Text = "Cor";
+            this.txtCor.Click += new System.EventHandler(this.txtCor_Click);
             this.txtCor.TextChanged += new System.EventHandler(this.txtCor_TextChanged);
             // 
             // txtPreco

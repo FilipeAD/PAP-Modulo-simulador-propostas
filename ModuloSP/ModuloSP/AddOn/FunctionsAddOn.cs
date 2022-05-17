@@ -18,7 +18,7 @@ namespace ModuloSP.AddOn
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select AddOns.ID, Descricao, Preco_Base, Add_Ons_Grupos.Nome " +
+                string query = "select AddOns.ID, Descricao, Preco_Base, Add_Ons_Grupos.Nome as Categoria " +
                                "from AddOns " +
                                "left join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);

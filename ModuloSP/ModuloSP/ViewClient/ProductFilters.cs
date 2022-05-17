@@ -84,14 +84,15 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
-        public static void CmbInsertAddon(ComboBox _cmb, string _grupo)
+        public static void CmbInsertAddon(ComboBox _cmb, string _grupo, string _Modelo)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "select descricao " +
-                           "from AddOns " +
+                           "from AddOns " + 
                            "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
-                           "where Nome = '" + _grupo + "'";
+                           "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                           "where Add_Ons_Grupos.Nome = '" + _grupo + "' and Modelo_AddOns.fk_Marca_Modelo_ID= " + _Modelo;
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
