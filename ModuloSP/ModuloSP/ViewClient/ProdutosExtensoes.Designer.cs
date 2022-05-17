@@ -56,7 +56,7 @@
             // 
             this.txtDimensoes.AutoSize = true;
             this.txtDimensoes.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDimensoes.Location = new System.Drawing.Point(537, 418);
+            this.txtDimensoes.Location = new System.Drawing.Point(569, 416);
             this.txtDimensoes.Name = "txtDimensoes";
             this.txtDimensoes.Size = new System.Drawing.Size(90, 19);
             this.txtDimensoes.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.txtPreco.AutoSize = true;
             this.txtPreco.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(427, 485);
+            this.txtPreco.Location = new System.Drawing.Point(459, 483);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(59, 23);
             this.txtPreco.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             this.txtMarca.AutoSize = true;
             this.txtMarca.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(427, 38);
+            this.txtMarca.Location = new System.Drawing.Point(459, 36);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(111, 19);
             this.txtMarca.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.txtCategorias.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategorias.FormattingEnabled = true;
-            this.txtCategorias.Location = new System.Drawing.Point(913, 69);
+            this.txtCategorias.Location = new System.Drawing.Point(989, 67);
             this.txtCategorias.Name = "txtCategorias";
             this.txtCategorias.Size = new System.Drawing.Size(509, 28);
             this.txtCategorias.TabIndex = 4;
@@ -98,7 +98,7 @@
             this.txtNome.Enabled = false;
             this.txtNome.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.FormattingEnabled = true;
-            this.txtNome.Location = new System.Drawing.Point(913, 154);
+            this.txtNome.Location = new System.Drawing.Point(989, 152);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(509, 28);
             this.txtNome.TabIndex = 6;
@@ -109,7 +109,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(348, 472);
+            this.pictureBox1.Size = new System.Drawing.Size(383, 472);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -118,7 +118,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(909, 116);
+            this.label2.Location = new System.Drawing.Point(985, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 19);
             this.label2.TabIndex = 11;
@@ -128,7 +128,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(909, 29);
+            this.label3.Location = new System.Drawing.Point(985, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 19);
             this.label3.TabIndex = 12;
@@ -138,7 +138,7 @@
             // 
             this.txtCor.AutoSize = true;
             this.txtCor.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCor.Location = new System.Drawing.Point(537, 452);
+            this.txtCor.Location = new System.Drawing.Point(569, 450);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(35, 19);
             this.txtCor.TabIndex = 13;
@@ -148,7 +148,7 @@
             // 
             this.txtDescricaoMaquinas.AutoSize = true;
             this.txtDescricaoMaquinas.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricaoMaquinas.Location = new System.Drawing.Point(428, 57);
+            this.txtDescricaoMaquinas.Location = new System.Drawing.Point(460, 55);
             this.txtDescricaoMaquinas.Name = "txtDescricaoMaquinas";
             this.txtDescricaoMaquinas.Size = new System.Drawing.Size(74, 18);
             this.txtDescricaoMaquinas.TabIndex = 16;
@@ -158,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(427, 418);
+            this.label4.Location = new System.Drawing.Point(459, 416);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 19);
             this.label4.TabIndex = 17;
@@ -168,7 +168,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(427, 452);
+            this.label5.Location = new System.Drawing.Point(459, 450);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 19);
             this.label5.TabIndex = 18;
@@ -181,7 +181,7 @@
             this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAdd.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAdd.ForeColor = System.Drawing.Color.White;
-            this.btAdd.Location = new System.Drawing.Point(913, 471);
+            this.btAdd.Location = new System.Drawing.Point(989, 469);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(157, 33);
             this.btAdd.TabIndex = 51;
@@ -207,9 +207,9 @@
             this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.txtPreco);
             this.panel1.Controls.Add(this.txtDimensoes);
-            this.panel1.Location = new System.Drawing.Point(10, 27);
+            this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1457, 552);
+            this.panel1.Size = new System.Drawing.Size(1542, 552);
             this.panel1.TabIndex = 52;
             // 
             // btConect
@@ -219,7 +219,7 @@
             this.btConect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btConect.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConect.ForeColor = System.Drawing.Color.White;
-            this.btConect.Location = new System.Drawing.Point(1076, 471);
+            this.btConect.Location = new System.Drawing.Point(1152, 469);
             this.btConect.Name = "btConect";
             this.btConect.Size = new System.Drawing.Size(157, 33);
             this.btConect.TabIndex = 54;
@@ -233,7 +233,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(19, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(354, 478);
+            this.panel2.Size = new System.Drawing.Size(389, 478);
             this.panel2.TabIndex = 53;
             // 
             // dataGridView1
@@ -244,7 +244,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Extensoes});
-            this.dataGridView1.Location = new System.Drawing.Point(913, 209);
+            this.dataGridView1.Location = new System.Drawing.Point(989, 207);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(509, 244);
             this.dataGridView1.TabIndex = 52;
@@ -259,7 +259,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1479, 653);
+            this.ClientSize = new System.Drawing.Size(1566, 653);
             this.Controls.Add(this.panel1);
             this.Name = "ProdutosExtensoes";
             this.Text = "Extensões";
