@@ -46,6 +46,20 @@ namespace ModuloSP.Models
             set { _IdMaquina = value; }
         }
 
+        private static string _IdSimulacao = "";
+        public static string IdSimulacao
+        {
+            get { return _IdSimulacao; }
+            set { _IdSimulacao = value; }
+        }
+
+
+        private static string _IdUser = "";
+        public static string IdUser
+        {
+            get { return _IdUser; }
+            set { _IdUser = value; }
+        }
         private static string _IdAddOn = "";
         public static string IdAddOn
         {

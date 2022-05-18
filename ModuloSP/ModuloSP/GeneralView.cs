@@ -282,14 +282,14 @@ namespace ModuloSP
             Menu.Visible = false;
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.GetType() == typeof(ViewClient.Produtos))
+                if (frm.GetType() == typeof(ViewClient.ListSimulacao))
                 {
                     frm.Activate();
                     return;
                 }
             }
 
-            ViewClient.Produtos load = new ViewClient.Produtos();
+            ViewClient.ListSimulacao load = new ViewClient.ListSimulacao();
             mudaform(load);
         }
 
@@ -339,9 +339,6 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }

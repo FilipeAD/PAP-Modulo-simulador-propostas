@@ -147,13 +147,14 @@ namespace ModuloSP.Maquinas
                     else
                     {
                         FunctionsMaq.IDMM(txtMarca.Text, txtModelo.Text);
-                        FunctionsMaq.AddInfo(ADDColor, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1);
+                        FunctionsMaq.AddInfo(ADDColor, txtDimensoes.Text, txtPreco.Text, Models.Utils.Marca_Modelo, Models.CurrentUser.IDUser, pictureBox1, txtDescricao.Text);
                         txtMarca.SelectedIndex = -1;
                         txtModelo.SelectedIndex = -1;
                         txtCor.Text = "";
                         txtDimensoes.Text = "";
                         txtPreco.Text = "";
                         pictureBox1.Image = null;
+                        txtDescricao.Text = "";
                         txtCor.BackColor = Color.White;
                     }
                 }
@@ -231,6 +232,24 @@ namespace ModuloSP.Maquinas
             var userList = new Marc_Mod.MarcaModeloList();
 
             Models.Utils._form.mudaform(userList);
+        }
+
+        private void txtDescricao_Leave(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text == "")
+            {
+                txtDescricao.Text = "Descrição";
+                txtDescricao.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtDescricao_Enter(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text == "Descrição")
+            {
+                txtDescricao.Text = null;
+                txtDescricao.ForeColor = Color.Black;
+            }
         }
     }
 }

@@ -19,30 +19,65 @@ namespace ModuloSP.ViewAdmin
             InitializeComponent();
         }
 
-        private void INFOUser()
-        {
-            using (SqlConnection con =
-                new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select Utilizador.ID, Utilizador.Nome, Email, Grupos.Nome as Grupo FROM Utilizador "+
-                    "INNER JOIN Grupos on Grupos.ID = Utilizador.fk_Grupos_ID " +
-                    " where fk_Grupos_ID != 2 "; 
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                dataGridView1.DataSource = bs;
-                con.Close();
-            }
-        }
+       
 
         private void ClientList_Load(object sender, EventArgs e)
         {
-            INFOUser();
+            AdminMethods.INFOUser(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
 
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdUser == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(UserEditGrupo))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new UserEditGrupo();
+
+                Models.Utils._form.mudaform(userList);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Models.IDManagment.IdUser = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Models.IDManagment.IdUser == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(UserEditGrupo))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new UserEditGrupo();
+
+                Models.Utils._form.mudaform(userList);
+            }
         }
     }
 }

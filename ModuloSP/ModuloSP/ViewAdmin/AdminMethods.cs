@@ -201,5 +201,51 @@ namespace ModuloSP.ViewAdmin
             }
         }
 
+
+
+        public static void LoadUserEditar(string _ID, TextBox _Nome, TextBox _Email, ComboBox _Grupo)
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "SELECT Utilizador.Nome as Nome , Email, Grupos.Nome as Grupo FROM Utilizador " +
+                           "INNER JOIN Grupos on Grupos.ID = Utilizador.fk_Grupos_ID " +
+                           "where Utilizador.ID='" + _ID + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _Nome.Text = dr["Nome"].ToString();
+                _Email.Text = dr["Email"].ToString();
+                _Grupo.Text = dr["Grupo"].ToString();
+            }
+            con.Close();
+        }
+
+        public static void INFOUser(DataGridView _data)
+        {
+            using (SqlConnection con =
+                new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select Utilizador.ID, Utilizador.Nome, Email, Grupos.Nome as Grupo FROM Utilizador " +
+                    "INNER JOIN Grupos on Grupos.ID = Utilizador.fk_Grupos_ID " +
+                    " where fk_Grupos_ID != 2 ";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _data.DataSource = bs;
+                con.Close();
+            }
+            Models.IDManagment.IdUser = "";
+        }
+
+     
+
+
+
+
+
     }
 }

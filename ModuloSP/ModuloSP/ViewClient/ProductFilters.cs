@@ -23,6 +23,24 @@ namespace ModuloSP.ViewClient
             set { _ID = value; }
         }
 
+        public static void ShowSimulacao(DataGridView _DataGridName)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "Select Simulacoes.ID, Utilizador.Nome, FORMAT ( Data_Simulacao, 'dd/MM/yyyy ')  as [DATA] " + 
+                               "from Simulacoes " + 
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+            }
+        }
+
         public static List<string> ListCMB(string _Database)
         {
             List<string> al = new List<string>();
@@ -84,23 +102,59 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
-        public static void CmbInsertAddon(ComboBox _cmb, string _grupo, string _Modelo)
+
+        public static void ShowAddOnsGrupo(DataGridView _DataGridName, string _grupo, string _Modelo)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome " +
+                               "from AddOns " +
+                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                               "where Add_Ons_Grupos.Nome = '" + _grupo + "' and Modelo_AddOns.fK_Marca_Modelo_ID = '" + _Modelo + "' order by AddOns.ID";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+            }
+        }
+
+        public static void ShowAddOns(DataGridView _DataGridName, string _Modelo)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome, Modelo_AddOns.Preco_Relacao as [Preço]" +
+                               "from AddOns " +
+                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                               "where Modelo_AddOns.fK_Marca_Modelo_ID = '" + _Modelo + "' order by AddOns.ID";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+            }
+        }
+
+        public static void CmbInsertM(string _Database, ToolStripComboBox _cmb)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "select descricao " +
-                           "from AddOns " + 
-                           "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
-                           "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
-                           "where Add_Ons_Grupos.Nome = '" + _grupo + "' and Modelo_AddOns.fk_Marca_Modelo_ID= " + _Modelo;
+            string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _cmb.Items.Add(dr["Descricao"].ToString());
+                _cmb.Items.Add(dr["Nome"].ToString());
             }
         }
-
 
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
@@ -357,6 +411,33 @@ namespace ModuloSP.ViewClient
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
+
+        public static void Simulacao()
+        {
+            Models.IDManagment.IdSimulacao = Models.IDManagment.InsereID("Simulacoes");
+
+            SqlConnection con = new
+                SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "INSERT INTO Simulacoes(" +
+                "id,Data_Simulacao,fk_Utilizador_id)" +
+                "VALUES (@id,@Data_Simulacao,@fk_Utilizador_id)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdSimulacao);
+            cmd.Parameters.AddWithValue("@Data_Simulacao", DateTime.Now.ToLocalTime());
+            cmd.Parameters.AddWithValue("@fk_Utilizador_ID", Models.CurrentUser.IDUser);
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch
+            {
+                MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            con.Close();
+        }
 
 
 

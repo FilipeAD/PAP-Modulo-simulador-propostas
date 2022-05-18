@@ -21,6 +21,7 @@ namespace ModuloSP.AddOn
         {
             FunctionsAddOn.INFOAddOnMarca(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            ViewClient.ProductFilters.CmbInsertM(cmbMarca);
         }
 
         private void adicionarbt_Click(object sender, EventArgs e)
@@ -116,5 +117,39 @@ namespace ModuloSP.AddOn
             FunctionsAddOn.INFOAddOnMarca(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
+
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FunctionsAddOn.MarcaSelect(dataGridView1, cmbMarca.Text);
+        }
+
+        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            FunctionsAddOn.INFOAddOnMarca(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            cmbMarca.Text = "Marca";
+        }
+
+        private void cmbMarca_Enter(object sender, EventArgs e)
+        {
+            if (cmbMarca.Text == "Marca")
+            {
+                cmbMarca.Text = null;
+            }
+        }
+
+        private void cmbMarca_Leave(object sender, EventArgs e)
+        {
+            if (cmbMarca.Text == "")
+            {
+                cmbMarca.Text = "Marca";
+            }
+        }
+
     }
 }

@@ -54,14 +54,14 @@ namespace ModuloSP.ViewClient
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.GetType() == typeof(ViewClient.ProdutosExtensoes))
+                if (frm.GetType() == typeof(ViewClient.ProdutoShow))
                 {
                     frm.Activate();
                     return;
                 }
             }
 
-            var userList = new ViewClient.ProdutosExtensoes();
+            var userList = new ViewClient.ProdutoShow();
 
             Models.Utils._form.mudaform(userList);
         }

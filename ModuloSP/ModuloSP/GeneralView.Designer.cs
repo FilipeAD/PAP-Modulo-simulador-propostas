@@ -30,7 +30,7 @@ namespace ModuloSP
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btInformation = new System.Windows.Forms.Button();
             this.btMenu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -66,7 +66,7 @@ namespace ModuloSP
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btInformation);
             this.panel4.Controls.Add(this.btMenu);
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -75,20 +75,19 @@ namespace ModuloSP
             this.panel4.Size = new System.Drawing.Size(1241, 38);
             this.panel4.TabIndex = 14;
             // 
-            // button2
+            // btInformation
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(1133, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 38);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "?";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btInformation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btInformation.FlatAppearance.BorderSize = 0;
+            this.btInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btInformation.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInformation.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btInformation.Location = new System.Drawing.Point(1133, 0);
+            this.btInformation.Name = "btInformation";
+            this.btInformation.Size = new System.Drawing.Size(45, 38);
+            this.btInformation.TabIndex = 20;
+            this.btInformation.Text = "?";
+            this.btInformation.UseVisualStyleBackColor = true;
             // 
             // btMenu
             // 
@@ -394,7 +393,7 @@ namespace ModuloSP
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btMenu;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btInformation;
         private System.Windows.Forms.Panel userpanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;

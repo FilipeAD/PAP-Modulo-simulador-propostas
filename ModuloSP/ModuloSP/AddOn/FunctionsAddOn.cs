@@ -11,6 +11,30 @@ namespace ModuloSP.AddOn
 {
     internal class FunctionsAddOn
     {
+
+
+        public static void MarcaSelect(DataGridView _DataGridName, string _order)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select Modelo_AddOns.ID, Marca.Nome as Marca, Modelo.Nome as Modelo, AddOns.Descricao, Preco_Relacao " +
+                               "from Modelo_AddOns " +
+                               "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
+                               "join Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID " +
+                               "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
+                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
+                                "where Marca.Nome = '" + _order + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+            }
+        }
+
         public static void INFOAddOn(DataGridView _Datagridview)
         {
             using (SqlConnection con =

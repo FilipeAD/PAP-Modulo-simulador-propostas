@@ -14,7 +14,7 @@ namespace ModuloSP.Maquinas
 {
     internal class FunctionsMaq
     {
-        public static void AddInfo(string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image)
+        public static void AddInfo(string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image, string _descricao)
         {
 
             Models.IDManagment.IdMaquina = Models.IDManagment.InsereID("Maquinas");
@@ -23,8 +23,8 @@ namespace ModuloSP.Maquinas
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO maquinas(" +
-                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Adicionado,Produto_Imagem)" +
-                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Adicionado,@Produto_Imagem)";
+                "id,cor,dimensoes,preco,fk_Marca_modelo_id,fk_Utilizador_id,Date_Time_Adicionado,Produto_Imagem,descricao)" +
+                "VALUES (@id,@cor,@dimensoes,@preco,@fk_marca_modelo_id,@fk_Utilizador_id,@Date_Time_Adicionado,@Produto_Imagem,@descricao)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdMaquina);
             cmd.Parameters.AddWithValue("@cor", _Cor);
@@ -32,6 +32,7 @@ namespace ModuloSP.Maquinas
             cmd.Parameters.AddWithValue("@preco", _Preco);
             cmd.Parameters.AddWithValue("@fk_marca_modelo_id", _fkMM);
             cmd.Parameters.AddWithValue("@fk_Utilizador_id", _currentUserID);
+            cmd.Parameters.AddWithValue("@descricao", _descricao);
             cmd.Parameters.AddWithValue("@Date_Time_Adicionado", DateTime.Now.ToLocalTime());
             cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
             try
@@ -123,7 +124,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-        public static void LoadMaquinasEditar(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image)
+        public static void LoadMaquinasEditar(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image, TextBox _Descricao)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
@@ -136,6 +137,7 @@ namespace ModuloSP.Maquinas
                 _Cor.Text = dr["cor"].ToString();
                 _Dimensoes.Text = dr["dimensoes"].ToString();
                 _Preco.Text = dr["preco"].ToString();
+                _Descricao.Text = dr["Descricao"].ToString();
                 byte[] data = dr["Produto_Imagem"].ToString().Length > 0 ?  (byte[])(dr["Produto_Imagem"]) : ConvertImageToBytes(Properties.Resources.editcolu) ;
                 MemoryStream mem = new MemoryStream(data);
                 _Image.Image = Image.FromStream(mem);
@@ -145,7 +147,7 @@ namespace ModuloSP.Maquinas
         }
 
 
-        public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, PictureBox _Image)
+        public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, PictureBox _Image, string _Descricao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
@@ -154,12 +156,14 @@ namespace ModuloSP.Maquinas
                 "dimensoes=@dimensoes," +
                 "preco=@preco," +
                 "Produto_Imagem=@Produto_Imagem" +
+                "Descricao=@Descricao" +
                 " where id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);
             cmd.Parameters.AddWithValue("@dimensoes", _Dimensoes);
             cmd.Parameters.AddWithValue("@preco", _Preco);
+            cmd.Parameters.AddWithValue("@Descricao", _Descricao);
             cmd.Parameters.AddWithValue("@Produto_Imagem", ConvertImageToBytes(_Image.Image));
 
 

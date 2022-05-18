@@ -110,5 +110,10 @@ namespace ModuloSP.Marc_Mod
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
+
+        private void cmbMarca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

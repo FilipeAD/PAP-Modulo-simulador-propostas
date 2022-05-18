@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ModuloSP.exe" size="173000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ModuloSP.exe" size="184264">
       <assemblyIdentity name="ModuloSP" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vZ2MiG14UYMD5ezP+NmKUU1a203wk1drALS9rrK1jBU=</dsig:DigestValue>
+        <dsig:DigestValue>vkYS/8DeoqZ5nFhtBk8cI9TlA6dg/c1YQTYTPdDB33Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

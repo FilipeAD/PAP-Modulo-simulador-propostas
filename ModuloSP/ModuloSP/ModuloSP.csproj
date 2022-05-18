@@ -183,6 +183,12 @@
       <DependentUpon>ActivityTracker.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewAdmin\AdminMethods.cs" />
+    <Compile Include="ViewAdmin\UserEditGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAdmin\UserEditGrupo.Designer.cs">
+      <DependentUpon>UserEditGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewAdmin\UserList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,12 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Utils.cs" />
+    <Compile Include="ViewClient\ExtensoesProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\ExtensoesProduto.Designer.cs">
+      <DependentUpon>ExtensoesProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewClient\ProductFilters.cs" />
     <Compile Include="ViewClient\Produtos.cs">
       <SubType>Form</SubType>
@@ -230,11 +242,17 @@
     <Compile Include="ViewClient\Produtos.Designer.cs">
       <DependentUpon>Produtos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewClient\ProdutosExtensoes.cs">
+    <Compile Include="ViewClient\ProdutoShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewClient\ProdutosExtensoes.Designer.cs">
-      <DependentUpon>ProdutosExtensoes.cs</DependentUpon>
+    <Compile Include="ViewClient\ProdutoShow.Designer.cs">
+      <DependentUpon>ProdutoShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClient\ListSimulacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\ListSimulacao.Designer.cs">
+      <DependentUpon>ListSimulacao.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddOn\AddOnAdd.resx">
       <DependentUpon>AddOnAdd.cs</DependentUpon>
@@ -281,6 +299,9 @@
     <EmbeddedResource Include="ViewAdmin\ActivityTracker.resx">
       <DependentUpon>ActivityTracker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewAdmin\UserEditGrupo.resx">
+      <DependentUpon>UserEditGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewAdmin\UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,11 +330,17 @@
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\ExtensoesProduto.resx">
+      <DependentUpon>ExtensoesProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\Produtos.resx">
       <DependentUpon>Produtos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewClient\ProdutosExtensoes.resx">
-      <DependentUpon>ProdutosExtensoes.cs</DependentUpon>
+    <EmbeddedResource Include="ViewClient\ProdutoShow.resx">
+      <DependentUpon>ProdutoShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\ListSimulacao.resx">
+      <DependentUpon>ListSimulacao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ModuloSP_TemporaryKey.pfx" />
     <None Include="packages.config" />

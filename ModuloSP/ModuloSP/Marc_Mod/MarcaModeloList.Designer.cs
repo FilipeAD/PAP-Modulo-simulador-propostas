@@ -104,6 +104,7 @@
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(100, 24);
             this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
+            this.cmbMarca.Click += new System.EventHandler(this.cmbMarca_Click);
             // 
             // MarcaModeloList
             // 
