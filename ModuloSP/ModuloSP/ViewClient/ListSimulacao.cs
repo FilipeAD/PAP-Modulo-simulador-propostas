@@ -20,7 +20,7 @@ namespace ModuloSP.ViewClient
         private void Simulacao_Load(object sender, EventArgs e)
         {
             //ProductFilters.Simulacao();
-            ProductFilters.ShowSimulacao(dataGridView1);
+            ProductFilters.ShowSimulacao(dataGridView1, Models.CurrentUser.IDUser);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 

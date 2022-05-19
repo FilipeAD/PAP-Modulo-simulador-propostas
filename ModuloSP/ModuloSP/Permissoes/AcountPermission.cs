@@ -117,7 +117,7 @@ namespace ModuloSP.Permissoes
                                "FROM Permissoes_Gerais " +
                                "INNER JOIN Permissoes_List on Permissoes_List.ID = Permissoes_Gerais.fk_Permissoes_List_ID " +
                                "INNER JOIN Grupos on Grupos.ID = Permissoes_Gerais.fk_Grupos_ID " +
-                               "where Grupos.Nome = '" + _nome + "'" +
+                               "where Grupos.Nome like '" + _nome + "%'" +
                                "order by Grupo DESC";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();

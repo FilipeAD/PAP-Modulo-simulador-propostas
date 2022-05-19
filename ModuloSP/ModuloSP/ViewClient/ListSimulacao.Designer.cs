@@ -31,6 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btAdicionar = new System.Windows.Forms.ToolStripButton();
+            this.btEditar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btAdicionar});
+            this.btAdicionar,
+            this.btEditar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -69,9 +71,17 @@
             this.btAdicionar.Image = global::ModuloSP.Properties.Resources.addcolum;
             this.btAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(136, 22);
-            this.btAdicionar.Text = "Adicionar Simulação";
+            this.btAdicionar.Size = new System.Drawing.Size(78, 22);
+            this.btAdicionar.Text = "Adicionar";
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
+            // 
+            // btEditar
+            // 
+            this.btEditar.Image = global::ModuloSP.Properties.Resources.editcolu;
+            this.btEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(76, 22);
+            this.btEditar.Text = "Visualizar";
             // 
             // ListSimulacao
             // 
@@ -96,5 +106,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btAdicionar;
+        private System.Windows.Forms.ToolStripButton btEditar;
     }
 }

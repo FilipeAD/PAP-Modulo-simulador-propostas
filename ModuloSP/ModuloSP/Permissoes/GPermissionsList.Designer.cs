@@ -127,6 +127,7 @@
             this.txtNome.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 25);
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown);
             // 
             // btSearch
             // 
@@ -170,7 +171,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.GPermissionsList_Activated);
             this.Load += new System.EventHandler(this.GPermissionsList_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GPermissionsList_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

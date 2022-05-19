@@ -108,6 +108,7 @@
     <Compile Include="Marc_Mod\MarcaModeloEdit.Designer.cs">
       <DependentUpon>MarcaModeloEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Permissoes\AcountPermission.cs" />
     <Compile Include="AddOn\AddOnAdd.cs">
       <SubType>Form</SubType>
@@ -235,6 +236,12 @@
     <Compile Include="ViewClient\ExtensoesProduto.Designer.cs">
       <DependentUpon>ExtensoesProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewClient\ListEsxtensoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\ListEsxtensoes.Designer.cs">
+      <DependentUpon>ListEsxtensoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewClient\ProductFilters.cs" />
     <Compile Include="ViewClient\Produtos.cs">
       <SubType>Form</SubType>
@@ -332,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\ExtensoesProduto.resx">
       <DependentUpon>ExtensoesProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\ListEsxtensoes.resx">
+      <DependentUpon>ListEsxtensoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\Produtos.resx">
       <DependentUpon>Produtos.cs</DependentUpon>
@@ -437,6 +447,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-extensions-folder-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

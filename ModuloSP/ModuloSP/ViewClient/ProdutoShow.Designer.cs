@@ -38,7 +38,6 @@
             this.btExtensoes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btConect = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -121,7 +120,7 @@
             this.btExtensoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btExtensoes.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExtensoes.ForeColor = System.Drawing.Color.White;
-            this.btExtensoes.Location = new System.Drawing.Point(744, 477);
+            this.btExtensoes.Location = new System.Drawing.Point(917, 474);
             this.btExtensoes.Name = "btExtensoes";
             this.btExtensoes.Size = new System.Drawing.Size(157, 33);
             this.btExtensoes.TabIndex = 51;
@@ -133,7 +132,6 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btConect);
             this.panel1.Controls.Add(this.btExtensoes);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -156,20 +154,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
-            // btConect
-            // 
-            this.btConect.BackColor = System.Drawing.Color.Black;
-            this.btConect.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btConect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btConect.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btConect.ForeColor = System.Drawing.Color.White;
-            this.btConect.Location = new System.Drawing.Point(917, 477);
-            this.btConect.Name = "btConect";
-            this.btConect.Size = new System.Drawing.Size(157, 33);
-            this.btConect.TabIndex = 54;
-            this.btConect.Text = "CONECTAR";
-            this.btConect.UseVisualStyleBackColor = false;
             // 
             // ProdutoShow
             // 
@@ -198,7 +182,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btExtensoes;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btConect;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

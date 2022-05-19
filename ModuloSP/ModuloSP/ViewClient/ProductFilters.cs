@@ -23,16 +23,32 @@ namespace ModuloSP.ViewClient
             set { _ID = value; }
         }
 
-        public static void ShowSimulacao(DataGridView _DataGridName)
+        private static string _IDExtensoes = "";
+        public static string IDExtensoes
+        {
+            get { return _IDExtensoes; }
+            set { _IDExtensoes = value; }
+        }
+
+
+
+        public static List<string> Extensoes = new List<string>();
+        public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
+
+
+        public static void ShowSimulacao(DataGridView _DataGridName, string _IDUser)
         {
             using (SqlConnection con =
                new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "Select Simulacoes.ID, Utilizador.Nome, FORMAT ( Data_Simulacao, 'dd/MM/yyyy ')  as [DATA] " + 
-                               "from Simulacoes " + 
-                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID";
+                string query = "Select Simulacoes.ID, FORMAT ( Data_Simulacao, 'dd/MM/yyyy ')  as [Data], FORMAT ( Data_Simulacao, 'HH:mm')  as [Hora], count(Equipamentos.fk_Maquinas_ID) as [Maquinas na Simulação] " +
+                               "from Equipamentos " +
+                               "join Simulacoes on Simulacoes.ID = Equipamentos.fk_Simulacoes_ID " +
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID " +
+                               "where Utilizador.ID = " + _IDUser +
+                               "group by Simulacoes.ID, Utilizador.Nome,  Data_Simulacao ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -130,7 +146,7 @@ namespace ModuloSP.ViewClient
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome, Modelo_AddOns.Preco_Relacao as [Preço]" +
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço]" +
                                "from AddOns " +
                                "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
                                "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +

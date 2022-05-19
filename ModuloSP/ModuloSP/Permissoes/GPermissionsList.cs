@@ -65,17 +65,29 @@ namespace ModuloSP.Permissoes
 
         }
 
-        private void GPermissionsList_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txtNome_KeyDown(object sender, KeyEventArgs e)
         {
-            // if textbox is focused and Enter key was pressed
-            if (this.txtNome.Focused && e.KeyChar == '\r')
+            switch (e.KeyCode)
             {
-                // click the Go button
-                this.btSearch.PerformClick();
-                // don't allow the Enter key to pass to textbox
-                e.Handled = true;
+                case Keys.Enter:
+                    e.SuppressKeyPress= true;
+                    var list = AcountPermission.GrupoPermission();
+
+                    if (AcountPermission.LoginView(list, txtNome.Text))
+                    {
+                        MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.Clear();
+                        AcountPermission.GetIDGrupo(txtNome.Text);
+                        AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
+                        DatagridStyle();
+                    }
+                    break;
+
             }
         }
-
     }
 }

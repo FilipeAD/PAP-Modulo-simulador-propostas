@@ -48,6 +48,7 @@ namespace ModuloSP
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar produtos para compra"))
             {
+                btActionClient.Visible = true;
                 InterfaceClient.Visible = true;
             }
             if (Permissoes.AcountPermission.LoginView(list, "Visualizar Atividade dos Utilizadores"))
@@ -277,21 +278,6 @@ namespace ModuloSP
             mudaform(load);
         }
 
-        private void InterfaceClient_Click_1(object sender, EventArgs e)
-        {
-            Menu.Visible = false;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(ViewClient.ListSimulacao))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            ViewClient.ListSimulacao load = new ViewClient.ListSimulacao();
-            mudaform(load);
-        }
 
         private void Activity_Click(object sender, EventArgs e)
         {
@@ -339,6 +325,20 @@ namespace ModuloSP
             mudaform(load);
         }
 
-  
+        private void InterfaceClient_Click(object sender, EventArgs e)
+        {
+            Menu.Visible = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.ListSimulacao))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            ViewClient.ListSimulacao load = new ViewClient.ListSimulacao();
+            mudaform(load);
+        }
     }
 }

@@ -48,6 +48,5 @@ namespace ModuloSP.ViewClient
             Models.Utils._form.mudaform(userList);
         }
 
-
     }
 }

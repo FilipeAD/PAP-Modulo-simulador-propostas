@@ -70,5 +70,7 @@ namespace ModuloSP.ViewClient
         {
             ViewClient.ProductFilters.ID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
+
+        
     }
 }

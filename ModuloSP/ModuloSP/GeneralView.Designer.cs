@@ -29,6 +29,7 @@ namespace ModuloSP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralView));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btInformation = new System.Windows.Forms.Button();
             this.btMenu = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace ModuloSP
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
             this.Activity = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btActionClient = new System.Windows.Forms.ToolStripMenuItem();
             this.InterfaceClient = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -128,7 +130,7 @@ namespace ModuloSP
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btEquipamentos,
             this.btUsers,
-            this.InterfaceClient});
+            this.btActionClient});
             this.Menu.Location = new System.Drawing.Point(0, 38);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(1241, 24);
@@ -274,16 +276,28 @@ namespace ModuloSP
             this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
+            // btActionClient
+            // 
+            this.btActionClient.BackColor = System.Drawing.Color.Silver;
+            this.btActionClient.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.InterfaceClient});
+            this.btActionClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btActionClient.ForeColor = System.Drawing.Color.White;
+            this.btActionClient.Name = "btActionClient";
+            this.btActionClient.Size = new System.Drawing.Size(54, 20);
+            this.btActionClient.Text = "Ações";
+            this.btActionClient.Visible = false;
+            // 
             // InterfaceClient
             // 
             this.InterfaceClient.BackColor = System.Drawing.Color.Silver;
             this.InterfaceClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(75, 20);
-            this.InterfaceClient.Text = "Produtos ";
+            this.InterfaceClient.Size = new System.Drawing.Size(141, 22);
+            this.InterfaceClient.Text = "Simulações";
             this.InterfaceClient.Visible = false;
-            this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click_1);
+            this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
             // 
             // userpanel
             // 
@@ -368,6 +382,7 @@ namespace ModuloSP
             this.Controls.Add(this.userpanel);
             this.Controls.Add(this.Menu);
             this.Controls.Add(this.panel4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.Menu;
             this.Name = "GeneralView";
@@ -414,6 +429,7 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem listUtilizadores;
         private System.Windows.Forms.ToolStripMenuItem Activity;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem btActionClient;
         private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
     }
 }

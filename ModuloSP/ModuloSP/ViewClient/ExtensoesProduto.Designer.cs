@@ -30,11 +30,14 @@
         {
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btReset = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.btExtensoes = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.cmbOrder = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
+            this.btAdicionar = new System.Windows.Forms.ToolStripButton();
+            this.QExtensoes = new System.Windows.Forms.ToolStripLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStripExtensoes = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +49,13 @@
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btReset,
-            this.toolStripLabel5,
+            this.btExtensoes,
             this.toolStripLabel3,
             this.cmbOrder,
-            this.toolStripLabel6});
+            this.toolStripLabel6,
+            this.QExtensoes,
+            this.toolStripExtensoes,
+            this.btAdicionar});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
@@ -68,12 +74,12 @@
             this.btReset.Text = "toolStripButton1";
             this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
-            // toolStripLabel5
+            // btExtensoes
             // 
-            this.toolStripLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(11, 22);
-            this.toolStripLabel5.Text = "|";
+            this.btExtensoes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExtensoes.Name = "btExtensoes";
+            this.btExtensoes.Size = new System.Drawing.Size(11, 22);
+            this.btExtensoes.Text = "|";
             // 
             // toolStripLabel3
             // 
@@ -96,6 +102,25 @@
             this.toolStripLabel6.Name = "toolStripLabel6";
             this.toolStripLabel6.Size = new System.Drawing.Size(0, 22);
             // 
+            // btAdicionar
+            // 
+            this.btAdicionar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btAdicionar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdicionar.Image = global::ModuloSP.Properties.Resources.addcolum;
+            this.btAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(81, 22);
+            this.btAdicionar.Text = "Adicionar";
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
+            // 
+            // QExtensoes
+            // 
+            this.QExtensoes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.QExtensoes.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QExtensoes.Name = "QExtensoes";
+            this.QExtensoes.Size = new System.Drawing.Size(14, 22);
+            this.QExtensoes.Text = "0";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeColumns = false;
@@ -109,6 +134,19 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1139, 621);
             this.dataGridView1.TabIndex = 28;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // toolStripExtensoes
+            // 
+            this.toolStripExtensoes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripExtensoes.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripExtensoes.Image = global::ModuloSP.Properties.Resources.icons8_extensions_folder_24;
+            this.toolStripExtensoes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripExtensoes.Name = "toolStripExtensoes";
+            this.toolStripExtensoes.Size = new System.Drawing.Size(88, 22);
+            this.toolStripExtensoes.Text = "Extensões";
+            this.toolStripExtensoes.Click += new System.EventHandler(this.toolStripExtensoes_Click_1);
             // 
             // ExtensoesProduto
             // 
@@ -132,10 +170,13 @@
 
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btReset;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripComboBox cmbOrder;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripLabel btExtensoes;
+        private System.Windows.Forms.ToolStripButton btAdicionar;
+        private System.Windows.Forms.ToolStripLabel QExtensoes;
+        private System.Windows.Forms.ToolStripButton toolStripExtensoes;
     }
 }
