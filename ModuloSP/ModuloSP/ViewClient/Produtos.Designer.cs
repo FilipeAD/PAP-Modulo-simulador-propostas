@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btReset = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.cmbOrder = new System.Windows.Forms.ToolStripComboBox();
@@ -41,8 +40,12 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.cmbMarca = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btReset = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -84,16 +87,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1146, 25);
             this.toolStrip1.TabIndex = 24;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btReset
-            // 
-            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
-            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(23, 22);
-            this.btReset.Text = "\\";
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // toolStripLabel5
             // 
@@ -164,11 +157,39 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelImpressoras});
             this.statusStrip1.Location = new System.Drawing.Point(0, 660);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1146, 22);
             this.statusStrip1.TabIndex = 25;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelImpressoras
+            // 
+            this.toolStripStatusLabelImpressoras.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelImpressoras.Name = "toolStripStatusLabelImpressoras";
+            this.toolStripStatusLabelImpressoras.Size = new System.Drawing.Size(14, 17);
+            this.toolStripStatusLabelImpressoras.Text = "0";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Image = global::ModuloSP.Properties.Resources.icons8_printer_30;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 17);
+            this.toolStripStatusLabel1.Text = "Produtos Simulação";
+            // 
+            // btReset
+            // 
+            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
+            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(23, 22);
+            this.btReset.Text = "\\";
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // Produtos
             // 
@@ -181,10 +202,14 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "Produtos";
             this.Text = "Produtos";
+            this.Activated += new System.EventHandler(this.Produtos_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Produtos_FormClosing);
             this.Load += new System.EventHandler(this.Produtos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +230,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelImpressoras;
     }
 }

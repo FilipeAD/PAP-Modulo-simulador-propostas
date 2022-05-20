@@ -45,5 +45,30 @@ namespace ModuloSP.ViewClient
                 dataGridView1.DataSource = _table;
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
+
+        private void toolStripExtensoes_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Prosseguir e iniciar simulação ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Models.Utils._form.closeForms(new Produtos());
+                if (Models.IDManagment.IdSimulacao == "")
+                {
+                    ProductFilters.Simulacao();
+                }
+               
+                ProductFilters.Equipamentos();
+                ProductFilters.ListCycle(ProductFilters.Extensoes);
+                this.Close();
+                
+
+            }
+            
+           
+
+        }
     }
 }

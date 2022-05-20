@@ -30,7 +30,20 @@ namespace ModuloSP.ViewClient
             set { _IDExtensoes = value; }
         }
 
+        private static float _Preco;
+        public static float Preco
+        {
+            get { return _Preco; }
+            set { _Preco = value; }
+        }
 
+
+        private static string _NumImpressoras = "";
+        public static string NumImpressoras
+        {
+            get { return _NumImpressoras; }
+            set { _NumImpressoras = value; }
+        }
 
         public static List<string> Extensoes = new List<string>();
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
@@ -95,6 +108,7 @@ namespace ModuloSP.ViewClient
                 MemoryStream mem = new MemoryStream(data); 
                 _Image.Image = Image.FromStream(mem);
                 Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
+                ProductFilters.Preco = float.Parse(dr["preco"].ToString());
             }
             con.Close();
         }
@@ -455,10 +469,93 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        public static void Equipamentos()
+        {
+            Models.IDManagment.IdEquipamento = Models.IDManagment.InsereID("Equipamentos");
+
+            SqlConnection con = new
+                SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "INSERT INTO Equipamentos(" +
+                "id,Preco,fk_Maquinas_id,fk_Simulacoes_ID)" +
+                "VALUES (@id,@Preco,@fk_Maquinas_id,@fk_Simulacoes_ID)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IdEquipamento);
+            cmd.Parameters.AddWithValue("@Preco", ProductFilters.Preco);
+            cmd.Parameters.AddWithValue("@fk_Maquinas_id", ProductFilters.ID);
+            cmd.Parameters.AddWithValue("@fk_Simulacoes_ID", Models.IDManagment.IdSimulacao);
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            con.Close();
+        }
+
+        public static void AddOnsEquip(string _IDAddOns)
+        {
+            Models.IDManagment.IDAddOnsMaquinas = Models.IDManagment.InsereID("AddOns_Equip");
+
+            SqlConnection con = new
+                SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "INSERT INTO AddOns_Equip(" +
+                "id,fk_Modelo_AddOns_id,fk_Equipamentos_ID)" +
+                "VALUES (@id,@fk_Modelo_AddOns_id,@fk_Equipamentos_ID)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", Models.IDManagment.IDAddOnsMaquinas);
+            cmd.Parameters.AddWithValue("@fk_Modelo_AddOns_id", _IDAddOns);
+            cmd.Parameters.AddWithValue("@fk_Equipamentos_ID", Models.IDManagment.IdEquipamento);
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch
+            {
+                MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            con.Close();
+        }
+
+        public static void ListCycle(List <string> _MyList)
+        {
+            for (var i = 0; i < _MyList.Count; i++)
+            {
+
+                AddOnsEquip(_MyList[i]);
 
 
+            }
+
+        }
 
 
+        public static void MaquinasInSimulacao()
+        {
+            SqlConnection con =
+                       new SqlConnection(Models.Utils.conString);
+                con.Open();
+                string query = "Select Count(ID) as QUANTI " +
+                               "from Equipamentos " +
+                               "where fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' " + 
+                               "group by fk_Simulacoes_ID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ProductFilters.NumImpressoras = dr["QUANTI"].ToString();
+                }
+                con.Close();
+            
+        }
 
 
     }

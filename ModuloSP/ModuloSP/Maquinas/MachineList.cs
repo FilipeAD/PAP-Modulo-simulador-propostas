@@ -122,5 +122,7 @@ namespace ModuloSP.Maquinas
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
+
+        
     }
 }

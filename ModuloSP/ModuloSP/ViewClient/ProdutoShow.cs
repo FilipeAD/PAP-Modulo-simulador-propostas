@@ -23,6 +23,7 @@ namespace ModuloSP.ViewClient
             ProductFilters.LoadImMarcaMod(Models.IDManagment.fkMarca_Modelo, txtMarca);
             txtDescricaoMaquinas.AutoSize = true;
             txtDescricaoMaquinas.MaximumSize = new Size(500, 50);
+            
         }
 
 
@@ -47,6 +48,5 @@ namespace ModuloSP.ViewClient
 
             Models.Utils._form.mudaform(userList);
         }
-
     }
 }

@@ -58,6 +58,27 @@ namespace ModuloSP
             }
         }
 
+        public void closeForms()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Dispose();
+                frm.Close();
+            }
+        }
+
+        public void closeForms(Form _form)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.Name != _form.Name)
+                {
+                    frm.Dispose();
+                    frm.Close();
+                }
+            }
+        }
+
         public void mudaform(Form _form)
         {
             _form.WindowState = FormWindowState.Maximized;

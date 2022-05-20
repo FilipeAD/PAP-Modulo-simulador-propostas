@@ -73,6 +73,7 @@
             this.toolStripExtensoes.Name = "toolStripExtensoes";
             this.toolStripExtensoes.Size = new System.Drawing.Size(178, 22);
             this.toolStripExtensoes.Text = "Conectar com Impressora";
+            this.toolStripExtensoes.Click += new System.EventHandler(this.toolStripExtensoes_Click);
             // 
             // ListEsxtensoes
             // 

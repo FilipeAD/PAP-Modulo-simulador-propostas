@@ -26,6 +26,8 @@ namespace ModuloSP.ViewClient
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
+            Models.IDManagment.IdSimulacao = "";
+
             foreach (Form frm in Application.OpenForms)
             {
                 if (frm.GetType() == typeof(ViewClient.Produtos))

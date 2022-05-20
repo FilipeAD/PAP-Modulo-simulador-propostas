@@ -46,11 +46,27 @@ namespace ModuloSP.Models
             set { _IdMaquina = value; }
         }
 
+
+        private static string _IDAddOnsMaquinas = "";
+        public static string IDAddOnsMaquinas
+        {
+            get { return _IDAddOnsMaquinas; }
+            set { _IDAddOnsMaquinas = value; }
+        }
+
+
         private static string _IdSimulacao = "";
         public static string IdSimulacao
         {
             get { return _IdSimulacao; }
             set { _IdSimulacao = value; }
+        }
+
+        private static string _IdEquipamento = "";
+        public static string IdEquipamento
+        {
+            get { return _IdEquipamento; }
+            set { _IdEquipamento = value; }
         }
 
 

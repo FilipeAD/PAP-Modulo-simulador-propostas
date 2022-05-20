@@ -71,6 +71,31 @@ namespace ModuloSP.ViewClient
             ViewClient.ProductFilters.ID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
-        
+        private void Produtos_Activated(object sender, EventArgs e)
+        {
+            toolStripStatusLabelImpressoras.Text = ProductFilters.NumImpressoras;
+        }
+
+        private void Produtos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Models.IDManagment.IdSimulacao == "")
+            {
+
+            }
+            else
+            {
+
+                if (MessageBox.Show("Terminar Simulação ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Models.IDManagment.IdSimulacao = "";
+                    toolStripStatusLabelImpressoras.Text = "0";
+                }
+
+            }
+        }
     }
 }
