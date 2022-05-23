@@ -30,6 +30,13 @@ namespace ModuloSP.ViewClient
             set { _IDExtensoes = value; }
         }
 
+        private static string _IDSimulacao= "";
+        public static string IDSimulacao
+        {
+            get { return _IDSimulacao; }
+            set { _IDSimulacao = value; }
+        }
+
         private static float _Preco;
         public static float Preco
         {
@@ -44,6 +51,7 @@ namespace ModuloSP.ViewClient
             get { return _NumImpressoras; }
             set { _NumImpressoras = value; }
         }
+
 
         public static List<string> Extensoes = new List<string>();
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
@@ -554,7 +562,6 @@ namespace ModuloSP.ViewClient
                     ProductFilters.NumImpressoras = dr["QUANTI"].ToString();
                 }
                 con.Close();
-            
         }
 
 

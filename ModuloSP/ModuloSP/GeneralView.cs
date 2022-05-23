@@ -130,6 +130,8 @@ namespace ModuloSP
             DialogResult dialogResult = MessageBox.Show("Têm a certeza que pretende sair?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                Models.IDManagment.IdSimulacao = "";
+                ViewClient.ProductFilters.NumImpressoras = "";
                 this.Close();
             }
             else if (dialogResult == DialogResult.No)

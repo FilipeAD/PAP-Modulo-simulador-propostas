@@ -24,6 +24,8 @@ namespace ModuloSP.ViewClient
             ProductFilters.CmbOrderItems(cmbOrder);
             ProductFilters.CmbColorItems(cmbColor);
             ProductFilters.CmbInsertM(cmbMarca);
+
+           
         }
 
         private void cmbOrder_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace ModuloSP.ViewClient
 
         private void Produtos_Activated(object sender, EventArgs e)
         {
+            ProductFilters.MaquinasInSimulacao();
             toolStripStatusLabelImpressoras.Text = ProductFilters.NumImpressoras;
         }
 

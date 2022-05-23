@@ -19,6 +19,7 @@ namespace ModuloSP.ViewClient
 
         private void ListEsxtensoes_Load(object sender, EventArgs e)
         {
+
                 //MessageBox.Show(_sTexto);
 
             DataTable _table = new DataTable();
@@ -44,6 +45,8 @@ namespace ModuloSP.ViewClient
 
                 dataGridView1.DataSource = _table;
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+
+            ProductFilters.produtos.Clear();
         }
 
         private void toolStripExtensoes_Click(object sender, EventArgs e)
@@ -54,7 +57,6 @@ namespace ModuloSP.ViewClient
             }
             else
             {
-                Models.Utils._form.closeForms(new Produtos());
                 if (Models.IDManagment.IdSimulacao == "")
                 {
                     ProductFilters.Simulacao();
@@ -62,6 +64,8 @@ namespace ModuloSP.ViewClient
                
                 ProductFilters.Equipamentos();
                 ProductFilters.ListCycle(ProductFilters.Extensoes);
+                Models.Utils._form.closeForms(new Produtos());
+
                 this.Close();
                 
 

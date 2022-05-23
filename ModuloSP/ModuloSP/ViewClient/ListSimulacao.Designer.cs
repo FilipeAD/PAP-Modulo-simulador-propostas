@@ -49,6 +49,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1146, 657);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // toolStrip1
             // 
@@ -82,6 +83,7 @@
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(76, 22);
             this.btEditar.Text = "Visualizar";
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // ListSimulacao
             // 

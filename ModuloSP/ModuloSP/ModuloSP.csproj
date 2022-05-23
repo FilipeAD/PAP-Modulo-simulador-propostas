@@ -230,6 +230,12 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Utils.cs" />
+    <Compile Include="ViewClient\ViewSimulasoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient\ViewSimulasoes.Designer.cs">
+      <DependentUpon>ViewSimulasoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewClient\ExtensoesProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     </Compile>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient\ViewSimulasoes.resx">
+      <DependentUpon>ViewSimulasoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\ExtensoesProduto.resx">
       <DependentUpon>ExtensoesProduto.cs</DependentUpon>

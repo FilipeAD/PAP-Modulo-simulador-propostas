@@ -41,5 +41,26 @@ namespace ModuloSP.ViewClient
 
             Models.Utils._form.mudaform(userList);
         }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.ViewSimulasoes))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new ViewClient.ViewSimulasoes();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProductFilters.IDSimulacao = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
     }
 }
