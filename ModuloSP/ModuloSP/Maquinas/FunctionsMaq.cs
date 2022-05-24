@@ -152,12 +152,12 @@ namespace ModuloSP.Maquinas
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "UPDATE Maquinas SET " +
-                "cor=@cor," +
-                "dimensoes=@dimensoes," +
-                "preco=@preco," +
-                "Produto_Imagem=@Produto_Imagem" +
-                "Descricao=@Descricao" +
-                " where id=@id";
+                "cor=@cor, " +
+                "dimensoes=@dimensoes, " +
+                "preco=@preco, " +
+                "Produto_Imagem=@Produto_Imagem, " +
+                "Descricao=@Descricao " +
+                "where id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", _ID);
             cmd.Parameters.AddWithValue("@cor", _Cor);

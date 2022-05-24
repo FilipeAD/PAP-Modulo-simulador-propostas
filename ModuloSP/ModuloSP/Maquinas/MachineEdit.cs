@@ -38,7 +38,7 @@ namespace ModuloSP.Maquinas
             FunctionsMaq.LoadMaquinasEditar(maquina, txtCor, txtDimensoes, txtPreco, pictureBox1, txtDescricao);
             FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.fkMarca_Modelo);
 
-
+            ADDColor = txtCor.Text;
         }
 
 

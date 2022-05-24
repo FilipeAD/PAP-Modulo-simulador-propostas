@@ -75,8 +75,12 @@ namespace ModuloSP.ViewClient
 
         private void Produtos_Activated(object sender, EventArgs e)
         {
-            ProductFilters.MaquinasInSimulacao();
+            ProductFilters.MaquinasInSimulacao(Models.IDManagment.IdSimulacao);
             toolStripStatusLabelImpressoras.Text = ProductFilters.NumImpressoras;
+            if (Models.IDManagment.IdSimulacao != "")
+            {
+                toolStripStatusLabel2.Visible = true;
+            }
         }
 
         private void Produtos_FormClosing(object sender, FormClosingEventArgs e)
@@ -95,7 +99,30 @@ namespace ModuloSP.ViewClient
                 else
                 {
                     Models.IDManagment.IdSimulacao = "";
-                    toolStripStatusLabelImpressoras.Text = "0";
+                    ProductFilters.NumImpressoras = "0";
+                }
+
+            }
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdSimulacao == "")
+            {
+
+            }
+            else
+            {
+
+                if (MessageBox.Show("Terminar Simulação ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Models.IDManagment.IdSimulacao = "";
+                    this.Close();
+                    ProductFilters.NumImpressoras = "0";
                 }
 
             }

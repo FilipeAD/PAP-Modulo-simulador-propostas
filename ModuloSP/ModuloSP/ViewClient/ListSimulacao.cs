@@ -19,7 +19,6 @@ namespace ModuloSP.ViewClient
 
         private void Simulacao_Load(object sender, EventArgs e)
         {
-            //ProductFilters.Simulacao();
             ProductFilters.ShowSimulacao(dataGridView1, Models.CurrentUser.IDUser);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
@@ -44,21 +43,30 @@ namespace ModuloSP.ViewClient
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            foreach (Form frm in Application.OpenForms)
+            if (ProductFilters.IDSimulacao == "")
             {
-                if (frm.GetType() == typeof(ViewClient.ViewSimulasoes))
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+
+                foreach (Form frm in Application.OpenForms)
                 {
-                    frm.Activate();
-                    return;
+                    if (frm.GetType() == typeof(ViewClient.ViewSimulasoes))
+                    {
+                        frm.Activate();
+                        return;
+                    }
                 }
+                var userList = new ViewClient.ViewSimulasoes();
+
+                Models.Utils._form.mudaform(userList);
             }
 
-            var userList = new ViewClient.ViewSimulasoes();
-
-            Models.Utils._form.mudaform(userList);
+         
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ProductFilters.IDSimulacao = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }

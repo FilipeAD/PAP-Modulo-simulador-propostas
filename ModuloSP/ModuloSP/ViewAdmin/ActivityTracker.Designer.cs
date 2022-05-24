@@ -53,6 +53,7 @@
             this.cmbActions.Size = new System.Drawing.Size(227, 24);
             this.cmbActions.TabIndex = 30;
             this.cmbActions.Text = "Ação";
+            this.cmbActions.Visible = false;
             this.cmbActions.SelectedIndexChanged += new System.EventHandler(this.cmbActions_SelectedIndexChanged_1);
             this.cmbActions.Enter += new System.EventHandler(this.cmbActions_Enter);
             this.cmbActions.Leave += new System.EventHandler(this.cmbActions_Leave);
@@ -67,6 +68,7 @@
             this.cmbUtilizador.Size = new System.Drawing.Size(227, 24);
             this.cmbUtilizador.TabIndex = 31;
             this.cmbUtilizador.Text = "Utilizador";
+            this.cmbUtilizador.Visible = false;
             this.cmbUtilizador.SelectedIndexChanged += new System.EventHandler(this.cmbUtilizador_SelectedIndexChanged_1);
             this.cmbUtilizador.Enter += new System.EventHandler(this.cmbUtilizador_Enter);
             this.cmbUtilizador.Leave += new System.EventHandler(this.cmbUtilizador_Leave);
@@ -79,6 +81,7 @@
             this.DateBiggerThan.MaxSelectionCount = 1;
             this.DateBiggerThan.Name = "DateBiggerThan";
             this.DateBiggerThan.TabIndex = 38;
+            this.DateBiggerThan.Visible = false;
             this.DateBiggerThan.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.DateBiggerThan_DateSelected);
             // 
             // DateSmallerThan
@@ -89,6 +92,7 @@
             this.DateSmallerThan.MaxSelectionCount = 1;
             this.DateSmallerThan.Name = "DateSmallerThan";
             this.DateSmallerThan.TabIndex = 43;
+            this.DateSmallerThan.Visible = false;
             this.DateSmallerThan.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.DateSmallerThan_DateSelected);
             // 
             // label1
@@ -100,6 +104,7 @@
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 44;
             this.label1.Text = "Data Inicial";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -110,6 +115,7 @@
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 45;
             this.label2.Text = "Data Final";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -120,6 +126,7 @@
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 47;
             this.label3.Text = "Ação";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -130,6 +137,7 @@
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 48;
             this.label4.Text = "Utilizador";
+            this.label4.Visible = false;
             // 
             // panel1
             // 
@@ -141,6 +149,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(603, 684);
             this.panel1.TabIndex = 46;
+            this.panel1.Visible = false;
             // 
             // dataGridView1
             // 

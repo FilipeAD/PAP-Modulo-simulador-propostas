@@ -29,11 +29,16 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Equipamentos = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btCycleBackward = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btExtensoes = new System.Windows.Forms.Button();
+            this.btCycleFoward = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescricaoMaquinas = new System.Windows.Forms.Label();
@@ -41,52 +46,94 @@
             this.txtMarca = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.Label();
             this.txtDimensoes = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
+            this.Equipamentos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.Equipamentos);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1297, 646);
+            this.tabControl1.Size = new System.Drawing.Size(1332, 646);
             this.tabControl1.TabIndex = 0;
+            // 
+            // Equipamentos
+            // 
+            this.Equipamentos.Controls.Add(this.dataGridView2);
+            this.Equipamentos.Location = new System.Drawing.Point(4, 22);
+            this.Equipamentos.Name = "Equipamentos";
+            this.Equipamentos.Size = new System.Drawing.Size(1324, 620);
+            this.Equipamentos.TabIndex = 2;
+            this.Equipamentos.Text = "Equipamentos";
+            this.Equipamentos.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1324, 620);
+            this.dataGridView2.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1289, 620);
+            this.tabPage1.Size = new System.Drawing.Size(1324, 620);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Equipamento";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // statusStrip1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1289, 620);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Extensões Equipamento";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelImpressoras});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 595);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1318, 22);
+            this.statusStrip1.TabIndex = 54;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Image = global::ModuloSP.Properties.Resources.icons8_printer_30;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 17);
+            this.toolStripStatusLabel1.Text = "Produtos Simulação";
+            // 
+            // toolStripStatusLabelImpressoras
+            // 
+            this.toolStripStatusLabelImpressoras.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelImpressoras.Name = "toolStripStatusLabelImpressoras";
+            this.toolStripStatusLabelImpressoras.Size = new System.Drawing.Size(14, 17);
+            this.toolStripStatusLabelImpressoras.Text = "0";
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.btCycleBackward);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btExtensoes);
+            this.panel1.Controls.Add(this.btCycleFoward);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtDescricaoMaquinas);
@@ -94,10 +141,25 @@
             this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.txtPreco);
             this.panel1.Controls.Add(this.txtDimensoes);
-            this.panel1.Location = new System.Drawing.Point(25, 20);
+            this.panel1.Location = new System.Drawing.Point(53, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1245, 571);
+            this.panel1.Size = new System.Drawing.Size(1230, 571);
             this.panel1.TabIndex = 53;
+            // 
+            // btCycleBackward
+            // 
+            this.btCycleBackward.BackColor = System.Drawing.Color.Black;
+            this.btCycleBackward.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btCycleBackward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCycleBackward.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCycleBackward.ForeColor = System.Drawing.Color.White;
+            this.btCycleBackward.Location = new System.Drawing.Point(33, 473);
+            this.btCycleBackward.Name = "btCycleBackward";
+            this.btCycleBackward.Size = new System.Drawing.Size(61, 33);
+            this.btCycleBackward.TabIndex = 52;
+            this.btCycleBackward.Text = "<<<";
+            this.btCycleBackward.UseVisualStyleBackColor = false;
+            this.btCycleBackward.Click += new System.EventHandler(this.btCycleBackward_Click);
             // 
             // pictureBox1
             // 
@@ -109,19 +171,20 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btExtensoes
+            // btCycleFoward
             // 
-            this.btExtensoes.BackColor = System.Drawing.Color.Black;
-            this.btExtensoes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btExtensoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btExtensoes.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExtensoes.ForeColor = System.Drawing.Color.White;
-            this.btExtensoes.Location = new System.Drawing.Point(568, 413);
-            this.btExtensoes.Name = "btExtensoes";
-            this.btExtensoes.Size = new System.Drawing.Size(157, 33);
-            this.btExtensoes.TabIndex = 51;
-            this.btExtensoes.Text = "ACESSÓRIOS";
-            this.btExtensoes.UseVisualStyleBackColor = false;
+            this.btCycleFoward.BackColor = System.Drawing.Color.Black;
+            this.btCycleFoward.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btCycleFoward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCycleFoward.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCycleFoward.ForeColor = System.Drawing.Color.White;
+            this.btCycleFoward.Location = new System.Drawing.Point(1142, 473);
+            this.btCycleFoward.Name = "btCycleFoward";
+            this.btCycleFoward.Size = new System.Drawing.Size(61, 33);
+            this.btCycleFoward.TabIndex = 51;
+            this.btCycleFoward.Text = ">>>";
+            this.btCycleFoward.UseVisualStyleBackColor = false;
+            this.btCycleFoward.Click += new System.EventHandler(this.btCycle_Click);
             // 
             // label5
             // 
@@ -193,28 +256,49 @@
             this.txtDimensoes.TabIndex = 1;
             this.txtDimensoes.Text = "Dimensões";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1324, 620);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Extensões Equipamento";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 473);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1245, 98);
-            this.dataGridView1.TabIndex = 54;
+            this.dataGridView1.Size = new System.Drawing.Size(1318, 614);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // EditSimulasoes
+            // ViewSimulasoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 646);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1332, 646);
             this.Controls.Add(this.tabControl1);
-            this.Name = "EditSimulasoes";
-            this.Text = "EditSimulasoes";
+            this.Name = "ViewSimulasoes";
+            this.Text = "Simulação";
+            this.Activated += new System.EventHandler(this.ViewSimulasoes_Activated);
+            this.Load += new System.EventHandler(this.ViewSimulasoes_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ViewSimulasoes_KeyDown);
             this.tabControl1.ResumeLayout(false);
+            this.Equipamentos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -227,7 +311,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btExtensoes;
+        private System.Windows.Forms.Button btCycleFoward;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label txtDescricaoMaquinas;
@@ -235,6 +319,12 @@
         private System.Windows.Forms.Label txtMarca;
         private System.Windows.Forms.Label txtPreco;
         private System.Windows.Forms.Label txtDimensoes;
+        private System.Windows.Forms.Button btCycleBackward;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelImpressoras;
+        private System.Windows.Forms.TabPage Equipamentos;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

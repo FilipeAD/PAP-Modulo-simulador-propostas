@@ -56,6 +56,7 @@ namespace ModuloSP.ViewClient
         public static List<string> Extensoes = new List<string>();
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
 
+        //#------------------------------------------------------------------------------------------------------------------#
 
         public static void ShowSimulacao(DataGridView _DataGridName, string _IDUser)
         {
@@ -140,7 +141,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
-
+        //#------------------------------------------------------------------------------------------------------------------#
         public static void ShowAddOnsGrupo(DataGridView _DataGridName, string _grupo, string _Modelo)
         {
             using (SqlConnection con =
@@ -545,15 +546,14 @@ namespace ModuloSP.ViewClient
 
         }
 
-
-        public static void MaquinasInSimulacao()
+        public static void MaquinasInSimulacao(string _ID)
         {
             SqlConnection con =
                        new SqlConnection(Models.Utils.conString);
                 con.Open();
                 string query = "Select Count(ID) as QUANTI " +
                                "from Equipamentos " +
-                               "where fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' " + 
+                               "where fk_Simulacoes_ID = '" + _ID  + "' " + 
                                "group by fk_Simulacoes_ID";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -564,6 +564,75 @@ namespace ModuloSP.ViewClient
                 con.Close();
         }
 
+        //#------------------------------------------------------------------------------------------------------------------#
+
+        public static List<string> MaquinasList(string _ID)
+        {
+            List<string> al = new List<string>();
+
+            SqlConnection con =
+                   new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "Select fk_Maquinas_ID as ID " +
+                           "from Equipamentos " +
+                           "where fk_Simulacoes_ID = " + _ID +
+                           "group by fk_Maquinas_ID";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                al.Add(dr["ID"].ToString()); 
+            }
+            con.Close();
+            return al;
+        }
+
+        public static List<string> EquipamentosList(string _ID)
+        {
+            List<string> al = new List<string>();
+
+            SqlConnection con =
+                   new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "Select Equipamentos.ID as id " +
+                           "from Equipamentos " +
+                           "where fk_Simulacoes_ID = " + _ID +
+                           "group by  Equipamentos.ID";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                al.Add(dr["id"].ToString());
+            }
+            con.Close();
+            return al;
+        }
+
+        public static void LoadAddOnsSimulacao(DataGridView _DataGridName, string _ID)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço], count(AddOns.ID) as [AddOn Quantidade] " +
+                               "from AddOns " +
+                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                               "join AddOns_Equip on AddOns_Equip.fk_Modelo_AddOns_ID = Modelo_AddOns.ID " +
+                               "where AddOns_Equip.fk_Equipamentos_ID = " + _ID + 
+                               " group by AddOns.ID, Descricao, Add_Ons_Grupos.Nome, Modelo_AddOns.Preco_Relacao";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdMaquina = "";
+            }
+        }
+
+
+        
 
     }
 }

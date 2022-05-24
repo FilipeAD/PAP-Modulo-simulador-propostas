@@ -108,6 +108,7 @@
     <Compile Include="Marc_Mod\MarcaModeloEdit.Designer.cs">
       <DependentUpon>MarcaModeloEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Permissoes\AcountPermission.cs" />
     <Compile Include="AddOn\AddOnAdd.cs">
