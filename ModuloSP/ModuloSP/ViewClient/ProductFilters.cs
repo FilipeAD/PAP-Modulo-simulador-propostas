@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,13 @@ namespace ModuloSP.ViewClient
         {
             get { return _IDExtensoes; }
             set { _IDExtensoes = value; }
+        }
+
+        private static string _PrecoMaquinaAddOn = "";
+        public static string PrecoMaquinaAddOn
+        {
+            get { return _PrecoMaquinaAddOn; }
+            set { _PrecoMaquinaAddOn = value; }
         }
 
         private static string _IDSimulacao= "";
@@ -587,6 +595,7 @@ namespace ModuloSP.ViewClient
             return al;
         }
 
+
         public static List<string> EquipamentosList(string _ID)
         {
             List<string> al = new List<string>();
@@ -631,8 +640,59 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        public static void LoadAllSimulacao(DataGridView _DataGridName, string _ID)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço], count(AddOns.ID) as [AddOn Quantidade] " +
+                               "from AddOns " +
+                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                               "join AddOns_Equip on AddOns_Equip.fk_Modelo_AddOns_ID = Modelo_AddOns.ID " +
+                               "where AddOns_Equip.fk_Equipamentos_ID = " + _ID +
+                               " group by AddOns.ID, Descricao, Add_Ons_Grupos.Nome, Modelo_AddOns.Preco_Relacao";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdMaquina = "";
+            }
+        }
 
-        
+        //#------------------------------------------------------------------------------------------------------------------#
+
+        public static void PrecoAddMaq(string _MARMOD)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"select equip.fk_Maquinas_ID as [ID], equip.Preco as [Preço máquina],
+                            (
+                                select SUM(modlAddOn.Preco_Relacao)
+                                from Modelo_AddOns as modlAddOn
+                                JOIN AddOns_Equip as addOnEquip on addOnEquip.fk_Modelo_AddOns_ID = modlAddOn.ID
+                                JOIN Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID
+                                WHERE addOnEquip.fk_Equipamentos_ID = equip.ID and Modelo_AddOns.fk_Marca_Modelo_ID = '" + _MARMOD + "' " +
+                            @") as [Total AddOns]
+                            from Equipamentos as equip
+                            where equip.fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' " +
+                            "group by equip.fk_Maquinas_ID, equip.ID, equip.Preco ";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ProductFilters.PrecoMaquinaAddOn = (int.Parse(dr["Preço máquina"].ToString()) + int.Parse(dr["Total AddOns"].ToString())).ToString();
+
+            }
+
+
+        }
+
+
+
 
     }
 }

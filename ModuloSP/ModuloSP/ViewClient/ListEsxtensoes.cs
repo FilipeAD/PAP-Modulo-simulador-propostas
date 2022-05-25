@@ -46,29 +46,37 @@ namespace ModuloSP.ViewClient
                 dataGridView1.DataSource = _table;
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
-            ProductFilters.produtos.Clear();
+            
         }
 
         private void toolStripExtensoes_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Prosseguir e iniciar simulação ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (Models.IDManagment.IdSimulacao == "")
             {
-                return;
+                if (MessageBox.Show("Prosseguir e iniciar simulação ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    ProductFilters.Simulacao();
+
+                    ProductFilters.Equipamentos();
+                    ProductFilters.ListCycle(ProductFilters.Extensoes);
+                    Models.Utils._form.closeForms(new Produtos());
+                    ProductFilters.produtos.Clear();
+                    this.Close();
+
+
+                }
             }
             else
             {
-                if (Models.IDManagment.IdSimulacao == "")
-                {
-                    ProductFilters.Simulacao();
-                }
-               
                 ProductFilters.Equipamentos();
                 ProductFilters.ListCycle(ProductFilters.Extensoes);
                 Models.Utils._form.closeForms(new Produtos());
 
                 this.Close();
-                
-
             }
             
            

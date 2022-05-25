@@ -15,7 +15,12 @@ namespace ModuloSP.Models
 
         public static Product GetProductByID(int _iID)
         {
-            return GetProducts("SELECT * FROM AddOns WHERE ID = " + _iID).First();
+            return GetProducts("select AddOns.ID as IDA, AddOns.Descricao as dec, Modelo_AddOns.Preco_Relacao as pr " +
+                               "from AddOns " +
+                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
+                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
+                               "where Modelo_AddOns.fK_Marca_Modelo_ID = '" + Models.IDManagment.fkMarca_Modelo +  "' " +
+                               "and AddOns.ID = " + _iID).First();
         }
 
         private static List<Product> GetProducts (string _sQuery)
@@ -36,9 +41,9 @@ namespace ModuloSP.Models
                             {
                                 _list.Add(new Product
                                 {
-                                    ID = (int)_reader["ID"],
-                                    Descricao = _reader["Descricao"].ToString(),
-                                    PrecoBase = (double)_reader["preco_base"]
+                                    ID = (int)_reader["IDA"],
+                                    Descricao = _reader["dec"].ToString(),
+                                    PrecoBase = (double)_reader["pr"]
                                 });
                             }
                         }
@@ -55,4 +60,6 @@ namespace ModuloSP.Models
         public int ID;
         public int quantidade;
     }
+
+    
 }

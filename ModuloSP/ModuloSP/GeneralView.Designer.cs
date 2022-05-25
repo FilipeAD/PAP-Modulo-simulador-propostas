@@ -158,7 +158,7 @@ namespace ModuloSP
             this.AddOnMarca});
             this.ListAddOns.ForeColor = System.Drawing.Color.White;
             this.ListAddOns.Name = "ListAddOns";
-            this.ListAddOns.Size = new System.Drawing.Size(150, 22);
+            this.ListAddOns.Size = new System.Drawing.Size(180, 22);
             this.ListAddOns.Text = "AddOns";
             this.ListAddOns.Visible = false;
             this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click_1);
@@ -190,7 +190,7 @@ namespace ModuloSP
             this.ListMarca});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
             this.ListImpressoras.Name = "ListImpressoras";
-            this.ListImpressoras.Size = new System.Drawing.Size(150, 22);
+            this.ListImpressoras.Size = new System.Drawing.Size(180, 22);
             this.ListImpressoras.Text = "Impressoras";
             this.ListImpressoras.Visible = false;
             this.ListImpressoras.Click += new System.EventHandler(this.ListImpressoras_Click_1);
@@ -231,8 +231,8 @@ namespace ModuloSP
             this.btUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUsers.ForeColor = System.Drawing.Color.White;
             this.btUsers.Name = "btUsers";
-            this.btUsers.Size = new System.Drawing.Size(149, 20);
-            this.btUsers.Text = "Gerenciar Utilizadores";
+            this.btUsers.Size = new System.Drawing.Size(122, 20);
+            this.btUsers.Text = "Gerir Utilizadores";
             this.btUsers.Visible = false;
             // 
             // ListPermicoes
@@ -273,7 +273,7 @@ namespace ModuloSP
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Visible = false;
             // 
             // btActionClient
@@ -294,7 +294,7 @@ namespace ModuloSP
             this.InterfaceClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(141, 22);
+            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
             this.InterfaceClient.Text = "Simulações";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);

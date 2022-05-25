@@ -107,8 +107,10 @@ namespace ModuloSP.Marc_Mod
 
         private void MarcaModeloList_Activated(object sender, EventArgs e)
         {
+            cmbMarca.SelectedIndex = -1;
             FunctionMarMod.LoadMarMod(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            
         }
 
         private void cmbMarca_Click(object sender, EventArgs e)

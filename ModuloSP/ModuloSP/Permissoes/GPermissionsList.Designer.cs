@@ -36,10 +36,10 @@
             this.Estado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.txtNome = new System.Windows.Forms.ToolStripTextBox();
             this.btSearch = new System.Windows.Forms.ToolStripButton();
             this.btSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.txtNome = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -122,13 +122,6 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel1.Text = "Grupo: ";
             // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(200, 25);
-            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown);
-            // 
             // btSearch
             // 
             this.btSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -156,6 +149,11 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(55, 22);
             this.toolStripLabel2.Text = "Guardar";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(200, 25);
             // 
             // GPermissionsList
             // 
@@ -186,10 +184,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Estado;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripTextBox txtNome;
         private System.Windows.Forms.ToolStripButton btSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton btSave;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripComboBox txtNome;
     }
 }

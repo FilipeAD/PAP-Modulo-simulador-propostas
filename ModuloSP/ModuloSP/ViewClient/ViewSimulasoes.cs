@@ -33,6 +33,16 @@ namespace ModuloSP.ViewClient
 
         private void ViewSimulasoes_Load(object sender, EventArgs e)
         {
+           
+
+
+
+
+
+
+            //#--------------------------------------------------------------------------------------------------#
+
+
             toolStripStatusLabelImpressoras.Text = listMaqui.Count.ToString();
 
             ProductFilters.LoadMachine(listMaqui[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);

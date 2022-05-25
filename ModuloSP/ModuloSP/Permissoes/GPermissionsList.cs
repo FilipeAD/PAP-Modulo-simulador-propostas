@@ -32,8 +32,11 @@ namespace ModuloSP.Permissoes
 
         private void GPermissionsList_Load(object sender, EventArgs e)
         {
-
             DatagridStyle();
+
+
+
+
         }
 
         private void btSearch_Click(object sender, EventArgs e)
