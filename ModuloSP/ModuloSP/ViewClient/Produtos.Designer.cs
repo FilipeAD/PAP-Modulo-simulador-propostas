@@ -41,9 +41,9 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.cmbMarca = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -96,7 +96,7 @@
             this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(23, 22);
-            this.btReset.Text = "\\";
+            this.btReset.Text = "Limpar Pesquisa";
             this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // toolStripLabel5
@@ -178,6 +178,16 @@
             this.statusStrip1.TabIndex = 25;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel2.Image = global::ModuloSP.Properties.Resources.savechanges;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(138, 17);
+            this.toolStripStatusLabel2.Text = "Terminar Simulação";
+            this.toolStripStatusLabel2.Visible = false;
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,16 +202,6 @@
             this.toolStripStatusLabelImpressoras.Name = "toolStripStatusLabelImpressoras";
             this.toolStripStatusLabelImpressoras.Size = new System.Drawing.Size(14, 17);
             this.toolStripStatusLabelImpressoras.Text = "0";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel2.Image = global::ModuloSP.Properties.Resources.savechanges;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(138, 17);
-            this.toolStripStatusLabel2.Text = "Terminar Simulação";
-            this.toolStripStatusLabel2.Visible = false;
-            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // Produtos
             // 

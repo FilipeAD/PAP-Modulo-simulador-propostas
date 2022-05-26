@@ -19,14 +19,13 @@ namespace ModuloSP.ViewClient
 
         private void ListEsxtensoes_Load(object sender, EventArgs e)
         {
-
-                //MessageBox.Show(_sTexto);
+            //MessageBox.Show(_sTexto);
 
             DataTable _table = new DataTable();
 
             _table.Columns.Add("ID");
             _table.Columns.Add("Descrição");
-            _table.Columns.Add("Preço base");
+            _table.Columns.Add("Preço");
             _table.Columns.Add("QTD");
 
             //foreach (string _sTexto in ProductFilters.Extensoes)
@@ -38,7 +37,7 @@ namespace ModuloSP.ViewClient
             
             foreach (var _aux in ProductFilters.produtos)
             {
-                var _addOn = Models.Product.GetProductByID(_aux.ID);
+                var _addOn = Models.Product.GetProductByID(_aux.ID, _aux.IDMarcaModelo);
 
                 _table.Rows.Add(new string[] { _addOn.ID.ToString(), _addOn.Descricao, _addOn.PrecoBase.ToString("n2"), _aux.quantidade.ToString() });
             }
@@ -46,7 +45,11 @@ namespace ModuloSP.ViewClient
                 dataGridView1.DataSource = _table;
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
+
             
+            
+
+
         }
 
         private void toolStripExtensoes_Click(object sender, EventArgs e)
@@ -62,9 +65,13 @@ namespace ModuloSP.ViewClient
                     ProductFilters.Simulacao();
 
                     ProductFilters.Equipamentos();
-                    ProductFilters.ListCycle(ProductFilters.Extensoes);
+                    ProductFilters.ListCycle(ProductFilters.produtos, ProductFilters.ModelAddOnsID);
+
+                    ProductFilters.produtos.Clear();
+
                     Models.Utils._form.closeForms(new Produtos());
                     ProductFilters.produtos.Clear();
+                    ProductFilters.ModelAddOnsID.Clear();
                     this.Close();
 
 
@@ -73,7 +80,10 @@ namespace ModuloSP.ViewClient
             else
             {
                 ProductFilters.Equipamentos();
-                ProductFilters.ListCycle(ProductFilters.Extensoes);
+                ProductFilters.ListCycle(ProductFilters.produtos, ProductFilters.ModelAddOnsID);
+
+                ProductFilters.produtos.Clear();
+
                 Models.Utils._form.closeForms(new Produtos());
 
                 this.Close();

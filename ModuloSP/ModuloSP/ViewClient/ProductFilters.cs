@@ -31,14 +31,32 @@ namespace ModuloSP.ViewClient
             set { _IDExtensoes = value; }
         }
 
-        private static string _PrecoMaquinaAddOn = "";
-        public static string PrecoMaquinaAddOn
+        private static string _IDModExtensoes = "";
+        public static string IDModExtensoes
+        {
+            get { return _IDModExtensoes; }
+            set { _IDModExtensoes = value; }
+        }
+
+
+
+        private static double _PrecoMaquina = 0;
+        public static double PrecoMaquina
+        {
+            get { return _PrecoMaquina; }
+            set { _PrecoMaquina = value; }
+        }
+
+        private static double _PrecoMaquinaAddOn = 0;
+        public static double PrecoMaquinaAddOn
         {
             get { return _PrecoMaquinaAddOn; }
             set { _PrecoMaquinaAddOn = value; }
         }
 
-        private static string _IDSimulacao= "";
+
+
+        private static string _IDSimulacao = "";
         public static string IDSimulacao
         {
             get { return _IDSimulacao; }
@@ -60,8 +78,9 @@ namespace ModuloSP.ViewClient
             set { _NumImpressoras = value; }
         }
 
+        public static List<string> extensoes = new List<string>();
+        public static List<string> ModelAddOnsID = new List<string>();
 
-        public static List<string> Extensoes = new List<string>();
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
 
         //#------------------------------------------------------------------------------------------------------------------#
@@ -122,14 +141,14 @@ namespace ModuloSP.ViewClient
                 _Preco.Text = dr["preco"].ToString() + "€";
                 _Descricao.Text = dr["Descricao"].ToString();
                 byte[] data = dr["Produto_Imagem"].ToString().Length > 0 ? (byte[])(dr["Produto_Imagem"]) : Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu);
-                MemoryStream mem = new MemoryStream(data); 
+                MemoryStream mem = new MemoryStream(data);
                 _Image.Image = Image.FromStream(mem);
                 Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
                 ProductFilters.Preco = float.Parse(dr["preco"].ToString());
             }
             con.Close();
         }
-     
+
         public static void LoadImMarcaMod(string _ID, Label _MarcaModelo)
         {
             SqlConnection con =
@@ -241,7 +260,7 @@ namespace ModuloSP.ViewClient
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
-        
+
         public static void SortPrices(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -359,7 +378,7 @@ namespace ModuloSP.ViewClient
                                 "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
                                 "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
                                 "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where Cor = '" + _Cor + "' order by Preco " + _Preco ;
+                                "where Cor = '" + _Cor + "' order by Preco " + _Preco;
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -391,7 +410,7 @@ namespace ModuloSP.ViewClient
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
-        
+
         public static void OverlayFilter(DataGridView _DataGridName, string _MainVariabel, string _OtherVariabel1, string _OtherVariabel2, string _Order, string _Cor, string _Marca)
         {
             string order;
@@ -452,7 +471,7 @@ namespace ModuloSP.ViewClient
                 {
                     ProductFilters.MarcaSelect(_DataGridName, _Marca);
                 }
-                
+
             }
 
         }
@@ -505,7 +524,7 @@ namespace ModuloSP.ViewClient
             {
                 cmd.ExecuteScalar();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
                 //MessageBox.Show("Reveja os dados que inseriu", "Erro",
@@ -515,7 +534,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
-        public static void AddOnsEquip(string _IDAddOns)
+        public static void AddOnsEquip(string _IDAddOns, double _Preco, int _quantidade)
         {
             Models.IDManagment.IDAddOnsMaquinas = Models.IDManagment.InsereID("AddOns_Equip");
 
@@ -523,12 +542,14 @@ namespace ModuloSP.ViewClient
                 SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "INSERT INTO AddOns_Equip(" +
-                "id,fk_Modelo_AddOns_id,fk_Equipamentos_ID)" +
-                "VALUES (@id,@fk_Modelo_AddOns_id,@fk_Equipamentos_ID)";
+                "id,fk_Modelo_AddOns_id,fk_Equipamentos_ID,Preco_Simulacao,Quantidade)" +
+                "VALUES (@id,@fk_Modelo_AddOns_id,@fk_Equipamentos_ID,@Preco_Simulacao,@Quantidade)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", Models.IDManagment.IDAddOnsMaquinas);
             cmd.Parameters.AddWithValue("@fk_Modelo_AddOns_id", _IDAddOns);
             cmd.Parameters.AddWithValue("@fk_Equipamentos_ID", Models.IDManagment.IdEquipamento);
+            cmd.Parameters.AddWithValue("@Preco_Simulacao", _Preco);
+            cmd.Parameters.AddWithValue("@Quantidade", _quantidade);
             try
             {
                 cmd.ExecuteScalar();
@@ -542,14 +563,11 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
-        public static void ListCycle(List <string> _MyList)
+        public static void ListCycle(List<Models.VMProduct> _MyList, List<string> _Mylist2)
         {
-            for (var i = 0; i < _MyList.Count; i++)
+            for (int i = 0; i < _MyList.Count; i++)
             {
-
-                AddOnsEquip(_MyList[i]);
-
-
+                AddOnsEquip(_Mylist2[i], _MyList[i].preco, _MyList[i].quantidade);
             }
 
         }
@@ -558,19 +576,40 @@ namespace ModuloSP.ViewClient
         {
             SqlConnection con =
                        new SqlConnection(Models.Utils.conString);
-                con.Open();
-                string query = "Select Count(ID) as QUANTI " +
-                               "from Equipamentos " +
-                               "where fk_Simulacoes_ID = '" + _ID  + "' " + 
-                               "group by fk_Simulacoes_ID";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    ProductFilters.NumImpressoras = dr["QUANTI"].ToString();
-                }
-                con.Close();
+            con.Open();
+            string query = "Select Count(ID) as QUANTI " +
+                           "from Equipamentos " +
+                           "where fk_Simulacoes_ID = '" + _ID + "' " +
+                           "group by fk_Simulacoes_ID";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ProductFilters.NumImpressoras = dr["QUANTI"].ToString();
+            }
+            con.Close();
         }
+
+        public static void ExtensoesID(string _ID, string _IDAddOns)
+        {
+            SqlConnection con =
+                       new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"Select ID 
+                            FROM Modelo_AddOns
+                            WHERE fk_Marca_Modelo_ID = '" + _ID + "' AND fk_AddOns_ID = '" + _IDAddOns + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+               ProductFilters.IDModExtensoes = dr["ID"].ToString();
+
+            }
+            con.Close();
+        }
+        
+            
+        
 
         //#------------------------------------------------------------------------------------------------------------------#
 
@@ -583,7 +622,7 @@ namespace ModuloSP.ViewClient
             con.Open();
             string query = "Select fk_Maquinas_ID as ID " +
                            "from Equipamentos " +
-                           "where fk_Simulacoes_ID = " + _ID +
+                           "where fk_Simulacoes_ID = '" + _ID + "' " +
                            "group by fk_Maquinas_ID";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -665,31 +704,34 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-        public static void PrecoAddMaq(string _MARMOD)
+        public static void PrecoAddMaq(string _idEquip)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = @"select equip.fk_Maquinas_ID as [ID], equip.Preco as [Preço máquina],
                             (
-                                select SUM(modlAddOn.Preco_Relacao)
-                                from Modelo_AddOns as modlAddOn
-                                JOIN AddOns_Equip as addOnEquip on addOnEquip.fk_Modelo_AddOns_ID = modlAddOn.ID
-                                JOIN Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID
-                                WHERE addOnEquip.fk_Equipamentos_ID = equip.ID and Modelo_AddOns.fk_Marca_Modelo_ID = '" + _MARMOD + "' " +
-                            @") as [Total AddOns]
+                                select SUM(addOnEquip.Preco_Simulacao)
+                                from AddOns_Equip as addOnEquip
+								JOIN Maquinas on Maquinas.ID = equip.fk_Maquinas_ID
+                                WHERE addOnEquip.fk_Equipamentos_ID = equip.ID 
+                            ) as [Total AddOns]
                             from Equipamentos as equip
-                            where equip.fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' " +
-                            "group by equip.fk_Maquinas_ID, equip.ID, equip.Preco ";
+                            where equip.fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' and equip.ID = '" + _idEquip + "' " +
+                            "group by equip.fk_Maquinas_ID, equip.ID, equip.Preco";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
+
             while (dr.Read())
             {
-                ProductFilters.PrecoMaquinaAddOn = (int.Parse(dr["Preço máquina"].ToString()) + int.Parse(dr["Total AddOns"].ToString())).ToString();
-
+                ProductFilters.PrecoMaquina = Convert.ToDouble(dr[1]);
+                ProductFilters.PrecoMaquinaAddOn =  Convert.ToDouble(dr[2]);
             }
 
-
+            
         }
+
+
+       
 
 
 

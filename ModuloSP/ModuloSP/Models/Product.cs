@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ModuloSP.Models
 {
@@ -13,13 +14,14 @@ namespace ModuloSP.Models
         public string Descricao;
         public double PrecoBase;
 
-        public static Product GetProductByID(int _iID)
+        public static Product GetProductByID(int _iID, int _iIDMarcaModelo)
         {
+
             return GetProducts("select AddOns.ID as IDA, AddOns.Descricao as dec, Modelo_AddOns.Preco_Relacao as pr " +
                                "from AddOns " +
                                "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
                                "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
-                               "where Modelo_AddOns.fK_Marca_Modelo_ID = '" + Models.IDManagment.fkMarca_Modelo +  "' " +
+                               "where Modelo_AddOns.fK_Marca_Modelo_ID = '" + _iIDMarcaModelo +  "' " +
                                "and AddOns.ID = " + _iID).First();
         }
 
@@ -59,6 +61,8 @@ namespace ModuloSP.Models
     {
         public int ID;
         public int quantidade;
+        public double preco;
+        public int IDMarcaModelo;
     }
 
     

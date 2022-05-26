@@ -3,14 +3,9 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ModuloSP.ViewClient
@@ -21,10 +16,14 @@ namespace ModuloSP.ViewClient
         {
             InitializeComponent();
         }
-        string ye;
+
+       
 
         private void PDF()
         {
+
+            List<string> listEquip = new List<string>(ProductFilters.EquipamentosList(Models.IDManagment.IdSimulacao));
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.FileName = "Proposta" + Models.IDManagment.IdSimulacao;
@@ -150,103 +149,116 @@ namespace ModuloSP.ViewClient
 
                     doc.Add(linebreak);
 
-                    //Maquina e addons
-                    PdfPTable table4 = new PdfPTable(1);
-
-                    SqlConnection con =
-                    new SqlConnection(Models.Utils.conString);
-                    con.Open();
-                    string query = "select Marca.Nome as marca, Modelo.Nome as modelo, Maquinas.Dimensoes as dimen, Maquinas.Cor as corMa, Produto_Imagem as img, Maquinas.Preco as prec, Marca_Modelo.ID as MarMod " +
-                                   "from Maquinas " +
-                                   "join Marca_Modelo  on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
-                                   "join Marca  on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                                   "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                                   "join Equipamentos on Equipamentos.fk_Maquinas_ID = Maquinas.ID " +
-                                   "join AddOns_Equip on AddOns_Equip.fk_Equipamentos_ID = Equipamentos.ID " +
-                                   "join Modelo_AddOns on Modelo_AddOns.ID = AddOns_Equip.fk_Modelo_AddOns_ID " +
-                                   "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
-                                   "where Equipamentos.fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "'";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-
-                        ProductFilters.PrecoAddMaq(dr["MarMod"].ToString());
-
-                        cell1 = new PdfPCell(new Phrase("Impressora " + dr["marca"].ToString() + " " + dr["modelo"].ToString() + " - " + dr["dimen"].ToString() + " - " + dr["corMa"].ToString(), Segoe2));
-                        cell2 = new PdfPCell(new Phrase("Addon1", Segoe));
-                        cell3 = new PdfPCell(new Phrase("Addon2", Segoe));
-                        cell4 = new PdfPCell(new Phrase("Addon3", Segoe));
-                        cell5 = new PdfPCell(new Phrase("Addon4", Segoe));
-
-                        cell1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                        cell2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                        cell3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                        cell4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                        cell5.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-
-                        cell1.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        cell2.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        cell3.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        cell4.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        cell5.Border = iTextSharp.text.Rectangle.NO_BORDER;
-
-                        table4.AddCell(cell1);
-                        table4.AddCell(cell2);
-                        table4.AddCell(cell3);
-                        table4.AddCell(cell4);
-                        table4.AddCell(cell5);
-                        //table4.SpacingBefore = 30;
-
-                        //Imagem e preço
-
-                        PdfPTable table5 = new PdfPTable(1);
-
-                        byte[] data = dr["img"].ToString().Length > 0 ? (byte[])(dr["img"]) : Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu);
-                        MemoryStream mem = new MemoryStream(data);
-
-                        iTextSharp.text.Image maq = iTextSharp.text.Image.GetInstance(data);
-
-                        maq.ScaleToFit(80, 80);
-
-                        cell1 = new PdfPCell(maq);
-
-                        cell2 = new PdfPCell(new Phrase("Preço produto: " + ProductFilters.PrecoMaquinaAddOn + "€", Segoe));
-
-                        cell1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                        cell2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-
-                        cell1.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        cell2.Border = iTextSharp.text.Rectangle.NO_BORDER;
-
-                        table5.AddCell(cell1);
-                        table5.AddCell(cell2);
-
-                        //table5.SpacingBefore = 30;
-
-                        //tabela1 + tabela2
-                        PdfPTable table6 = new PdfPTable(2);
-                        PdfPCell _cellAux3 = new PdfPCell(table4);
-                        PdfPCell _cellAux4 = new PdfPCell(table5);
-                        _cellAux3.Border = Rectangle.NO_BORDER;
-                        _cellAux4.Border = Rectangle.NO_BORDER;
-                        _cellAux4.PaddingLeft = 120;
-                        table6.AddCell(_cellAux3);
-                        table6.AddCell(_cellAux4);
-                        table6.WidthPercentage = 100.0f;
-
-
-                        doc.Add(table6);
-
-                        doc.Add(par);
-
-                        doc.Add(linebreak);
-
-                        doc.Add(par);
                     
-                       
+
+                    Debug.Write("777");
+                    Debug.WriteLine(listEquip.Count.ToString());
+
+                    for (int i = 0; i < listEquip.Count; i++)
+                    {
+                        SqlConnection con =
+                        new SqlConnection(Models.Utils.conString);
+                        con.Open();
+                        string query = @"select Marca.Nome as marca, Modelo.Nome as modelo, Maquinas.Dimensoes as dimen, Maquinas.Cor as corMa, Produto_Imagem as img, Marca_Modelo.ID as MarMod 
+                                        from Maquinas
+                                        join Marca_Modelo  on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID
+                                        join Marca  on Marca.ID = Marca_Modelo.fk_Marca_ID
+                                        join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID
+                                        join Equipamentos on Equipamentos.fk_Maquinas_ID = Maquinas.ID
+                                        where Equipamentos.ID = '" + listEquip[i] + "'";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+
+                            ProductFilters.PrecoAddMaq(listEquip[i]);
+
+
+                            //Maquina 
+                            PdfPTable table4 = new PdfPTable(1);
+                            cell1 = new PdfPCell(new Phrase("Impressora " + dr["marca"].ToString() + " " + dr["modelo"].ToString() + " - " + dr["dimen"].ToString() + " - " + dr["corMa"].ToString(), Segoe2));
+
+
+                            cell1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                            cell1.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                            table4.AddCell(cell1);
+
+                            //AddOns
+                            SqlConnection con2 =
+                            new SqlConnection(Models.Utils.conString);
+                            con2.Open();
+                            string query2 = @"Select AddOns.Descricao as dec, AddOns_Equip.Quantidade as qtd
+                                                    from AddOns_Equip
+                                                    JOIN Modelo_AddOns on Modelo_AddOns.ID = AddOns_Equip.fk_Modelo_AddOns_ID
+                                                    JOIN AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID
+                                                    where AddOns_Equip.fk_Equipamentos_ID = '" + listEquip[i] + "'";
+                            SqlCommand dmc = new SqlCommand(query2, con2);
+                            SqlDataReader rd = dmc.ExecuteReader();
+                            while (rd.Read())
+                            {
+                                cell2 = new PdfPCell(new Phrase(rd["dec"].ToString() + "\n" + "Quantidade: " + rd["qtd"].ToString(), Segoe));
+                                //cell3 = new PdfPCell(new Phrase("Quantidade: " + rd["qtd"].ToString(), Segoe));
+                                cell2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                                cell2.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                                table4.AddCell(cell2);
+                            }
+                            con2.Close();
+
+
+                           
+                            //table4.AddCell(cell3);
+                            //table4.SpacingBefore = 30;
+
+                            //Imagem e preço
+
+                            PdfPTable table5 = new PdfPTable(1);
+
+                            byte[] data = dr["img"].ToString().Length > 0 ? (byte[])(dr["img"]) : Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu);
+                            MemoryStream mem = new MemoryStream(data);
+
+                            iTextSharp.text.Image maq = iTextSharp.text.Image.GetInstance(data);
+
+                            maq.ScaleToFit(80, 80);
+
+                            cell1 = new PdfPCell(maq);
+
+                            cell2 = new PdfPCell(new Phrase("Preço produto: " + (ProductFilters.PrecoMaquina + ProductFilters.PrecoMaquinaAddOn).ToString() + "€", Segoe));
+
+                            cell1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                            cell2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+
+                            cell1.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                            cell2.Border = iTextSharp.text.Rectangle.NO_BORDER;
+
+                            table5.AddCell(cell1);
+                            table5.AddCell(cell2);
+
+                            //table5.SpacingBefore = 30;
+
+                            //tabela4 + tabela5
+                            PdfPTable table6 = new PdfPTable(2);
+                            PdfPCell _cellAux3 = new PdfPCell(table4);
+                            PdfPCell _cellAux4 = new PdfPCell(table5);
+                            _cellAux3.Border = Rectangle.NO_BORDER;
+                            _cellAux4.Border = Rectangle.NO_BORDER;
+                            _cellAux4.PaddingLeft = 120;
+                            table6.AddCell(_cellAux3);
+                            table6.AddCell(_cellAux4);
+                            table6.WidthPercentage = 100.0f;
+
+
+                            doc.Add(table6);
+
+                            doc.Add(par);
+
+                            doc.Add(linebreak);
+
+
+
+                        }
+                        con.Close();
                     }
-                    con.Close();
+
                     wri.PageEvent = new Models.PDF();
 
                     doc.Close();
@@ -367,6 +379,7 @@ namespace ModuloSP.ViewClient
                 }
                 else
                 {
+                    
                     PDF();
                     Models.IDManagment.IdSimulacao = "";
                     ProductFilters.NumImpressoras = "0";

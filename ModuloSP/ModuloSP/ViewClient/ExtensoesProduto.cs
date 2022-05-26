@@ -20,7 +20,8 @@ namespace ModuloSP.ViewClient
 
         private void ExtensoesProduto_Load(object sender, EventArgs e)
         {
-            ProductFilters.Extensoes.Clear();
+            ProductFilters.extensoes.Clear();
+            ProductFilters.produtos.Clear();
             ProductFilters.CmbInsertM("Add_Ons_Grupos", cmbOrder);
             cmbOrder.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbOrder.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -48,8 +49,10 @@ namespace ModuloSP.ViewClient
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProductFilters.Extensoes.Add(ProductFilters.IDExtensoes);
+            ProductFilters.ExtensoesID(Models.IDManagment.fkMarca_Modelo, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ProductFilters.ModelAddOnsID.Add(ProductFilters.IDModExtensoes);
 
+            ProductFilters.extensoes.Add(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             if (ProductFilters.produtos.Where(x => x.ID == Convert.ToInt32(ProductFilters.IDExtensoes)).Count() > 0)
             {
                 var _aux = ProductFilters.produtos.Where(x => x.ID == Convert.ToInt32(ProductFilters.IDExtensoes)).First();
@@ -63,14 +66,18 @@ namespace ModuloSP.ViewClient
 
             else
             {
+
                 ProductFilters.produtos.Add(new Models.VMProduct
                 {
                     ID = Convert.ToInt32(ProductFilters.IDExtensoes),
-                    quantidade = 1
+                    quantidade = 1,
+                    preco = Convert.ToDouble((dataGridView1.CurrentRow.Cells["Preço"].Value)),
+                    IDMarcaModelo = Convert.ToInt32(Models.IDManagment.fkMarca_Modelo)
+
                 });
             }
 
-            QExtensoes.Text = ProductFilters.Extensoes.Count().ToString();
+            QExtensoes.Text = ProductFilters.extensoes.Count().ToString();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -80,7 +87,10 @@ namespace ModuloSP.ViewClient
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            ProductFilters.Extensoes.Add(ProductFilters.IDExtensoes);
+            ProductFilters.ExtensoesID(Models.IDManagment.fkMarca_Modelo, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ProductFilters.ModelAddOnsID.Add(ProductFilters.IDModExtensoes);
+
+            ProductFilters.extensoes.Add(dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
             if (ProductFilters.produtos.Where(x => x.ID == Convert.ToInt32(ProductFilters.IDExtensoes)).Count() > 0)
             {
@@ -95,14 +105,17 @@ namespace ModuloSP.ViewClient
 
             else
             {
+
                 ProductFilters.produtos.Add(new Models.VMProduct
                 {
                     ID = Convert.ToInt32(ProductFilters.IDExtensoes),
-                    quantidade = 1
-                });
+                    quantidade = 1,
+                    preco = Convert.ToDouble((dataGridView1.CurrentRow.Cells["Preço"].Value)),
+                    IDMarcaModelo = Convert.ToInt32(Models.IDManagment.fkMarca_Modelo)
+                }); 
             }
 
-            QExtensoes.Text = ProductFilters.Extensoes.Count().ToString();
+            QExtensoes.Text = ProductFilters.extensoes.Count().ToString();
         }
 
         private void toolStripExtensoes_Click_1(object sender, EventArgs e)

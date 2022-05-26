@@ -105,5 +105,10 @@ namespace ModuloSP.Maquinas
         {
             txtCor.BackColor = _c;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FunctionsMaq.UploadImage(pictureBox1);
+        }
     }
 }

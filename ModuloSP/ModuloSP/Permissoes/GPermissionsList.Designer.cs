@@ -36,10 +36,9 @@
             this.Estado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtNome = new System.Windows.Forms.ToolStripComboBox();
             this.btSearch = new System.Windows.Forms.ToolStripButton();
             this.btSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.txtNome = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -106,8 +105,7 @@
             this.toolStripLabel1,
             this.txtNome,
             this.btSearch,
-            this.btSave,
-            this.toolStripLabel2});
+            this.btSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -122,6 +120,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel1.Text = "Grupo: ";
             // 
+            // txtNome
+            // 
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(200, 25);
+            // 
             // btSearch
             // 
             this.btSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -134,26 +137,13 @@
             // btSave
             // 
             this.btSave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btSave.Image = global::ModuloSP.Properties.Resources.savechanges;
             this.btSave.ImageTransparentColor = System.Drawing.Color.White;
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(23, 22);
+            this.btSave.Size = new System.Drawing.Size(69, 22);
             this.btSave.Text = "Guardar";
+            this.btSave.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(55, 22);
-            this.toolStripLabel2.Text = "Guardar";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(200, 25);
             // 
             // GPermissionsList
             // 
@@ -187,7 +177,6 @@
         private System.Windows.Forms.ToolStripButton btSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton btSave;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripComboBox txtNome;
     }
 }
