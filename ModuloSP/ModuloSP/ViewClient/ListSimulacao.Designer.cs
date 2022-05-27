@@ -32,6 +32,10 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,8 +61,12 @@
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelImpressoras,
+            this.toolStripSeparator1,
             this.btAdicionar,
-            this.btEditar});
+            this.btEditar,
+            this.toolStripStatusLabel3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -85,6 +93,33 @@
             this.btEditar.Text = "Visualizar";
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(38, 22);
+            this.toolStripStatusLabel3.Text = "DATA";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Image = global::ModuloSP.Properties.Resources.icons8_printer_30;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(83, 22);
+            this.toolStripStatusLabel1.Text = "Propostas";
+            // 
+            // toolStripStatusLabelImpressoras
+            // 
+            this.toolStripStatusLabelImpressoras.Name = "toolStripStatusLabelImpressoras";
+            this.toolStripStatusLabelImpressoras.Size = new System.Drawing.Size(13, 22);
+            this.toolStripStatusLabelImpressoras.Text = "0";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // ListSimulacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,6 +129,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "ListSimulacao";
             this.Text = "Simulacao";
+            this.Activated += new System.EventHandler(this.ListSimulacao_Activated);
             this.Load += new System.EventHandler(this.Simulacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -109,5 +145,9 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btAdicionar;
         private System.Windows.Forms.ToolStripButton btEditar;
+        private System.Windows.Forms.ToolStripLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripLabel toolStripStatusLabelImpressoras;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripStatusLabel3;
     }
 }

@@ -56,15 +56,13 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\ModuloSP.application
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.exe.manifest
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.application
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\MaterialSkin.dll
-C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnMarca.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnMarcaAdd.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.AddOn.AddOnMarcaEdit.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewAdmin.UserEditGrupo.resources
-C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ExtensoesProduto.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ProdutoShow.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ListSimulacao.resources
-C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ListEsxtensoes.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.ViewSimulasoes.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\itextsharp.dll
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\itextsharp.xml
+C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Maquinas.MachineMarcaAdd.resources

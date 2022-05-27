@@ -35,8 +35,6 @@ namespace ModuloSP.Permissoes
             DatagridStyle();
 
 
-
-
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -75,6 +73,30 @@ namespace ModuloSP.Permissoes
             {
                 case Keys.Enter:
                     e.SuppressKeyPress= true;
+                    var list = AcountPermission.GrupoPermission();
+
+                    if (AcountPermission.LoginView(list, txtNome.Text))
+                    {
+                        MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.Clear();
+                        AcountPermission.GetIDGrupo(txtNome.Text);
+                        AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
+                        DatagridStyle();
+                    }
+                    break;
+
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    e.SuppressKeyPress = true;
                     var list = AcountPermission.GrupoPermission();
 
                     if (AcountPermission.LoginView(list, txtNome.Text))

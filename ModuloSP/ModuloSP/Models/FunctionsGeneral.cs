@@ -23,26 +23,30 @@ namespace ModuloSP.Models
 
         public static void EditDataGrid(DataGridView _DataGrid)
         {
-            _DataGrid.Columns[0].Width = 40;
-            _DataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            _DataGrid.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+           
 
-            _DataGrid.ReadOnly = true;
-            _DataGrid.AllowUserToAddRows = false;
-            _DataGrid.RowHeadersVisible = false;
-            _DataGrid.BorderStyle = BorderStyle.None;
-            _DataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
-            _DataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            _DataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(178, 178, 178);
-            _DataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
+                _DataGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            _DataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(94, 94, 94);
-            _DataGrid.RowTemplate.Height = 25;
-            _DataGrid.EnableHeadersVisualStyles = false;
-            _DataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            _DataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(94, 94, 94);
-            _DataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            _DataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Bahnschrift", 10, FontStyle.Bold);
+                _DataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                _DataGrid.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                _DataGrid.ReadOnly = true;
+                _DataGrid.AllowUserToAddRows = false;
+                _DataGrid.RowHeadersVisible = false;
+                _DataGrid.BorderStyle = BorderStyle.None;
+                _DataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+                _DataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                _DataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(178, 178, 178);
+                _DataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
+
+                _DataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(94, 94, 94);
+                _DataGrid.RowTemplate.Height = 25;
+                _DataGrid.EnableHeadersVisualStyles = false;
+                _DataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                _DataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(94, 94, 94);
+                _DataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                _DataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Bahnschrift", 10, FontStyle.Bold);
+           
 
         }
 

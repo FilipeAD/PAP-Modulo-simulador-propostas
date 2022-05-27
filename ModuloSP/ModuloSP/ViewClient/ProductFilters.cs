@@ -54,7 +54,12 @@ namespace ModuloSP.ViewClient
             set { _PrecoMaquinaAddOn = value; }
         }
 
-
+        private static double _PrecoTotal = 0;
+        public static double PrecoTotal
+        {
+            get { return _PrecoTotal; }
+            set { _PrecoTotal = value; }
+        }
 
         private static string _IDSimulacao = "";
         public static string IDSimulacao
@@ -172,39 +177,41 @@ namespace ModuloSP.ViewClient
         public static void ShowAddOnsGrupo(DataGridView _DataGridName, string _grupo, string _Modelo)
         {
             using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
+             new SqlConnection(Models.Utils.conString))
             {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome " +
+                con.Open();
+                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço]  " +
                                "from AddOns " +
                                "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
                                "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
                                "where Add_Ons_Grupos.Nome = '" + _grupo + "' and Modelo_AddOns.fK_Marca_Modelo_ID = '" + _Modelo + "' order by AddOns.ID";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    _DataGridName.Rows.Add(dr["ID"], dr["Descrição"], dr["Grupo"], dr["Preço"]);
+                }
                 con.Close();
             }
         }
 
-        public static void ShowAddOns(DataGridView _DataGridName, string _Modelo)
+        public static void ShowAddOns(DataGridView _datagrid, string _Modelo)
         {
             using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
+             new SqlConnection(Models.Utils.conString))
             {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
+                con.Open();
                 string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço]" +
                                "from AddOns " +
                                "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
                                "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
                                "where Modelo_AddOns.fK_Marca_Modelo_ID = '" + _Modelo + "' order by AddOns.ID";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    _datagrid.Rows.Add(false, dr["ID"], dr["Descrição"], dr["Grupo"], dr["Preço"]);
+                }
                 con.Close();
             }
         }
@@ -228,24 +235,6 @@ namespace ModuloSP.ViewClient
             _cmb.Items.Add("Preço DESCENDENTE");
         }
 
-        public static void CmbColorItems(ToolStripComboBox _cmb)
-        {
-            SqlConnection con = new SqlConnection(Models.Utils.conString);
-            con.Open();
-            string query = "select maq.Cor " +
-                           "from Maquinas as maq " +
-                           "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
-                           "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
-                           "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                           "Group by maq.Cor";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                _cmb.Items.Add(dr["Cor"].ToString());
-            }
-        }
-
         public static void CmbInsertM(ToolStripComboBox _cmb)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -261,6 +250,7 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
+
         public static void SortPrices(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -274,27 +264,6 @@ namespace ModuloSP.ViewClient
                                 "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
                                 "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
                                 "order by Preco " + _order;
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-                Models.IDManagment.IdMaquina = "";
-            }
-        }
-        public static void ColorSelect(DataGridView _DataGridName, string _order)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
-                                "from Maquinas as maq " +
-                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
-                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
-                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where cor = '" + _order + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -324,7 +293,7 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-        public static void MarcaPrecoSelect(DataGridView _DataGridName, string _Marca, string _Preco)
+        public static void PrecoMarcaSelect(DataGridView _DataGridName, string _Preco, string _marca)
         {
             using (SqlConnection con =
                new SqlConnection(Models.Utils.conString))
@@ -336,7 +305,7 @@ namespace ModuloSP.ViewClient
                                 "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
                                 "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
                                 "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where mar.Nome = '" + _Marca + "' order by Preco " + _Preco;
+                                "where mar.Nome = '" + _marca + "' order by Preco " + _Preco;
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -345,73 +314,12 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
-        public static void MarcaCorSelect(DataGridView _DataGridName, string _Marca, string _Cor)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
-                                "from Maquinas as maq " +
-                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
-                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
-                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where mar.Nome = '" + _Marca + "' and maq.Cor = '" + _Cor + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-                Models.IDManagment.IdMaquina = "";
-            }
-        }
-        public static void PrecoCorSelect(DataGridView _DataGridName, string _Preco, string _Cor)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
-                                "from Maquinas as maq " +
-                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
-                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
-                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where Cor = '" + _Cor + "' order by Preco " + _Preco;
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-                Models.IDManagment.IdMaquina = "";
-            }
-        }
-        public static void PrecoCorMarcaSelect(DataGridView _DataGridName, string _Preco, string _Cor, string _marca)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
-                                "from Maquinas as maq " +
-                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
-                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
-                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
-                                "where maq.Cor = '" + _Cor + "' and mar.Nome = '" + _marca + "' order by Preco " + _Preco;
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-                Models.IDManagment.IdMaquina = "";
-            }
-        }
+
+
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-        public static void OverlayFilter(DataGridView _DataGridName, string _MainVariabel, string _OtherVariabel1, string _OtherVariabel2, string _Order, string _Cor, string _Marca)
+        public static void OverlayFilter(DataGridView _DataGridName, string _Order, string _Marca)
         {
             string order;
             if (_Order == "Preço ASCENDENTE")
@@ -423,60 +331,24 @@ namespace ModuloSP.ViewClient
                 order = "desc";
             }
 
-            if (_OtherVariabel1 != "" && _OtherVariabel2 != "")
+            if (_Order != "" && _Marca != "")
             {
-                ProductFilters.PrecoCorMarcaSelect(_DataGridName, order, _Cor, _Marca);
-            }
-            else if (_OtherVariabel1 != "")
-            {
-                if (_MainVariabel == _Order)
-                {
-                    ProductFilters.PrecoCorSelect(_DataGridName, order, _Cor);
-                }
-                else if (_MainVariabel == _Cor)
-                {
-                    ProductFilters.MarcaCorSelect(_DataGridName, _Marca, _Cor);
-                }
-                else
-                {
-                    ProductFilters.MarcaCorSelect(_DataGridName, _Marca, _Cor);
-                }
-            }
-            else if (_OtherVariabel2 != "")
-            {
-                if (_MainVariabel == _Order)
-                {
-                    ProductFilters.MarcaPrecoSelect(_DataGridName, _Marca, order);
-                }
-                else if (_MainVariabel == _Cor)
-                {
-                    ProductFilters.PrecoCorSelect(_DataGridName, order, _Cor);
-                }
-                else
-                {
-                    ProductFilters.MarcaPrecoSelect(_DataGridName, _Marca, order);
-                }
-            }
-            else if (_OtherVariabel1 == "" && _OtherVariabel2 == "")
-            {
-                if (_MainVariabel == _Order)
-                {
-                    ProductFilters.SortPrices(_DataGridName, order);
-                }
-                else if (_MainVariabel == _Cor)
-                {
-                    ProductFilters.ColorSelect(_DataGridName, _Cor);
-                }
-                else
-                {
-                    ProductFilters.MarcaSelect(_DataGridName, _Marca);
-                }
+                ProductFilters.PrecoMarcaSelect(_DataGridName, order, _Marca);
 
+            }
+            else if (_Order == "")
+            {
+                ProductFilters.MarcaSelect(_DataGridName, _Marca);
+            }
+            else if(_Marca == "")
+            {
+                ProductFilters.SortPrices(_DataGridName, order);
             }
 
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
+
 
         public static void Simulacao()
         {
@@ -633,8 +505,6 @@ namespace ModuloSP.ViewClient
             con.Close();
             return al;
         }
-
-
         public static List<string> EquipamentosList(string _ID)
         {
             List<string> al = new List<string>();
@@ -710,7 +580,7 @@ namespace ModuloSP.ViewClient
             con.Open();
             string query = @"select equip.fk_Maquinas_ID as [ID], equip.Preco as [Preço máquina],
                             (
-                                select SUM(addOnEquip.Preco_Simulacao)
+                                select SUM(addOnEquip.Preco_Simulacao * addOnEquip.Quantidade)
                                 from AddOns_Equip as addOnEquip
 								JOIN Maquinas on Maquinas.ID = equip.fk_Maquinas_ID
                                 WHERE addOnEquip.fk_Equipamentos_ID = equip.ID 
@@ -730,8 +600,37 @@ namespace ModuloSP.ViewClient
             
         }
 
+        public static void PrecoTotalSimulacao()
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"select
+                            (
+                                select SUM(Equipamentos.Preco)
+                                from Equipamentos
+                                where Equipamentos.fk_Simulacoes_ID = sim.ID
+                            ) as [Total Equipamentos],
 
-       
+                            (
+                                select SUM (addon.Preco_Simulacao * addon.Quantidade)
+                                from AddOns_Equip as addon
+                                join Equipamentos as equip on equip.ID = addon.fk_Equipamentos_ID
+                                where equip.fk_Simulacoes_ID = sim.ID
+                            ) as [Total AddOns]
+                            from Simulacoes as sim
+                            where sim.ID =" + Models.IDManagment.IdSimulacao;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ProductFilters.PrecoTotal = (Convert.ToDouble(dr[0]) + (Convert.ToDouble(dr[1])));
+            }
+
+
+        }
+
+
 
 
 

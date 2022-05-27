@@ -55,7 +55,8 @@ namespace ModuloSP.Maquinas
 
         private void txtCor_TextChanged(object sender, EventArgs e)
         {
-
+            txtCor.BackColor = ColorTranslator.FromHtml(txtCor.Text);
+            txtCor.ForeColor = ColorTranslator.FromHtml(txtCor.Text);
         }
 
         private void lblMarca_Click(object sender, EventArgs e)

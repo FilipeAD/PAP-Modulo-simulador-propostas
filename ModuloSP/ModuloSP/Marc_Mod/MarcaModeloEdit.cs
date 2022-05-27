@@ -58,6 +58,144 @@ namespace ModuloSP.Marc_Mod
             Maquinas.FunctionsMaq.LoadCMB(txtMarca, txtNome, Models.IDManagment.IDMarca_Modelo);
             GetIDModelo();
 
+            AddOn.FunctionsAddOn.INFOAddOnMarca(dataGridView1, Models.IDManagment.IDMarca_Modelo);
+
+            FunctionMarMod.INFOMaquinaMarca(dataGridView2, Models.IDManagment.IDMarca_Modelo);
+
+
+        }
+
+        private void MarcaModeloEdit_Activated(object sender, EventArgs e)
+        {
+            AddOn.FunctionsAddOn.INFOAddOnMarca(dataGridView1, Models.IDManagment.IDMarca_Modelo);
+            FunctionMarMod.INFOMaquinaMarca(dataGridView2, Models.IDManagment.IDMarca_Modelo);
+        }
+
+        private void adicionarbt_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(AddOn.AddOnMarcaAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new AddOn.AddOnMarcaAdd();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            Models.IDManagment.IdAddOnMarca = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Models.IDManagment.IdAddOnMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnMarcaEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnMarcaEdit();
+
+                Models.Utils._form.mudaform(userList);
+            }
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdAddOnMarca == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnMarcaEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnMarcaEdit();
+
+                Models.Utils._form.mudaform(userList);
+            }
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Models.IDManagment.IdAddOnMarca))
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (MessageBox.Show("Prosseguir e eliminar registo " + Models.IDManagment.IdAddOnMarca + "?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Models.FunctionsGeneral.DeleteRow("Modelo_AddOns", Models.IDManagment.IdAddOnMarca);
+                }
+                FunctionMarMod.LoadMarMod(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            }
+        }
+
+        private void toolStripAddMaquina_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(Maquinas.MachineMarcaAdd))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new Maquinas.MachineMarcaAdd();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+        private void toolStripEditMaquina_Click(object sender, EventArgs e)
+        {
+            if (Models.IDManagment.IdMaquina == "")
+            {
+                MessageBox.Show("Selecione um registo primeiro", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.GetType() == typeof(AddOn.AddOnMarcaEdit))
+                    {
+                        frm.Activate();
+                        return;
+                    }
+                }
+
+                var userList = new AddOn.AddOnMarcaEdit();
+
+                Models.Utils._form.mudaform(userList);
+            }
         }
     }
 }

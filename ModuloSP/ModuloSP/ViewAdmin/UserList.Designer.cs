@@ -63,7 +63,6 @@ namespace ModuloSP.ViewAdmin
             // 
             // editarToolStripMenuItem1
             // 
-            this.editarToolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.editarToolStripMenuItem1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editarToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.editarToolStripMenuItem1.Image = global::ModuloSP.Properties.Resources.loginicon;

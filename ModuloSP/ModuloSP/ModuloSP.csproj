@@ -90,12 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddOn\AddOnMarca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddOn\AddOnMarca.Designer.cs">
-      <DependentUpon>AddOnMarca.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddOn\AddOnMarcaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +101,12 @@
     </Compile>
     <Compile Include="AddOn\AddOnMarcaEdit.Designer.cs">
       <DependentUpon>AddOnMarcaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maquinas\MachineMarcaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maquinas\MachineMarcaAdd.Designer.cs">
+      <DependentUpon>MachineMarcaAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Marc_Mod\MarcaModeloEdit.cs">
       <SubType>Form</SubType>
@@ -243,18 +243,6 @@
     <Compile Include="ViewClient\ViewSimulasoes.Designer.cs">
       <DependentUpon>ViewSimulasoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewClient\ExtensoesProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewClient\ExtensoesProduto.Designer.cs">
-      <DependentUpon>ExtensoesProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewClient\ListEsxtensoes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewClient\ListEsxtensoes.Designer.cs">
-      <DependentUpon>ListEsxtensoes.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewClient\ProductFilters.cs" />
     <Compile Include="ViewClient\Produtos.cs">
       <SubType>Form</SubType>
@@ -283,9 +271,6 @@
     <EmbeddedResource Include="AddOn\AddOnList.resx">
       <DependentUpon>AddOnList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddOn\AddOnMarca.resx">
-      <DependentUpon>AddOnMarca.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddOn\AddOnMarcaAdd.resx">
       <DependentUpon>AddOnMarcaAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maquinas\MachineMarcaAdd.resx">
+      <DependentUpon>MachineMarcaAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Marc_Mod\MarcaModeloEdit.resx">
       <DependentUpon>MarcaModeloEdit.cs</DependentUpon>
@@ -352,12 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\ViewSimulasoes.resx">
       <DependentUpon>ViewSimulasoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewClient\ExtensoesProduto.resx">
-      <DependentUpon>ExtensoesProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewClient\ListEsxtensoes.resx">
-      <DependentUpon>ListEsxtensoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewClient\Produtos.resx">
       <DependentUpon>Produtos.cs</DependentUpon>
@@ -471,6 +453,8 @@
     <None Include="Resources\icons8-printer-30.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-apagador-48.png" />
+    <None Include="Resources\icons8-pasta-de-extensões-50.png" />
     <Content Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

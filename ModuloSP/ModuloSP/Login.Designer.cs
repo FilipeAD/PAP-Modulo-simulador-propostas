@@ -84,7 +84,7 @@ namespace ModuloSP
             this.btLogin.Location = new System.Drawing.Point(28, 377);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(236, 33);
-            this.btLogin.TabIndex = 6;
+            this.btLogin.TabIndex = 3;
             this.btLogin.Text = "LOG IN";
             this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
@@ -96,7 +96,7 @@ namespace ModuloSP
             this.lblSignUp.Location = new System.Drawing.Point(117, 422);
             this.lblSignUp.Name = "lblSignUp";
             this.lblSignUp.Size = new System.Drawing.Size(62, 16);
-            this.lblSignUp.TabIndex = 8;
+            this.lblSignUp.TabIndex = 4;
             this.lblSignUp.Text = "Sign Up";
             this.lblSignUp.Click += new System.EventHandler(this.lblSignUp_Click);
             // 
@@ -109,7 +109,7 @@ namespace ModuloSP
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(206, 24);
-            this.txtUsername.TabIndex = 9;
+            this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -120,7 +120,7 @@ namespace ModuloSP
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(206, 24);
-            this.txtPassword.TabIndex = 10;
+            this.txtPassword.TabIndex = 1;
             // 
             // showPass
             // 
@@ -132,7 +132,7 @@ namespace ModuloSP
             this.showPass.Location = new System.Drawing.Point(28, 328);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(50, 24);
-            this.showPass.TabIndex = 12;
+            this.showPass.TabIndex = 2;
             this.showPass.Text = "      ";
             this.showPass.UseVisualStyleBackColor = true;
             this.showPass.CheckedChanged += new System.EventHandler(this.showPass_CheckedChanged);

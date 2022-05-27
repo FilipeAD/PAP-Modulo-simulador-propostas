@@ -57,7 +57,7 @@ namespace ModuloSP.ViewClient
 
                     logo.ScaleToFit(140f, 120f);
 
-                    logo.ScaleAbsolute(140f, 60f);
+                    logo.ScaleAbsolute(160f, 60f);
 
                     logo.Alignment = Element.ALIGN_LEFT;
 
@@ -172,7 +172,7 @@ namespace ModuloSP.ViewClient
                         {
 
                             ProductFilters.PrecoAddMaq(listEquip[i]);
-
+                            ProductFilters.PrecoTotalSimulacao();
 
                             //Maquina 
                             PdfPTable table4 = new PdfPTable(1);
@@ -279,30 +279,27 @@ namespace ModuloSP.ViewClient
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             ProductFilters.CmbOrderItems(cmbOrder);
-            ProductFilters.CmbColorItems(cmbColor);
             ProductFilters.CmbInsertM(cmbMarca);
 
-           
+
+            cmbMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
+
         }
 
         private void cmbOrder_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbColor.Text, cmbMarca.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text);
         }
 
-        private void cmbColor_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            ProductFilters.OverlayFilter(dataGridView1, cmbColor.Text, cmbMarca.Text, cmbOrder.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
-        }
 
         private void cmbMarca_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ProductFilters.OverlayFilter(dataGridView1, cmbMarca.Text, cmbColor.Text, cmbOrder.Text, cmbOrder.Text, cmbColor.Text, cmbMarca.Text);
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text);
         }
 
         private void btReset_Click(object sender, EventArgs e)
         {
-            cmbColor.SelectedIndex = -1;
             cmbMarca.SelectedIndex = -1;
             cmbOrder.SelectedIndex = -1;
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
@@ -337,6 +334,9 @@ namespace ModuloSP.ViewClient
             if (Models.IDManagment.IdSimulacao != "")
             {
                 toolStripStatusLabel2.Visible = true;
+                toolStripStatusLabel1.Visible = true;
+                toolStripStatusLabel3.Visible = false;
+                toolStripStatusLabelImpressoras.Visible = true;
             }
         }
 
@@ -358,7 +358,22 @@ namespace ModuloSP.ViewClient
                     PDF();
                     Models.IDManagment.IdSimulacao = "";
                     ProductFilters.NumImpressoras = "0";
-                  
+
+                    Models.IDManagment.IdSimulacao = "";
+
+                    foreach (Form frm in Application.OpenForms)
+                    {
+                        if (frm.GetType() == typeof(ViewClient.ListSimulacao))
+                        {
+                            frm.Activate();
+                            return;
+                        }
+                    }
+
+                    var userList = new ViewClient.ListSimulacao();
+
+                    Models.Utils._form.mudaform(userList);
+
                 }
             }
         }
@@ -383,13 +398,43 @@ namespace ModuloSP.ViewClient
                     PDF();
                     Models.IDManagment.IdSimulacao = "";
                     ProductFilters.NumImpressoras = "0";
-                    
-                   
                     this.Close();
+
+                    foreach (Form frm in Application.OpenForms)
+                    {
+                        if (frm.GetType() == typeof(ViewClient.ListSimulacao))
+                        {
+                            frm.Activate();
+                            return;
+                        }
+                    }
+
+                    var userList = new ViewClient.ListSimulacao();
+
+                    Models.Utils._form.mudaform(userList);
 
                 }
             }
            
         }
+
+        private void VisualizarProduto_Click(object sender, EventArgs e)
+        {
+
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(ViewClient.ProdutoShow))
+                {
+                    frm.Activate();
+                    return;
+                }
+            }
+
+            var userList = new ViewClient.ProdutoShow();
+
+            Models.Utils._form.mudaform(userList);
+        }
+
+      
     }
 }

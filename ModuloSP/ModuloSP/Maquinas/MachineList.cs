@@ -24,6 +24,13 @@ namespace ModuloSP.Maquinas
         {
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                int rowIndex = row.Index;
+                dataGridView1.Columns["Cor"].DefaultCellStyle.BackColor = ColorTranslator.FromHtml(row.Cells["Cor"].Value.ToString());
+            }
         }
 
         

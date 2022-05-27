@@ -207,7 +207,7 @@ namespace ModuloSP.AddOn
 
         }
 
-        public static void INFOAddOnMarca(DataGridView _Datagridview)
+        public static void INFOAddOnMarca(DataGridView _Datagridview, string _ID)
         {
             using (SqlConnection con =
                 new SqlConnection(Models.Utils.conString))
@@ -219,7 +219,8 @@ namespace ModuloSP.AddOn
                                "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
                                "join Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID " +
                                "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID";
+                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
+                               "where Modelo_AddOns.fk_Marca_Modelo_ID = '" + _ID + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -228,7 +229,12 @@ namespace ModuloSP.AddOn
                 Models.IDManagment.IdAddOn = "";
             }
             Models.IDManagment.IdAddOnMarca = "";
+
+            Models.FunctionsGeneral.EditDataGrid(_Datagridview);
         }
+
+
+      
 
         public static void CmbInsertAddon(string _Database, ComboBox _cmb)
         {

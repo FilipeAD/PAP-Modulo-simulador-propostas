@@ -35,13 +35,14 @@ namespace ModuloSP.Models
         //Write on end of each page
         public override void OnEndPage(PdfWriter writer, Document document)
         {
+
             base.OnEndPage(writer, document);
-            Font Segoe = FontFactory.GetFont("Segoe UI", 8, Font.BOLD, BaseColor.BLACK);
+            Font Segoe = FontFactory.GetFont("Segoe UI", 8, BaseColor.BLACK);
             PdfPTable tabFot = new PdfPTable(new float[] { 1F });
             tabFot.SpacingAfter = 10F;
             PdfPCell cell;
             tabFot.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
-            cell = new PdfPCell(new Phrase("Preço total: " + "800" + "€", Segoe));
+            cell = new PdfPCell(new Phrase("Preço total: " + ViewClient.ProductFilters.PrecoTotal.ToString() + "€", Segoe));
             cell.Border = 0;
             cell.HorizontalAlignment = Element.ALIGN_RIGHT;
             tabFot.AddCell(cell);

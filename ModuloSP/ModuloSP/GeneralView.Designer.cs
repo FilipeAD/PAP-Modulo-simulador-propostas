@@ -37,18 +37,13 @@ namespace ModuloSP
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.btEquipamentos = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
-            this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddOnMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.ListImpressoras = new System.Windows.Forms.ToolStripMenuItem();
             this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
             this.btUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.ListPermicoes = new System.Windows.Forms.ToolStripMenuItem();
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
-            this.Activity = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btActionClient = new System.Windows.Forms.ToolStripMenuItem();
             this.InterfaceClient = new System.Windows.Forms.ToolStripMenuItem();
             this.userpanel = new System.Windows.Forms.Panel();
@@ -57,6 +52,8 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -141,8 +138,9 @@ namespace ModuloSP
             // btEquipamentos
             // 
             this.btEquipamentos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListImpressoras,
             this.ListAddOns,
-            this.ListImpressoras});
+            this.ListMarca});
             this.btEquipamentos.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEquipamentos.ForeColor = System.Drawing.Color.White;
             this.btEquipamentos.Name = "btEquipamentos";
@@ -150,44 +148,11 @@ namespace ModuloSP
             this.btEquipamentos.Text = "Equipamentos";
             this.btEquipamentos.Visible = false;
             // 
-            // ListAddOns
-            // 
-            this.ListAddOns.BackColor = System.Drawing.Color.Silver;
-            this.ListAddOns.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lstAddOn,
-            this.AddOnMarca});
-            this.ListAddOns.ForeColor = System.Drawing.Color.White;
-            this.ListAddOns.Name = "ListAddOns";
-            this.ListAddOns.Size = new System.Drawing.Size(180, 22);
-            this.ListAddOns.Text = "AddOns";
-            this.ListAddOns.Visible = false;
-            this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click_1);
-            // 
-            // lstAddOn
-            // 
-            this.lstAddOn.BackColor = System.Drawing.Color.Silver;
-            this.lstAddOn.ForeColor = System.Drawing.Color.White;
-            this.lstAddOn.Name = "lstAddOn";
-            this.lstAddOn.Size = new System.Drawing.Size(151, 22);
-            this.lstAddOn.Text = "Listagem";
-            this.lstAddOn.Click += new System.EventHandler(this.lstAddOn_Click);
-            // 
-            // AddOnMarca
-            // 
-            this.AddOnMarca.BackColor = System.Drawing.Color.Silver;
-            this.AddOnMarca.ForeColor = System.Drawing.Color.White;
-            this.AddOnMarca.Name = "AddOnMarca";
-            this.AddOnMarca.Size = new System.Drawing.Size(151, 22);
-            this.AddOnMarca.Text = "AddOn|Marca";
-            this.AddOnMarca.Click += new System.EventHandler(this.AddOnMarca_Click_1);
-            // 
             // ListImpressoras
             // 
             this.ListImpressoras.BackColor = System.Drawing.Color.Silver;
             this.ListImpressoras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listMaquina,
-            this.ListMarcaModelo,
-            this.ListMarca});
+            this.listMaquina});
             this.ListImpressoras.ForeColor = System.Drawing.Color.White;
             this.ListImpressoras.Name = "ListImpressoras";
             this.ListImpressoras.Size = new System.Drawing.Size(180, 22);
@@ -200,34 +165,36 @@ namespace ModuloSP
             this.listMaquina.BackColor = System.Drawing.Color.Silver;
             this.listMaquina.ForeColor = System.Drawing.Color.White;
             this.listMaquina.Name = "listMaquina";
-            this.listMaquina.Size = new System.Drawing.Size(156, 22);
+            this.listMaquina.Size = new System.Drawing.Size(180, 22);
             this.listMaquina.Text = "Listagem ";
             this.listMaquina.Click += new System.EventHandler(this.listMaquina_Click);
             // 
-            // ListMarcaModelo
+            // ListAddOns
             // 
-            this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
-            this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
-            this.ListMarcaModelo.Name = "ListMarcaModelo";
-            this.ListMarcaModelo.Size = new System.Drawing.Size(156, 22);
-            this.ListMarcaModelo.Text = "Marca|Modelo";
-            this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click_1);
+            this.ListAddOns.BackColor = System.Drawing.Color.Silver;
+            this.ListAddOns.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lstAddOn});
+            this.ListAddOns.ForeColor = System.Drawing.Color.White;
+            this.ListAddOns.Name = "ListAddOns";
+            this.ListAddOns.Size = new System.Drawing.Size(180, 22);
+            this.ListAddOns.Text = "Extensões";
+            this.ListAddOns.Visible = false;
+            this.ListAddOns.Click += new System.EventHandler(this.ListAddOns_Click_1);
             // 
-            // ListMarca
+            // lstAddOn
             // 
-            this.ListMarca.BackColor = System.Drawing.Color.Silver;
-            this.ListMarca.ForeColor = System.Drawing.Color.White;
-            this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(156, 22);
-            this.ListMarca.Text = "Marcas";
-            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click);
+            this.lstAddOn.BackColor = System.Drawing.Color.Silver;
+            this.lstAddOn.ForeColor = System.Drawing.Color.White;
+            this.lstAddOn.Name = "lstAddOn";
+            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
+            this.lstAddOn.Text = "Listagem";
+            this.lstAddOn.Click += new System.EventHandler(this.lstAddOn_Click);
             // 
             // btUsers
             // 
             this.btUsers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ListPermicoes,
-            this.listUtilizadores,
-            this.Activity});
+            this.listUtilizadores});
             this.btUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUsers.ForeColor = System.Drawing.Color.White;
             this.btUsers.Name = "btUsers";
@@ -240,41 +207,20 @@ namespace ModuloSP
             this.ListPermicoes.BackColor = System.Drawing.Color.Silver;
             this.ListPermicoes.ForeColor = System.Drawing.Color.White;
             this.ListPermicoes.Name = "ListPermicoes";
-            this.ListPermicoes.Size = new System.Drawing.Size(187, 22);
+            this.ListPermicoes.Size = new System.Drawing.Size(180, 22);
             this.ListPermicoes.Text = "Permições";
             this.ListPermicoes.Visible = false;
-            this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click_1);
+            this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click);
             // 
             // listUtilizadores
             // 
             this.listUtilizadores.BackColor = System.Drawing.Color.Silver;
             this.listUtilizadores.ForeColor = System.Drawing.Color.White;
             this.listUtilizadores.Name = "listUtilizadores";
-            this.listUtilizadores.Size = new System.Drawing.Size(187, 22);
+            this.listUtilizadores.Size = new System.Drawing.Size(180, 22);
             this.listUtilizadores.Text = "Utilizadores";
             this.listUtilizadores.Visible = false;
             this.listUtilizadores.Click += new System.EventHandler(this.listUtilizadores_Click_1);
-            // 
-            // Activity
-            // 
-            this.Activity.BackColor = System.Drawing.Color.Silver;
-            this.Activity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.Activity.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Activity.ForeColor = System.Drawing.Color.White;
-            this.Activity.Name = "Activity";
-            this.Activity.Size = new System.Drawing.Size(187, 22);
-            this.Activity.Text = "Estado de Atividade";
-            this.Activity.Visible = false;
-            this.Activity.Click += new System.EventHandler(this.Activity_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.BackColor = System.Drawing.Color.Silver;
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Visible = false;
             // 
             // btActionClient
             // 
@@ -284,8 +230,8 @@ namespace ModuloSP
             this.btActionClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btActionClient.ForeColor = System.Drawing.Color.White;
             this.btActionClient.Name = "btActionClient";
-            this.btActionClient.Size = new System.Drawing.Size(54, 20);
-            this.btActionClient.Text = "Ações";
+            this.btActionClient.Size = new System.Drawing.Size(114, 20);
+            this.btActionClient.Text = "Ações Principais";
             this.btActionClient.Visible = false;
             // 
             // InterfaceClient
@@ -294,7 +240,7 @@ namespace ModuloSP
             this.InterfaceClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
+            this.InterfaceClient.Size = new System.Drawing.Size(141, 22);
             this.InterfaceClient.Text = "Simulações";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
@@ -373,6 +319,26 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // ListMarca
+            // 
+            this.ListMarca.BackColor = System.Drawing.Color.Silver;
+            this.ListMarca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListMarcaModelo});
+            this.ListMarca.ForeColor = System.Drawing.Color.White;
+            this.ListMarca.Name = "ListMarca";
+            this.ListMarca.Size = new System.Drawing.Size(180, 22);
+            this.ListMarca.Text = "Marcas";
+            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click_1);
+            // 
+            // ListMarcaModelo
+            // 
+            this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
+            this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
+            this.ListMarcaModelo.Name = "ListMarcaModelo";
+            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
+            this.ListMarcaModelo.Text = "Marca|Modelo";
+            this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click);
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,17 +385,14 @@ namespace ModuloSP
         private System.Windows.Forms.ToolStripMenuItem btEquipamentos;
         private System.Windows.Forms.ToolStripMenuItem ListAddOns;
         private System.Windows.Forms.ToolStripMenuItem lstAddOn;
-        private System.Windows.Forms.ToolStripMenuItem AddOnMarca;
         private System.Windows.Forms.ToolStripMenuItem ListImpressoras;
         private System.Windows.Forms.ToolStripMenuItem listMaquina;
-        private System.Windows.Forms.ToolStripMenuItem ListMarcaModelo;
-        private System.Windows.Forms.ToolStripMenuItem ListMarca;
         private System.Windows.Forms.ToolStripMenuItem btUsers;
         private System.Windows.Forms.ToolStripMenuItem ListPermicoes;
         private System.Windows.Forms.ToolStripMenuItem listUtilizadores;
-        private System.Windows.Forms.ToolStripMenuItem Activity;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem btActionClient;
         private System.Windows.Forms.ToolStripMenuItem InterfaceClient;
+        private System.Windows.Forms.ToolStripMenuItem ListMarca;
+        private System.Windows.Forms.ToolStripMenuItem ListMarcaModelo;
     }
 }

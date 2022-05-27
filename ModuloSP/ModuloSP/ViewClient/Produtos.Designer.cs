@@ -34,16 +34,18 @@
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.cmbOrder = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.cmbColor = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.cmbMarca = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.cmbModelo = new System.Windows.Forms.ToolStripComboBox();
+            this.VisualizarProduto = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -75,12 +77,13 @@
             this.toolStripLabel5,
             this.toolStripLabel2,
             this.cmbOrder,
-            this.toolStripLabel4,
             this.toolStripLabel3,
-            this.cmbColor,
-            this.toolStripLabel7,
             this.toolStripLabel6,
-            this.cmbMarca});
+            this.cmbMarca,
+            this.toolStripLabel7,
+            this.toolStripLabel1,
+            this.cmbModelo,
+            this.VisualizarProduto});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -92,7 +95,7 @@
             // btReset
             // 
             this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btReset.Image = global::ModuloSP.Properties.Resources.reseticon;
+            this.btReset.Image = global::ModuloSP.Properties.Resources.icons8_apagador_48;
             this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(23, 22);
@@ -122,33 +125,11 @@
             this.cmbOrder.Size = new System.Drawing.Size(150, 25);
             this.cmbOrder.SelectedIndexChanged += new System.EventHandler(this.cmbOrder_SelectedIndexChanged_1);
             // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(10, 22);
-            this.toolStripLabel4.Text = "|";
-            // 
             // toolStripLabel3
             // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(33, 22);
-            this.toolStripLabel3.Text = "Cor: ";
-            // 
-            // cmbColor
-            // 
-            this.cmbColor.BackColor = System.Drawing.Color.White;
-            this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbColor.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(100, 25);
-            this.cmbColor.SelectedIndexChanged += new System.EventHandler(this.cmbColor_SelectedIndexChanged_1);
-            // 
-            // toolStripLabel7
-            // 
-            this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(10, 22);
-            this.toolStripLabel7.Text = "|";
+            this.toolStripLabel3.Size = new System.Drawing.Size(10, 22);
+            this.toolStripLabel3.Text = "|";
             // 
             // toolStripLabel6
             // 
@@ -160,21 +141,55 @@
             // cmbMarca
             // 
             this.cmbMarca.BackColor = System.Drawing.Color.White;
-            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(100, 25);
+            this.cmbMarca.Size = new System.Drawing.Size(125, 25);
             this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged_1);
+            // 
+            // toolStripLabel7
+            // 
+            this.toolStripLabel7.Name = "toolStripLabel7";
+            this.toolStripLabel7.Size = new System.Drawing.Size(10, 22);
+            this.toolStripLabel7.Text = "|";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(55, 22);
+            this.toolStripLabel1.Text = "Modelo: ";
+            // 
+            // cmbModelo
+            // 
+            this.cmbModelo.BackColor = System.Drawing.Color.White;
+            this.cmbModelo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbModelo.Name = "cmbModelo";
+            this.cmbModelo.Size = new System.Drawing.Size(125, 25);
+            // 
+            // VisualizarProduto
+            // 
+            this.VisualizarProduto.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.VisualizarProduto.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VisualizarProduto.Image = global::ModuloSP.Properties.Resources.icons8_printer_30;
+            this.VisualizarProduto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.VisualizarProduto.Name = "VisualizarProduto";
+            this.VisualizarProduto.Size = new System.Drawing.Size(134, 22);
+            this.VisualizarProduto.Text = "Visualizar Produto";
+            this.VisualizarProduto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.VisualizarProduto.Click += new System.EventHandler(this.VisualizarProduto_Click);
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabelImpressoras});
+            this.toolStripStatusLabelImpressoras,
+            this.toolStripStatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 660);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1146, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 25;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -193,8 +208,9 @@
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel1.Image = global::ModuloSP.Properties.Resources.icons8_printer_30;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 17);
-            this.toolStripStatusLabel1.Text = "Produtos Simulação";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(149, 17);
+            this.toolStripStatusLabel1.Text = "Produtos na Proposta";
+            this.toolStripStatusLabel1.Visible = false;
             // 
             // toolStripStatusLabelImpressoras
             // 
@@ -202,6 +218,14 @@
             this.toolStripStatusLabelImpressoras.Name = "toolStripStatusLabelImpressoras";
             this.toolStripStatusLabelImpressoras.Size = new System.Drawing.Size(14, 17);
             this.toolStripStatusLabelImpressoras.Text = "0";
+            this.toolStripStatusLabelImpressoras.Visible = false;
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(134, 17);
+            this.toolStripStatusLabel3.Text = "Proposta por Iniciar ...";
             // 
             // Produtos
             // 
@@ -233,17 +257,19 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btReset;
         private System.Windows.Forms.ToolStripComboBox cmbOrder;
-        private System.Windows.Forms.ToolStripComboBox cmbColor;
         private System.Windows.Forms.ToolStripComboBox cmbMarca;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelImpressoras;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox cmbModelo;
+        private System.Windows.Forms.ToolStripButton VisualizarProduto;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }

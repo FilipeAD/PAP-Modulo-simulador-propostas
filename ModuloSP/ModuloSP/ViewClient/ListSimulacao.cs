@@ -70,5 +70,15 @@ namespace ModuloSP.ViewClient
         {
             ProductFilters.IDSimulacao = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
+
+        private void ListSimulacao_Activated(object sender, EventArgs e)
+        {
+            ProductFilters.ShowSimulacao(dataGridView1, Models.CurrentUser.IDUser);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+            toolStripStatusLabel3.Text = "  " + DateTime.Now.ToLocalTime().ToShortDateString().ToString() + "  ";
+            toolStripStatusLabelImpressoras.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+       
     }
 }

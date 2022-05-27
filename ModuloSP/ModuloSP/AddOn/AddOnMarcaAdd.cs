@@ -19,15 +19,14 @@ namespace ModuloSP.AddOn
 
         private void AddOnMarcaAdd_Load(object sender, EventArgs e)
         {
-            Maquinas.FunctionsMaq.CmbInsertM("Marca", txtMarca);
+            Maquinas.FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.IDMarca_Modelo);
             FunctionsAddOn.CmbInsertAddon("AddOns", txtAddOn);
+            txtAddOn.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtAddOn.AutoCompleteSource = AutoCompleteSource.ListItems;
+
         }
 
-        private void txtMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtModelo.Enabled = true;
-            Maquinas.FunctionsMaq.CmbInsertMM(txtModelo, txtMarca.Text);
-        }
+      
 
         private void btAdd_Click(object sender, EventArgs e)
         {
@@ -35,7 +34,7 @@ namespace ModuloSP.AddOn
             FunctionsAddOn.AddOnId(txtAddOn.Text);
             if  (FunctionsAddOn.VField(Models.Utils.IDAddOn, Models.Utils.Marca_Modelo, "verify_MarcaAddOn", "@addOns", "@marca_modelo"))
             {
-                MessageBox.Show("Conexão entre AddOn e Marca|Modelo já existe !!", "!!ERRO!!",
+                MessageBox.Show("Conexão entre a Extensão e Marca|Modelo já existe !!", "!!ERRO!!",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
@@ -50,8 +49,6 @@ namespace ModuloSP.AddOn
                 {
                    
                     FunctionsAddOn.AddInfoMarcaAddOn(txtPreco.Text, Models.Utils.IDAddOn, Models.Utils.Marca_Modelo);
-                    txtMarca.SelectedIndex = -1;
-                    txtModelo.SelectedIndex = -1;
                     txtAddOn.SelectedIndex = -1;
                     txtPreco.Text = "";
 
