@@ -42,7 +42,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(395, 280);
+            this.label5.Location = new System.Drawing.Point(399, 291);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 19);
             this.label5.TabIndex = 78;
@@ -53,7 +53,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(294, 182);
+            this.label4.Location = new System.Drawing.Point(298, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 19);
             this.label4.TabIndex = 77;
@@ -64,7 +64,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(294, 92);
+            this.label3.Location = new System.Drawing.Point(298, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 19);
             this.label3.TabIndex = 76;
@@ -75,8 +75,9 @@
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtNome.Location = new System.Drawing.Point(298, 125);
+            this.txtNome.Location = new System.Drawing.Point(302, 136);
             this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(459, 26);
             this.txtNome.TabIndex = 75;
             // 
@@ -85,8 +86,9 @@
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtEmail.Location = new System.Drawing.Point(298, 214);
+            this.txtEmail.Location = new System.Drawing.Point(302, 225);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(459, 26);
             this.txtEmail.TabIndex = 74;
             // 
@@ -98,7 +100,7 @@
             this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEditar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEditar.ForeColor = System.Drawing.Color.White;
-            this.btEditar.Location = new System.Drawing.Point(399, 417);
+            this.btEditar.Location = new System.Drawing.Point(403, 423);
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(250, 33);
             this.btEditar.TabIndex = 67;
@@ -113,7 +115,7 @@
             this.txtGrupo.ForeColor = System.Drawing.SystemColors.MenuText;
             this.txtGrupo.FormattingEnabled = true;
             this.txtGrupo.ItemHeight = 20;
-            this.txtGrupo.Location = new System.Drawing.Point(399, 320);
+            this.txtGrupo.Location = new System.Drawing.Point(403, 331);
             this.txtGrupo.Name = "txtGrupo";
             this.txtGrupo.Size = new System.Drawing.Size(250, 28);
             this.txtGrupo.TabIndex = 79;

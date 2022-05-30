@@ -23,6 +23,7 @@ namespace ModuloSP.ViewAdmin
 
         private void ClientList_Load(object sender, EventArgs e)
         {
+            Permissoes.AcountPermission.IDNivel();
             AdminMethods.INFOUser(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
@@ -51,8 +52,9 @@ namespace ModuloSP.ViewAdmin
                 Models.Utils._form.mudaform(userList);
             }
         }
+  
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             Models.IDManagment.IdUser = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
@@ -79,5 +81,13 @@ namespace ModuloSP.ViewAdmin
                 Models.Utils._form.mudaform(userList);
             }
         }
+
+        private void UserList_Activated(object sender, EventArgs e)
+        {
+            AdminMethods.INFOUser(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+        }
+
+
     }
 }

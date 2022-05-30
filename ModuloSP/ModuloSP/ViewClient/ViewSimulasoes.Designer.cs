@@ -65,6 +65,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -74,42 +75,46 @@
             // Equipamentos
             // 
             this.Equipamentos.Controls.Add(this.dataGridView2);
-            this.Equipamentos.Location = new System.Drawing.Point(4, 22);
+            this.Equipamentos.Location = new System.Drawing.Point(4, 25);
             this.Equipamentos.Name = "Equipamentos";
-            this.Equipamentos.Size = new System.Drawing.Size(1324, 620);
+            this.Equipamentos.Size = new System.Drawing.Size(1324, 617);
             this.Equipamentos.TabIndex = 2;
             this.Equipamentos.Text = "Equipamentos";
             this.Equipamentos.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1324, 620);
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(1324, 617);
             this.dataGridView2.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1324, 620);
+            this.tabPage1.Size = new System.Drawing.Size(1324, 617);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Equipamento";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabelImpressoras});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 595);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 592);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1318, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 54;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -141,7 +146,7 @@
             this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.txtPreco);
             this.panel1.Controls.Add(this.txtDimensoes);
-            this.panel1.Location = new System.Drawing.Point(53, 8);
+            this.panel1.Location = new System.Drawing.Point(53, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1230, 571);
             this.panel1.TabIndex = 53;
@@ -259,10 +264,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1324, 620);
+            this.tabPage2.Size = new System.Drawing.Size(1324, 617);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Extensões Equipamento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -273,7 +278,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1318, 614);
+            this.dataGridView1.Size = new System.Drawing.Size(1318, 611);
             this.dataGridView1.TabIndex = 0;
             // 
             // ViewSimulasoes

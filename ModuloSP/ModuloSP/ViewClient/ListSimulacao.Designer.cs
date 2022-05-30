@@ -30,12 +30,12 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btAdicionar = new System.Windows.Forms.ToolStripButton();
-            this.btEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripStatusLabelImpressoras = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btAdicionar = new System.Windows.Forms.ToolStripButton();
+            this.btEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPDF = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1146, 657);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // toolStrip1
             // 
@@ -66,7 +67,7 @@
             this.toolStripSeparator1,
             this.btAdicionar,
             this.btEditar,
-            this.toolStripStatusLabel3});
+            this.toolStripButtonPDF});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -74,32 +75,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1146, 25);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btAdicionar
-            // 
-            this.btAdicionar.Image = global::ModuloSP.Properties.Resources.addcolum;
-            this.btAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(78, 22);
-            this.btAdicionar.Text = "Adicionar";
-            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
-            // 
-            // btEditar
-            // 
-            this.btEditar.Image = global::ModuloSP.Properties.Resources.editcolu;
-            this.btEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btEditar.Name = "btEditar";
-            this.btEditar.Size = new System.Drawing.Size(76, 22);
-            this.btEditar.Text = "Visualizar";
-            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(38, 22);
-            this.toolStripStatusLabel3.Text = "DATA";
             // 
             // toolStripStatusLabel1
             // 
@@ -119,6 +94,34 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btAdicionar
+            // 
+            this.btAdicionar.Image = global::ModuloSP.Properties.Resources.addcolum;
+            this.btAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(78, 22);
+            this.btAdicionar.Text = "Adicionar";
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
+            // 
+            // btEditar
+            // 
+            this.btEditar.Image = global::ModuloSP.Properties.Resources.editcolu;
+            this.btEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(76, 22);
+            this.btEditar.Text = "Visualizar";
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
+            // toolStripButtonPDF
+            // 
+            this.toolStripButtonPDF.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonPDF.Image = global::ModuloSP.Properties.Resources.icons8_pdf_2_50;
+            this.toolStripButtonPDF.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPDF.Name = "toolStripButtonPDF";
+            this.toolStripButtonPDF.Size = new System.Drawing.Size(99, 22);
+            this.toolStripButtonPDF.Text = "Transferir PDF";
+            this.toolStripButtonPDF.Click += new System.EventHandler(this.toolStripButtonPDF_Click);
             // 
             // ListSimulacao
             // 
@@ -148,6 +151,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripStatusLabelImpressoras;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPDF;
     }
 }

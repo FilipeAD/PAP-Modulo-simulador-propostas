@@ -151,9 +151,6 @@ namespace ModuloSP.ViewClient
 
                     
 
-                    Debug.Write("777");
-                    Debug.WriteLine(listEquip.Count.ToString());
-
                     for (int i = 0; i < listEquip.Count; i++)
                     {
                         SqlConnection con =
@@ -171,8 +168,8 @@ namespace ModuloSP.ViewClient
                         while (dr.Read())
                         {
 
-                            ProductFilters.PrecoAddMaq(listEquip[i]);
-                            ProductFilters.PrecoTotalSimulacao();
+                            ProductFilters.PrecoAddMaq(listEquip[i], Models.IDManagment.IdSimulacao);
+                            ProductFilters.PrecoTotalSimulacao(Models.IDManagment.IdSimulacao);
 
                             //Maquina 
                             PdfPTable table4 = new PdfPTable(1);

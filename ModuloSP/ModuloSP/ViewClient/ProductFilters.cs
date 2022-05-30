@@ -38,8 +38,6 @@ namespace ModuloSP.ViewClient
             set { _IDModExtensoes = value; }
         }
 
-
-
         private static double _PrecoMaquina = 0;
         public static double PrecoMaquina
         {
@@ -75,7 +73,6 @@ namespace ModuloSP.ViewClient
             set { _Preco = value; }
         }
 
-
         private static string _NumImpressoras = "";
         public static string NumImpressoras
         {
@@ -83,10 +80,28 @@ namespace ModuloSP.ViewClient
             set { _NumImpressoras = value; }
         }
 
+
         public static List<string> extensoes = new List<string>();
         public static List<string> ModelAddOnsID = new List<string>();
 
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
+
+
+
+        private static string _Nome = "";
+        public static string Nome
+        {
+            get { return _Nome; }
+            set { _Nome = value; }
+        }
+
+        private static string _Email = "";
+        public static string Email
+        {
+            get { return _Email; }
+            set { _Email = value; }
+        }
+
 
         //#------------------------------------------------------------------------------------------------------------------#
 
@@ -109,6 +124,7 @@ namespace ModuloSP.ViewClient
                 _DataGridName.DataSource = bs;
                 con.Close();
             }
+            ProductFilters.IDSimulacao = "";
         }
 
         public static List<string> ListCMB(string _Database)
@@ -216,18 +232,7 @@ namespace ModuloSP.ViewClient
             }
         }
 
-        public static void CmbInsertM(string _Database, ToolStripComboBox _cmb)
-        {
-            SqlConnection con = new SqlConnection(Models.Utils.conString);
-            con.Open();
-            string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                _cmb.Items.Add(dr["Nome"].ToString());
-            }
-        }
+       
 
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
@@ -574,7 +579,7 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-        public static void PrecoAddMaq(string _idEquip)
+        public static void PrecoAddMaq(string _idEquip, string _idSimulacao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
@@ -586,7 +591,7 @@ namespace ModuloSP.ViewClient
                                 WHERE addOnEquip.fk_Equipamentos_ID = equip.ID 
                             ) as [Total AddOns]
                             from Equipamentos as equip
-                            where equip.fk_Simulacoes_ID = '" + Models.IDManagment.IdSimulacao + "' and equip.ID = '" + _idEquip + "' " +
+                            where equip.fk_Simulacoes_ID = '" + _idSimulacao  + "' and equip.ID = '" + _idEquip + "' " +
                             "group by equip.fk_Maquinas_ID, equip.ID, equip.Preco";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -600,7 +605,7 @@ namespace ModuloSP.ViewClient
             
         }
 
-        public static void PrecoTotalSimulacao()
+        public static void PrecoTotalSimulacao(string _idSimulacao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
@@ -618,7 +623,7 @@ namespace ModuloSP.ViewClient
                                 where equip.fk_Simulacoes_ID = sim.ID
                             ) as [Total AddOns]
                             from Simulacoes as sim
-                            where sim.ID =" + Models.IDManagment.IdSimulacao;
+                            where sim.ID =" + _idSimulacao;
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -630,6 +635,53 @@ namespace ModuloSP.ViewClient
 
         }
 
+
+        //#------------------------------------------------------------------------------------------------------------------#
+
+
+        public static void UserPDF(string _idSimulacao)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"Select Utilizador.Nome, Utilizador.Email 
+                            from Simulacoes
+                            JOIN Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID
+                            WHERE Simulacoes.ID = " + _idSimulacao;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ProductFilters.Nome = dr["Nome"].ToString();
+                ProductFilters.Email = dr["Email"].ToString();
+            }
+
+
+        }
+
+        public static void LoadSimulacaoEquipamentos(DataGridView _DataGridName, string _ID)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = @"select equip.fk_Maquinas_ID as ID, Marca.Nome,  Modelo.Nome, maq.Cor, maq.Dimensoes, maq.Preco, count (equip.fk_Maquinas_ID) as [Quantidade]
+                                from Equipamentos as equip
+                                left join Maquinas as maq on maq.ID = equip.fk_Maquinas_ID
+                                left join Marca_Modelo on maq.fk_Marca_Modelo_ID = Marca_Modelo.ID
+                                left join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID
+                                left join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID
+                                where equip.fk_Simulacoes_ID = " + _ID +
+                                " group by equip.fk_Maquinas_ID, Marca.Nome, Modelo.Nome, maq.Cor, maq.Dimensoes, maq.Preco";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdMaquina = "";
+            }
+        }
 
 
 

@@ -455,6 +455,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-apagador-48.png" />
     <None Include="Resources\icons8-pasta-de-extensões-50.png" />
+    <None Include="Resources\icons8-pdf-2-50.png" />
+    <None Include="Resources\icons8-back-50.png" />
     <Content Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

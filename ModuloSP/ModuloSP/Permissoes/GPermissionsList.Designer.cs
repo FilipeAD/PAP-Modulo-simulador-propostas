@@ -125,6 +125,7 @@
             // 
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 25);
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown_1);
             // 
             // btSearch
             // 
@@ -141,8 +142,8 @@
             this.btSave.Image = global::ModuloSP.Properties.Resources.savechanges;
             this.btSave.ImageTransparentColor = System.Drawing.Color.White;
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(69, 22);
-            this.btSave.Text = "Guardar";
+            this.btSave.Size = new System.Drawing.Size(127, 22);
+            this.btSave.Text = "Guardar Alterações";
             this.btSave.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 

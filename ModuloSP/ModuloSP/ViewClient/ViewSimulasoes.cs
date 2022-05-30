@@ -33,12 +33,8 @@ namespace ModuloSP.ViewClient
 
         private void ViewSimulasoes_Load(object sender, EventArgs e)
         {
-           
-
-
-
-
-
+            ProductFilters.LoadSimulacaoEquipamentos(dataGridView2, ProductFilters.IDSimulacao);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView2);
 
             //#--------------------------------------------------------------------------------------------------#
 

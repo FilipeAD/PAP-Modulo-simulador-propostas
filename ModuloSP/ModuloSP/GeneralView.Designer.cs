@@ -41,6 +41,8 @@ namespace ModuloSP
             this.listMaquina = new System.Windows.Forms.ToolStripMenuItem();
             this.ListAddOns = new System.Windows.Forms.ToolStripMenuItem();
             this.lstAddOn = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.btUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.ListPermicoes = new System.Windows.Forms.ToolStripMenuItem();
             this.listUtilizadores = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,6 @@ namespace ModuloSP
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.ListMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListMarcaModelo = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -165,7 +165,7 @@ namespace ModuloSP
             this.listMaquina.BackColor = System.Drawing.Color.Silver;
             this.listMaquina.ForeColor = System.Drawing.Color.White;
             this.listMaquina.Name = "listMaquina";
-            this.listMaquina.Size = new System.Drawing.Size(180, 22);
+            this.listMaquina.Size = new System.Drawing.Size(130, 22);
             this.listMaquina.Text = "Listagem ";
             this.listMaquina.Click += new System.EventHandler(this.listMaquina_Click);
             // 
@@ -186,15 +186,35 @@ namespace ModuloSP
             this.lstAddOn.BackColor = System.Drawing.Color.Silver;
             this.lstAddOn.ForeColor = System.Drawing.Color.White;
             this.lstAddOn.Name = "lstAddOn";
-            this.lstAddOn.Size = new System.Drawing.Size(180, 22);
+            this.lstAddOn.Size = new System.Drawing.Size(127, 22);
             this.lstAddOn.Text = "Listagem";
             this.lstAddOn.Click += new System.EventHandler(this.lstAddOn_Click);
+            // 
+            // ListMarca
+            // 
+            this.ListMarca.BackColor = System.Drawing.Color.Silver;
+            this.ListMarca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListMarcaModelo});
+            this.ListMarca.ForeColor = System.Drawing.Color.White;
+            this.ListMarca.Name = "ListMarca";
+            this.ListMarca.Size = new System.Drawing.Size(180, 22);
+            this.ListMarca.Text = "Marcas";
+            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click_1);
+            // 
+            // ListMarcaModelo
+            // 
+            this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
+            this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
+            this.ListMarcaModelo.Name = "ListMarcaModelo";
+            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
+            this.ListMarcaModelo.Text = "Marca|Modelo";
+            this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click);
             // 
             // btUsers
             // 
             this.btUsers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ListPermicoes,
-            this.listUtilizadores});
+            this.listUtilizadores,
+            this.ListPermicoes});
             this.btUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUsers.ForeColor = System.Drawing.Color.White;
             this.btUsers.Name = "btUsers";
@@ -208,7 +228,7 @@ namespace ModuloSP
             this.ListPermicoes.ForeColor = System.Drawing.Color.White;
             this.ListPermicoes.Name = "ListPermicoes";
             this.ListPermicoes.Size = new System.Drawing.Size(180, 22);
-            this.ListPermicoes.Text = "Permições";
+            this.ListPermicoes.Text = "Permições grupo";
             this.ListPermicoes.Visible = false;
             this.ListPermicoes.Click += new System.EventHandler(this.ListPermicoes_Click);
             // 
@@ -240,7 +260,7 @@ namespace ModuloSP
             this.InterfaceClient.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InterfaceClient.ForeColor = System.Drawing.Color.White;
             this.InterfaceClient.Name = "InterfaceClient";
-            this.InterfaceClient.Size = new System.Drawing.Size(141, 22);
+            this.InterfaceClient.Size = new System.Drawing.Size(180, 22);
             this.InterfaceClient.Text = "Simulações";
             this.InterfaceClient.Visible = false;
             this.InterfaceClient.Click += new System.EventHandler(this.InterfaceClient_Click);
@@ -319,26 +339,6 @@ namespace ModuloSP
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // ListMarca
-            // 
-            this.ListMarca.BackColor = System.Drawing.Color.Silver;
-            this.ListMarca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ListMarcaModelo});
-            this.ListMarca.ForeColor = System.Drawing.Color.White;
-            this.ListMarca.Name = "ListMarca";
-            this.ListMarca.Size = new System.Drawing.Size(180, 22);
-            this.ListMarca.Text = "Marcas";
-            this.ListMarca.Click += new System.EventHandler(this.ListMarca_Click_1);
-            // 
-            // ListMarcaModelo
-            // 
-            this.ListMarcaModelo.BackColor = System.Drawing.Color.Silver;
-            this.ListMarcaModelo.ForeColor = System.Drawing.Color.White;
-            this.ListMarcaModelo.Name = "ListMarcaModelo";
-            this.ListMarcaModelo.Size = new System.Drawing.Size(180, 22);
-            this.ListMarcaModelo.Text = "Marca|Modelo";
-            this.ListMarcaModelo.Click += new System.EventHandler(this.ListMarcaModelo_Click);
-            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +355,7 @@ namespace ModuloSP
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GeneralView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeneralView_FormClosing);
             this.Load += new System.EventHandler(this.AdminView_Load);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

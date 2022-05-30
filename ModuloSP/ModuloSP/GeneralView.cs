@@ -140,6 +140,7 @@ namespace ModuloSP
             {
                 Models.IDManagment.IdSimulacao = "";
                 ViewClient.ProductFilters.NumImpressoras = "";
+                Models.CurrentUser.IDUser = "";
                 this.Close();
             }
             else if (dialogResult == DialogResult.No)
@@ -328,6 +329,25 @@ namespace ModuloSP
 
             var load = new Permissoes.GPermissionsList();
             mudaform(load);
+        }
+
+        private void GeneralView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (Models.CurrentUser.IDUser != "")
+            {
+                DialogResult dialogResult = MessageBox.Show("Têm a certeza que pretende sair?", "Atenção", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Models.IDManagment.IdSimulacao = "";
+                    ViewClient.ProductFilters.NumImpressoras = "";
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            
         }
     }
 }

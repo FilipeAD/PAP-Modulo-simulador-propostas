@@ -19,13 +19,24 @@ namespace ModuloSP.ViewAdmin
 
         private void UserEditGrupo_Load(object sender, EventArgs e)
         {
+
             AdminMethods.LoadUserEditar(Models.IDManagment.IdUser, txtNome, txtEmail, txtGrupo);
-            Maquinas.FunctionsMaq.CmbInsertM("Grupos", txtGrupo);
+
+
+            Permissoes.AcountPermission.IDNivel();
+            Permissoes.AcountPermission.LoadGrupoCombobox(txtGrupo);
+
         }
 
         private void btEditar_Click(object sender, EventArgs e)
         {
 
+            Permissoes.AcountPermission.GetIDGrupo(txtGrupo.Text);
+            Permissoes.AcountPermission.EditGrupo(Models.IDManagment.IdUser, Models.Utils.Grupo);
+            this.Close();
+
+
         }
+
     }
 }

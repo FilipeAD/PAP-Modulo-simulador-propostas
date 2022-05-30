@@ -173,6 +173,16 @@ namespace ModuloSP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_back_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-back-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_extensions_folder_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-extensions-folder-24", resourceCulture);
@@ -186,6 +196,16 @@ namespace ModuloSP.Properties {
         internal static System.Drawing.Bitmap icons8_pasta_de_extensões_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-pasta-de-extensões-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pdf_2_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pdf-2-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -92,11 +92,6 @@ namespace ModuloSP.ViewClient
             ProductFilters.produtos.Clear();
 
 
-            ProductFilters.CmbInsertM("Add_Ons_Grupos", cmbOrder);
-            cmbOrder.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cmbOrder.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-
             ProductFilters.ShowAddOns(dataGridView1, Models.IDManagment.fkMarca_Modelo);
             DatagridStyle();
 
@@ -109,9 +104,6 @@ namespace ModuloSP.ViewClient
             txtCor.BackColor = ColorTranslator.FromHtml(txtCor.Text);
         }
 
-   
-
-
 
         private void toolStripExtensoes_Click(object sender, EventArgs e)
         {
@@ -119,14 +111,22 @@ namespace ModuloSP.ViewClient
             AddExtensoes();
         }
 
+
+
         private void dataGridView1_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.EndEdit();
+
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
+
                 if ((bool)(row.Cells["Slt"].Value) == true && row.Cells["QTD"].Value == null)
                 {
                     row.Cells["QTD"].Value = "1";
+                }
+                else if ((bool)(row.Cells["Slt"].Value) == false && row.Cells["QTD"].Value != null)
+                {
+                    row.Cells["QTD"].Value = null;
                 }
 
             }
@@ -136,11 +136,12 @@ namespace ModuloSP.ViewClient
 
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dataGridView1.Rows[i].Cells["QTD"].Value);
 
+                sum += Convert.ToInt32(dataGridView1.Rows[i].Cells["QTD"].Value);
 
             }
             QExtensoes.Text = sum.ToString();
+
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
@@ -176,43 +177,55 @@ namespace ModuloSP.ViewClient
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            dataGridView1.EndEdit();
-            AddExtensoes();
-            if (Models.IDManagment.IdSimulacao == "")
+            if (QExtensoes.Text == "0")
             {
-                if (MessageBox.Show("Prosseguir e iniciar Proposta ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                MessageBox.Show("Nenhuma extensão associada!!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dataGridView1.EndEdit();
+                AddExtensoes();
+                if (Models.IDManagment.IdSimulacao == "")
                 {
-                    return;
+                    if (MessageBox.Show("Prosseguir e iniciar Proposta ?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        ProductFilters.Simulacao();
+
+                        ProductFilters.Equipamentos();
+                        ProductFilters.ListCycle(ProductFilters.produtos, ProductFilters.ModelAddOnsID);
+
+                        ProductFilters.produtos.Clear();
+
+                        Models.Utils._form.closeForms(new Produtos());
+                        ProductFilters.produtos.Clear();
+                        ProductFilters.ModelAddOnsID.Clear();
+                        this.Close();
+
+
+                    }
                 }
                 else
                 {
-                    ProductFilters.Simulacao();
-
                     ProductFilters.Equipamentos();
                     ProductFilters.ListCycle(ProductFilters.produtos, ProductFilters.ModelAddOnsID);
 
                     ProductFilters.produtos.Clear();
 
                     Models.Utils._form.closeForms(new Produtos());
-                    ProductFilters.produtos.Clear();
-                    ProductFilters.ModelAddOnsID.Clear();
+
                     this.Close();
-
-
                 }
             }
-            else
-            {
-                ProductFilters.Equipamentos();
-                ProductFilters.ListCycle(ProductFilters.produtos, ProductFilters.ModelAddOnsID);
-
-                ProductFilters.produtos.Clear();
-
-                Models.Utils._form.closeForms(new Produtos());
-
-                this.Close();
-            }
-
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -47,14 +47,12 @@
             this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.cmbOrder = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.QExtensoes = new System.Windows.Forms.ToolStripLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btReset = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -62,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDimensoes
@@ -146,7 +145,7 @@
             this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.txtPreco);
             this.panel1.Controls.Add(this.txtDimensoes);
-            this.panel1.Location = new System.Drawing.Point(8, 24);
+            this.panel1.Location = new System.Drawing.Point(8, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1104, 552);
             this.panel1.TabIndex = 52;
@@ -156,7 +155,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -165,6 +164,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -248,11 +248,8 @@
             this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel3,
-            this.cmbOrder,
             this.toolStripLabel6,
             this.QExtensoes,
-            this.btReset,
             this.toolStripLabel1,
             this.toolStripButton1});
             this.toolStrip2.Location = new System.Drawing.Point(3, 3);
@@ -262,20 +259,6 @@
             this.toolStrip2.Size = new System.Drawing.Size(1125, 25);
             this.toolStrip2.TabIndex = 28;
             this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(48, 22);
-            this.toolStripLabel3.Text = "Grupo: ";
-            // 
-            // cmbOrder
-            // 
-            this.cmbOrder.BackColor = System.Drawing.Color.White;
-            this.cmbOrder.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbOrder.Name = "cmbOrder";
-            this.cmbOrder.Size = new System.Drawing.Size(200, 25);
             // 
             // toolStripLabel6
             // 
@@ -301,14 +284,14 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btReset
+            // toolStripLabel1
             // 
-            this.btReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btReset.Image = global::ModuloSP.Properties.Resources.icons8_apagador_48;
-            this.btReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(23, 22);
-            this.btReset.Text = "Apagar Pesquisa";
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Image = global::ModuloSP.Properties.Resources.icons8_pasta_de_extensões_50;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(84, 22);
+            this.toolStripLabel1.Text = "Extensões";
             // 
             // toolStripButton1
             // 
@@ -321,14 +304,17 @@
             this.toolStripButton1.Text = "Conectar com Impressora";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripLabel1
+            // pictureBox2
             // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Image = global::ModuloSP.Properties.Resources.icons8_pasta_de_extensões_50;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(84, 22);
-            this.toolStripLabel1.Text = "Extensões";
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::ModuloSP.Properties.Resources.icons8_back_50;
+            this.pictureBox2.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 17);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // ProdutoShow
             // 
@@ -350,6 +336,7 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,11 +355,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripComboBox cmbOrder;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripLabel QExtensoes;
-        private System.Windows.Forms.ToolStripButton btReset;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Slt;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -382,5 +366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QTD;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

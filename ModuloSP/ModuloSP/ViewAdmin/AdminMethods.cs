@@ -117,6 +117,7 @@ namespace ModuloSP.ViewAdmin
         }
 
 
+
         public static void AddOnsRangeDateBigger(DataGridView _Datagridview, string _cmbText, string _DATE)
         {
             using (SqlConnection con =
@@ -231,7 +232,7 @@ namespace ModuloSP.ViewAdmin
                 BindingSource bs = new BindingSource();
                 string query = "select Utilizador.ID, Utilizador.Nome, Email, Grupos.Nome as Grupo FROM Utilizador " +
                     "INNER JOIN Grupos on Grupos.ID = Utilizador.fk_Grupos_ID " +
-                    " where fk_Grupos_ID != 2 ";
+                    " where Grupos.Nivel < " + Models.CurrentUser.nivel;
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -240,6 +241,8 @@ namespace ModuloSP.ViewAdmin
             }
             Models.IDManagment.IdUser = "";
         }
+
+
 
      
 

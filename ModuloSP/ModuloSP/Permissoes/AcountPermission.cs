@@ -70,6 +70,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
+
         public static void EditPermission(DataGridView _datagrid)
         {
             for (int item = 0; item <= _datagrid.Rows.Count - 1; item++)
@@ -89,6 +90,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
+
         public static void GetIDGrupo(string grupo)
         {
             SqlConnection con =
@@ -106,6 +108,7 @@ namespace ModuloSP.Permissoes
             }
             con.Close();
         }
+
 
         public static void LoadInfo(DataGridView _datagrid, string _nome)
         {
@@ -129,7 +132,89 @@ namespace ModuloSP.Permissoes
             }
         }
 
+        public static void IDNivel()
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"Select nivel
+                            from Grupos
+                            where id =" + Models.CurrentUser.group;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Models.CurrentUser.nivel = dr["nivel"].ToString();
+            }
+            con.Close();
+        }
 
+        public static void LoadGrupo(ToolStripComboBox _cmb)
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"Select nome 
+                            from Grupos
+                            where Nivel < " + Models.CurrentUser.nivel;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _cmb.Items.Add(dr["Nome"].ToString());
+            }
+
+            
+            con.Close();
+        }
+
+        public static void LoadGrupoCombobox(ComboBox _cmb)
+        {
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"Select nome 
+                            from Grupos
+                            where Nivel < " + Models.CurrentUser.nivel;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _cmb.Items.Add(dr["Nome"].ToString());
+            }
+
+
+            con.Close();
+        }
+
+
+        public static void EditGrupo(string _ID, string _Grupo)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = "UPDATE Utilizador SET " +
+                "fk_Grupos_ID=@fk_Grupos_ID " +
+                "where id=@id";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", _ID);
+            cmd.Parameters.AddWithValue("@fk_Grupos_ID", _Grupo);
+
+            try
+            {
+                cmd.ExecuteScalar();
+            }
+            catch
+            {
+                MessageBox.Show("Reveja os dados que inseriu", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            cmd.ExecuteScalar();
+            MessageBox.Show("Registo editado.", "Informação",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            con.Close();
+        }
 
 
 
