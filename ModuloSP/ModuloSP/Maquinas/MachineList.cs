@@ -25,13 +25,7 @@ namespace ModuloSP.Maquinas
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
-
-            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
-            {
-
-                //dataGridView1.Rows[i].Collumns["Cor"].CellStyle.BackColor = ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
-
-            }
+           
 
 
         }
@@ -41,9 +35,10 @@ namespace ModuloSP.Maquinas
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Models.IDManagment.IdMaquina = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+           
         }
 
-    
+
         private void adicionarbt_Click(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -108,7 +103,23 @@ namespace ModuloSP.Maquinas
             }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void MachineList_Activated(object sender, EventArgs e)
+        {
+
+            FunctionsMaq.LoadInfo(dataGridView1);
+            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                dataGridView1.Rows[i].Cells["cor"].Style.BackColor = ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+            }
+
+
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
             {
@@ -124,14 +135,9 @@ namespace ModuloSP.Maquinas
             Models.Utils._form.mudaform(userList);
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-
         }
 
-        private void MachineList_Activated(object sender, EventArgs e)
-        {
-            FunctionsMaq.LoadInfo(dataGridView1);
-            Models.FunctionsGeneral.EditDataGrid(dataGridView1);
-        }
+     
 
         
     }

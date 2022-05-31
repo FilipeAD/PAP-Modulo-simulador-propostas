@@ -50,7 +50,6 @@ C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Permissoes.
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.Marc_Mod.MarcaModeloEdit.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewClient.Produtos.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewAdmin.UserList.resources
-C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.ViewAdmin.ActivityTracker.resources
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\ModuloSP.exe.manifest
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\bin\Debug\ModuloSP.application
 C:\Users\estagio2\Documents\PAP\ModuloSP\ModuloSP\obj\Debug\ModuloSP.exe.manifest

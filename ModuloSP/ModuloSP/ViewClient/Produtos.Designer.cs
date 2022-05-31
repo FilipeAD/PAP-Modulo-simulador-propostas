@@ -162,9 +162,11 @@
             // cmbModelo
             // 
             this.cmbModelo.BackColor = System.Drawing.Color.White;
+            this.cmbModelo.Enabled = false;
             this.cmbModelo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModelo.Name = "cmbModelo";
             this.cmbModelo.Size = new System.Drawing.Size(125, 25);
+            this.cmbModelo.SelectedIndexChanged += new System.EventHandler(this.cmbModelo_SelectedIndexChanged);
             // 
             // VisualizarProduto
             // 

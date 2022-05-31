@@ -277,7 +277,7 @@ namespace ModuloSP.ViewClient
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
             ProductFilters.CmbOrderItems(cmbOrder);
             ProductFilters.CmbInsertM(cmbMarca);
-
+           
 
             cmbMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -286,18 +286,23 @@ namespace ModuloSP.ViewClient
 
         private void cmbOrder_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text);
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text, cmbModelo.Text);
         }
 
 
         private void cmbMarca_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text);
+            cmbModelo.SelectedIndex = -1;
+            cmbModelo.Items.Clear();
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text, cmbModelo.Text);
+            ProductFilters.CmbInsertMod(cmbModelo, cmbMarca.Text);
+            cmbModelo.Enabled = true;
         }
 
         private void btReset_Click(object sender, EventArgs e)
         {
             cmbMarca.SelectedIndex = -1;
+            cmbModelo.SelectedIndex = -1;
             cmbOrder.SelectedIndex = -1;
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
@@ -334,6 +339,13 @@ namespace ModuloSP.ViewClient
                 toolStripStatusLabel1.Visible = true;
                 toolStripStatusLabel3.Visible = false;
                 toolStripStatusLabelImpressoras.Visible = true;
+            }
+
+
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                dataGridView1.Rows[i].Cells["cor"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
             }
         }
 
@@ -432,6 +444,9 @@ namespace ModuloSP.ViewClient
             Models.Utils._form.mudaform(userList);
         }
 
-      
+        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text, cmbModelo.Text);
+        }
     }
 }

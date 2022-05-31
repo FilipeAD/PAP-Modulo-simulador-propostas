@@ -232,8 +232,6 @@ namespace ModuloSP.ViewClient
             }
         }
 
-       
-
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
             _cmb.Items.Add("Preço ASCENDENTE");
@@ -245,6 +243,24 @@ namespace ModuloSP.ViewClient
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "SELECT Nome FROM Marca Group by Nome ";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _cmb.Items.Add(dr["Nome"].ToString());
+            }
+        }
+
+        public static void CmbInsertMod(ToolStripComboBox _cmb, string _Marca)
+        {
+            SqlConnection con = new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"SELECT Modelo.Nome 
+                            FROM Modelo
+                            join Marca_Modelo on Marca_Modelo.fk_Modelo_ID = Modelo.ID
+                            join Marca on Marca_Modelo.fk_Marca_ID = Marca.ID
+                            where Marca.Nome = '" + _Marca + "' " +
+                            "Group by Modelo.Nome ";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -298,6 +314,51 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
+
+        public static void MarcaModeloSelect(DataGridView _DataGridName, string _Marca, string _Modelo)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
+                                "from Maquinas as maq " +
+                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
+                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
+                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
+                                "where mar.Nome = '" + _Marca + "' and modl.Nome = '" + _Modelo + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdMaquina = "";
+            }
+        }
+
+        public static void PrecoMarcaModSelect(DataGridView _DataGridName, string _Preco, string _marca, string _modelo)
+        {
+            using (SqlConnection con =
+               new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "select maq.ID, maq.Dimensoes, maq.Cor, modl.Nome as [Modelo], mar.Nome as [Marca], Preco " +
+                                "from Maquinas as maq " +
+                                "join Marca_Modelo as marModl on marModl.ID = maq.fk_Marca_Modelo_ID " +
+                                "join Marca as mar on mar.ID = marModl.fk_Marca_ID " +
+                                "join Modelo as modl on modl.ID = marModl.fk_Modelo_ID " +
+                                "where mar.Nome = '" + _marca + "'  and modl.Nome = '" + _modelo + "' order by Preco " + _Preco ;
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _DataGridName.DataSource = bs;
+                con.Close();
+                Models.IDManagment.IdMaquina = "";
+            }
+        }
+
         public static void PrecoMarcaSelect(DataGridView _DataGridName, string _Preco, string _marca)
         {
             using (SqlConnection con =
@@ -324,7 +385,7 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-        public static void OverlayFilter(DataGridView _DataGridName, string _Order, string _Marca)
+        public static void OverlayFilter(DataGridView _DataGridName, string _Order, string _Marca, string _Modelo)
         {
             string order;
             if (_Order == "Preço ASCENDENTE")
@@ -336,19 +397,27 @@ namespace ModuloSP.ViewClient
                 order = "desc";
             }
 
-            if (_Order != "" && _Marca != "")
+            if (_Order != "" && _Marca != "" && _Modelo != "")
+            {
+                ProductFilters.PrecoMarcaModSelect(_DataGridName, order, _Marca, _Modelo);
+            }
+            else if (_Modelo == "")
             {
                 ProductFilters.PrecoMarcaSelect(_DataGridName, order, _Marca);
-
             }
             else if (_Order == "")
             {
+                ProductFilters.MarcaModeloSelect(_DataGridName, _Marca, _Modelo);
+            }
+            else if (_Order == "" && _Modelo == "")
+            {
                 ProductFilters.MarcaSelect(_DataGridName, _Marca);
             }
-            else if(_Marca == "")
+            else if(_Marca == "" && _Modelo == "")
             {
                 ProductFilters.SortPrices(_DataGridName, order);
             }
+
 
         }
 

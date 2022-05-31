@@ -115,17 +115,7 @@ namespace ModuloSP
             lblUsername.Text = Models.CurrentUser.username;
             Permissionview();
 
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.GetType() == typeof(ViewAdmin.ActivityTracker))
-                {
-                    frm.Activate();
-                    return;
-                }
-            }
-
-            var load = new ViewAdmin.ActivityTracker();
-            mudaform(load);
+            
         }
 
 
@@ -344,7 +334,7 @@ namespace ModuloSP
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-
+                    e.Cancel = true;
                 }
             }
             

@@ -69,6 +69,14 @@ namespace ModuloSP.Marc_Mod
         {
             AddOn.FunctionsAddOn.INFOAddOnMarca(dataGridView1, Models.IDManagment.IDMarca_Modelo);
             FunctionMarMod.INFOMaquinaMarca(dataGridView2, Models.IDManagment.IDMarca_Modelo);
+
+            for (int i = 0; i < dataGridView2.Rows.Count; ++i)
+            {
+                dataGridView2.Rows[i].Cells["cor"].Style.BackColor = ColorTranslator.FromHtml(dataGridView2.Rows[i].Cells["Cor"].Value.ToString());
+                dataGridView2.Rows[i].Cells["cor"].Style.ForeColor = ColorTranslator.FromHtml(dataGridView2.Rows[i].Cells["Cor"].Value.ToString());
+            }
+
+
         }
 
         private void adicionarbt_Click_1(object sender, EventArgs e)

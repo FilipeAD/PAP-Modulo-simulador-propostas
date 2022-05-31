@@ -74,20 +74,18 @@ namespace ModuloSP.ViewAdmin
             }
         }
 
-        public static void ActivityMaquinas(DataGridView _Datagridview, string _cmbText)
+        public static void ActivityUtilizadores(DataGridView _Datagridview)
         {
             using (SqlConnection con =
                 new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
-                                "from Maquinas " +
-                                "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
-                                "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                                "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                                "join Utilizador on Utilizador.ID = Maquinas.fk_Utilizador_ID " +
-                                "where Utilizador.Nome = '" + _cmbText + "'";
+                string query = "Select Simulacoes.ID, FORMAT ( Data_Simulacao, 'dd/MM/yyyy ')  as [Data], FORMAT ( Data_Simulacao, 'HH:mm')  as [Hora], count(Equipamentos.fk_Maquinas_ID) as [Maquinas na Simulação], Utilizador.Nome " +
+                               "from Equipamentos " +
+                               "join Simulacoes on Simulacoes.ID = Equipamentos.fk_Simulacoes_ID " +
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID " +
+                               " group by Simulacoes.ID, Utilizador.Nome,  Data_Simulacao ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -97,79 +95,20 @@ namespace ModuloSP.ViewAdmin
             }
         }
 
-        public static void ActivityAddOns(DataGridView _Datagridview, string _cmbText)
-        {
-            using (SqlConnection con =
-                    new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
-                               "from AddOns " +
-                               "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Utilizador.Nome = '" + _cmbText + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _Datagridview.DataSource = bs;
-                con.Close();
-            }
-        }
 
-
-
-        public static void AddOnsRangeDateBigger(DataGridView _Datagridview, string _cmbText, string _DATE)
-        {
-            using (SqlConnection con =
-                    new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Adicionado, 'dd/MM/yyyy ') as [Data de criação] " +
-                               "from AddOns " +
-                               "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _Datagridview.DataSource = bs;
-                con.Close();
-            }
-        }
-
-        public static void AddOnsRangeDateSmaller(DataGridView _Datagridview, string _cmbText, string _DATE, string _DATE2)
-        {
-            using (SqlConnection con =
-                    new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select  AddOns.ID,  AddOns.Descricao, Preco_Base, Utilizador.Nome as Criador, FORMAT(Date_Time_Adicionado, 'dd/MM/yyyy ') as [Data de criação] " +
-                               "from AddOns " +
-                               "join Utilizador on Utilizador.ID = AddOns.fk_Utilizador_ID " +
-                               "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Date_Time_Adicionado <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _Datagridview.DataSource = bs;
-                con.Close();
-            }
-        }
-
-        public static void MaquinasRangeDateSmaller(DataGridView _Datagridview, string _cmbText, string _DATE, string _DATE2)
+        public static void ActivityUtilizador(DataGridView _Datagridview, string _IDUser)
         {
             using (SqlConnection con =
                 new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
-                                "from Maquinas " +
-                                "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
-                                "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                                "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                                "join Utilizador on Utilizador.ID = Maquinas.fk_Utilizador_ID " +
-                                "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Date_Time_Adicionado <= '" + _DATE2 + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                string query = "Select Simulacoes.ID, FORMAT ( Data_Simulacao, 'dd/MM/yyyy ')  as [Data], FORMAT ( Data_Simulacao, 'HH:mm')  as [Hora], count(Equipamentos.fk_Maquinas_ID) as [Maquinas na Simulação] " +
+                               "from Equipamentos " +
+                               "join Simulacoes on Simulacoes.ID = Equipamentos.fk_Simulacoes_ID " +
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID " +
+                               "where Utilizador.ID = " + _IDUser +
+                               "group by Simulacoes.ID, Utilizador.Nome,  Data_Simulacao ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
@@ -179,26 +118,49 @@ namespace ModuloSP.ViewAdmin
             }
         }
 
-        public static void MaquinasRangeDateBigger(DataGridView _Datagridview, string _cmbText, string _DATE)
+
+
+        public static void UtilizadorRangeDateBigger(DataGridView _Datagridview, string _IDUser, string _DATE)
         {
             using (SqlConnection con =
-                new SqlConnection(Models.Utils.conString))
+                    new SqlConnection(Models.Utils.conString))
             {
                 DataTable dt = new DataTable();
                 BindingSource bs = new BindingSource();
-                string query = "select Maquinas.ID, Maquinas.Dimensoes, Maquinas.Cor, Modelo.Nome as [Modelo], Marca.Nome as [Marca], Preco, Utilizador.Nome as Criador ,  FORMAT (Date_Time_Adicionado, 'dd/MM/yyyy ')  as [Data de criação] " +
-                                "from Maquinas " +
-                                "join Marca_Modelo on Marca_Modelo.ID = Maquinas.fk_Marca_Modelo_ID " +
-                                "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                                "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                                "join Utilizador on Utilizador.ID = Maquinas.fk_Utilizador_ID " +
-                                "where Date_Time_Adicionado >= '" + _DATE + " 00:00:00.000' and Utilizador.Nome = '" + _cmbText + "'";
+                string query = "Select Simulacoes.ID, FORMAT(Data_Simulacao, 'dd/MM/yyyy ') as [Data], FORMAT(Data_Simulacao, 'HH:mm') as [Hora], count(Equipamentos.fk_Maquinas_ID) as [Maquinas na Simulação] " +
+                               "from Equipamentos " +
+                               "join Simulacoes on Simulacoes.ID = Equipamentos.fk_Simulacoes_ID " +
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID " +
+                               "where Utilizador.ID = " + _IDUser +
+                               " and Data_Simulacao >= '" + _DATE + " 00:00:00.000' " +
+                               "group by Simulacoes.ID, Utilizador.Nome,  Data_Simulacao ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.Fill(dt);
                 bs.DataSource = dt;
                 _Datagridview.DataSource = bs;
                 con.Close();
-                Models.IDManagment.IdMaquina = "";
+            }
+        }
+
+        public static void UtilizadorRangeDateSmaller(DataGridView _Datagridview, string _IDUser, string _DATE, string _DATE2)
+        {
+            using (SqlConnection con =
+                    new SqlConnection(Models.Utils.conString))
+            {
+                DataTable dt = new DataTable();
+                BindingSource bs = new BindingSource();
+                string query = "Select Simulacoes.ID, FORMAT(Data_Simulacao, 'dd/MM/yyyy ') as [Data], FORMAT(Data_Simulacao, 'HH:mm') as [Hora], count(Equipamentos.fk_Maquinas_ID) as [Maquinas na Simulação] " +
+                               "from Equipamentos " +
+                               "join Simulacoes on Simulacoes.ID = Equipamentos.fk_Simulacoes_ID " +
+                               "join Utilizador on Utilizador.ID = Simulacoes.fk_Utilizador_ID " +
+                               "where Utilizador.ID = " + _IDUser +
+                               " and Data_Simulacao >= '" + _DATE + " 00:00:00.000' and Data_Simulacao <= '" + _DATE2 + " 00:00:00.000' " + 
+                               " group by Simulacoes.ID, Utilizador.Nome,  Data_Simulacao ";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+                bs.DataSource = dt;
+                _Datagridview.DataSource = bs;
+                con.Close();
             }
         }
 
