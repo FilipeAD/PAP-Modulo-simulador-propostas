@@ -20,9 +20,8 @@ namespace ModuloSP.Models
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 cmd.Parameters.AddWithValue("@user", _Username);
-                cmd.Parameters.AddWithValue("@pass", _Password);
+                cmd.Parameters.AddWithValue("@pass", Models.Encrypt.Cryptography.Encrypt(_Password));
                 SqlDataReader rd = cmd.ExecuteReader();
-
                 if (rd.HasRows)
                 {
                     while (rd.Read())
@@ -31,16 +30,18 @@ namespace ModuloSP.Models
                         CurrentUser.username = rd["Nome"].ToString();
                         CurrentUser.email = rd["email"].ToString();
                         CurrentUser.group = rd["fk_Grupos_ID"].ToString();
+
                     }
                     con.Close();
                     return true;
+
                     
                 }
                 else
                 {
                     con.Close();
                     return false;
-                    
+
                 }
 
             }

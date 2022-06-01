@@ -30,6 +30,7 @@ namespace ModuloSP.Models
             set { _email = value; }
         }
 
+
         private static string _nivel = "";
         public static string nivel
         {

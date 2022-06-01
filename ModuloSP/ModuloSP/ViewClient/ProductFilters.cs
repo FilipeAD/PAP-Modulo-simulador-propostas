@@ -752,8 +752,37 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //#------------------------------------------------------------------------------------------------------------------#
 
+        public static void LoadEquipamentoSimulacao(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image, Label _Descricao)
+        {
+            Encoding ascii = Encoding.ASCII;
+            Encoding unicode = Encoding.Unicode;
 
+            SqlConnection con =
+                    new SqlConnection(Models.Utils.conString);
+            con.Open();
+            string query = @"SELECT Maquinas.Cor, Maquinas.Dimensoes, Maquinas.Produto_Imagem, Maquinas.fk_Marca_Modelo_ID, Maquinas.Descricao, Maquinas.Preco
+                            FROM Equipamentos
+                            JOIN Maquinas ON Equipamentos.fk_Maquinas_ID = Maquinas.ID
+                            where Equipamentos.ID = '" + _ID + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                _Cor.Text = dr["cor"].ToString();
+                _Dimensoes.Text = dr["dimensoes"].ToString();
+                _Descricao.Text = dr["Descricao"].ToString();
+                byte[] data = dr["Produto_Imagem"].ToString().Length > 0 ? (byte[])(dr["Produto_Imagem"]) : Maquinas.FunctionsMaq.ConvertImageToBytes(Properties.Resources.editcolu);
+                MemoryStream mem = new MemoryStream(data);
+                _Image.Image = Image.FromStream(mem);
+                Models.IDManagment.fkMarca_Modelo = dr["fk_Marca_Modelo_ID"].ToString();
+                ProductFilters.Preco = float.Parse(dr["preco"].ToString());
+                _Preco.Text = (ProductFilters.PrecoMaquina + ProductFilters.PrecoMaquinaAddOn).ToString() + "€";
+            }
+            con.Close();
+
+        }
 
 
     }

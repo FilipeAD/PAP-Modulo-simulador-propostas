@@ -39,9 +39,11 @@ namespace ModuloSP.ViewClient
             //#--------------------------------------------------------------------------------------------------#
 
 
-            toolStripStatusLabelImpressoras.Text = listMaqui.Count.ToString();
+            toolStripStatusLabelImpressoras.Text = listEquip.Count.ToString();
 
-            ProductFilters.LoadMachine(listMaqui[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
+
+            ProductFilters.PrecoAddMaq(listEquip[i], ProductFilters.IDSimulacao);
+            ProductFilters.LoadEquipamentoSimulacao(listEquip[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
             ProductFilters.LoadImMarcaMod(Models.IDManagment.fkMarca_Modelo, txtMarca);
 
             txtDescricaoMaquinas.AutoSize = true;
@@ -57,16 +59,17 @@ namespace ModuloSP.ViewClient
 
         private void btCycle_Click(object sender, EventArgs e)
         {
-            if (i < listMaqui.Count)
+            if (i < listEquip.Count)
             {
                 i++;
             }
-            if (i >= listMaqui.Count)
+            if (i >= listEquip.Count)
             {
                 i = 0;
             }
-            
-            ProductFilters.LoadMachine(listMaqui[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
+
+            ProductFilters.PrecoAddMaq(listEquip[i], ProductFilters.IDSimulacao);
+            ProductFilters.LoadEquipamentoSimulacao(listEquip[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
             ProductFilters.LoadImMarcaMod(Models.IDManagment.fkMarca_Modelo, txtMarca);
 
             ProductFilters.LoadAddOnsSimulacao(dataGridView1, listEquip[i]);
@@ -79,14 +82,15 @@ namespace ModuloSP.ViewClient
         {
             if (i == 0)
             {
-                i = listMaqui.Count;
+                i = listEquip.Count;
             }
-            if (i <= listMaqui.Count)
+            if (i <= listEquip.Count)
             {
                 i--;
             }
 
-            ProductFilters.LoadMachine(listMaqui[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
+            ProductFilters.PrecoAddMaq(listEquip[i], ProductFilters.IDSimulacao);
+            ProductFilters.LoadEquipamentoSimulacao(listEquip[i], txtDimensoes, txtPreco, txtCor, pictureBox1, txtDescricaoMaquinas);
             ProductFilters.LoadImMarcaMod(Models.IDManagment.fkMarca_Modelo, txtMarca);
 
             ProductFilters.LoadAddOnsSimulacao(dataGridView1, listEquip[i]);

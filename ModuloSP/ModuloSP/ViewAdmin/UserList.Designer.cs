@@ -163,6 +163,7 @@ namespace ModuloSP.ViewAdmin
             // 
             this.DateSmallerThan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DateSmallerThan.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.DateSmallerThan.Enabled = false;
             this.DateSmallerThan.Location = new System.Drawing.Point(250, 31);
             this.DateSmallerThan.MaxSelectionCount = 1;
             this.DateSmallerThan.Name = "DateSmallerThan";

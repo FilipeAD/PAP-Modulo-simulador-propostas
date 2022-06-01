@@ -60,7 +60,7 @@ namespace ModuloSP
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
-            this.txtPassword.Location = new System.Drawing.Point(58, 278);
+            this.txtPassword.Location = new System.Drawing.Point(58, 285);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(206, 24);
@@ -71,7 +71,7 @@ namespace ModuloSP
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.Location = new System.Drawing.Point(58, 194);
+            this.txtUsername.Location = new System.Drawing.Point(58, 195);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(206, 24);
@@ -84,7 +84,7 @@ namespace ModuloSP
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogin.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.Color.White;
-            this.btLogin.Location = new System.Drawing.Point(28, 387);
+            this.btLogin.Location = new System.Drawing.Point(28, 396);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(236, 33);
             this.btLogin.TabIndex = 5;
@@ -95,7 +95,7 @@ namespace ModuloSP
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(28, 308);
+            this.panel2.Location = new System.Drawing.Point(28, 315);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 1);
             this.panel2.TabIndex = 17;
@@ -103,7 +103,7 @@ namespace ModuloSP
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(28, 224);
+            this.panel1.Location = new System.Drawing.Point(28, 225);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(236, 1);
             this.panel1.TabIndex = 16;
@@ -123,7 +123,7 @@ namespace ModuloSP
             this.txtPassword2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword2.ForeColor = System.Drawing.Color.Black;
-            this.txtPassword2.Location = new System.Drawing.Point(58, 320);
+            this.txtPassword2.Location = new System.Drawing.Point(58, 327);
             this.txtPassword2.Multiline = true;
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.Size = new System.Drawing.Size(206, 24);
@@ -132,7 +132,7 @@ namespace ModuloSP
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(28, 350);
+            this.panel3.Location = new System.Drawing.Point(28, 357);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(236, 1);
             this.panel3.TabIndex = 24;
@@ -142,7 +142,7 @@ namespace ModuloSP
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail.Location = new System.Drawing.Point(58, 236);
+            this.txtEmail.Location = new System.Drawing.Point(58, 241);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 24);
@@ -151,7 +151,7 @@ namespace ModuloSP
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(28, 266);
+            this.panel4.Location = new System.Drawing.Point(28, 271);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(236, 1);
             this.panel4.TabIndex = 27;
@@ -159,7 +159,7 @@ namespace ModuloSP
             // pictureBox6
             // 
             this.pictureBox6.Image = global::ModuloSP.Properties.Resources.emailicon;
-            this.pictureBox6.Location = new System.Drawing.Point(28, 236);
+            this.pictureBox6.Location = new System.Drawing.Point(28, 241);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(24, 24);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +169,7 @@ namespace ModuloSP
             // pictureBox5
             // 
             this.pictureBox5.Image = global::ModuloSP.Properties.Resources.loginlock;
-            this.pictureBox5.Location = new System.Drawing.Point(28, 320);
+            this.pictureBox5.Location = new System.Drawing.Point(28, 327);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,7 +190,7 @@ namespace ModuloSP
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ModuloSP.Properties.Resources.loginlock;
-            this.pictureBox3.Location = new System.Drawing.Point(28, 278);
+            this.pictureBox3.Location = new System.Drawing.Point(28, 285);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,7 +200,7 @@ namespace ModuloSP
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ModuloSP.Properties.Resources.loginicon;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 194);
+            this.pictureBox2.Location = new System.Drawing.Point(28, 195);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@ namespace ModuloSP
             this.showPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPass.ForeColor = System.Drawing.Color.Transparent;
             this.showPass.Image = global::ModuloSP.Properties.Resources.show;
-            this.showPass.Location = new System.Drawing.Point(28, 357);
+            this.showPass.Location = new System.Drawing.Point(28, 366);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(50, 24);
             this.showPass.TabIndex = 4;
@@ -237,7 +237,7 @@ namespace ModuloSP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(292, 447);
+            this.ClientSize = new System.Drawing.Size(292, 450);
             this.Controls.Add(this.showPass);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.panel4);

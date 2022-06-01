@@ -67,7 +67,7 @@ namespace ModuloSP
                             cmd.Parameters.AddWithValue("@id", Models.IDManagment.InsereID("Utilizador"));
                             cmd.Parameters.AddWithValue("@nome", txtUsername.Text);
                             cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                            cmd.Parameters.AddWithValue("@password", Models.Encrypt.Cryptography.Encrypt(txtPassword.Text.ToString()));
                             cmd.Parameters.AddWithValue("@fk_Grupos_ID", 1);
                             try
                             {

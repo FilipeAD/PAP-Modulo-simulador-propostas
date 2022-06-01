@@ -136,6 +136,5 @@ namespace ModuloSP.ViewAdmin
             Models.FunctionsGeneral.EditDataGrid(dataGridView2);
         }
 
-       
     }
 }
