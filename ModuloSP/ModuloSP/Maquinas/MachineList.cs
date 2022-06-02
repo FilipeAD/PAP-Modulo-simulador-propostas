@@ -110,13 +110,6 @@ namespace ModuloSP.Maquinas
             FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
 
-            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
-            {
-                dataGridView1.Rows[i].Cells["cor"].Style.BackColor = ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
-                dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
-            }
-
-
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -137,8 +130,32 @@ namespace ModuloSP.Maquinas
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
         }
 
-     
+        private void verCorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
 
-        
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem1.Text == "Ver cor")
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+                {
+                    dataGridView1.Rows[i].Cells["cor"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                    dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                }
+                dataGridView1.CurrentCell.Selected = false;
+
+                toolStripMenuItem1.Text = "Ver Hex Code";
+            }
+            else if (toolStripMenuItem1.Text == "Ver Hex Code")
+            {
+                FunctionsMaq.LoadInfo(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+                dataGridView1.Refresh();
+
+                toolStripMenuItem1.Text = "Ver cor";
+            }
+        }
     }
 }

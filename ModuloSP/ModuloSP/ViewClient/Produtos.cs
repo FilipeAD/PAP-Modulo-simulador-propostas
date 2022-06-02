@@ -303,6 +303,7 @@ namespace ModuloSP.ViewClient
         {
             cmbMarca.SelectedIndex = -1;
             cmbModelo.SelectedIndex = -1;
+            cmbModelo.Enabled= false;
             cmbOrder.SelectedIndex = -1;
             Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
             Models.FunctionsGeneral.EditDataGrid(dataGridView1);
@@ -333,6 +334,7 @@ namespace ModuloSP.ViewClient
         {
             ProductFilters.MaquinasInSimulacao(Models.IDManagment.IdSimulacao);
             toolStripStatusLabelImpressoras.Text = ProductFilters.NumImpressoras;
+
             if (Models.IDManagment.IdSimulacao != "")
             {
                 toolStripStatusLabel2.Visible = true;
@@ -342,11 +344,7 @@ namespace ModuloSP.ViewClient
             }
 
 
-            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
-            {
-                dataGridView1.Rows[i].Cells["cor"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
-                dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
-            }
+           
         }
 
         private void Produtos_FormClosing(object sender, FormClosingEventArgs e)
@@ -447,6 +445,30 @@ namespace ModuloSP.ViewClient
         private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ProductFilters.OverlayFilter(dataGridView1, cmbOrder.Text, cmbMarca.Text, cmbModelo.Text);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (toolStripMenuItem1.Text == "Ver cor")
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+                {
+                    dataGridView1.Rows[i].Cells["cor"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                    dataGridView1.Rows[i].Cells["cor"].Style.ForeColor = System.Drawing.ColorTranslator.FromHtml(dataGridView1.Rows[i].Cells["Cor"].Value.ToString());
+                }
+                dataGridView1.CurrentCell.Selected = false;
+
+                toolStripMenuItem1.Text = "Ver Hex Code";
+            }
+            else if (toolStripMenuItem1.Text == "Ver Hex Code")
+            {
+                Maquinas.FunctionsMaq.LoadInfo(dataGridView1);
+                Models.FunctionsGeneral.EditDataGrid(dataGridView1);
+                dataGridView1.Refresh();
+
+                toolStripMenuItem1.Text = "Ver cor";
+            }
+
         }
     }
 }

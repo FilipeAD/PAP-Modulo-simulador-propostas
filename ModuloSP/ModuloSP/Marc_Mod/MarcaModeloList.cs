@@ -219,5 +219,10 @@ namespace ModuloSP.Marc_Mod
                 Models.Utils._form.mudaform(userList);
             }
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
