@@ -23,7 +23,7 @@ namespace ModuloSP.AddOn
       
         private void AddOnAdd_Load(object sender, EventArgs e)
         {
-            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", txtGrupo);
+            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", "Nome", txtGrupo);
         }
 
         private void btAdd_Click_1(object sender, EventArgs e)

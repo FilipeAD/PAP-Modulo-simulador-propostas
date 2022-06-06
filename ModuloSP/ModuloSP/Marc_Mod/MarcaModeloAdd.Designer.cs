@@ -60,9 +60,8 @@
             // txtMarca
             // 
             this.txtMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMarca.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtMarca.FormattingEnabled = true;
             this.txtMarca.ItemHeight = 20;
             this.txtMarca.Location = new System.Drawing.Point(421, 177);

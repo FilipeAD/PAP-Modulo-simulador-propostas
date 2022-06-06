@@ -12,7 +12,7 @@ namespace ModuloSP.Permissoes
 {
     class AcountPermission
     {
-
+        //adicionar a uma lista todas as permições do grupo a que o utilizador está associado
         public static List<string> LoginPermission()
         {
             List<string> al = new List<string>();
@@ -36,28 +36,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
-        public static List<string> GrupoPermission()
-        {
-            List<string> al = new List<string>();
-
-
-            using (SqlConnection con =
-                new SqlConnection(Models.Utils.conString))
-            {
-                SqlCommand cmd = new SqlCommand("grupoList", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                SqlDataReader rd = cmd.ExecuteReader();
-                while (rd.Read())
-                {
-                    al.Add(rd["Nome"].ToString());
-                }
-                con.Close();
-                return al;
-            }
-        }
-
-
+        //adicionar a uma lista todas as permições do grupo a que o utilizador está associado
         public static bool LoginView(List<string> _PermissionList, string _PermissionNome)
         {
             if (_PermissionList.Contains(_PermissionNome))
@@ -70,7 +49,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
-
+        //editar permição do grupo especificado pela variavel
         public static void EditPermission(DataGridView _datagrid)
         {
             for (int item = 0; item <= _datagrid.Rows.Count - 1; item++)
@@ -90,7 +69,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
-
+        //Buscar ID Respetivo ao nome do grupo especificado na variavel
         public static void GetIDGrupo(string grupo)
         {
             SqlConnection con =
@@ -109,7 +88,7 @@ namespace ModuloSP.Permissoes
             con.Close();
         }
 
-
+        //Carregar informação da tabela Permissoes_Gerais segundo o nome do Grupo 
         public static void LoadInfo(DataGridView _datagrid, string _nome)
         {
             using (SqlConnection con =
@@ -132,6 +111,7 @@ namespace ModuloSP.Permissoes
             }
         }
 
+        //Buscar nivel Respetivo ao nome do grupo especificado na variavel
         public static void IDNivel()
         {
             SqlConnection con =
@@ -149,6 +129,7 @@ namespace ModuloSP.Permissoes
             con.Close();
         }
 
+        //Adicionar à ToolStripComboBox o nome dos grupos em que nivel for menor que o nivel do User com sessão iniciada
         public static void LoadGrupo(ToolStripComboBox _cmb)
         {
             SqlConnection con =
@@ -168,6 +149,7 @@ namespace ModuloSP.Permissoes
             con.Close();
         }
 
+        //Adicionar à combobox o nome dos grupos em que nivel for menor que o nivel do User com sessão iniciada
         public static void LoadGrupoCombobox(ComboBox _cmb)
         {
             SqlConnection con =
@@ -187,7 +169,7 @@ namespace ModuloSP.Permissoes
             con.Close();
         }
 
-
+        //Editar informação do registo especificado pelo ID na Tabela Utilizador 
         public static void EditGrupo(string _ID, string _Grupo)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);

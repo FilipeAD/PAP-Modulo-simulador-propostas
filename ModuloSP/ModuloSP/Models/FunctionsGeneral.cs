@@ -11,6 +11,7 @@ namespace ModuloSP.Models
 {
     internal class FunctionsGeneral
     {
+        //Apagar registo especificado pelo ID
         public static void DeleteRow(string _Database, string _ID)
         {
             SqlConnection con = new SqlConnection(Utils.conString);
@@ -21,10 +22,9 @@ namespace ModuloSP.Models
             con.Close();
         }
 
+        //Editar as datagriview consuante os padroes de cor e tamanhos especificados
         public static void EditDataGrid(DataGridView _DataGrid)
         {
-           
-
                 _DataGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
                 _DataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;

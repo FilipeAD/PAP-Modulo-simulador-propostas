@@ -20,10 +20,9 @@ namespace ModuloSP.AddOn
         private void AddOnMarcaAdd_Load(object sender, EventArgs e)
         {
             Maquinas.FunctionsMaq.LoadCMB(txtMarca, txtModelo, Models.IDManagment.IDMarca_Modelo);
-            FunctionsAddOn.CmbInsertAddon("AddOns", txtAddOn);
+            Maquinas.FunctionsMaq.CmbInsertM("AddOns", "Descricao", txtAddOn);
             txtAddOn.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtAddOn.AutoCompleteSource = AutoCompleteSource.ListItems;
-
         }
 
       

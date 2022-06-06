@@ -11,6 +11,7 @@ namespace ModuloSP.Marc_Mod
 {
     internal class FunctionMarMod
     {
+        //Apresentar tabela Marca_Modelo 
         public static void LoadMarMod(DataGridView _DataGridName)
         {
             using (SqlConnection con =
@@ -31,6 +32,7 @@ namespace ModuloSP.Marc_Mod
             }
         }
 
+        //Apresentar tabela Marca_Modelo segundo nome da Marca dado pela variavel 
         public static void MarcaSelect(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -52,6 +54,7 @@ namespace ModuloSP.Marc_Mod
             }
         }
 
+        //Apresentar tabela Marca_Modelo segundo nome da Marca e Modelo dado pelas variaveis 
         public static void MarcaMoDSelect(DataGridView _DataGridName, string _order, string order2)
         {
             using (SqlConnection con =
@@ -73,36 +76,7 @@ namespace ModuloSP.Marc_Mod
             }
         }
 
-
-
-        public static bool RepeatedValue(string _txt1, string _txt2)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                SqlCommand cmd = new SqlCommand("verify_MarcaModelo", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                cmd.Parameters.AddWithValue("@Marca", _txt1);
-                cmd.Parameters.AddWithValue("@Modelo", _txt2);
-                SqlDataReader rd = cmd.ExecuteReader();
-
-                if (rd.HasRows)
-                {
-                    con.Close();
-                    return true;
-                }
-                else
-                {
-                    con.Close();
-                    return false;
-                    
-                }
-
-            }
-        }
-
-
+        //Inserir campo nome da tabela Modelo na ToolStripComboBox se esse modelo estiver associando a nome da Marca dada na variavel
         public static void CmbInsertMM(ToolStripComboBox _cmb, string _cmb2)
         {
             _cmb.Items.Clear();
@@ -120,6 +94,7 @@ namespace ModuloSP.Marc_Mod
             }
         }
 
+        //Apresentar Tabela Maquinas quando o ID da Marca_Modelo for igual à variavel
         public static void INFOMaquinaMarca(DataGridView _Datagridview, string _ID)
         {
             using (SqlConnection con =

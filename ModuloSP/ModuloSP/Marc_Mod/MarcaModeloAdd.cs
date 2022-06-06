@@ -71,12 +71,15 @@ namespace ModuloSP.Marc_Mod
 
         private void MarcaModeloAdd_Load(object sender, EventArgs e)
         {
-            Maquinas.FunctionsMaq.CmbInsertM("Marca", txtMarca);
+            Maquinas.FunctionsMaq.CmbInsertM("Marca", "Nome", txtMarca);
+            txtMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
       
         private void btAdd_Click(object sender, EventArgs e)
         {
+           
             if (string.IsNullOrWhiteSpace(txtNome.Text))
             {
                 MessageBox.Show("Tem de preencher todos os campos", "Atenção",
@@ -84,7 +87,7 @@ namespace ModuloSP.Marc_Mod
                 return;
             }
             else {
-                if (FunctionMarMod.RepeatedValue(txtMarca.Text, txtNome.Text) == true)
+                if (AddOn.FunctionsAddOn.VField(txtMarca.Text, txtNome.Text, "verify_MarcaModelo", "@Marca", "@Modelo") == true)
                 {
                     MessageBox.Show("Registo já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

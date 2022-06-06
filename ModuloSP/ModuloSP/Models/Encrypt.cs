@@ -10,11 +10,13 @@ namespace ModuloSP.Models
 {
     public class Encrypt
     {
+        //Encryptar a password
+
         public class Cryptography
         {
             public static string Encrypt(string encryptString)
             {
-                string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement    
+                string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";   
                 byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);
                 using (Aes encryptor = Aes.Create())
                 {
@@ -40,7 +42,7 @@ namespace ModuloSP.Models
 
             public static string Decrypt(string cipherText)
             {
-                string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement, but the decryption key should be same as encryption key    
+                string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio"; 
                 cipherText = cipherText.Replace(" ", "+");
                 byte[] cipherBytes = Convert.FromBase64String(cipherText);
                 using (Aes encryptor = Aes.Create())

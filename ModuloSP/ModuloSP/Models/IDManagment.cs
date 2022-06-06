@@ -10,6 +10,7 @@ namespace ModuloSP.Models
     internal class IDManagment
     {
 
+        //Inserir novo ID a uma tabela especificada na variavel
         public static string InsereID(string _Database)
         {
 
@@ -39,6 +40,7 @@ namespace ModuloSP.Models
             }
         }
 
+
         private static string _IdMaquina = "";
         public static string IdMaquina
         {
@@ -46,14 +48,12 @@ namespace ModuloSP.Models
             set { _IdMaquina = value; }
         }
 
-
         private static string _IDAddOnsMaquinas = "";
         public static string IDAddOnsMaquinas
         {
             get { return _IDAddOnsMaquinas; }
             set { _IDAddOnsMaquinas = value; }
         }
-
 
         private static string _IdSimulacao = "";
         public static string IdSimulacao

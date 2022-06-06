@@ -8,6 +8,7 @@ namespace ModuloSP.Models
 {
     public class Utils
     {
+        //link da conexao sql
         public static string conString = @"Data Source=serversofttests\sqlexpress;Initial Catalog=estagio_2022_12_ano_Filipe;User ID=estagio;Password=Pass.123";
 
         public static GeneralView _form { get; set; }

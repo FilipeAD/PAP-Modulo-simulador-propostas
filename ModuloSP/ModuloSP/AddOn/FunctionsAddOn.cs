@@ -12,29 +12,7 @@ namespace ModuloSP.AddOn
     internal class FunctionsAddOn
     {
 
-
-        public static void MarcaSelect(DataGridView _DataGridName, string _order)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select Modelo_AddOns.ID, Marca.Nome as Marca, Modelo.Nome as Modelo, AddOns.Descricao, Preco_Relacao " +
-                               "from Modelo_AddOns " +
-                               "join AddOns on AddOns.ID = Modelo_AddOns.fk_AddOns_ID " +
-                               "join Marca_Modelo on Marca_Modelo.ID = Modelo_AddOns.fk_Marca_Modelo_ID " +
-                               "join Marca on Marca.ID = Marca_Modelo.fk_Marca_ID " +
-                               "join Modelo on Modelo.ID = Marca_Modelo.fk_Modelo_ID " +
-                                "where Marca.Nome = '" + _order + "'";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-            }
-        }
-
+        //Apresentar Tabela AddOns juntamente com o campo [nome] dos Add_Ons_Grupo 
         public static void INFOAddOn(DataGridView _Datagridview)
         {
             using (SqlConnection con =
@@ -54,6 +32,7 @@ namespace ModuloSP.AddOn
             }
         }
 
+        //Carregar informação da tabela AddOns segundo o ID selecionado apartir do evento cellClick na datagridview
         public static void LoadEditInfo(string _ID, TextBox _textbox1, TextBox _textbox2)
         {
             SqlConnection con =
@@ -69,9 +48,9 @@ namespace ModuloSP.AddOn
                 _textbox2.Text = dr["preco_base"].ToString();
             }
             con.Close();
-
         }
 
+        //Carregar informação da tabela Modelo_AddOns segundo o ID selecionado apartir do evento cellClick na datagridview
         public static void LoadEditInfoAddOnMarca(string _ID, TextBox _marca, TextBox _modelo, TextBox _AddOn, TextBox _Preco)
         {
             SqlConnection con =
@@ -96,6 +75,7 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
+        //Editar informação do registo especificado pelo ID na Tabela AddOns 
         public static void EditInfo(string _ID, string _textbox1, string _textbox2, string _Grupo)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -118,6 +98,7 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
+        //Inserir novo registo na tabela AddOns 
         public static void AddInfo(string _textbox1, string _textbox2, string _currentUserID, string _Grupo)
         {
             Models.IDManagment.IdAddOn = Models.IDManagment.InsereID("AddOns");
@@ -155,14 +136,15 @@ namespace ModuloSP.AddOn
 
         }
 
-        public static void GroupId(string _cmb)
+        //Buscar ID Respetivo ao nome do grupo especificado na variavel
+        public static void GroupId(string _group)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
             con.Open();
             string query = "select Add_Ons_Grupos.ID as IDGrupo " +
                            "From Add_Ons_Grupos " +
-                           "where Add_Ons_Grupos.Nome = '" + _cmb + "'";
+                           "where Add_Ons_Grupos.Nome = '" + _group + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -173,12 +155,13 @@ namespace ModuloSP.AddOn
 
         }
 
-        public static void AddOnId(string _cmb)
+        //Buscar ID Respetivo à descrição do grupo especificado na variavel
+        public static void AddOnId(string _Descricao)
         {
             SqlConnection con =
                     new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "select ID from AddOns where Descricao = '" + _cmb + "'";
+            string query = "select ID from AddOns where Descricao = '" + _Descricao + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -189,6 +172,7 @@ namespace ModuloSP.AddOn
 
         }
 
+        //Apresentar campo [nome] da tabela Add_Ons_Grupos segundo o ID especificado na variavel
         public static void GroupLoad(string _fkID, ComboBox _txtGrupo)
         {
             SqlConnection con =
@@ -207,6 +191,7 @@ namespace ModuloSP.AddOn
 
         }
 
+        //Apresentar Tabela Modelo_AddOns 
         public static void INFOAddOnMarca(DataGridView _Datagridview, string _ID)
         {
             using (SqlConnection con =
@@ -233,22 +218,7 @@ namespace ModuloSP.AddOn
             Models.FunctionsGeneral.EditDataGrid(_Datagridview);
         }
 
-
-      
-
-        public static void CmbInsertAddon(string _Database, ComboBox _cmb)
-        {
-            SqlConnection con = new SqlConnection(Models.Utils.conString);
-            con.Open();
-            string query = "SELECT Descricao FROM " + _Database + " Group by Descricao ";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                _cmb.Items.Add(dr["Descricao"].ToString());
-            }
-        }
-
+        //Inserir novo registo na tabela Modelo_AddOns 
         public static void AddInfoMarcaAddOn(string _Preco, string _AddOnsID, string _MarcaModelo)
         {
             Models.IDManagment.IdAddOnMarcaADD = Models.IDManagment.InsereID("Modelo_AddOns");
@@ -283,7 +253,7 @@ namespace ModuloSP.AddOn
             con.Close();
         }
 
-
+        //Editar informação do registo especificado pelo ID na Tabela Modelo_AddOns 
         public static void EditInfoAddMarca(string _ID, string _preco, string _AddOnID, string _MarcaModelo)
         {
             SqlConnection con = new
@@ -308,7 +278,7 @@ namespace ModuloSP.AddOn
 
         }
 
-
+        //Verificar se campo já existe apartir de stored procedure na BD
         public static bool VField(string _textbox, string _textbox2, string _Procedure, string _field, string _field2)
         {
             using (SqlConnection con =

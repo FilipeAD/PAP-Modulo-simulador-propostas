@@ -11,6 +11,7 @@ namespace ModuloSP.Marca
 {
     internal class FunctionsMarca
     {
+        //Apresentar tabela Marca 
         public static void LoadInfo(DataGridView _Database)
         {
             using (SqlConnection con =
@@ -28,9 +29,9 @@ namespace ModuloSP.Marca
             }
         }
 
+        //Inserir novo registo na tabela especificada pela variavel 
         public static void AddInfo(string _DatabaseN, TextBox _Nome, string _ID)
         {
-           
 
             SqlConnection con = new
                 SqlConnection(Models.Utils.conString);
@@ -59,6 +60,7 @@ namespace ModuloSP.Marca
             con.Close();
         }
 
+        //Carregar nome da Marca para uma textbox quando o ID dado pela variavel seja um da tabela Marca
         public static void LoadMarca(string _ID, TextBox _Nome)
         {
             SqlConnection con =
@@ -73,6 +75,7 @@ namespace ModuloSP.Marca
             }
         }
 
+        //Editar informação do registo especificado pelo ID na tabela especificada pela variavel 
         public static void EditMarca(string _DatabaseN, string _ID, string _Nome)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);

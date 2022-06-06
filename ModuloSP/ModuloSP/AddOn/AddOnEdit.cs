@@ -21,7 +21,7 @@ namespace ModuloSP.AddOn
 
         private void AddOnEdit_Load(object sender, EventArgs e)
         {
-            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", txtGrupo);
+            Maquinas.FunctionsMaq.CmbInsertM("Add_Ons_Grupos", "Nome", txtGrupo);
             FunctionsAddOn.LoadEditInfo(Models.IDManagment.IdAddOn, txtNome, txtPreco);
            
             FunctionsAddOn.GroupLoad(Models.Utils.GrupoAddOn, txtGrupo);

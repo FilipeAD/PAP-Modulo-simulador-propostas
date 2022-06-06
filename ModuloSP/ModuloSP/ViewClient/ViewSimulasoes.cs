@@ -17,7 +17,6 @@ namespace ModuloSP.ViewClient
             InitializeComponent();
         }
 
-        List<string> listMaqui = new List<string>(ProductFilters.MaquinasList(ProductFilters.IDSimulacao));
         List<string> listEquip = new List<string>(ProductFilters.EquipamentosList(ProductFilters.IDSimulacao));
 
         int i = 0;

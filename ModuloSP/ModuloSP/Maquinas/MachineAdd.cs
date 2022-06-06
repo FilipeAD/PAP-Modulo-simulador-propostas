@@ -23,7 +23,7 @@ namespace ModuloSP.Maquinas
 
         private void MachineAdd_Load(object sender, EventArgs e)
         {
-            FunctionsMaq.CmbInsertM("Marca", txtMarca);
+            FunctionsMaq.CmbInsertM("Marca", "Nome", txtMarca);
             txtMarca.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
 

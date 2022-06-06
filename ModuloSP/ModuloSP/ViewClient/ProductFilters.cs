@@ -87,7 +87,6 @@ namespace ModuloSP.ViewClient
         public static List<Models.VMProduct> produtos = new List<Models.VMProduct>();
 
 
-
         private static string _Nome = "";
         public static string Nome
         {
@@ -105,6 +104,7 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
+        //Carregar informação da tabela Equipamentos segundo o ID do utilizador com o fim de apresentar as simulações ja feitas 
         public static void ShowSimulacao(DataGridView _DataGridName, string _IDUser)
         {
             using (SqlConnection con =
@@ -127,6 +127,7 @@ namespace ModuloSP.ViewClient
             ProductFilters.IDSimulacao = "";
         }
 
+        //Adicionar campo nome da tabela defenida pela variavel a uma lista 
         public static List<string> ListCMB(string _Database)
         {
             List<string> al = new List<string>();
@@ -144,6 +145,7 @@ namespace ModuloSP.ViewClient
             return al;
         }
 
+        //Carregar informação da tabela Maquinas para a visualização do utilizador
         public static void LoadMachine(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image, Label _Descricao)
         {
             Encoding ascii = Encoding.ASCII;
@@ -170,6 +172,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        //Carregar nome da Marca e do Modelo para a visualização do utilizador
         public static void LoadImMarcaMod(string _ID, Label _MarcaModelo)
         {
             SqlConnection con =
@@ -190,27 +193,8 @@ namespace ModuloSP.ViewClient
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
-        public static void ShowAddOnsGrupo(DataGridView _DataGridName, string _grupo, string _Modelo)
-        {
-            using (SqlConnection con =
-             new SqlConnection(Models.Utils.conString))
-            {
-                con.Open();
-                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço]  " +
-                               "from AddOns " +
-                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
-                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
-                               "where Add_Ons_Grupos.Nome = '" + _grupo + "' and Modelo_AddOns.fK_Marca_Modelo_ID = '" + _Modelo + "' order by AddOns.ID";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    _DataGridName.Rows.Add(dr["ID"], dr["Descrição"], dr["Grupo"], dr["Preço"]);
-                }
-                con.Close();
-            }
-        }
 
+        //Carregar informação da tabela AddOns 
         public static void ShowAddOns(DataGridView _datagrid, string _Modelo)
         {
             using (SqlConnection con =
@@ -232,12 +216,14 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //Adicionar a combobox informação 
         public static void CmbOrderItems(ToolStripComboBox _cmb)
         {
             _cmb.Items.Add("Preço ASCENDENTE");
             _cmb.Items.Add("Preço DESCENDENTE");
         }
 
+        //Adicionar a ToolStripComboBox campo nome da tabela Marca
         public static void CmbInsertM(ToolStripComboBox _cmb)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -251,6 +237,8 @@ namespace ModuloSP.ViewClient
             }
         }
 
+
+        //Adicionar a ToolStripComboBox campo nome da tabela Modelo se o modelo estiver conectado a marca dada pela variavel
         public static void CmbInsertMod(ToolStripComboBox _cmb, string _Marca)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -269,9 +257,11 @@ namespace ModuloSP.ViewClient
             }
         }
 
+
+
         //#------------------------------------------------------------------------------------------------------------------#
 
-
+        //Carregar informação da tabela Maquinas ordenada pela variavel
         public static void SortPrices(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -293,6 +283,8 @@ namespace ModuloSP.ViewClient
                 Models.IDManagment.IdMaquina = "";
             }
         }
+
+        //Carregar informação da tabela Maquinas quando nome da tabela Marca igual à variavel
         public static void MarcaSelect(DataGridView _DataGridName, string _order)
         {
             using (SqlConnection con =
@@ -315,6 +307,7 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //Carregar informação da tabela Maquinas quando nome da tabela Marca igual à variavel1 e nome da tabela Modelo igaul à variavel2
         public static void MarcaModeloSelect(DataGridView _DataGridName, string _Marca, string _Modelo)
         {
             using (SqlConnection con =
@@ -337,6 +330,7 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //Carregar informação da tabela Maquinas quando nome da tabela Marca igual à variavel1, nome da tabela Modelo igaul à variavel2 e ordenada pela variavel3
         public static void PrecoMarcaModSelect(DataGridView _DataGridName, string _Preco, string _marca, string _modelo)
         {
             using (SqlConnection con =
@@ -359,6 +353,7 @@ namespace ModuloSP.ViewClient
             }
         }
 
+        //Carregar informação da tabela Maquinas quando nome da tabela Marca igual à variavel1 e ordenada pela variavel2
         public static void PrecoMarcaSelect(DataGridView _DataGridName, string _Preco, string _marca)
         {
             using (SqlConnection con =
@@ -385,6 +380,8 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
+
+        //Aplicar filtros uns sobre os outros 
         public static void OverlayFilter(DataGridView _DataGridName, string _Order, string _Marca, string _Modelo)
         {
             string order;
@@ -396,6 +393,7 @@ namespace ModuloSP.ViewClient
             {
                 order = "desc";
             }
+
 
             if (_Order != "" && _Marca != "" && _Modelo != "")
             {
@@ -413,17 +411,16 @@ namespace ModuloSP.ViewClient
             {
                 ProductFilters.MarcaSelect(_DataGridName, _Marca);
             }
-            else if(_Marca == "" && _Modelo == "")
+            if (_Marca == "" && _Modelo == "")
             {
                 ProductFilters.SortPrices(_DataGridName, order);
             }
-
 
         }
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-
+        //Iniciar simulação
         public static void Simulacao()
         {
             Models.IDManagment.IdSimulacao = Models.IDManagment.InsereID("Simulacoes");
@@ -451,6 +448,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        //Conectar e criar equipamento à simulação iniciada
         public static void Equipamentos()
         {
             Models.IDManagment.IdEquipamento = Models.IDManagment.InsereID("Equipamentos");
@@ -480,6 +478,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        //Conectar addOns a equipamentos da simulação iniciada
         public static void AddOnsEquip(string _IDAddOns, double _Preco, int _quantidade)
         {
             Models.IDManagment.IDAddOnsMaquinas = Models.IDManagment.InsereID("AddOns_Equip");
@@ -509,6 +508,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        //Executar addOns as vezes necessárias para conectar todos os addOns
         public static void ListCycle(List<Models.VMProduct> _MyList, List<string> _Mylist2)
         {
             for (int i = 0; i < _MyList.Count; i++)
@@ -518,6 +518,7 @@ namespace ModuloSP.ViewClient
 
         }
 
+        //Quantidade de Maquinas na simulação
         public static void MaquinasInSimulacao(string _ID)
         {
             SqlConnection con =
@@ -536,6 +537,7 @@ namespace ModuloSP.ViewClient
             con.Close();
         }
 
+        //Buscar ID do Modelo_AddOns se
         public static void ExtensoesID(string _ID, string _IDAddOns)
         {
             SqlConnection con =
@@ -553,32 +555,11 @@ namespace ModuloSP.ViewClient
             }
             con.Close();
         }
-        
-            
-        
+
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-        public static List<string> MaquinasList(string _ID)
-        {
-            List<string> al = new List<string>();
-
-            SqlConnection con =
-                   new SqlConnection(Models.Utils.conString);
-            con.Open();
-            string query = "Select fk_Maquinas_ID as ID " +
-                           "from Equipamentos " +
-                           "where fk_Simulacoes_ID = '" + _ID + "' " +
-                           "group by fk_Maquinas_ID";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                al.Add(dr["ID"].ToString()); 
-            }
-            con.Close();
-            return al;
-        }
+        //Adicionar a uma lista os equipamentos associados a uma simulação
         public static List<string> EquipamentosList(string _ID)
         {
             List<string> al = new List<string>();
@@ -600,6 +581,7 @@ namespace ModuloSP.ViewClient
             return al;
         }
 
+        //Carregar AddOns associados aos equipamentos na simulação
         public static void LoadAddOnsSimulacao(DataGridView _DataGridName, string _ID)
         {
             using (SqlConnection con =
@@ -623,31 +605,10 @@ namespace ModuloSP.ViewClient
             }
         }
 
-        public static void LoadAllSimulacao(DataGridView _DataGridName, string _ID)
-        {
-            using (SqlConnection con =
-               new SqlConnection(Models.Utils.conString))
-            {
-                DataTable dt = new DataTable();
-                BindingSource bs = new BindingSource();
-                string query = "select AddOns.ID, Descricao as Descrição, Add_Ons_Grupos.Nome as Grupo, Modelo_AddOns.Preco_Relacao as [Preço], count(AddOns.ID) as [AddOn Quantidade] " +
-                               "from AddOns " +
-                               "join Add_Ons_Grupos on Add_Ons_Grupos.ID = AddOns.fk_Add_Ons_Grupos_ID " +
-                               "join Modelo_AddOns on Modelo_AddOns.fk_AddOns_ID = AddOns.ID " +
-                               "join AddOns_Equip on AddOns_Equip.fk_Modelo_AddOns_ID = Modelo_AddOns.ID " +
-                               "where AddOns_Equip.fk_Equipamentos_ID = " + _ID +
-                               " group by AddOns.ID, Descricao, Add_Ons_Grupos.Nome, Modelo_AddOns.Preco_Relacao";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                da.Fill(dt);
-                bs.DataSource = dt;
-                _DataGridName.DataSource = bs;
-                con.Close();
-                Models.IDManagment.IdMaquina = "";
-            }
-        }
 
         //#------------------------------------------------------------------------------------------------------------------#
 
+        //Buscar preço das maquinas e addOns apartir do id da simuação e o id do equipamnetos
         public static void PrecoAddMaq(string _idEquip, string _idSimulacao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -674,6 +635,8 @@ namespace ModuloSP.ViewClient
             
         }
 
+
+        //Buscar preço da simulação apartir do id da simuação 
         public static void PrecoTotalSimulacao(string _idSimulacao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -700,14 +663,12 @@ namespace ModuloSP.ViewClient
             {
                 ProductFilters.PrecoTotal = (Convert.ToDouble(dr[0]) + (Convert.ToDouble(dr[1])));
             }
-
-
         }
 
 
         //#------------------------------------------------------------------------------------------------------------------#
 
-
+        //Buscar nome e email do utilizador que realizou a simulação que corrresponde ao id da variavel 
         public static void UserPDF(string _idSimulacao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -728,6 +689,7 @@ namespace ModuloSP.ViewClient
 
         }
 
+        //Carregar Equipamentos associados a uma simulação 
         public static void LoadSimulacaoEquipamentos(DataGridView _DataGridName, string _ID)
         {
             using (SqlConnection con =
@@ -754,6 +716,7 @@ namespace ModuloSP.ViewClient
 
         //#------------------------------------------------------------------------------------------------------------------#
 
+        //Carregar informação da tabela Maquinas para a visualização do utilizador
         public static void LoadEquipamentoSimulacao(string _ID, Label _Dimensoes, Label _Preco, Label _Cor, PictureBox _Image, Label _Descricao)
         {
             Encoding ascii = Encoding.ASCII;

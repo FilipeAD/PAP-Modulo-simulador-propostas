@@ -69,19 +69,11 @@ namespace ModuloSP.Permissoes
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            var list = AcountPermission.GrupoPermission();
-
-            if (AcountPermission.LoginView(list, txtNome.Text))
-            {
-                MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            else
-            {
+            
                 dataGridView1.Rows.Clear();
                 AcountPermission.GetIDGrupo(txtNome.Text);
                 AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
                 DatagridStyle();
-            }
             
         }
 
@@ -103,19 +95,12 @@ namespace ModuloSP.Permissoes
             {
                 case Keys.Enter:
                     e.SuppressKeyPress = true;
-                    var list = AcountPermission.GrupoPermission();
-
-                    if (AcountPermission.LoginView(list, txtNome.Text))
-                    {
-                        MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    }
-                    else
-                    {
-                        dataGridView1.Rows.Clear();
-                        AcountPermission.GetIDGrupo(txtNome.Text);
-                        AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
-                        DatagridStyle();
-                    }
+                    
+                    dataGridView1.Rows.Clear();
+                    AcountPermission.GetIDGrupo(txtNome.Text);
+                    AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
+                    DatagridStyle();
+                    
                     break;
 
             }
@@ -127,19 +112,12 @@ namespace ModuloSP.Permissoes
             {
                 case Keys.Enter:
                     e.SuppressKeyPress = true;
-                    var list = AcountPermission.GrupoPermission();
 
-                    if (AcountPermission.LoginView(list, txtNome.Text))
-                    {
-                        MessageBox.Show("Não tem permições para aceder a esse grupo!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    }
-                    else
-                    {
-                        dataGridView1.Rows.Clear();
-                        AcountPermission.GetIDGrupo(txtNome.Text);
-                        AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
-                        DatagridStyle();
-                    }
+                    dataGridView1.Rows.Clear();
+                    AcountPermission.GetIDGrupo(txtNome.Text);
+                    AcountPermission.LoadInfo(dataGridView1, txtNome.Text);
+                    DatagridStyle();
+
                     break;
 
             }

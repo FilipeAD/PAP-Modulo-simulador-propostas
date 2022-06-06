@@ -8,6 +8,7 @@ namespace ModuloSP.Models
 {
     class CurrentUser
     {
+        //Informação do user com sessão iniciada
 
         private static string _IDUser = "";
         public static string IDUser
@@ -45,12 +46,7 @@ namespace ModuloSP.Models
             set { _group = value; }
         }
 
-        private static string _Permicoes = "";
-        public static string Permicoes
-        {
-            get { return _Permicoes; }
-            set { _Permicoes = value; }
-        }
+
 
     }
 }

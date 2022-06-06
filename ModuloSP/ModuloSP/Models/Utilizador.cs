@@ -11,6 +11,7 @@ namespace ModuloSP.Models
 {
     internal class Utilizador
     {
+        //Iniciar sessão se username e passwword sejam validos
         public static bool LoginAcount(string _Username, string _Password)
         {
             using (SqlConnection con =
@@ -47,6 +48,7 @@ namespace ModuloSP.Models
             }
         }
 
+        //Verificar se campo já existe apartir de stored procedure na BD
         public static bool VField(TextBox _textbox, string _Procedure, string _field)
         {
             using (SqlConnection con =
@@ -69,6 +71,7 @@ namespace ModuloSP.Models
             }
         }
 
+        //Verificar se o endereço email é valido
         public static bool ValidEmail(string _email)
         {
             try

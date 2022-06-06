@@ -14,6 +14,8 @@ namespace ModuloSP.Maquinas
 {
     internal class FunctionsMaq
     {
+
+        //Inserir novo registo na Tabela Maquinas 
         public static void AddInfo(string _Cor, string _Dimensoes, string _Preco, string _fkMM, string _currentUserID, PictureBox _Image, string _descricao)
         {
 
@@ -53,19 +55,21 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-        public static void CmbInsertM(string _Database,  ComboBox _cmb)
+        //Inserir campo [variavel] na combobox utilizando variaveis para defenir a BD e o campo que se pretende adicionar
+        public static void CmbInsertM(string _Database, string _field, ComboBox _cmb)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
             con.Open();
-            string query = "SELECT Nome FROM " + _Database + " Group by Nome ";
+            string query = "SELECT " + _field + " FROM " + _Database + " Group by " + _field;
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                _cmb.Items.Add(dr["Nome"].ToString());
+                _cmb.Items.Add(dr[_field].ToString());
             }
         }
 
+        //Inserir campo nome da tabela Modelo na combobox se esse modelo estiver associando a nome da Marca dada na variavel
         public static void CmbInsertMM(ComboBox _cmb, string _cmb2)
         {
             _cmb.Items.Clear();
@@ -83,6 +87,7 @@ namespace ModuloSP.Maquinas
             }
         }
 
+        //Selecionar ID da Marca_Modelo respetivo a ligação do nome da Marca e nome do Modelo dado nas variaveis
         public static void IDMM(string _cmb, string _cmb2)
         {
             SqlConnection con =
@@ -103,7 +108,7 @@ namespace ModuloSP.Maquinas
 
         }
 
-
+        //Carregar nome da Marca e do Modelo para textboxs quando o ID dado pela variavel seja um da tabela Marca_Modelo
         public static void LoadCMB(TextBox _cmb, TextBox _cmb2, string _ID)
         {
             SqlConnection con =
@@ -124,6 +129,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
+        //Carregar informação da tabela Maquinas segundo o ID selecionado apartir do evento cellClick na datagridview
         public static void LoadMaquinasEditar(string _ID, TextBox _Cor, TextBox _Dimensoes, TextBox _Preco, PictureBox _Image, TextBox _Descricao)
         {
             SqlConnection con =
@@ -146,7 +152,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
-
+        //Editar informação do registo especificado pelo ID na Tabela Maquinas 
         public static void EditMachine(string _ID, string _Cor, string _Dimensoes, string _Preco, PictureBox _Image, string _Descricao)
         {
             SqlConnection con = new SqlConnection(Models.Utils.conString);
@@ -184,6 +190,7 @@ namespace ModuloSP.Maquinas
             con.Close();
         }
 
+        //Apresentar Tabela Maquinas 
         public static void LoadInfo(DataGridView _Datagridview)
         {
             using (SqlConnection con =
@@ -205,6 +212,7 @@ namespace ModuloSP.Maquinas
             }
         }
 
+        //Converter Imagem para byte array para inserir na BD
         public static byte[] ConvertImageToBytes(Image _img)
         {
             try
@@ -223,6 +231,7 @@ namespace ModuloSP.Maquinas
 
         }
 
+        //Interface para associar imagem a picture box
         public static void UploadImage(PictureBox _Imagem)
         {
             using(OpenFileDialog ofd = new OpenFileDialog() { Filter= "Image files(*.jpg;*.jpeg)|*.jpg;*.jpeg", Multiselect = false })
